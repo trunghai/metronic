@@ -1,0 +1,65 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="manager_guarante_detail_result">
+<div class="">
+<div class="panelContent">
+<table width="100%" >
+    <tr>
+        <td colspan="2" style="text-align: center">
+            <div class="icon-correct" style="display: inline; color: #FAA60D; font-size: 24px; vertical-align: middle; padding: 5px 0px 5px 0px;"></div>
+            <span style="font-size:16px; vertical-align:middle" ng-bind="result.message"></span>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div class="header-title">
+                <span>COM_TRASACTION_INFO</span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div class="recycler-list">
+                <table width='100%' align='center' class='recycler-table-ebank'>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                        <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.IDFCATREF"></span></td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left"><span>NGUOI_NHAP</span></td>
+                        <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.MAKER"></span></td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left"><span>CANCEL_DATE</span></td>
+                        <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.DATCHECK"></span></td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left"><span>COM_STATUS</span></td>
+                        <td class="recycler-row-align-midle-right"><span ng-bind="statusVN[infoTrans.STATUS]"></span></td>
+                    </tr>
+
+                </table>
+            </div>
+    </tr>
+</table>
+<table width="100%">
+    <tbody>
+    <tr align="center">
+        <td>
+            <div style="text-align: center;">
+                <input id="another_trans" class="btnshadow-after btn-second-after btn-changecolor" ng-click="onMakeOtherTransClick()" style="background-color: #fa9f1d !important;" type="button" value="COM_MAKE_OTHER_TRANS" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off">
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

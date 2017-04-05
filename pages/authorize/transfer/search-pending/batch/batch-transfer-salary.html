@@ -1,0 +1,100 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="batch-transfer-salary"
+     style="height: 621px; top: 44px; bottom: 0px;">
+    <div class="panelContent">
+        <table width="100%" align="center">
+            <tr>
+                <td colspan="2">
+                    <div class="header-title"><span>COM_TRANS_WAITING_AUTH</span></div>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" valign="middle" class="td-text">
+                    <div class="input-group" ng-click="chooseTransType()">
+                        <span class="input-group-addon"
+                              style="width:40%;white-space:pre-wrap">COM_TYPE_TRANSACTION</span>
+                        <input style="white-space:pre-wrap" id="id.trans-type" type="button"
+                               class="form-control form-control-righttext" value="COM_ALL"/>
+                        <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" valign="middle" class="td-text">
+                    <div class="input-group" ng-click="chooseMaker()">
+                        <span class="input-group-addon" style="width:40%">COM_MAKER</span>
+                        <input id="id.maker" type="button" onclick="" class="form-control form-control-righttext"
+                               value="COM_ALL"/>
+                        <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" valign="middle" class="td-text">
+                    <div class="input-group" ng-click="chooseStatus()">
+                        <span class="input-group-addon" style="width:40%; white-space:pre-wrap">TRANS_STATUS</span>
+                        <input id="id.status" type="button" class="form-control form-control-righttext"
+                               value="COM_ALL"/>
+                        <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center" valign="middle" class="td-text">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="white-space:pre-wrap">ACC_PERIOD_START_DATE_TITLE</span>
+                        <input id="id.begindate" type="tel" placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value=""
+                               class="form-control form-control-righttext-datepicker"
+                               onkeydown="return handleCalendarNav(this, event);"
+                               onclick="handleCalendarNav(this, event);" onpaste="return false;"/>
+                        <span onclick="initDialogCal('id.begindate')" id="span.begindate"
+                              class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center" valign="middle" class="td-text">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="white-space:pre-wrap">ACC_PERIOD_END_DATE_TITLE</span>
+                        <input id="id.enddate" type="tel" placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value=""
+                               class="form-control form-control-righttext-datepicker"
+                               onkeydown="return handleCalendarNav(this, event);"
+                               onclick="handleCalendarNav(this, event);" onpaste="return false;"/>
+                        <span onclick="initDialogCal('id.enddate')" id="span.enddate"
+                              class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr class="trow-space"/>
+            <tr class='trow-default'>
+                <td colspan="2" align="center" valign="middle" class="td-text">
+                    <div class="tdbtndesktop" style="width:50%">
+                        <input type='submit' style="float:left;margin-left:65px" class='btnDesktopshadow btnDesktopBack'
+                               onClick='clickHomeOrBack()' value='INPUT_ACC_BTN_GOBACK'/>
+                    </div>
+                    <div style="width:50%">
+                        <input id="btn_search" type="button" ng-click="searchTransaction()" style="margin-right:100px"
+                               class="btnshadow btn-second" value="COM_BNTN_SEARCH"/>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <br/>
+
+        <div id="id.searchResult"></div>
+        <div id="pagination" style="text-align: right"></div>
+        <div style="margin-bottom: 40px;"></div>
+        <table id="tblButton" width="100%" style="display:none;">
+            <tr class="trow-space"/>
+            <tr>
+                <td>
+                    <input type="button" id="id.button.cancel" onclick="sendRequestCancel()"
+                           class="btnshadow btn-second" value="BTN_CANCEL_TRANSACTION"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>

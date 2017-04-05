@@ -1,0 +1,193 @@
+<div id="mainViewContent" class="main-layout-subview" style="height: 417px;top:44px" ng-controller="cre-request-create">
+    <div class="bg-transfer">
+        <div id="seqFormLocal" class="panelContent">
+            <table class="tableTab" id="periodic-table">
+                <td class='content-periodic selected'>
+                    <span>COM_MAKE_TRANS</span>
+                    <span class="content-span"></span>
+                </td>
+                <td ng-click="changeTab()" class='content-periodic'>
+                    <span>TRANS_PERIODIC_MNG_TITLE</span>
+                    <span class="content-span"></span>
+                </td>
+            </table>
+			<table width="100%" align="center" >
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title">
+                            <span>GUARANTEE_SUGGEST_TYPE</span>
+                        </div>
+                    </td>
+                </tr>
+				<style>
+					.radio-css input[type="radio"], .checkbox-css input[type="checkbox"] {
+						display: none;
+						padding:0;
+						margin:0;
+					}
+					.radio-css input[type="radio"] + label{
+						height: 15px;
+						display: block;
+						background: url("assets/images/radio.png") no-repeat;
+					}
+					.checkbox-css input[type="checkbox"] + label{
+						height: 22px;
+						display: block;
+						background: url("assets/images/checkbox.png") no-repeat;
+					}
+					.radio-css input[type="radio"]:checked+label{
+						background-position: 0 -15px;
+					}
+					.checkbox-css input[type="checkbox"]:checked+label{
+						background-position: 0 -22px;
+					}					
+					.radio-css label{
+						padding-left: 16px;
+						margin-bottom: -2px;
+					}
+					.checkbox-css label{
+						padding-left: 22px;
+						margin-bottom: -12px;
+					}
+				</style>
+				<tr class="radio-css">
+					<td width="1%">
+						<input type="radio" name="radiog_lite" id="radio1" value="0" checked="checked"/>
+						<label for="radio1"></label>
+					</td>
+					<td width="34%"><span>CRE_REQUEST_FORM_1</span></td>
+					<td rowspan="2"><span>NOTE_CRE_REQUEST_CREATE</span></td>
+				</tr>
+				<tr class="radio-css">
+					<td width="1%">
+						<input type="radio" name="radiog_lite" id="radio2" value="1"/>
+						<label for="radio2"></label>
+					</td>
+					<td width="34%"><span>CRE_REQUEST_FORM_2</span></td>
+				</tr>
+			</table>			
+			<table width="100%" align="center">
+				<tr>
+                    <td class="td-text" valign="middle" colspan="2">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">CRE_AMOUNT_LIMIT_REQUEST</span>
+                            <input id="cre-amount" type="tel" class="form-control form-control-righttext" placeholder="PLACEHOLDER_CRE_AMOUNT_LIMIT" onkeyup="handleInputAmount(event, this);" onchange="removeSpecialCharForNumber(this.value)" maxlength="12"/>
+                        </div>
+                    </td>
+                </tr>
+				<tr id="row_convert" style="display: none;">
+                    <td colspan="2">
+                        <div class="txtmoneystyle">
+                            <span>TRANS_LOCAL_NUM_TO_WORD</span>
+							<span>: </span>
+                            <span id="trans.amounttotext"></span>
+                        </div>
+                    </td>
+                </tr>
+				<tr>
+                    <td colspan="2">
+                        <div class="header-title">
+                            <span>TYPE_LIMITS</span>
+                        </div>
+                    </td>
+				</tr>
+			</table>
+			<table width="80%" align="right">
+				<tr class="checkbox-css">
+					<td width="1%">
+						<input type="checkbox" name="checkbox_lite" id="checkbox1" value="1"/>
+						<label for="checkbox1"></label>
+					</td>
+					<td class="td-text" valign="middle" colspan="2">
+						<div class="input-group" >
+							<span class="input-group-addon" style="width: 40%; white-space:pre-wrap">CRE_AMOUNT_LIMIT_LOAN</span>
+                            <input id="cre-amount-cv" type="tel" class="form-control form-control-righttext" placeholder="PLACEHOLDER_CRE_AMOUNT_LIMIT" onkeyup="handleInputAmountNoText(event, this);" onchange="removeSpecialCharForNumber(this.value)" maxlength="12"/>
+						</div>
+					</td>
+				</tr>
+				<tr class="checkbox-css">
+					<td width="1%">
+						<input type="checkbox" name="checkbox_lite" id="checkbox2" value="2"/>
+						<label for="checkbox2"></label>
+					</td>
+					<td class="td-text" valign="middle" colspan="2">
+						<div class="input-group" >
+							<span class="input-group-addon" style="width: 40%; white-space:pre-wrap">CRE_AMOUNT_LIMIT_GUARANTEE</span>
+                            <input id="cre-amount-bl" type="tel" class="form-control form-control-righttext" placeholder="PLACEHOLDER_CRE_AMOUNT_LIMIT" onkeyup="handleInputAmountNoText(event, this);" onchange="removeSpecialCharForNumber(this.value)" maxlength="12"/>
+						</div>
+					</td>
+				</tr>
+				<tr class="checkbox-css">
+					<td width="1%">
+						<input type="checkbox" name="checkbox_lite" id="checkbox3" value="3"/>
+						<label for="checkbox3"></label>
+					</td>
+					<td class="td-text" valign="middle" colspan="2">
+						<div class="input-group" >
+							<span class="input-group-addon" style="width: 40%; white-space:pre-wrap">CRE_AMOUNT_LIMIT_LCOPEN</span>
+                            <input id="cre-amount-lc" type="tel" class="form-control form-control-righttext" placeholder="PLACEHOLDER_CRE_AMOUNT_LIMIT" onkeyup="handleInputAmountNoText(event, this);" onchange="removeSpecialCharForNumber(this.value)" maxlength="12"/>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table width="100%" align="center">	
+				<tr>
+					<td class="td-text" valign="middle" colspan="2">
+						<div class="input-group" ng-click="showCreSelection()">
+							<span class="input-group-addon" style="width:40%">LOAN_REGISTER_FOCUS</span>
+                            <input id="id-mucdich" class="form-control form-control-righttext" type="button" value="INIT_CRE_REQUEST_CREATE" >
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+						</div>
+					</td>
+				</tr>
+                <tr>
+                    <td class="td-text" valign="middle" colspan="2">
+                        <div class="input-group" >
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">CRE_LIMIT_ESTIMATE</span>
+                            <input id="cre-month" class="form-control form-control-righttext" type="tel" value="" placeholder="MONTH_PLACERHOLDER" onkeyup="handleInputAmountNoText(event, this)" maxlength="2">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+					<td class="td-text" valign="middle" colspan="2">
+                        <div class="input-group" >
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">CRE_REQUEST_COLLATERAL</span>
+                            <input id="cre-text" class="form-control form-control-righttext" type="text" value="" placeholder="COM_TXT_INPUT_PLACEHOLDER" onkeyup="controlInputText(this, 250,true)" maxlength="250">
+                        </div>
+                    </td>
+                </tr>
+			</table>
+			<table width="100%">
+				<tbody>
+				<!--	<tr>
+						<td class="tdbtndesktop" width="32%" style="display: none;><input type="submit" style="width:100%;margin:0 auto" class="btnDesktopshadow btnDesktopBack" ng-click="" value="Quay lại"></td>
+						<td width="32%" id="trCancel"><input type="submit" style="background-color: rgba(162, 100, 187, 0.51);border-radius: 20px;width:100%" class="btnshadow btn-primary" ng-click="" value="Hủy" ></td>
+						<td width="32%"><input style="width:100%" type="button" class="btnshadow btn-second" ng-click="setupSendMethodExe()" value="Tiếp tục" ></td>
+					</tr>-->
+					<tr class="trow-space"></tr>
+					<tr class="mt-15">
+						<td colspan="2" align="center" valign="middle" class="td-text">
+							<div class="tdbtndesktop" style="width:50%">
+								<input  type='submit' style="float:left;margin-left:65px" class='btnDesktopshadow btnDesktopBack' onClick= 'clickHomeOrBack()' value='INPUT_ACC_BTN_GOBACK'/>
+							</div>
+							<div style="width:50%">
+								<input  type="button" style="margin-right:100px; font-size: 14px!important" class="btnshadow btn-second"
+										ng-click="setupSendMethodExe()" value="TRANS_LOCAL_BTN_SENDREQUEST"/>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>	
+		</div>
+	</div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<!--ThuanTM -->
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

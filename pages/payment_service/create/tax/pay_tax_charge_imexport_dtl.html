@@ -1,0 +1,237 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="pay_tax_charge_imexport_dtl">
+    <div id="content-transfer" style="display:block" class="bg-transfer">
+        <div class="panelContent" style="margin-top:0px;padding-top:0px">
+            <table width='100%'>
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title"><span>TAX_PAY_TAX_CUST_INFO</span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div align="center">
+                            <div id="recycler_list" class="recycler-list">
+                                <table id="recycler_table_ebank" class="recycler-table-ebank">
+                                    <tbody>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>COM_TAX_NUMBER</span></td>
+                                        <td class="recycler-row-align-midle-right"><span id="imEx.TaxNumber"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>TAX_CUST_PAY_TAX</span></td>
+                                        <td class="recycler-row-align-midle-right"><span id="imEx.TaxCustPayTax"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>TAX_CUST_PAY_TAX_ADDRESS</span>
+                                        </td>
+                                        <td class="recycler-row-align-midle-right"><span id="imEx.TaxAddress"></span></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <table width='100%' align='center'>
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title"><span>TAX_INFO</span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div align="center">
+                            <div id="recycler_list1" class="recycler-list">
+                                <table id="recycler_table_ebank1" class="recycler-table-ebank">
+                                    <tbody>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>COM_TAX_TYPE</span></td>
+                                        <td class="recycler-row-align-midle-right"><span id="imEx.TaxType"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>TAX_TREASURY_NAME</span></td>
+                                        <td class="recycler-row-align-midle-right"><span id="imEx.TreasuryName"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>TAX_TREASURY_ACC</span>
+                                        </td>
+                                        <td class="recycler-row-align-midle-right"><span id="imEx.TreasuryAccNum"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>TAX_TREASURY_MNG</span>
+                                        </td>
+                                        <td class="recycler-row-align-midle-right"><span id="imEx.TreasuryMng"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>COM_DECLAR</span>
+                                        </td>
+                                        <td class="recycler-row-align-midle-right"><span id="imEx.Declar"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>TAX_MONEY_TYPE</span>
+                                        </td>
+                                        <td class="recycler-row-align-midle-right"><span id="imEx.MoneyType"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>TAX_DECLAR_DATE</span>
+                                        </td>
+                                        <td class="recycler-row-align-midle-right"><span id="imEx.DeclarDateCreate"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>TAX_IE_CODE_TYPE</span>
+                                        </td>
+                                        <td class="recycler-row-align-midle-right"><span id="imEx.Num"></span></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <!--<h5 class="Header"><span style="white-space:pre-wrap">PAYMENT_TRANSFER_INFO</span></h5> -->
+            <table width="100%">
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title"><span>PAYMENT_TRANSFER_INFO</span></div>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            <div id="recycler_list2">
+                <table style="width: 100% !important" id="recycler_table_ebank-desktop" class="recycler-table-ebank desktopview">
+                    <tbody>
+                    <tr class="recycler-row-title-header recycler-list">
+                        <td class="recycler-row-align-midle"><span>COM_NO</span></td>
+                        <td class="recycler-row-align-midle"><span>TAX_CHAPTER</span></td>
+                        <td class="recycler-row-align-midle"><span>TAX_CONTENT</span></td>
+                        <td class="recycler-row-align-midle"><span>COM_AMOUNT</span></td>
+                        <td class="recycler-row-align-midle"><span>COM_CHOOSE</span></td>
+                    </tr>
+                    <tr class="recycler-row-title recycler-list" align="center"
+                        ng-repeat="item in listPending track by $index">
+                        <td class="recycler-row-align-midle"><span ng-bind="$index + 1"></span></td>
+                        <td class="recycler-row-align-midle"><span ng-bind="item.Khoan"></span></td>
+                        <td class="recycler-row-align-midle"><span ng-bind="item.TenTieuMuc"></span>
+                        </td>
+                        <td class="recycler-row-align-midle"><span ng-bind="(item.DuNo | currency : '' : 0) + ' VND'"></span></td>
+                        <td class="recycler-row-align-midle">
+                            <div class="content-detail"><span><input type="checkbox" name="userRefId"
+                                                                     ng-bind="$index +1"/></span>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table style='margin-bottom:10px; width: 100%;' class='recycler-list mobileview' ng-repeat="item in listPending track by $index">
+                    <tr class="recycler-row-normal">
+                        <td colspan="1" class="recycler-row-align-midle-left"><span>COM_NO</span></td>
+                        <td class="recycler-row-align-midle-right"><span ng-bind="$index + 1"></span></td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td colspan="1" class="recycler-row-align-midle-left"><span>TAX_CHAPTER</span></td>
+                        <td class="recycler-row-align-midle-right"><span ng-bind="item.Khoan"></span></td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td colspan="1" class="recycler-row-align-midle-left"><span>TAX_CONTENT</span></td>
+                        <td class="recycler-row-align-midle-right"><span ng-bind="item.TenTieuMuc"></span></td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td colspan="1" class="recycler-row-align-midle-left"><span>COM_AMOUNT</span></td>
+                        <td class="recycler-row-align-midle-right"><span ng-bind="(item.DuNo | currency : '' : 0) + ' VND'"></span></td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td colspan="1" class="recycler-row-align-midle-left"><span>COM_CHOOSE</span></td>
+                        <td class="recycler-row-align-midle-right">
+                            <div class="content-detail"><span><input type="checkbox" name="userRefId"
+                                                                     ng-bind="$index +1"/></span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <table width="100%">
+                <tr>
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="input-group widefull" ng-click="saveQueryInfo()">
+                            <span class="input-group-addon"
+                                  style="width:40%;white-space:pre-wrap">TAX_SAVE_TAX_QUERY</span>
+                            <input style="white-space:pre-wrap" id="id.saveTaxQuery" type="button"
+                                   class="form-control form-control-rightbutton" value="TAX_SAVE_CODE"/>
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                            <input type='hidden' id="id.saveTaxQueryValue" value='1'/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="white-space:pre-wrap; width:40%">COM_SEND_MSG_APPROVER</span>
+                            <input id="id.notifyTo" class="form-control form-control-righttext"
+                                   value="COM_NOTIFY_BY_EMAIL" disabled="true"
+                                   style="white-space: pre-wrap; padding-right: 10px;" type="button"/>
+                        </div>
+                    </td>
+                </tr>
+               <!--  <tr>
+                    <td colspan="2" width="100%" style="padding:3px; text-align:right;">
+                        <a ng-click="showReceiverList()" style="cursor:pointer; white-space:pre-wrap;">
+                            <u><span>COM_VIEW_LIST_APPROVER</span></u>
+                        </a>
+                    </td>
+                </tr> -->
+                <!--<tr>
+                    <td>
+                        <table width="100%" align="center" class="button-group button-group-3">
+                            <tr>
+                                <td>
+                                    <input style="margin-top: 15px;" type="button" class="btnshadow btn-primary"
+                                           value="REVIEW_BTN_BACK" onClick="taxImExportCallBack()"/>
+                                </td>
+                                <td>
+                                    <input style="margin-top: 15px;" type="button" class="btnshadow btn-primary"
+                                           value="REVIEW_BTN_CANCEL" onClick="taxImExportCancel()"/>
+                                </td>
+                                <td>
+                                    <input style="margin-top: 15px;" type="button" class="btnshadow btn-primary"
+                                           value="REVIEW_BTN_NEXT" onClick="taxImExportExe()"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>-->
+            </table>
+            <table width="100%">
+                <tbody>
+                <tr align="center">
+                    <td class="tdbtndesktop" width="32%"><input type="submit" style="width:100%;margin:0 auto"
+                                                                class="btnDesktopshadow btnDesktopBack"
+                                                                ng-click="taxImExportCallBack()" value="REVIEW_BTN_BACK"
+                                                                autocomplete="off" autocorrect="off"
+                                                                autocapitalize="off" spellcheck="off"></td>
+                    <td width="32%" id="trCancel"><input type="submit"
+                                                         style="background-color: rgba(162, 100, 187, 0.51);border-radius: 20px;width:100%"
+                                                         class="btnshadow btn-primary" ng-click="taxImExportCancel()"
+                                                         value="REVIEW_BTN_CANCEL" autocomplete="off" autocorrect="off"
+                                                         autocapitalize="off" spellcheck="off"></td>
+                    <td width="32%"><input style="width:100%" type="button" class="btnshadow btn-second"
+                                           ng-click="taxImExportExe()" value="TRANS_LOCAL_BTN_SENDREQUEST"
+                                           autocomplete="off"
+                                           autocorrect="off" autocapitalize="off" spellcheck="off">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)"></div>
+    <div id="divListGroupInput" class="list-group dialog-list"></div>
+</div>

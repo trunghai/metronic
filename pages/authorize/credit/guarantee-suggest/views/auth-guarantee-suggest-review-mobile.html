@@ -1,0 +1,33 @@
+<div  ng-repeat="item in listPending track by $index" class="recycler_table_ebank-mobile" >
+    <div id="recycler_list" class="recycler-list margin-bottom">
+        <table id="recycler_table_ebank-mobile" class="recycler-table-ebank">
+            <tbody>
+                <tr class="recycler-row-parity">
+                    <td class="recycler-row-align-midle-left-opacity"><span>COM_NO</span></td>
+                    <td class="recycler-row-align-midle-right-opacity"><span ng-bind="$index + 1"></span></td>
+                </tr>
+                <tr class="recycler-row-as">
+                    <td class="recycler-row-align-midle-left-opacity"><span>COM_MAKER</span></td>
+                    <td class="recycler-row-align-midle-right-opacity"><span ng-bind="item.CREATE_BY"></span></td>
+                </tr>
+                <tr class="recycler-row-parity">
+                    <td class="recycler-row-align-midle-left-opacity"><span>COM_CREATED_DATE</span></td>
+                    <td class="recycler-row-align-midle-right-opacity"><span ng-bind="item.NGAY_LAP"></span></td>
+                </tr>
+                <tr class="recycler-row-as">
+                    <td class="recycler-row-align-midle-left-opacity"><span>LOAN_BORROW_MONEY</span></td>
+                    <td class="recycler-row-align-midle-right-opacity"><span ng-bind="item.SO_LUONG"></span></td>
+                </tr>
+                <tr class="recycler-row-parity">
+                    <td class="recycler-row-align-midle-left-opacity"><span>DATE_LOAN_AMOUNT</span></td>
+                    <td class="recycler-row-align-midle-right-opacity"><span ng-bind="item.THOI_HAN_VAY | currency : '' : 0"></span></td>
+                </tr>
+                <tr class="recycler-row-parity" ng-click="goToViewScreen(item.MA_GD);">
+                    <td class="recycler-row-align-midle-left-opacity"><span>COM_TRANS_CODE</span></td>
+                    <td class="recycler-row-align-midle-right-opacity"><a><span ng-bind="item.MA_GD"></span></a></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

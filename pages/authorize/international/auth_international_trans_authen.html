@@ -1,0 +1,420 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="auth_international_trans_authen">
+    <div class="">
+        <div class="panelContent">
+            <table id="dynamic-billing-table" width="100%">
+                <tbody>
+                <tr>
+                    <td colspan="2">
+                        <div align="center">
+                            <div class="recycler-list">
+                                <table width='100%' align='center' class='recycler-table-ebank'>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.IDFCATREF"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>COM_EXECUTION_TIME</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.CREATE_TIME"></span></td>
+                                    </tr>
+                                    <tr ng-show="authen" class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>AUTHORIZE_TXT_REASON</span></td>
+                                        <td class="recycler-row-align-midle-right" style="word-break: break-all;"><span ng-bind="reason"></span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <h5 class="header-title">
+                            <span>COM_ACCOUNT_INFO</span>
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div align="center">
+                            <div class="recycler-list">
+                                <table width='100%' align='center' class='recycler-table-ebank'>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_TRANS_TYPE</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.NAMTRANSACTIONTYPE"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_PURPOSE</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.NAMEPURPOSE"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_CONTENT</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.CONTENT"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_NAME_OFFEROR</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.OFFERORNAME"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_ADDRESS_OFFEROR</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.OFFERORADDRESS"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_NAME_BEN</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.BENEFICIARYNAME"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_ADDRESS_BEN</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.BENEFICIARYADDRESS"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_NATION_BEN</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.BENEFICIARYCOUNTRIESNAMES"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_ACCOUNT_BEN</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.BENEFICIARYACCOUNT"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_TRANS_METHOD</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.TRANSFERMETHOD"></td>
+                                    </tr>
+                                    <tr ng-show="swifCode" class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_SWIFT_CODE_BANK_BEN</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.BENEFICIARYSWIFTCODE"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_THE_BEN_BANK_NAME</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.BENEFICIARYBANK"></td>
+                                    </tr>
+                                    <tr ng-show="addressBen" class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_ADRESS_BANK_BEN</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.BENEFICIARYBANKADDRESS"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_NAIION_BANK_BEN</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.BENEFICIARYBANKCOUNTRIESNAMES"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_INTERMEDIARY_BANK</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.INTERMEDIARYBANK"></td>
+                                    </tr>
+                                    <tr ng-show="swiftCodeNHTG" class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_SWIFT_CODE_NHTG1</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.BANKSWIFTCODE"></td>
+                                    </tr>
+                                    <tr ng-show="NHTG" class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_INTERMEDIARY_BANK_NAME1</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.BANKNAME"></td>
+                                    </tr>
+                                    <tr ng-show="addressNHTG" class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_INTERMEDIARY_BANK_ADDRESS</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.BANKADDRESS"></td>
+                                    </tr>
+                                    <tr ng-show="nationBankNHTG" class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_NATION_INTERMEDIARY_BANK</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.BANKCOUNTRIESNAME"></td>
+                                    </tr>
+
+                                    <!--<tr class='recycler-row-normal'>-->
+                                    <!--<td class='recycler-row-align-midle-left'><span>INTERNATIONAL_PROMOCODE1</span></td>-->
+                                    <!--<td class='recycler-row-align-midle-right' ng-bind="infoTrans.PROMOCODE"></td>-->
+                                    <!--</tr>-->
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_CURRENCY</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.MONEYTYPE"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_TOTAL_CURRENCY</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="(infoTrans.TRANSFERAMOUNT | currency : '' : 0) + ' ' + infoTrans.MONEYTYPE"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_ACCOUNT_CHANGE_NGOAITE</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.FOREIGNACCOUNT"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_DEBIT_ACCOUNT_CURRENCY1</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="(infoTrans.FOREGNAMOUNT | currency : '' : 0) + ' ' + infoTrans.MONEYTYPE"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_ACCOUNT_CHANGE_VND</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.IDSRCACCOUNT"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_RATE_VND</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="(infoTrans.RATE | currency : '' : 0) + ' VND'"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_DEBIT_ACCOUNT_VND1</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="(infoTrans.DEBITAMOUNT | currency : '' : 0) + ' VND'"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_FEE_METHOD</span></td>
+                                        <td class='recycler-row-align-midle-right'><span ng-bind="infoTrans.MethodCharge"></span></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_FEE_EXCHANGE_AMOUNT</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="(infoTrans.CHARGE | currency : '' : dos) + ' ' + currencyType"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_ELECTRIC_FEE</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="(infoTrans.ELECTRICCHARGE | currency : '' : dos) + ' ' + currencyType"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal' ng-show="(infoTrans.CHARGEMETHOD == 'OUR') ? true : false">
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_FEE_OUR</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="(infoTrans.CHARGEOUT | currency : '' : dos) + ' ' + currencyType"></td>
+                                    </tr>
+                                    <tr ng-show="(infoTrans.CHARGEMETHOD == 'BEN') ? false : true" class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_ACCOUNT_CHARGES</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.CHARGEACCOUNT"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>COM_SEND_MSG_APPROVER</span></td>
+                                        <td class='recycler-row-align-midle-right'></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <h5 class="header-title">
+                            <span>INTERNATIONAL_PROFILES</span>
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="recycler-table-ebank desktopview" width="100%" align="center">
+                                <tbody>
+                                <tr class="recycler-row-title-header recycler-list">
+                                    <td width="8%" class="recycler-row-align-midle"><span>COM_NO</span></td>
+                                    <td width="50%" class="recycler-row-align-midle"><span>INTERNATIONAL_PROFILE_NAME</span></td>
+                                    <td class="recycler-row-align-midle"><span>INTERNATIONAL_DATE_UPLOAD</span></td>
+                                    <td class="recycler-row-align-midle"><span>INTERNATIONAL_PROFILE_SIZE</span></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="recycler-row-title recycler-list" ng-repeat="item in detailCheckList track by $index">
+                                    <td class="recycler-row-align-midle"><span ng-bind="$index + 1"></span></td>
+                                    <td class="recycler-row-align-midle"><span ng-bind="item.FILE_NAME"></span></td>
+                                    <td class="recycler-row-align-midle"><span ng-bind="item.DATMAKE"></span></td>
+                                    <td class="recycler-row-align-midle"><span ng-bind="(item.CAPACITY/1024/1024|number:2) + ' MB'"></span></td>
+                                    <td class="recycler-row-align-midle">
+                                        <span  type="button" style="color: red; cursor: pointer" ng-click="onViewPDF(item.IDFILE, item.FILE_NAME)">
+                                            <strong> <span>INTERNATIONAL_VIEW_PROFILE</span></strong>
+                                        </span>
+                                    </td>
+                                </tr>                                
+                                <!--<tr class="recycler-row-title recycler-list">
+                                    <td colspan="5" class="recycler-row-align-midle-left"><span>INTERNATIONAL_PROFILE_NOTE</span><span ng-bind=" ': ' + profileNote"></span></td>
+                                </tr>-->
+                                </tbody>
+                            </table>
+                        <div class="recycler_list margin-bottom" ng-repeat="item in detailCheckList track by $index">
+                            <table width='98%' align='center' class='recycler-list  recycler-table-ebank mobileview'>
+                                <tr>
+                                    <td width="50%" class="recycler-row-align-midle-left"><div><span>INTERNATIONAL_PROFILE_NAME</span></div></td>
+                                    <td width="50%" class="recycler-row-align-midle-right"><div style="word-break: break-all;"><span ng-bind="item.FILE_NAME"></span></div></td>
+                                </tr>
+                                <tr>
+                                    <td width="50%" class="recycler-row-align-midle-left"><div><span>INTERNATIONAL_DATE_UPLOAD</span></div></td>
+                                    <td width="50%" class="recycler-row-align-midle-right"><div style="word-break: break-all;"><span ng-bind="item.DATMAKE"></span></div></td>
+                                </tr>
+                                <tr>
+                                    <td width="50%" class="recycler-row-align-midle-left"><div><span>INTERNATIONAL_PROFILE_SIZE</span></div></td>
+                                    <td width="50%" class="recycler-row-align-midle-right"><div style="word-break: break-all;"><span>{{item.CAPACITY/1024/1024|number:2}}{{' MB'}}</span></div></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+						<table width='98%' align='center' class='recycler-table-ebank recycler-list'>
+                            <tr class='recycler-row-normal'>
+                                <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_PROFILE_NOTE</span></td>
+                                <td class='recycler-row-align-midle-right'ng-bind="profileNote"></td>
+							</tr>
+						</table>
+				   </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width='100%' align='center'>
+                            <tr>
+                                <td colspan="2"><div id="seqFormAuthen"></div></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table width="100%" align="center" vspace="30">
+                                        <tr>
+                                            <td colspan="3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">
+                                                <h5 id="auth.title" class="Header" style="margin-left:10px;">
+                                                    <span>AUTHEN_TXT_INPUT_KEY_TITLE</span>
+                                                </h5>
+                                            </td>
+                                        </tr>
+                                        <tr id="id.ca00" style="background: transparent">
+                                            <td colspan="3" style="background: rgba(240, 240, 240, 0.47);" align="center" valign="middle" class="td-text">
+                                                <div ng-click="clickOnDiv('input-trigger')" class="input-group" id="input-group"  inputmode="numeric" type="tel" tabindex="0" style="height:40px ; width: auto; font-size: 10px">
+                                                    <div id="tmp-inputotp" style="margin-left: -10%;">
+                                                        <ul style="list-style: none; width: 250px">
+                                                            <li>
+                                                                <span id="li1" class="icon-radio-unchecked" ></span>
+                                                            </li>
+                                                            <li>
+                                                                <span id="li2" class="icon-radio-unchecked" ></span>
+                                                            </li>
+                                                            <li>
+                                                                <span id="li3" class="icon-radio-unchecked" ></span>
+                                                            </li>
+                                                            <li>
+                                                                <span id="li4" class="icon-radio-unchecked" ></span>
+                                                            </li>
+                                                            <li>
+                                                                <span id="li5" class="icon-radio-unchecked" ></span>
+                                                            </li>
+                                                            <li>
+                                                                <span id="li6" class="icon-radio-unchecked"></span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <div class="tess" id="tess" style="display: none; position: absolute;top: -12px;right: -12px;font-size: 20px;">
+                                                        <ul style="list-style: none">
+                                                            <li style="float: right">
+                                                                <span ng-click="removeotp()" class="icon-delete"></span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <span id="authen.tokentype"  class="input-group-addon" style="width:40%; display: none;">TOKEN KEY</span>
+                                                    <input id="authen.tokenkey" type="hidden" class="form-control form-control-righttext" placeholder="COM_TXT_INPUT_PLACEHOLDER" value="" maxlength="6"/>
+                                                    <input id="input-trigger" type="number" style="position:fixed;left:-1000px;outline: none;width:0px;height:0px;color:transparent;background: transparent;border:0px transparent" maxlength="6"/>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!--timer 90s-->
+                                        <tr id="id.ca02">
+                                            <td colspan='3'>
+                                                <div id='authen.progressbar' class="progress-wrapper html5-progress-bar" style='display:none'>
+                                                    <div id="authen.progressbarotp" class="authen-progressbarotp">
+                                                        <progress value="0" max="100" min="0" style="animation: loadbar 90s;"></progress>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td colspan="3">
+                                                <h5 id="auth.note" style="margin-left:10px;margin-bottom: 15px;">
+                                                    <span>AUTHEN_TYPE_NOTE_OTP</span>
+                                                </h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">
+                                                <h5 id="auth.note.support" style="margin-left:10px;margin-bottom: 15px;">
+                                                    <span>AUTHEN_TXT_NOTE_CONTENT_SUPPORT</span>
+                                                </h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">
+                                                <h5 id="auth.note.mca" style="margin-left:10px;margin-bottom: 15px; display:none;">
+                                                    <span>AUTHEN_TYPE_NOTE_MCA</span>
+                                                </h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">
+                                                <h5 id="auth.note.hard.token" style="margin-left:10px;margin-bottom: 15px; display:none;">
+                                                    <span>AUTHEN_TYPE_NOTE_VAS_1</span>
+                                                </h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">
+                                                <h5 id="auth.note.soft.token" style="margin-left:10px;margin-bottom: 15px; display:none;">
+                                                    <span>AUTHEN_TYPE_NOTE_MKS</span>
+                                                </h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">
+                                                <h5 id="auth.note.mtx" style="margin-left:10px;margin-bottom: 15px; display:none;">
+                                                    <span>AUTHEN_TYPE_NOTE_MTX</span>
+                                                </h5>
+                                            </td>
+                                        </tr>
+                                        <tr align="center">
+                                            <td class="tdbtndesktop" width="32%">
+                                                <input type='button' style='width:100%;margin:0 auto' class='btnDesktopshadow btnDesktopBack' ng-click = 'onBackClick()' value='COM_BACK'/>
+                                            </td>
+                                            <td width='32%'>
+                                                <input type="button" style="background-color: rgba(162, 100, 187, 0.51);border-radius: 20px;width:100%" class="btnshadow btn-primary" ng-click="onCancelClick()" value="COM_CANCEL"/>
+                                            </td>
+                                            <td width='32%' id='authen.resendotp' style="display:none">
+                                                <input type="button" class="btnshadow btn-primary" onclick="resendOTP();" value="AUTHEN_BTN_RESEND_OTP_TITLE"/>
+                                            </td>
+                                            <td width='32%' id="btn-authenrequest">
+                                                <input id="authen-send-request" style="width:100%" type="button" class="btnshadow btn-second" name="cf" ng-click="onContinuteClick()" value="COM_CONTINUE" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr class="desktopmode" id="result-export-print" style="display:none;">
+                                <td colspan="2">
+                                    <div align="right" style="padding-right: 5px;">
+                                        <a href="javascript:void(0)" onclick="printResultHistory();">
+                                            <img title="In trang này" style="margin-right:5px;" src="css/img/print.png"/>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr id="resultNote" style="display:none">
+                                <td colspan="2">
+                                    <div id="divResultNode"></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>
+<style type="text/css">
+    #tmp-inputotp {
+        background: transparent;
+    }
+    #tmp-inputotp ul {
+        list-style-type: none;
+    }
+    #tmp-inputotp ul li {
+        float:left;
+        width:30px;
+    }
+    .icon-incheck-number {
+        font-size: 40px;
+        color:#f69013;
+        line-height: 7px;
+    }
+</style>

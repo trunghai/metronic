@@ -1,0 +1,198 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="payment_bill">
+    <div class="bg-transfer">
+        <div class="panelContent">
+            <table class="tableTab" id="periodic-table">
+                <td class='content-periodic selected'>
+                    <span>TRANS_PERIODIC_TRADE_TITLE</span>
+                    <span class="content-span"></span>
+                </td>
+                <td ng-click="changeTab()" class='content-periodic'>
+                    <span>TRANS_PERIODIC_MNG_TITLE</span>
+                    <span class="content-span"></span>
+                </td>
+            </table>
+            <table id="dynamic-billing-table" width="100%" height="50%">
+                <tr>
+                    <td>
+                        <div id="seqFormLocal">
+                            <table class="sequence-form-301" width="357" cellspacing="0" cellpadding="0" border="0" align="center" style="margin:auto" xmlns="http://www.w3.org/1999/xhtml">
+                                <tbody>
+                                <tr>
+                                    <td class="selected" width="33%">
+                                        <span>SEQ_INPUT_TITLE</span>
+                                    </td>
+                                    <td width="33%">
+                                        <span>SEQ_AUTHEN_TITLE</span>
+                                    </td>
+                                    <td width="33%">
+                                        <span>SEQ_COMPLETE_TITLE</span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tbody>
+                <tr>
+                    <td colspan="2">
+                        <h5 class="header-title">
+                            <span>PAYMENT_TRANSFER_INFO</span>
+                        </h5>
+                    </td>
+                </tr>
+                <!--Tai khoan-->
+                <tr>
+                    <td id="account-info" colspan="2">
+                        <div id="holder-account-info" class="combo-box info-account accInfo widefull" ng-click="showAccountSelection()">
+                        </div>
+                        <input id="id.accountno" type="hidden" class="form-control form-control-rightbutton" value="COM_TXT_SELECTION_PLACEHOLDER" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <h5 class="header-title">
+                            <span>PAYMENT_BILL_INFO</span>
+                        </h5>
+                        <div style="margin-top:5px;"><span style="color:#fb8c00;font-style: italic;">&nbsp;(Chọn Người nhận Đã Lưu: Bấm vào &lt;Danh Bạ Nhận&gt; bên dưới)</span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap;font-weight: bold">COM_TYPE_TRANSACTION</span>
+                            <input id="billing.input.service" class="form-control form-control-righttext" type="button" value="" placeholder="Chọn" ng-click="showServiceSeletion();">
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                            <input id="id.billing.srvId" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull" ng-click="showProviderSelecction();">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap;font-weight: bold">PAYMENT_ISSUEDBY</span>
+                            <input id="billing.input.provider" class="form-control form-control-righttext" type="button" value="">
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                        </div>
+                        <input id="id.billing.srvCode" type="hidden" value="" >
+                        <input id="id.billing.prId" type="hidden" value="">
+                    </td>
+                </tr>
+                <!-- <div class="holder-input-none-icon" style="margin-top: -4px;margin-bottom: -2px;"><input id="trans.issueplace" maxlength="72" type="text" class="form-control form-control-righttext input-none-border" placeholder="Nhập nơi cấp" style="white-space:pre-wrap;" value="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off" onkeyup="controlInputText(this, 150)"></div> -->
+                <tr ng-repeat ="field in infoFields">
+                    <td ng-if="field.INPUT_TYPE === 'TEXT' && field.FORMAT === 'PHONE'" class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull holder-input-none-icon">
+                            <!--<span class="input-group-addon" style="width: 40%; white-space:pre-wrap">ADSL_CONTRACT</span>-->
+                            <span id="msg.field.name" class="input-group-addon" style="width: 40%; white-space:pre-wrap;font-weight: bold">{{lang === 'VN' ? field.MSG_FIELD_DESC : field.MSG_FIELD_DESC_EN}}</span>
+                            
+                            <input id="billing.input.text" type="tel" style="text-align: right;"  placeholder="COM_TXT_INPUT_PLACEHOLDER" class="form-control" onkeyup="removeChar(event, this, 11);" />
+                            <span id="span.trans.target" class="tooltip icon-book input-group-addon-datepicker input-group-symbol-datepicker" style="cursor:pointer;" ng-click="showPayeePage();" ng-style="{'display': service_ID === '306' || service_ID === '305' ? 'none' : 'block'}">
+                                <span style="text-align:center; font-size:14px;">
+                                    <em id="ds_id">{{dsThuHuong}}</em>
+                                    <br />
+                                    <em id="mau_id">{{mauThuHuong}}</em>
+                                </span>
+
+                            </span>
+                        </div>
+                        <input id="billing.input.text.id.key" type="hidden" value="{{field.MSG_FIELD_ID}}">
+                        
+                    </td>
+                    <td ng-if="field.INPUT_TYPE === 'TEXT' && field.FORMAT === 'TEXT'" class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap;font-weight: bold" ng-if="onoff != 1">ADSL_CONTRACT</span>
+							<span class="input-group-addon" style="width: 40%; white-space:pre-wrap;font-weight: bold" ng-if="onoff == 1">PAYMENT_CODE</span>
+                            <span id="msg.field.name" class="holder-input-none-icon" style="width: 40%; white-space:pre-wrap;font-weight: bold"></span>
+                            <!--<input id="billing.input.text" style="text-align: right;" type="text" placeholder="{{lang === 'VN' ? field.MSG_FIELD_DESC : field.MSG_FIELD_DESC_EN}}" class="form-control form-control-righttext input-none-border" onkeyup="controlInputText(this, 50);" />-->
+							<input id="billing.input.text" style="text-align: right;" type="text" placeholder="COM_TXT_INPUT_PLACEHOLDER" class="form-control" onkeyup="controlInputText(this, 50);" />
+                            <span id="span.trans.target" class="tooltip icon-book input-group-addon-datepicker input-group-symbol-datepicker" style="cursor:pointer;" ng-click="showPayeePage();" ng-style="{'display': service_ID === '306' || service_ID === '305' ? 'none' : 'block'}">
+                                <span style="text-align:center; font-size:14px;">
+                                    <em id="ds_id">{{dsThuHuong}}</em>
+                                    <br />
+                                    <em id="mau_id">{{mauThuHuong}}</em>
+                                </span>
+
+                            </span>
+                        </div>
+                        <input id="billing.input.text.id.key" type="hidden" value="{{field.MSG_FIELD_ID}}">
+
+                    </td>
+                    <td ng-if="field.INPUT_TYPE === 'COMBO'" class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap;font-weight: bold">{{lang === 'VN' ? field.MSG_FIELD_DESC : field.MSG_FIELD_DESC_EN}}</span>
+                            <input id="billing.input.comboValue" class="form-control form-control-righttext" type="button" value="{{lang === 'VN' ? cbxValue.FIELD_DESC : cbxValue.FIELD_DESC_EN}}" placeholder="COM_TXT_INPUT_PLACEHOLDER" ng-click="showComboValues()">
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                        </div>
+                        <input id="billing.input.comboValue.id" type="hidden" value="{{cbxValue.ID}}" >
+                        <input id="billing.input.comboValue.id.key" type="hidden" value="{{field.MSG_FIELD_ID}}">
+                    </td>
+                </tr>
+                <tr id="dynaRow.2" >
+                    <td valign="middle" align="center" colspan="2" ng-style="{'display': service_ID === '306' || service_ID === '305' ? 'none' : 'block'}">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="width: 40%; font-weight:bold; white-space:pre-wrap">PAYMENT_BENEFICIARY_NAME_WITH_NOTE</span>
+                            <input id="billing.payeeName" class="form-control input-none-border" type="text" maxlength="50" style="text-align: right; float: right;" placeholder="COM_TXT_INPUT_PLACEHOLDER" onkeyup="controlInputText(this, 50);" >
+                            
+                        </div>
+                    </td>
+                </tr>
+                <tr id="dynaRow.mgnPayee" >
+                    <td class="td-text" valign="middle" align="center" colspan="2" ng-style="{'display': service_ID === '306' || service_ID === '305' ? 'none' : 'block'}">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap;font-weight: bold">PAYMENT_BENEFICIARY_OPTION</span>
+                            <input id="mng.payee" class="form-control form-control-righttext" type="button" value="" placeholder="COM_TXT_INPUT_PLACEHOLDER" ng-click="showInputMNG()">
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                        </div>
+                        <input id="mng.payee.val" type="hidden" value="TH">
+                    </td>
+                </tr>
+				<tr>
+                	<td align="right">
+                    	<i><span id="notestyle" class="notestyle" style="width: 40%; white-space:pre-wrap; color: #fb8c00;" >PAYMENT_BENEFICIARY_NOTE</span></i>
+                    </td>
+                </tr>
+
+                <tr class="trow-space"></tr>
+                <tr>
+                  <td style="padding:0;margin:0;">
+                      <style>
+                          #button {
+                              position:relative;
+                              left: 50%;
+                              top: 50%;
+                              transform: translateX(-50%) translateY(0%);
+                              -webkit-transform: translateX(-50%) translateY(0%);
+                              -o-transform:translateX(-50%) translateY(0%);
+                              -moz-transform:translateX(-50%) translateY(0%);
+                          }
+                      </style>
+                    <!--<span id="button" type="button" class="btnshadow btn-second" ng-click="sendJSONRequest()">TRANS_LOCAL_BTN_SENDREQUEST</span>-->
+                <tr class="mt-15">
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="tdbtndesktop" style="width:50%">
+                            <input  type='submit' style="float:left;margin-left:65px" class='btnDesktopshadow btnDesktopBack' onClick= 'clickHomeOrBack()' value='INPUT_ACC_BTN_GOBACK'/>
+                        </div>
+                        <div style="width:50%">
+                            <input  type="button" style="margin-right:100px" class="btnshadow btn-second"
+                                    ng-click="sendJSONRequest()" value="TRANS_LOCAL_BTN_SENDREQUEST"/>
+                        </div>
+                    </td>
+                </tr>
+                  </td>
+                </tr>
+                </tbody>
+                
+            </table>
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

@@ -1,0 +1,23 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="set-change-language">
+    <div id="content-transfer" style="display:block" class="bg-transfer">
+        <div class="panelContent" style="margin-top:0px;padding-top:0px">
+			<table width="100%;">
+				<tr>
+				<td class="td-text">
+					<div class="input-group widefull" ng-click="setShowPopupChangeLang()">
+						<span class="input-group-addon" style="white-space:pre-wrap; font-size:14px;">SET_LANG_TITLE</span>
+						<input id="id.lang" type="button" class="form-control form-control-rightbutton" value="COM_TXT_SELECTION_PLACEHOLDER" style="font-size:14px" />
+						<span class="icon-movenext input-group-addon input-group-symbol"></span>
+					</div>
+				</td>
+				</tr>
+			</table>
+            <div style='margin-top: 12px;margin-bottom: 20px; margin: 0 auto; float:inherit; width:18%;' id=" " class="btnDesktopshadow btnDesktopBack" onclick="clickHomeOrBack()"><span>CM_BTN_GOBACK</span></div>
+		</div>	
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+	<div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+	<div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+

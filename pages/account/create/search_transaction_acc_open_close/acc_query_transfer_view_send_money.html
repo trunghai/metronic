@@ -1,0 +1,92 @@
+<div class="panelContent">
+    <table width="100%">
+        <tr>
+            <td colspan="2">
+                <h5 class="header-title">
+                    <span>COM_ACCOUNT_INFO</span>
+                </h5>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <div align="center">
+                    <div class="recycler-list">
+                        <table class="recycler-table-ebank">
+                            <tbody>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>TRANS_TYPE</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="infoTrans.valueidtxn"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>COM_ACCOUNT_DEDUCT_MONEY</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="infoTrans.id_srcacct"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>ACCOUNT_AVAILABLE_BALANCE</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="infoTrans.num_balance"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>E_ACCOUNT_BALANCE_DEDUCT_MONEY</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right" ng-bind="infoTrans.num_balSubAmo"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <h5 class="header-title">
+                    <span>COM_TRASACTION_INFO</span>
+                </h5>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div align="center">
+                    <div class="recycler-list">
+                        <table class="recycler-table-ebank">
+                            <tbody>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>COM_NUM_MONEY_SAVING</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="infoTrans.num_amount"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>COM_PERIOD</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="infoTrans.dur_name"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>ACCOUNT_PERIOD_DATESTART</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="infoTrans.date_send"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>COM_EXPIRE_DATE</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="infoTrans.date_end"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>COM_INTEREST</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="infoTrans.rate"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>ACC_PROFITS_INTERIM</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="infoTrans.pro_rate"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>COM_ANNOUNCE_DEADLINE</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="infoTrans.announceN"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>COM_SEND_MSG_APPROVER</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="infoTrans.sned_method"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

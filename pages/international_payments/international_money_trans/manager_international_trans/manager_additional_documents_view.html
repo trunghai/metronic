@@ -1,0 +1,154 @@
+
+<div id="mainViewContent" class="main-layout-subview" ng-controller="manager_additional_documents_view">
+    <div class="">
+        <div class="panelContent">
+            <table id="dynamic-billing-table" width="100%">
+                <tbody>
+                <tr>
+                    <td colspan="2">
+                        <div class="recycler-list">
+                            <table width='100%' align='center' class='recycler-table-ebank'>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.idcafcatref"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>COM_STATUS</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="statusVN[infoTrans.TRANG_THAI]"></span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <h5 class="Header">
+                            <span>INTERNATIONAL_CHECKLIST</span>
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <!-- BEGIN MAIN CONTENT -->
+                        <div class="desktopview" id="recycler-list">
+                            <table class="recycler-table-ebank " width="100%" align="center">
+                                <tbody>
+                                <tr class="recycler-row-title-header recycler-list">
+                                    <td class="recycler-row-align-midle-left" width="7%"><span>COM_NO</span></td>
+                                    <td class="recycler-row-align-midle-left" width="50%"><span>INTERNATIONAL_PROFILE_ADDITIONAL</span></td>
+                                    <td class="recycler-row-align-midle-left" ><span>INTERNATIONAL_REQUEST</span></td>
+                                </tr>
+                                <tr class="recycler-row-title recycler-list" ng-repeat="item in checklist">
+                                    <td class="recycler-row-align-midle-left" width="7%"><span  style="word-break: break-all;" ng-bind="$index + 1"></span></td>
+                                    <td class="recycler-row-align-midle-left"><span style="word-break: break-all;" ng-bind="item.DESCREPTION"></span></td>
+                                    <td class="recycler-row-align-midle-left"><span style="word-break: break-all;" ng-bind="item.EXPECT"></span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- END MAIN CONTENT -->
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <h5 class="Header">
+                            <span>INTERNATIONAL_LIST_PROFILE_ADDITIONAL</span>
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <!-- BEGIN MAIN CONTENT -->
+                        <div class="desktopview">
+                            <table class="recycler-table-ebank " width="100%" align="center">
+                                <tbody>
+                                <tr class="recycler-row-title-header recycler-list">
+                                    <td class="recycler-row-align-midle-left" width="7%"><span>COM_NO</span></td>
+                                    <td class="recycler-row-align-midle-left" width="50%"><span>INTERNATIONAL_PROFILE_NAME</span></td>
+                                    <td class="recycler-row-align-midle-left" ><span>INTERNATIONAL_PROFILE_SIZE</span></td>
+                                    <td class="recycler-row-align-midle-left"></td>
+                                </tr>
+                                <tr class="recycler-row-title recycler-list" ng-repeat="item in listupload">
+                                    <td class="recycler-row-align-midle-left" width="7%"><span  style="word-break: break-all;" ng-bind="$index + 1"></span></td>
+                                    <td class="recycler-row-align-midle-left"><span style="word-break: break-all;" ng-bind="item.file.name"></span></td>
+                                    <td class="recycler-row-align-midle-left" nowrap><span  style="word-break: break-all;" ng-bind="(item.file.size/1024/1024|number:2) + ' MB'"></span></td>
+                                    <td class="recycler-row-align-midle-left" nowrap><span  style="word-break: break-all;"><span type="button" ng-click="onViewPDF((item.file.url_return))" style="color: red; cursor: pointer">INTERNATIONAL_VIEW_PROFILE</span></span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- END MAIN CONTENT -->
+                    </td>
+                </tr>
+                <tr class="trow-space"></tr>
+                <tr class="mt-15">
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="tdbtndesktop" style="width:50%">
+                            <input  type='button' style="float:left;margin-left:65px" class='btnDesktopshadow btnDesktopBack' ng-click="onBackClick()" value='COM_BACK'/>
+                        </div>
+                        <div style="width:50%">
+                            <input id="btnContinute" type="button" style="margin-right:100px" class="btnshadow btn-second" ng-click="onContinuteClick()" value="COM_CONTINUE"/>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div id="contentView" class="modal-content"></div>
+
+</div>
+
+<style>
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+
+        margin: auto;
+        padding: 0px;
+        width: 80%;
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>

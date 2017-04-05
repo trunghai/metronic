@@ -1,0 +1,254 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="auth-guarantee-detail">
+    <div class="">
+        <div class="panelContent">
+            <table id="dynamic-billing-table" width="98%">
+                <tbody>
+                <tr>
+                    <td colspan="2">
+                        <div class="recycler-list">
+                            <table width='100%' align='center' class='recycler-table-ebank'>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.transId"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>COM_EXECUTION_TIME</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.createTime"></span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <h5 class="header-title">
+                            <span>COM_TRASACTION_INFO</span>
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="recycler-list">
+                            <table width='100%' align='center' class='recycler-table-ebank'>
+                                <tr class='recycler-row-normal'>
+                                    <td class='recycler-row-align-midle-left'><span>GUA_ACCOUNT_CHARGES</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.sourceAcc"></span></td>
+                                </tr>
+                                <tr class='recycler-row-normal'>
+                                    <td class='recycler-row-align-midle-left'><span>GUA_TYPE</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.trans_type_name"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>GUA_NAME_OFFEROR</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.SUGGEST_NAME"></span></td>
+                                </tr>
+                                <tr class='recycler-row-normal'>
+                                    <td class='recycler-row-align-midle-left'><span>GUA_ADDRESS_OFFEROR</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.SUGGEST_ADDRESS"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>GUA_NAME_THE_GUARANTEE</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.GUARANTEE_NAME"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>GUA_ADDRESS_BEN</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.GUARANTEE_ADDRESS"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>GUA_AMOUNT_GUARANTEE</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.AMOUNT"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>GUA_DURATION_DATE_FROM</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.DATE_BEGIN"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>GUA_DURATION_DATE_TO</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.DATE_END"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>GUA_CONTENT_GUARANTEE</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.CONTENT"></span></td>
+                                </tr>
+                                <tr class='recycler-row-normal'>
+                                    <td class='recycler-row-align-midle-left'><span>GUA_MARGIN_ACCOUNT</span></td>
+                                    <td class='recycler-row-align-midle-right'><span ng-bind="detailCommon.DEPOSIT_ACCOUNT"></span></td>
+                                </tr>
+                                <tr class='recycler-row-normal'>
+                                    <td class='recycler-row-align-midle-left'><span>GUA_DEPOSIT_RATIO</span></td>
+                                    <td class='recycler-row-align-midle-right' > {{detailCommon.DEPOSIT_RATE}} %</td>
+                                    <!-- <td class='recycler-row-align-midle-right'><span ng-bind="detailCommon.DEPOSIT_RATE"></span></td>-->
+                                </tr>
+                                <tr class='recycler-row-normal'>
+                                    <td class='recycler-row-align-midle-left'><span>GUA_COLLATERAL_OTHER</span></td>
+                                    <td class='recycler-row-align-midle-right'><span ng-bind="detailCommon.COLLATERAL"></span></td>
+                                </tr>
+                                <tr class='recycler-row-normal'>
+                                    <td class='recycler-row-align-midle-left'><span>GUA_SEND_NOTIFICATION_TO_USER</span></td>
+                                    <td class='recycler-row-align-midle-right'><span ng-bind="detailCommon.sendMethod"></span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <h5 class="header-title">
+                            <span>GUA_PROFILE_GUARANTEE</span>
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+					<div>
+						<table width='96%' align='center' class='recycler-table-ebank desktopview'>
+							<tr class='recycler-row-title-header recycler-list'>
+								<td class="recycler-row-align-midle" width="7%"><span>COM_NO</span></td>
+								<td class="recycler-row-align-midle" width="50%"><span>GUA_FILE_NAME_SENDED</span></td>
+								<td class="recycler-row-align-midle" width="20%"><span>GUA_DATE_FILE_SENDED</span></td>
+								<td class="recycler-row-align-midle" ><span>GUA_FILE_SIZE_SENDED</span> </td>
+								<td class="recycler-row-align-midle"></td>
+							</tr>
+							<tbody>
+							<tr class="recycler-row-title recycler-list" ng-repeat="item in detailCheckList track by $index">
+								<td class="recycler-row-align-midle">
+									<div style="word-break: break-all;" class="content-detail"><span ng-bind="$index + 1"></span></div>
+								</td>
+								<td class="recycler-row-align-midle">
+									<div style="word-break: break-all;" class="content-detail"><span ng-bind="item.FILE_NAME"></span></div>
+								</td>
+								<td class="recycler-row-align-midle">
+									<div style="word-break: break-all;" class="content-detail"><span ng-bind="item.DATMAKE"></span></div>
+								</td>
+								<td class="recycler-row-align-midle">
+									<div style="word-break: break-all;" class="content-detail"><span>{{item.CAPACITY/1024/1024|number:2}}{{' MB'}}</span></div>
+								</td>
+								<td class="recycler-row-align-midle">
+									<div style="word-break: break-all;" class="content-detail"><span type="button" style="color: red; cursor: pointer" ng-click="onViewPDF(item.IDFILE)">
+										<strong><span>GUA_FILE_REVIEW</span></strong>
+									</span></div>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+					<table ng-repeat="item in detailCheckList track by $index" width='96%' align='center' class='recycler-list  recycler-table-ebank mobileview margin-bottom'>
+						<tr>
+							<td width="50%" class="recycler-row-align-midle-left"><div><span>GUA_FILE_NAME_SENDED</span></div></td>
+							<td width="50%" class="recycler-row-align-midle-right"><div style="word-break: break-all;"><span ng-bind="item.FILE_NAME"></span></div></td>
+						</tr>
+						<tr>
+							<td width="50%" class="recycler-row-align-midle-left"><div><span>GUA_DATE_FILE_SENDED</span></div></td>
+							<td width="50%" class="recycler-row-align-midle-right"><div style="word-break: break-all;"><span ng-bind="item.DATMAKE"></span></div></td>
+						</tr>
+						<tr>
+							<td width="50%" class="recycler-row-align-midle-left"><div><span>GUA_FILE_SIZE_SENDED</span></div></td>
+							<td width="50%" class="recycler-row-align-midle-right"><div style="word-break: break-all;"><span>{{item.CAPACITY/1024/1024|number:2}}{{' MB'}}</span></div></td>
+						</tr>
+						<tr class="desktopview">
+							<td width="50%" class="recycler-row-align-midle-left"><div><span>GUA_FILE_REVIEW</span></div></td>
+							<td width="50%" class="recycler-row-align-midle-right"><div style="word-break: break-all;"><span type="button" style="color: red; cursor: pointer" ng-click="onViewPDF(item.IDUSERREFERENCE)">
+									<strong><span>GUA_FILE_REVIEW</span></strong>
+								</span></div></td>
+						</tr>
+					</table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%">
+                            <tr class="trow-space"></tr>
+                            <tr>
+                                <td>
+                                    <div class="tranfer-item" style="border-bottom: solid 1px rgb(209, 183, 224); border-top: solid 1px rgb(209, 183, 224);">
+                                        <div class="text-area-content">
+                                            <div class="bg-text-area">
+                                                <div class="holderIcon">
+                                                    <div style="display:table;width: 100%;height:100%">
+                                                        <span class="icon-content-note" style="display:table-cell;vertical-align: middle;text-align: center;font-size:24px!important"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="holder-txtarea" style="border-left: solid 1px rgb(209, 183, 224);">
+                                                    <input class="form-control form-control-righttext input-with-icon" style="font-size: 14px" id="id.reason-rej" maxlength="250" onkeyup="controlInputText2(this, 240);" placeholder="COM_AUTH_DENIAL_REASON" type="text"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr class="trow-space"></tr>
+                </tbody>
+            </table>
+            <table width="100%">
+                <tbody>
+                <tr align="center">
+                    <td class="tdbtndesktop" width="32%"><input type="button" style="width:100%;margin:0 auto" class="btnDesktopshadow btnDesktopBack" ng-click="onBackClick()" value="COM_BACK"></td>
+                    <td width="32%" id="trCancel"><input type="button" style="background-color: rgba(162, 100, 187, 0.51);border-radius: 20px;width:100%" class="btnshadow btn-primary" ng-click="onRejectClick()" value="COM_REJ" ></td>
+                    <td width="32%"><input style="width:100%" type="button" class="btnshadow btn-second" ng-click="onContinuteClick()" value="COM_AUTH" ></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" style="display: none; position: fixed; width: 100%; margin-top: 50px;">
+
+    <!-- Modal content -->
+    <div id="contentView" class="modal-content"></div>
+
+</div>
+
+<style>
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+
+        margin: auto;
+        padding: 0px;
+        width: 80%;
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>

@@ -1,0 +1,183 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="pay-tax-manager" style="height:417px; top: 44px">
+	<div class="panelContent">
+		<table width='98%' align="center" class="desktopview" style="border-spacing: 0; padding-left: 2%">
+			<tr class="tr-two-col">
+				<td class="td-two-col">
+					<div class="div-two-col borderbottom"><b><span>COM_TYPE_TRANSACTION</span></b></div>
+					<div class="div-two-col">
+						<div class="input-group">
+							<input style="white-space:pre-wrap" onclick="showTaxType()" id="id.taxType" type="button" class="form-control form-control-righttext"/>
+							<span class="icon-movenext input-group-addon input-group-symbol"></span>
+						</div>
+					</div>
+				</td>
+				<td class="td-two-col">
+					<div class="div-two-col borderbottom"><b><span>COM_TRANS_CODE</span></b></div>
+					<div class="div-two-col">
+						<div class="input-group">
+							<input id="idFcatref" type="tel" class="form-control form-control-righttext" placeholder="COM_TXT_INPUT_PLACEHOLDER" maxlength="16" />
+							<span class="input-group-addon input-group-symbol"></span>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr class="tr-two-col">
+				<td class="td-two-col">
+					<div class="div-two-col borderbottom"><b><span>TRANS_PERIODIC_MNG_STT</span></b></div>
+					<div class="div-two-col">
+						<div class="input-group">
+							<input style="white-space:pre-wrap" onclick="showStatus()" id="id.stt" type="button" class="form-control form-control-righttext"/>
+							<span class="icon-movenext input-group-addon input-group-symbol"></span>
+						</div>
+					</div>
+				</td>
+				<td class="td-two-col">
+					<div class="div-two-col borderbottom"><b><span>COM_START_DATE</span></b></div>
+					<div class="div-two-col">
+						<div class="input-group">
+                            <input id="id.begindate" type="tel" class="form-control form-control-righttext-datepicker" placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value="" onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" />
+                            <span id="begindate" onclick="initDialogCal('id.begindate')" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr class="tr-two-col">
+				<td class="td-two-col">
+					<div class="div-two-col borderbottom"><b><span>CONST_SETUP_QUERY_TIT_TRANS_TYPE_DTL</span></b></div>
+					<div class="div-two-col">
+						<div class="input-group">
+							<input style="white-space:pre-wrap" onclick="showTaxDetail()" id="id.taxDetail" type="button" class="form-control form-control-righttext"/>
+							<span class="icon-movenext input-group-addon input-group-symbol"></span>
+						</div>
+					</div>
+				</td>
+				<td class="td-two-col">
+					<div class="div-two-col borderbottom"><b><span>TRANS_PERIODIC_ENDING_DATE</span></b></div>
+					<div class="div-two-col">
+						<div class="input-group">
+                            <input id="id.mngenddate" type="tel" class="form-control form-control-righttext-datepicker" placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value="" onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" />
+                            <span id="enddate" onclick="initDialogCal('id.mngenddate')" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+		
+		<!-- Mobile -->
+		<table width='98%' align="center" class="mobileview">
+		    <tr>
+		        <td class="input-group">
+		            <div class="div-two-col">
+		                <b><span>COM_TYPE_TRANSACTION</span></b>
+		            </div>
+		            <div class="div-two-col">
+		                <div class="input-group" style="border-bottom: none !important;">
+							<input style="white-space:pre-wrap" onclick="showTaxType()" id="id.taxTypemb" type="button" class="form-control form-control-righttext" value="COM_ALL"/>
+							<span class="icon-movenext input-group-addon input-group-symbol"></span>
+		                </div>
+		            </div>
+		        </td>
+		    </tr>
+		    <tr>
+		        <td class="input-group">
+		            <div class="div-two-col"><b>
+		                <span>CONST_SETUP_QUERY_TIT_TRANS_TYPE_DTL</span></b>
+		            </div>
+		            <div class="div-two-col">
+		                <div class="input-group" style="border-bottom: none !important;">
+							<input style="white-space:pre-wrap" onclick="showTaxDetail()" id="id.taxDetailmb" type="button" class="form-control form-control-righttext" value="COM_ALL"/>
+							<span class="icon-movenext input-group-addon input-group-symbol"></span>
+		                </div>
+		            </div>
+		        </td>
+		    </tr>
+		    <tr>
+		        <td class="input-group">
+		            <div class="div-two-col"><b>
+		                <span>TRANS_PERIODIC_MNG_STT</span></b>
+		            </div>
+		            <div class="div-two-col">
+		                <div class="input-group" style="border-bottom: none !important;">
+							<input style="white-space:pre-wrap" onclick="showStatus()" id="id.sttmb" type="button" class="form-control form-control-righttext" value="COM_ALL"/>
+							<span class="icon-movenext input-group-addon input-group-symbol"></span>
+		                </div>
+		            </div>
+		        </td>
+		    </tr>
+		    <tr>
+		        <td class="input-group">
+		            <div class="div-two-col"><b>
+		                <span>COM_TRANS_CODE</span></b>
+		            </div>
+		            <div class="div-two-col">
+		                <div>
+							<input id="idFcatrefmb" type="tel" class="form-control form-control-righttext" placeholder="COM_TXT_INPUT_PLACEHOLDER" maxlength="16" />
+							<span class="input-group-addon input-group-symbol"></span>
+		                </div>
+		            </div>
+		        </td>
+		    </tr>
+		    <tr>
+		        <td class="input-group">
+		            <div class="div-two-col"><b>
+		                <span>COM_START_DATE</span></b>
+		            </div>
+		            <div class="div-two-col">
+		                <div>
+                            <input id="id.begindatemb" type="tel" class="form-control form-control-righttext-datepicker" placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value="" onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" />
+                            <span id="span.begindate" onclick="initDialogCal('id.begindatemb')" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+		                </div>
+		            </div>
+		        </td>
+		    </tr>
+		    <tr>
+		        <td class="input-group">
+		            <div class="div-two-col"><b>
+		                <span>TRANS_PERIODIC_ENDING_DATE</span></b>
+		            </div>
+		            <div class="div-two-col">
+		                <div>
+                            <input id="id.mngenddatemb" type="tel" class="form-control form-control-righttext-datepicker" placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value="" onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" />
+                            <span id="span.enddate" onclick="initDialogCal('id.mngenddatemb')" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+		                </div>
+		            </div>
+		        </td>
+		    </tr>
+		</table>
+		<table width='98%' align="center"><!-- 
+	            <td colspan="2" align="center" valign="middle" class="td-text">
+	                <div class="" style="width:50%">
+	                    <input type="submit" style="float:left;margin-left:65px" class="btnDesktopshadow btnDesktopBack"
+	                           onclick="clickHomeOrBack()" value="CM_BTN_GOBACK">
+	                </div>
+	                <div style="width:50%">
+	                    <input type="button" style="margin-right:100px" class="btnshadow btn-second"
+	                           ng-click="sendJsonRequest()" value="TRANS_PERIODIC_BTN_SRCH">
+	                </div>
+	            </td> -->
+	            <tr>
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="tdbtndesktop" style="width:50%"><input type="button" style="float:left;margin-left:37px;margin-top:10px;" class="btnDesktopshadow btnDesktopBack" onclick="clickHomeOrBack()" value="CM_BTN_GOBACK" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"></div>
+                        <div style="width:50%"><input id="listInfoExe" type="submit" style="margin-right:40px;margin-top:10px; font-size: 14px" class="btnshadow btn-second" ng-click="sendJsonRequest()" value="TRANS_PERIODIC_BTN_SRCH" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"></div>
+                    </td>
+                </tr>
+		</table>
+		</br>
+			<div id="id.search"></div>
+			    <!-- <table width="100%" xmlns="http://www.w3.org/1999/xhtml"id="id.excel" style="display:none">
+				<tr>
+					<td>
+						<div class="export-print" style="margin: 5px; text-align: right">
+							<a href="javascript:void(0)" id="export-excel" onclick="sendRequestExportExcel()">
+								<img src="css/img/exportfile.png" style="margin-right:5px;"/>
+							</a>
+						</div>
+					</td>
+				</tr>
+				</table> -->
+			<div style="text-align: right;" id="pageIndicatorNums"></div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+	<div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+	<div id="divListGroup" class="list-group dialog-list"></div>
+</div>

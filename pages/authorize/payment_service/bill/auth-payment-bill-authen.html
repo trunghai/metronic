@@ -1,0 +1,217 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="auth_payment_bill_authen">
+    <div class="">
+        <div class="panelContent">
+            <table id="dynamic-billing-table" width="100%">
+                <tr>
+                    <td>
+                        <div>
+                            <div>
+                                <table class="recycler-table-ebank desktopview" width="100%" align="center">
+                                    <thead>
+                                    <tr class="recycler-row-title-header recycler-list">
+                                        <td class="recycler-row-align-midle" width="6%"><span>COM_NO</span></td>
+                                        <td class="recycler-row-align-midle" width="20%"><span>COM_CREATED_DATE</span></td>
+                                        <td class="recycler-row-align-midle" width="19%"><span>PAYMENT_ORDER_CODE</span></td>
+                                        <td class="recycler-row-align-midle" width="15%"><span>COM_AMOUNT</span></td>
+                                        <td class="recycler-row-align-midle" width="10%"><span>COM_TRANS_CODE</span></td>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="recycler-row-title recycler-list" ng-repeat="trans in currentListTrans track by $index">
+                                        <td class="recycler-row-align-midle" width="6%">{{$index + 1}}</td>
+                                        <td class="recycler-row-align-midle" width="20%" ng-bind="trans.NGAY_LAP"></td>
+                                        <td class="recycler-row-align-midle" width="19%" ng-bind="trans.MA_HOA_DON"></td>
+                                        <td class="recycler-row-align-midle" width="15%" ng-bind="trans.SO_LUONG | currency : '' : 0"></td>
+                                        <td class="recycler-row-align-midle" width="10%" ><span class="no-check" ng-bind="trans.MA_GD"></span></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <table  ng-repeat="item in currentListTrans track by $index" class="recycler-table-ebank mobileview recycler-list margin-bottom" width='98%' align='center' >
+                                    <tbody>
+                                    <tr class="recycler-row-parity">
+                                        <td class="recycler-row-align-midle-left"><span>COM_NO</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="$index + 1"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-parity">
+                                        <td class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="item.NGAY_LAP"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-parity">
+                                        <td class="recycler-row-align-midle-left"><span>PAYMENT_ORDER_CODE</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="item.MA_HOA_DON"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-parity">
+                                        <td class="recycler-row-align-midle-left"><span>COM_AMOUNT</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="item.SO_LUONG | currency : '' : 0"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-parity" ng-click="goToViewScreen(item.MA_GD, item.SO_LUONG);">
+                                        <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="item.MA_GD"></span></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td ng-style="{'display': !authen ? 'block' : 'none'}">
+                        <div class="recycler-list" style="width: 100%; margin: 0 auto;">
+                            <table align="center" width="98%" id="trans.reason" style="display: block;">
+                                <tbody>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>COM_AUTH_DENIAL_REASON</span></td>
+                                        <td class="recycler-row-align-midle-left ng-binding" style="word-break: break-all;">: {{reason}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- <table width='100%' align='center' class='recycler-table-ebank'>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>COM_AUTH_DENIAL_REASON</span>: {{reason}}</td>
+                            </tr>
+                        </table> -->
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <table width="100%" align="center" vspace="30">
+                            <tr>
+                                <td colspan="3"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <h5 id="auth.title" class="Header" style="margin-left:10px;">
+                                        <span>AUTHEN_TXT_INPUT_KEY_TITLE</span>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr id="id.ca00" style="background: transparent">
+                                <td colspan="3" style="background: rgba(240, 240, 240, 0.47);" align="center" valign="middle" class="td-text">
+                                    <div ng-click="clickOnDiv('input-trigger')" class="input-group" id="input-group"  inputmode="numeric" type="tel" tabindex="0" style="height:40px ; width: auto; font-size: 10px">
+                                        <div id="tmp-inputotp" style="margin-left: -10%;">
+                                            <ul style="list-style: none; width: 250px">
+                                                <li>
+                                                    <span id="li1" class="icon-radio-unchecked" ></span>
+                                                </li>
+                                                <li>
+                                                    <span id="li2" class="icon-radio-unchecked" ></span>
+                                                </li>
+                                                <li>
+                                                    <span id="li3" class="icon-radio-unchecked" ></span>
+                                                </li>
+                                                <li>
+                                                    <span id="li4" class="icon-radio-unchecked" ></span>
+                                                </li>
+                                                <li>
+                                                    <span id="li5" class="icon-radio-unchecked" ></span>
+                                                </li>
+                                                <li>
+                                                    <span id="li6" class="icon-radio-unchecked"></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="tess" id="tess" style="display: none; position: absolute;top: -12px;right: -12px;font-size: 20px;">
+                                            <ul style="list-style: none">
+                                                <li style="float: right">
+                                                    <span ng-click="removeotp()" class="icon-delete"></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <span id="authen.tokentype"  class="input-group-addon" style="width:40%; display: none;">TOKEN KEY</span>
+                                        <input id="authen.tokenkey" type="hidden" class="form-control form-control-righttext" placeholder="COM_TXT_INPUT_PLACEHOLDER" value="" maxlength="6"/>
+                                        <input id="input-trigger" type="number" style="position:fixed;left:-1000px;outline: none;width:0px;height:0px;color:transparent;background: transparent;border:0px transparent" maxlength="6"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!--timer 90s-->
+                            <tr id="id.ca02">
+                                <td colspan='3'>
+                                    <div id='authen.progressbar' class="progress-wrapper html5-progress-bar" style='display:none'>
+                                        <div id="authen.progressbarotp" class="authen-progressbarotp">
+                                            <progress value="0" max="100" min="0" style="animation: loadbar 90s;"></progress>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td colspan="3">
+                                    <h5 id="auth.note" style="margin-left:10px;margin-bottom: 15px;">
+                                        <span>AUTHEN_TYPE_NOTE_OTP</span>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <h5 id="auth.note.support" style="margin-left:10px;margin-bottom: 15px;">
+                                        <span>AUTHEN_TXT_NOTE_CONTENT_SUPPORT</span>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <h5 id="auth.note.mca" style="margin-left:10px;margin-bottom: 15px; display:none;">
+                                        <span>AUTHEN_TYPE_NOTE_MCA</span>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <h5 id="auth.note.hard.token" style="margin-left:10px;margin-bottom: 15px; display:none;">
+                                        <span>AUTHEN_TYPE_NOTE_VAS</span>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <h5 id="auth.note.soft.token" style="margin-left:10px;margin-bottom: 15px; display:none;">
+                                        <span>AUTHEN_TYPE_NOTE_MKS</span>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <h5 id="auth.note.mtx" style="margin-left:10px;margin-bottom: 15px; display:none;">
+                                        <span>AUTHEN_TYPE_NOTE_MTX</span>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr align="center">
+                                <td class="tdbtndesktop" width="32%">
+                                    <input type='button' style='width:100%;margin:0 auto' class='btnDesktopshadow btnDesktopBack' onclick="clickHomeOrBack()" value='COM_BACK'/>
+                                </td>
+                                <td width='32%'>
+                                    <input type="button" style="background-color: rgba(162, 100, 187, 0.51);border-radius: 20px;width:100%" class="btnshadow btn-primary" ng-click="goCancelClick()" value="COM_CANCEL"/>
+                                </td>
+                                <td width='32%' id="btn-authenrequest">
+                                    <input id="authen-send-request" style="width:100%" type="button" class="btnshadow btn-second" name="cf" ng-click="authorizationTrans()" value="COM_CONTINUE" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    #tmp-inputotp {
+        background: transparent;
+    }
+    #tmp-inputotp ul {
+        list-style-type: none;
+    }
+    #tmp-inputotp ul li {
+        float:left;
+        width:30px;
+    }
+    .icon-incheck-number {
+        font-size: 40px;
+        color:#f69013;
+        line-height: 7px;
+    }
+</style>

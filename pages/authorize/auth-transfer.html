@@ -1,0 +1,41 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="auth-transfer" style="height: 621px; top: 44px; bottom: 0px;">
+    <div id="reviewInfo" class="panelContent">
+        <table width="98%" id="dynamic-topup-table">
+            <tr>
+                <td colspan="2">
+                    <div id="seqForm">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><div class="header-title"><span>AUTHORIZE_TRANS_TIT_LIST_PENDING</span></div></td>
+            </tr>
+        </table>
+
+        <div id="credit-list-id" style="margin-top: 5px">
+            <div id="recycler_list">
+                <table width='96%' align='center' class='recycler-table-ebank'>
+                    <tr class='recycler-row-title-header recycler-list'>
+                        <td width="50%" class="recycler-row-align-midle"><span>TRANS_TYPE</span></td>
+                        <td width="50%" class="recycler-row-align-midle"><span>AUTHORIZE_TRANS_TIT_COUNT_PENDING</span></td>
+                    </tr>
+                    <tr class="recycler-row-title recycler-list" ng-repeat="item in listPending" ng-click="goToAuthorizeScreen(item.IDTXN)" style="cursor: pointer;">
+                        <td style="border-right: none;" class="recycler-row-align-midle-left"><span ng-bind="'AUTHORIZE_TRANS_TIT_' + item.IDTXN"></span></td>
+                        <td class="recycler-row-align-midle" ng-bind="item.COUNT_TRANS"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<!--ThuanTM -->
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

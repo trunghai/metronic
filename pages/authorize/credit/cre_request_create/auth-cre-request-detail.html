@@ -1,0 +1,195 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="auth-cre-request-detail">
+    <div class="">
+        <div class="panelContent">
+            <table id="dynamic-billing-table" width="100%">
+                <tbody>
+                <tr>
+                    <td colspan="2">
+                        <h5 class="header-title">
+                            <span>CRE_REQUEST_SETTING</span>
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="recycler-list">
+                            <table width='100%' align='center' class='recycler-table-ebank'>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.transId"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>NGUOI_NHAP</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.sourceAcc"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>AUTHORIZE_INPUT_DATE</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.dateMake"></span></td>
+                                </tr>
+
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>COM_CHEKER</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.nguoiduyet"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>TIME_CHECK</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.ngayduyet"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>TRANS_PERIODIC_MNG_STT</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.status"></span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <h5 class="header-title">
+                            <span>COM_TRASACTION_INFO</span>
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="recycler-list">
+                            <table width='100%' align='center' class='recycler-table-ebank'>
+                                <tr class='recycler-row-normal'>
+                                    <td class='recycler-row-align-midle-left'><span>GUARANTEE_SUGGEST_TYPE</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.form"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>CRE_LIMIT_ALL_REQUEST</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="(detailCommon.requestAmount | currency : '' : 0) + ' VND'"></span></td>
+                                </tr>
+                                <tr class='recycler-row-normal' ng-if="detailCommon.limitLoan>0">
+                                    <td class='recycler-row-align-midle-left'><span>CRE_LIMIT_LOAN</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="(detailCommon.limitLoan | currency : '' : 0) + ' VND'"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal" ng-if="detailCommon.limitGuarantee>0">
+                                    <td class="recycler-row-align-midle-left"><span>CRE_LIMIT_GUARANTEE</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="(detailCommon.limitGuarantee | currency : '' : 0) + ' VND'"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal" ng-if="detailCommon.limitLCopen>0">
+                                    <td class="recycler-row-align-midle-left"><span>CRE_LIMIT_LCOPEN</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="(detailCommon.limitLCopen | currency : '' : 0) + ' VND'"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>CRE_REQUEST_COLLATERAL</span></td>
+                                    <td style="width:70%; word-break: break-all;" class="recycler-row-align-midle-right"><span ng-bind="detailCommon.collateral"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>CARD_ISSUANCE_TITLE_EFFECT_TERM</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.limitEstimate"></span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <h5 class="header-title">
+                            <span>DETAIL_FILE_GUARANTEE</span>
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                            <table width='96%' align='center' class='recycler-table-ebank desktopview'>
+                                <tr class='recycler-row-title-header recycler-list'>
+									<td class="recycler-row-align-midle" width="8%"><span>COM_NO</span></td>
+									<td class="recycler-row-align-midle" width="50%"><span>GUA_FILE_NAME_SENDED</span></td>
+									<td class="recycler-row-align-midle" width="20%"><span>GUA_DATE_FILE_SENDED</span></td>
+									<td class="recycler-row-align-midle"><span>GUA_FILE_SIZE_SENDED</span></td>
+									<td class="recycler-row-align-midle"></td>
+                                </tr>
+                                <tr class="recycler-row-title recycler-list" ng-repeat="item in detailCheckList track by $index">
+                                    <td class="recycler-row-align-midle"><span ng-bind="$index + 1"></span></td>
+                                    <td class="recycler-row-align-midle"><span ng-bind="item.FILE_NAME"></span></td>
+									<td class="recycler-row-align-midle"><span ng-bind="item.DATMAKE"></span></td>
+                                    <td class="recycler-row-align-midle"><span ng-bind="(item.CAPACITY/1024/1024|number:2) + ' MB'"></span></td>
+									<td class="recycler-row-align-midle">
+										<span  type="button" style="color: red; cursor: pointer" ng-click="onViewPDF(item.IDFILE)">
+											<strong> <span>GUA_FILE_REVIEW</span></strong>
+										</span>
+									</td>
+                                </tr>
+                            </table>
+						<table ng-repeat="item in detailCheckList track by $index" class="recycler-table-ebank mobileview margin-bottom recycler-list" width="100%" align="center">
+							<tr>
+								<td colspan="1" class="recycler-row-align-midle-left">
+									<span>GUA_FILE_NAME_SENDED</span>
+								</td>
+								<td class="recycler-row-align-midle-right">
+									<span ng-bind="item.FILE_NAME"></span>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="1" class="recycler-row-align-midle-left">
+									<span>GUA_DATE_FILE_SENDED</span>
+								</td>
+								<td class="recycler-row-align-midle-right">
+									<span ng-bind="item.DATMAKE"></span>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="1" class="recycler-row-align-midle-left">
+									<span>GUA_FILE_SIZE_SENDED</span>
+								</td>
+								<td class="recycler-row-align-midle-right">
+									<span>{{item.CAPACITY/1024/1024|number:2}}{{' MB'}}</span>
+								</td>
+							</tr>
+						</table>
+                    </td>
+				</tr>
+				
+				<tr class="trow-space"></tr>
+				<tr>
+					<td>
+						<div class="recycler-list">
+							<table width='100%' align='center' class='recycler-table-ebank'>
+								<tr class='recycler-row-normal'>
+									<td class='recycler-row-align-midle-left'><span>NOTE_CRE_REQUEST</span></td>
+									<td class='recycler-row-align-midle-right' ng-bind="detailCommon.fileDescription"></td>
+								</tr>
+							</table>	
+						</div>
+						<div class="tranfer-item bg-transfer" style="border-bottom: solid 1px rgb(209, 183, 224); border-top: solid 1px rgb(209, 183, 224); margin-top: 10px">
+                            <div class="text-area-content" id="holder-transfer-message">
+                                <div class="bg-text-area">
+                                    <div class="holderIcon">
+                                        <div style="display:table;width: 100%;height:100%"><span style="display:table-cell;vertical-align: middle;text-align: center;font-size:24px!important" class="icon-content-note"></span></div>
+                                    </div>
+                                    <div class="holder-txtarea" style="border-left: solid 1px rgb(209, 183, 224);">
+                                        <textarea onkeyup="controlInputTextReason(this, 250);" class="area" style="padding-left: 5px;" id="id.reason-rej" placeholder="COM_AUTH_DENIAL_REASON" maxlength="250"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+					</td>
+				</tr>
+                <tr class="trow-space"></tr>
+                </tbody>
+            </table>
+            <table width="100%">
+                <tbody>
+                <tr align="center">
+                    <td class="tdbtndesktop" width="32%"><input type="button" style="width:100%;margin:0 auto" class="btnDesktopshadow btnDesktopBack" ng-click="onBackClick()" value="COM_BACK"></td>
+                    <td width="32%" id="trCancel"><input type="button" style="background-color: rgba(162, 100, 187, 0.51);border-radius: 20px;width:100%" class="btnshadow btn-primary" ng-click="onRejectClick()" value="COM_REJ" ></td>
+                    <td width="32%"><input style="width:100%" type="button" class="btnshadow btn-second" ng-click="onContinuteClick()" value="COM_AUTH" ></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

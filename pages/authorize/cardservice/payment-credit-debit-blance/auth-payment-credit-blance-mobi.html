@@ -1,0 +1,31 @@
+<div  ng-repeat="item in listPending track by $index" >
+    <div id="recycler_list" class="recycler-list margin-bottom">
+        <table id="recycler_table_ebank" class="recycler-table-ebank">
+            <tbody>
+            <!--<tr class="recycler-row-parity">-->
+                <!--<td class="recycler-row-align-midle-left-opacity"><span>COM_NO</span></td>-->
+                <!--<td class="recycler-row-align-midle-right-opacity"><span ng-bind="$index + 1"></span></td>-->
+            <!--</tr>-->
+            <tr class="recycler-row-as">
+                <td class="recycler-row-align-midle-left-opacity"><span>COM_CREATED_DATE</span></td>
+                <td class="recycler-row-align-midle-right-opacity"><span ng-bind="item.NGAY_LAP"></span></td>
+            </tr>
+            <tr class="recycler-row-parity">
+                <td class="recycler-row-align-midle-left-opacity"><span>COM_TAX_AMOUNT</span></td>
+                <td class="recycler-row-align-midle-right-opacity"><span ng-bind="(item.SO_TIEN | currency : '' : 0) + ' VND'"></span></td>
+            </tr>
+            <tr class="recycler-row-as">
+                <td class="recycler-row-align-midle-left-opacity"><span>COM_CARD_NUMBER</span></td>
+                <td class="recycler-row-align-midle-right-opacity"><span ng-bind="item.SO_THE"></span></td>
+            </tr>
+            <tr class="recycler-row-parity">
+                <td class="recycler-row-align-midle-left-opacity"><span>COM_TRANS_CODE</span></td>
+                <td class="recycler-row-align-midle-right-opacity" ng-click="goToViewScreen(item.MA_GD)"><a><span class="no-check" ng-bind="item.MA_GD"></span></a></td>
+            </tr>
+            <tr class="recycler-row-as">
+                <td  class="recycler-row-align-midle-left-opacity"><input class="trans.checkbox" type="checkbox" onclick="deSelectRow('recycler_table_ebank-desktop', 'recycler_table_ebank-mobile', this)" name="{{item.MA_GD}}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

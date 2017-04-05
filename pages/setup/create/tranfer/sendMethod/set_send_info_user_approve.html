@@ -1,0 +1,73 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="send-info-user-app">
+    <div id="content-transfer" style="display:block" class="bg-transfer">
+        <div class="panelContent" style="margin-top:0px;padding-top:10px">
+			<!--<div><h5 class="screen-title"><span>COM_SETUP_TRANFER</span></h5></div>-->
+			<!--<div class="line-separate"/>-->
+			<div id="seqFormLocal"></div>
+			<h5 class="header-title" style="text-align:center;"><span style="white-space:pre-wrap;">SET_SEND_ITEM_TITLE</span></h5>
+			<table width='100%'>
+				<tr>
+					<td style='border:0' class="td-left">
+						<div onclick="displayTemplate('0');">
+							<input type="radio" value="0" id="rdbtnDisplay0" name="maturityDirective" />
+							<span style="padding-left: 5px;" id='send_0'>SET_SEND_CHOOSE_NO_SEND</span>
+						</div>
+
+					</td>
+				</tr>
+				<tr>
+					<td style='border:0' class="td-left">
+						<div onclick="displayTemplate('1');">
+							<input type="radio" value="1" id="rdbtnDisplay1" name="maturityDirective"/>
+							<span style="padding-left: 5px;" id='send_1'>SET_SEND_CHOOSE_SEND_EMAIL</span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style='border:0' class="td-left">
+						<div onclick="displayTemplate('2');">
+							<input type="radio" value="2" id="rdbtnDisplay2" name="maturityDirective" />
+							<span style="padding-left: 5px;" id='send_2' >SET_SEND_CHOOSE_SEND_SMS</span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style='border:0' class="td-left">
+						<div onclick="displayTemplate('3');">
+							<input type="radio" value="3" id="rdbtnDisplay3" name="maturityDirective" />
+							<span style="padding-left: 5px;" id='send_3'>SET_SEND_CHOOSE_SEND_ALL</span>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<input type="hidden" id="methodSendOld" value="0"/>
+			<div class="input-group" style="margin:0 0 11px 0;">
+			</div>
+			<div id="templateMailTitle" style="display : none;">
+				<h5 class="Header" style="text-align:center; padding:10px 10px 0px 10px;"><span style="white-space:pre-wrap;">SET_SEND_TEMPLATE_MAIL_TITLE</span></h5>
+				<div id="templateMailContent" class="form-control form-control-textarea" disabled="true" style="display : none; height: auto; margin-left: 5px; line-height: 200%;"></div>
+			</div>
+			<div id="templateSMSTitle" style="display : none;" >
+				<h5 class="Header" style="text-align:center; padding:10px 10px 5px 10px;"><span style="white-space:pre-wrap;">SET_SEND_TEMPLATE_SMS_TITLE</span></h5>
+				<div id="templateSMSContent" class="form-control form-control-textarea" disabled="true" placeholder="COM_TXT_INPUT_PLACEHOLDER" style="display : none; height: auto; margin-left: 5px; line-height: 200%;"></div>
+			</div>
+			<table width='100%' id="dynamic-topup-table">
+                <td colspan="2" align="center" valign="middle" class="td-text">
+                    <div class="tdbtndesktop" style="width:50%">
+                        <input type='submit' style="float:left;margin-left:65px" class='btnDesktopshadow btnDesktopBack'
+                               onclick="clickHomeOrBack()" value='INPUT_ACC_BTN_GOBACK'/>
+                    </div>
+                    <div style="width:50%">
+                        <input type="button" style="margin-right:100px" class="btnshadow btn-second"
+                               ng-click="setupSendMethodExe()" value="TRANS_LOCAL_BTN_SENDREQUEST"/>
+                    </div>
+                </td>
+			</table>
+		</div>	
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+

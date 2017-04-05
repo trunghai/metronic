@@ -1,0 +1,81 @@
+<table width="100%">
+    <tr>
+        <td colspan="2"><div id="seqFormReview">
+            <table xmlns="http://www.w3.org/1999/xhtml" width="357" align="center" cellspacing="0" cellpadding="0" border="0" style="margin:auto" class="sequence-form-302">
+                <tbody>
+                <tr>
+                    <td width="33%"><span>SEQ_INPUT_TITLE</span></td>
+                    <td width="33%" class="selected"><span>SEQ_AUTHEN_TITLE</span></td>
+                    <td width="33%"><span>SEQ_COMPLETE_TITLE</span></td>
+                </tr>
+                </tbody>
+            </table></div>
+        </td>
+    </tr>
+    <tr></tr>
+    <tr scrinfo=""><td colspan="2"><h5 class="Header" style="display:none;">JUMBO_AUTO_SAVE_REVIEW_MSG</h5></td></tr>
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div id="recycler_list" class="recycler-list">
+                    <table id="recycler_table_ebank" class="recycler-table-ebank">
+                        <tbody>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left">Loại giao dịch</td>
+                            <td class="recycler-row-align-midle-right">Chuyển tiền trong TPBank</td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left">Nội dung chuyển tiền</td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.contentTrans"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left">Phí</td>
+                            <td class="recycler-row-align-midle-right">0 VND</td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left">Ngày chuyển</td>
+                            <td class="recycler-row-align-midle-right">Chuyển tiền chỉ một lần vào ngày 28/11/2016</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div class="recycler-list">
+                    <table class="recycler-table-ebank">
+                        <tbody>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">Tài khoản nhận</td>
+                                <td class="recycler-row-align-midle-right" ng-bind="infoTrans.destinationAcc"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">Người nhận</td>
+                                <td class="recycler-row-align-midle-right" ng-bind="infoTrans.beneName"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div class="recycler-list">
+                    <table class="recycler-table-ebank">
+                        <tbody>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left">Số tiền</td>
+                            <td class="recycler-row-align-midle-right" ng-bind="(infoTrans.amountTrans | currency : '' : 0) + ' VND'"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,261 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="acc_query_transfer_detail">
+<div  id="content-transfer" style="display:block" class="bg-transfer">
+<div class="panelContent">
+<table width='100%' align='center' id='detailDebt' cellspacing="0">
+<tr>
+    <td colspan="2">
+        <div align="center">
+            <div id="recycler_list" class="recycler-list">
+                <table id="recycler_table_ebank" class="recycler-table-ebank">
+                    <tbody>
+                    <tr class="recycler-row-normal">
+                        <td class="dsk-mode recycler-row-align-midle-left">
+                            <div><span>COM_TRANS_CODE</span></div>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <div class="content-detail"><span id="trans_code"></span></div>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="dsk-mode recycler-row-align-midle-left">
+                            <div><span>COM_CREATED_DATE</span></div>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <div class="content-detail"><span id="create_date"></span></div>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="dsk-mode recycler-row-align-midle-left">
+                            <div><span>COM_CHECK_DATE</span></div>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <div class="content-detail"><span id="check_date"></span></div>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="dsk-mode recycler-row-align-midle-left">
+                            <div><span>COM_STATUS</span></div>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <div class="content-detail"><span id="status"></span></div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </td>
+</tr>
+<!-- title -->
+<tr>
+    <td colspan="2">
+        <h5 class="header-title">
+            <span>COM_ACCOUNT_INFO</span> <!-- thông tin tài khoản -->
+        </h5>
+    </td>
+</tr>
+<tr id="tableGuitien">
+    <td colspan="2">
+        <div align="center">
+            <div class="recycler-list">
+                <table class="recycler-table-ebank">
+                    <tbody>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <div><span>TRANS_TYPE</span></div>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <div class="content-detail"><span id="trans_type"></span></div>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <div><span>COM_ACCOUNT_DEDUCT_MONEY</span></div>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <div class="content-detail"><span id="account_deduct_money"></span></div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </td>
+</tr>
+<tr id="tableTatToan">
+    <td colspan="2">
+        <div align="center">
+            <div class="recycler-list">
+                <table class="recycler-table-ebank">
+                    <tbody>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <div><span>ACCOUNT_FINALIZE_DTL_TYPE_SAVING</span></div>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <div class="content-detail"><span id="accFinalize"></span></div>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <div><span>ACC_HIS_TRANS_TYPE_TITLE</span></div>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <div class="content-detail"><span id="accHisTransType"></span></div>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <div><span>ACC_CURRENCY_TITLE</span></div>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <div class="content-detail"><span id="accCurrencyTitle"></span></div>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <div><span>COM_ACCOUNT_NUMBER</span></div>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <div class="content-detail"><span id="accNumber"></span></div>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <div><span>ACCOUNT_FINALIZE_DTL_ROOT_MONEY</span></div>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <div class="content-detail"><span id="accFinalizeRoot"></span></div>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <div><span>COM_PERIOD</span></div>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <div class="content-detail"><span id="comPeriod"></span></div>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <div><span>TRANS_PERIODIC_ACC_NO</span></div>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <div class="content-detail"><span id="transPerAccNo"></span></div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </td>
+</tr>
+<!-- title -->
+<tr id="comTrasInfo">
+    <td colspan="2">
+        <h5 class="header-title">
+            <span>COM_TRASACTION_INFO</span> <!-- thông tin giao dịch -->
+        </h5>
+    </td>
+</tr>
+<tr id="incomTrasInfo">
+    <td colspan="2">
+        <div align="center">
+            <div class="recycler-list">
+                <table class="recycler-table-ebank">
+                    <tbody>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <div><span>COM_NUM_MONEY_SAVING</span></div>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <div class="content-detail"><span id="num_money_saving"></span></div>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <div><span>COM_PERIOD</span></div>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <div class="content-detail"><span id="period"></span></div>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <div><span>ACCOUNT_PERIOD_DATESTART</span></div>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <div class="content-detail"><span id="account_period_datestart"></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <div><span>COM_EXPIRE_DATE</span></div>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <div class="content-detail"><span id="expire_date"></span></div>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <div><span>COM_INTEREST</span></div>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <div class="content-detail"><span id="interest"></span></div>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <div><span>ACC_PROFITS_INTERIM</span></div>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <div class="content-detail"><span id="profits_interim"></span></div>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <div><span>COM_ANNOUNCE_DEADLINE</span></div>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <div class="content-detail"><span id="announce_deadline"></span></div>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <div><span>COM_SEND_MSG_APPROVER</span></div>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <div class="content-detail"><span id="send_approver"></span></div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </td>
+</tr>
+</table>
+</div>
+
+<td colspan="2" align="center" valign="middle" class="td-text">
+    <div class="desktopview" style="width:100%; text-align: center;">
+
+        <input style="background-color: rgb(207, 150, 217);" class="btnshadow-after btn-second-after tdbtndesktop"
+               onclick="clickHomeOrBack()" type="button" value="CM_BTN_GOBACK" autocomplete="off" autocorrect="off"
+               autocapitalize="off" spellcheck="off">
+        <input style="background:#FAA60D !important" class="btnshadow-after btn-second-after btn-changecolor" id="inputCancelTransaction" ng-click="cancelTransaction()"
+               type="submit" value="COM_TERMINATE_TRANS" autocomplete="off" autocorrect="off" autocapitalize="off"
+               spellcheck="off">
+    </div>
+</td>
+<div class="mobileview" id="divCancelTransaction">
+    <td colspan="2" align="center" valign="middle" class="td-text">
+        <input type="button" style="width:50%" class="btnshadow btn-second"
+               ng-click="cancelTransaction()" value="COM_TERMINATE_TRANS" autocomplete="off" autocorrect="off"
+               autocapitalize="off" spellcheck="off"/>
+    </td>
+</div>
+
+</div>
+</div>

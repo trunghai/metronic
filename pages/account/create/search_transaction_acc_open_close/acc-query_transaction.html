@@ -1,0 +1,216 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="acc_query_transaction">
+<div class="panelContent">
+<table class="tableTab" id="periodic-table">
+    <tbody>
+    <tr>
+        <td onclick="clickHomeOrBack()" class="content-periodic">
+            <span>ACCOUNT_PERIOD_TAB_INFO</span>
+            <span class="content-span"></span>
+        </td>
+        <td  class="content-periodic selected">
+            <span>ACCOUNT_PERIOD_TAB_SEARCH</span>
+            <span class="content-span"></span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<table width="100%" style="border-spacing: 0; margin-top:2%; margin-left: 2%;" class="desktopview">
+    <tr class="tr-two-col">
+        <td class="td-two-col">
+            <div class="div-two-col borderbottom"><b><span>TOPUP_TRANS_TYPE_TITLE</span></b></div>
+            <div class="div-two-col">
+                <div class="input-group">
+                    <input style="white-space:pre-wrap" ng-click="showTypeTransaction()" id="idTypeTransaction"
+                           type="button" class="form-control form-control-righttext" value="COM_ALL"/>
+                    <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                </div>
+            </div>
+        </td>
+        <td class="td-two-col">
+            <div class="div-two-col borderbottom"><b><span>TRANS_PERIODIC_MNG_FIND_SDATE</span></b></div>
+            <div class="div-two-col">
+                <div class="input-group">
+                    <input id="id.begindate" type="tel"
+                           class="form-control form-control-righttext-datepicker"
+                           placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value=""
+                           onkeydown="return handleCalendarNav(this, event);"
+                           onclick="handleCalendarNav(this, event);" onpaste="return false;"/>
+                                    <span onclick="initDialogCal('id.begindate')" id="begindate"
+                                          class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr class="tr-two-col">
+        <td class="td-two-col">
+            <div class="div-two-col borderbottom"><b><span>TRANS_PERIODIC_MNG_STT</span></b></div>
+            <div class="div-two-col">
+                <div class="input-group">
+                    <input style="white-space:pre-wrap;" ng-click="showStatus()" id="idStatus"
+                           type="button" class="form-control form-control-righttext"
+                           placeholder="COM_ALL" value="COM_ALL"/>
+                    <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                </div>
+            </div>
+        </td>
+        <td class="td-two-col">
+            <div class="div-two-col borderbottom"><b><span>TRANS_PERIODIC_MNG_FIND_EDATE</span></b></div>
+            <div class="div-two-col">
+                <div class="input-group">
+                    <input id="id.enddate" type="tel"
+                           class="form-control form-control-righttext-datepicker"
+                           placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value=""
+                           onkeydown="return handleCalendarNav(this, event);"
+                           onclick="handleCalendarNav(this, event);" onpaste="return false;"/>
+                                    <span onclick="initDialogCal('id.enddate')" id="enddate"
+                                          class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr class="tr-two-col">
+        <td class="td-two-col">
+            <div class="div-two-col borderbottom"><b><span>COM_MAKER</span></b></div>
+            <div class="div-two-col">
+                <div class="input-group">
+                    <input style="white-space:pre-wrap" ng-click="getUserWhoCreatedTransaction()" id="id.accountno"
+                           type="button" class="form-control form-control-righttext"
+                           placeholder="COM_ALL" value="COM_ALL"/>
+                    <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center" valign="middle" class="td-text">
+            <div class="tdbtndesktop" style="width:50%"><input type="button" style="float:left;margin-left:65px;margin-top:10px;" class="btnDesktopshadow btnDesktopBack" onclick="clickHomeOrBack()" value="CM_BTN_GOBACK" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"/></div>
+            <div style="width:50%"><input id="listInfoExe" type="submit" style="margin-right:40px;margin-top:10px; font-size: 14px" class="btnshadow btn-second" ng-click="sendJSONRequest()" value="TRANS_PERIODIC_BTN_SRCH" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"/></div>
+        </td>
+    </tr>
+</table>
+<!-- Mobile -->
+<table width='98%' align="center" class="mobileview">
+    <tr>
+        <td class="input-group">
+            <div class="div-two-col"><b>
+                <span>TOPUP_TRANS_TYPE_TITLE</span></b>
+            </div>
+            <div class="div-two-col">
+                <div class="input-group" style="border-bottom: none !important;">
+                    <input style="white-space:pre-wrap" ng-click="showTypeTransaction()" id="idTypeTransactionmb"
+                           type="button" class="form-control form-control-righttext"
+                           placeholder="COM_ALL" value="COM_ALL"/>
+                    <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="input-group">
+            <div class="div-two-col"><b>
+                <span>COM_MAKER</span></b>
+            </div>
+            <div class="div-two-col">
+                <div class="input-group" style="border-bottom: none !important;">
+                    <input style="white-space:pre-wrap" ng-click="getUserWhoCreatedTransaction()" id="id.accountnomb"
+                           type="button" class="form-control form-control-righttext"
+                           placeholder="BENEFIC_LIST_NORMAL" value="COM_ALL"/>
+                    <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="input-group">
+            <div class="div-two-col"><b>
+                <span>TRANS_PERIODIC_MNG_STT</span></b>
+            </div>
+            <div class="div-two-col">
+                <div class="input-group" style="border-bottom: none !important;">
+                    <input style="white-space:pre-wrap;" ng-click="showStatus()" id="idStatusmb"
+                           type="button" class="form-control form-control-righttext"
+                           placeholder="BENEFIC_LIST_NORMAL" value="COM_ALL"/>
+                    <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="input-group">
+            <div class="div-two-col">
+                <b><span>TRANS_PERIODIC_MNG_FIND_SDATE</span></b>
+            </div>
+            <div class="div-two-col">
+                <div>
+                    <input id="id.begindatemb" type="tel"
+                           class="form-control form-control-righttext-datepicker"
+                           placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value=""
+                           onkeydown="return handleCalendarNav(this, event);"
+                           onclick="handleCalendarNav(this, event);" onpaste="return false;"/>
+                                    <span onclick="initDialogCal('id.begindatemb')" id="begindate"
+                                          class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker">
+                                    </span>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="input-group">
+            <div class="div-two-col"><b>
+                <span>TRANS_PERIODIC_MNG_FIND_EDATE</span></b>
+            </div>
+            <div class="div-two-col">
+                <div>
+                    <input id="id.enddatemb" type="tel"
+                           class="form-control form-control-righttext-datepicker"
+                           placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value=""
+                           onkeydown="return handleCalendarNav(this, event);"
+                           onclick="handleCalendarNav(this, event);" onpaste="return false;"/>
+                                    <span onclick="initDialogCal('id.enddatemb')" id="enddate"
+                                          class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker">
+                                    </span>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <br/>
+    <tr>
+        <td colspan="2" align="center" valign="middle" class="td-text"  style="padding-top: 4%">
+            <div class="" style="width:50%">
+                <input type="button" style="float:left;margin-left:65px" class="btnDesktopshadow btnDesktopBack"
+                       onclick="clickHomeOrBack()" value="CM_BTN_GOBACK">
+            </div>
+            <div style="width:50%">
+                <input type="submit" style="margin-right:100px" class="btnshadow btn-second"
+                       ng-click="sendJSONRequest()" value="TRANS_PERIODIC_BTN_SRCH">
+            </div>
+        </td>
+    </tr>
+</table>
+
+<br/>
+<div id="tblContent" name="tblContent" style="overflow:auto;"></div>
+<div id="id.search" style="text-align: right;">
+</div>
+<!--     <div id="pageIndicatorNums" /> -->
+<table id="tblButton" width="100%" style="display:none;">
+    <tr class="trow-space"/>
+    <tr>
+        <td>
+            <input type="button" id="id.button.cancel" onclick="sendRequestCancel()"
+                   class="btnshadow btn-second" value="BTN_CANCEL_TRANSACTION"/>
+        </td>
+    </tr>
+</table>
+<br/>
+</div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<style>
+    .padding_left {
+        padding-left: 15px;
+    }
+</style>

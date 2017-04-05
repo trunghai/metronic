@@ -1,0 +1,58 @@
+<html>
+<body>
+<div id="mainViewContent" class="main-layout-subview" ng-controller="cre_debt_history">
+    <div class="panelContent">
+        <table width="100%">
+        </table>
+        <br/>
+        <h5 class="Header padding_left desktopview" style="float: left;"><span style="white-space:pre-wrap; color: #7B1FA2">CRE_DEBT_ITEM_HISTORY_TITLE</span>
+        </h5>
+        <h5 class="Header padding_left mobileview" style="float: left;"><span style="white-space:pre-wrap; color: #FFF">CRE_DEBT_ITEM_HISTORY_TITLE</span>
+        </h5>
+        <table width="100%" align="center">
+            <tr>
+                <td>
+                    <div><span class="padding_left"
+                               style="font-family:Tahoma, Helvetica, sans-serif;white-space:pre-wrap;">CRE_DEBT_ITEM_HISTORY_NOTE</span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <br/>
+
+        <div id="tblContent" name="tblContent" style="overflow:auto"></div>
+        <table width="100%" xmlns="http://www.w3.org/1999/xhtml" id="id.excel">
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="export-print" style="margin: 5px; text-align: right">
+                            <a href="javascript:void(0)" id="export-excel" ng-click="exportExcelDebtHistory()">
+                                <img src="css/img/exportfile.png" style="margin-right:5px;">
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+            <div id="pageIndicatorNums" style="text-align: right;"></div>
+        <table width="100%" align="center">
+            <tr>
+                <td>
+                    <div width="32%">
+                        <input type="submit" style="width:18%;" class="btnDesktopshadow btnHomeShadow" ng-click="creHistoryCallBack()"
+                               value="CM_BTN_GOBACK" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    <div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+        <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+        <div id="divListGroup" class="list-group dialog-list"></div>
+    </div>
+</body>
+<style>
+    .padding_left {
+        padding-left: 15px;;
+    }
+</style>
+</html>

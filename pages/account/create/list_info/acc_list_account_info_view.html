@@ -1,0 +1,52 @@
+<div class="bg-transfer">
+    <table width="100%">
+        <tr>
+            <td colspan="2">
+                <h5 class="header-title">
+                    <span>COM_TRASACTION_INFO</span>
+                </h5>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div align="center">
+                    <div class="recycler-list">
+                        <table class="recycler-table-ebank">
+                            <tbody>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>ACC_HIS_TRANS_TYPE_TITLE</span></td>
+                                    <td class="recycler-row-align-midle-right" ng-bind="infoTrans.accCloseSavingAcc"></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>ACCOUNT_PERIOD_TYPE</span></td>
+                                    <td class="recycler-row-align-midle-right" ng-bind="infoTrans.accPeriodOnline"></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>ACCOUNT_ACC_NO_TITLE</span></td>
+                                    <td class="recycler-row-align-midle-right" ng-bind="infoTrans.accountNum"></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>ACCOUNT_FINALIZE_DTL_ROOT_MONEY</span></td>
+                                    <td class="recycler-row-align-midle-right" ng-bind="infoTrans.accAmount"></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>COM_PERIOD</span></td>
+                                    <td class="recycler-row-align-midle-right" ng-bind="infoTrans.strTenor"></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>ACCOUNT_FINALIZE_DTL_GOAL_ACC</span></td>
+                                    <td class="recycler-row-align-midle-right" ng-bind="infoTrans.idAccNo"></td>
+                                </tr>
+                                
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>COM_SEND_MSG_APPROVER</span></td>
+                                    <td class="recycler-row-align-midle-right" ng-bind="infoTrans.idTransLocal"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,45 @@
+<div>
+    <table width='96%' align='center' class='recycler-table-ebank'>
+        <tr class='recycler-row-title-header recycler-list'>
+            <td class="recycler-row-align-midle" width="7%"><span>COM_NO</span></td>
+            <td class="recycler-row-align-midle" width="13%"><span>COM_CREATED_DATE</span></td>
+            <td class="recycler-row-align-midle" width="15%"><span>GUA_AUTHORIZE_TRANS_TYPE</span></td>
+            <td class="recycler-row-align-midle" width="15%"><span>GUA_AMOUNT_GUARANTEE</span></td>
+            <td class="recycler-row-align-midle" width="12%"><span>GUA_STATUS</span></td>
+            <td class="recycler-row-align-midle" width="15%"><span>COM_CHEKER</span></td>
+            <td class="recycler-row-align-midle" width="20%"><span>COM_TRANS_CODE</span></td>
+        </tr>
+        <tr class="recycler-row-title recycler-list" ng-repeat="trans in currentListTrans track by $index">
+            <td class="recycler-row-align-midle" width="7%">
+                <div ng-bind="$index + 1"></div>
+            </td>
+            <td class="recycler-row-align-midle" width="13%">
+                <div style="white-space: pre-wrap;" ng-bind="trans.NGAY_LAP"></div>
+            </td>
+            <td class="recycler-row-align-midle" width="15%">
+                <div ng-bind="guaranteeType(trans.GUARANTEE_TYPE)"></div>
+            </td>
+            <td class="recycler-row-align-midle" width="15%">
+                <div ng-bind="trans.SO_LUONG"></div>
+            </td>
+            <td class="recycler-row-align-midle" width="12%">
+                <div ng-bind="status(trans.TRANG_THAI)"></div>
+            </td>
+            <td class="recycler-row-align-midle" width="15%">
+                <div ng-bind="trans.NGUOI_DUYET"></div>
+            </td>
+            <td class="recycler-row-align-midle" width="20%" >
+                <div>
+                    <a ng-click="showDetailTransaction(trans.MA_GD);" style="cursor:pointer;">
+                        <span class="no-check" ng-bind="trans.MA_GD"></span>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<div align="right" style="float: right; width:100%">
+    <div class="export-print" id="acchis.exportfile" onclick="exportExcelDebtHistory()" style="display: inline-block;float:right; cursor: pointer;">
+        <img style="margin-top: 20px; margin-right:10px; margin-bottom: 20px;" src="css/img/exportfile.png" />
+    </div>
+</div>

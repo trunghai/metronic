@@ -1,0 +1,256 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="transfer-local-create">
+    <div id="content-transfer" style="display:block" class="bg-transfer">
+        <div class="panelContent" style="margin-top:0px;padding-top:0px">
+            <table width="100%" id="dynamic-topup-table" >
+                <tr>
+                    <td colspan="2">
+                        <div id="seqForm">
+
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><div class="header-title"><span>HEADER_FROM_TRANSFER</span></div></td>
+                </tr>
+                <tr>
+                    <td id="account-info" colspan="2">
+                        <div id="holder-account-info" class="combo-box info-account accInfo" onClick="showAccountSelection()">
+                            <!--<span class="input-group-addon" style="white-space:pre-wrap; width:40%">TRANS_LOCAL_ACC_TITLE</span>
+                         <input id="id.accountno" type="button" class="form-control form-control-rightbutton" value="COM_TXT_SELECTION_PLACEHOLDER" />
+                         <span class="icon-movenext input-group-addon input-group-symbol"></span>-->
+                        </div>
+                        <input id="id.accountno" type="hidden" class="form-control form-control-rightbutton" value="COM_TXT_SELECTION_PLACEHOLDER" />
+                    </td>
+                </tr>
+                <tr>
+                    <td id="payment.sourceaccoutbalance" style="display:none">
+                        <h6 class="h6style">
+                            <span>COM_TXT_ACC_BALANCE_TITLE</span>
+                        </h6>
+                    </td>
+                </tr>
+                <!-- <tr>
+                    <td colspan="2" align="left" valign="middle" class="td-text">
+                        <h5 class="Header"><span>HEADER_FROM_TRANSFER</span></h5>
+                    </td>
+                </tr> -->
+                <tr>
+                    <td>
+                        <div class="tranfer-item">
+                            <div class="container-input-icon">
+                                <div class="holder-icon-input-parent">
+                                    <div class="holder-icon-input-child">VND</div>
+                                </div>
+                                <div class="holder-input">
+                                    <input id="trans.amount" ng-model="amount"  type="tel" class="form-control form-control-righttext input-with-icon" placeholder="PLACEHOLDER_TRANSFER_AMOUNT" oninput="handleInputAmount(event, this);" ng-change="formatNumberToCurrency()" maxlength="16"/>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td  id="trans.amounttotext" colspan="2">
+                        <div class="txtmoneystyle">
+
+                        </div>
+                    </td>
+                </tr>
+                <tr style="display:none;">
+                    <td id="trans.sourceaccoutbalance" colspan="2" align="center" valign="middle" class="td-text">
+                        <h5 class="h6style">
+                            <span>COM_TXT_ACC_BALANCE_TITLE</span>
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="trans.sourceaccoutbalance" colspan="2" align="left" valign="middle" class="td-text">
+                        <div class="header-title"><span>HEADER_TRANSFER_TO</span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="holder-transfer-account" colspan="2" align="left" valign="middle" class="td-text">
+                        <div class="input-group">
+                            <div class="holder-input-none-icon">
+                                <input id="trans.targetaccount" type="tel" placeholder="PLACEHOLDER_DEST_ACCOUNT" value="" class="form-control form-control-righttext-datepicker input-none-border" ng-blur="loadInfoFromIdAccount()"/>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="trans.targetaccountname" colspan="2" align="left" valign="middle" class="td-text">
+                        <div class="input-group border-b">
+                            <div class="holder-input-none-icon" style="margin-top: -4px;margin-bottom: -7px;">
+                                <input readonly="true" id="trans.accountName" type="tel" placeholder="PLACEHOLDER_DEST_ACCOUNT_NAME" value="" class="form-control form-control-righttext-datepicker input-none-border"/>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="display:none">
+                    <td colspan="2" align="left" valign="middle" class="td-text">
+                        <h5 class="Header">
+                            <span style="white-space:pre-wrap">TRANS_DETAIL_BLOCK_TITLE</span>
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="tranfer-item">
+                            <div class="text-area-content" id="holder-transfer-message" >
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- <tr>
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div id="holder-transfer-message" class="input-group enter-amount"></div>
+                    </td>
+                </tr> -->
+                <tr>
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center" valign="middle">
+                        <div class="tranfer-item item-infor" style="margin-top: -7px;">
+                            <span class="span-label">DAY_TRANSFER</span>
+                            <span id="trans.today" class="span-today" style="font-weight:normal">DAY_LATE</span>
+                            <div onClick="showDialogScheduler()" class="set-calendar" style="font-weight:normal" >
+                                <i class="icon-recents"></i>
+                                <span style="font-size:10px;">SCHEDULER_SET_TITLE</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- <tr id="id.luunguoinhan" display="none">
+                    <td  id="trans.schedule.information" colspan="2" align="center" valign="middle" class="td-text" style="display:none">
+                        <div id="schedule.information" class="holder-input-none-icon holder-border-bottom">
+                        </div>
+                    </td>
+                </tr> -->
+                <tr>
+                    <td colspan="2">
+                        <div class="tranfer-item" >
+                            <div style="display:none" id="trans.schedule.information">
+                                <div id="schedule.information" class="holder-input-none-icon holder-border-bottom">
+
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="tranfer-item" id="id.luunguoinhan">
+                            <div class="holder-border-bottom" style="overflow:hidden;padding:4px 0;margin-top: -4px;">
+                                <div style="width:45%;float:left !important">
+                                    <span class="span-label">SAVE_DEST_ACCOUNT</span><div style="top:0px !important;margin-left:8px !important;float:none !important" class="custom-switch custom-switch-on" ng-click="onChangeSwitchSubMenu('save-receiver')" id="save-receiver">
+                                    <input type="checkbox" class="custom-switch-input custom-switch-input-on" id="" />
+                                    <span class="custom-switch-label custom-switch-label-off" data-on="On" data-off="Off">on</span>
+                                    <span class="custom-switch-handle custom-switch-handle-on"></span>
+                                </div>
+                                </div>
+                                <div style="width:55%;float:right;text-align:right;"><span>SAVE_TRANSFER_DOC_TEMPLATE</span> <div style="top:0px !important;margin-left:8px !important;margin-right:3px !important;" class="custom-switch custom-switch-off" ng-click="onChangeSwitchSubMenu('save-doc-temp-transfer')" id="save-doc-temp-transfer">
+                                    <input type="checkbox" class="custom-switch-input custom-switch-input-on" id="" />
+                                    <span class="custom-switch-label custom-switch-label-off" data-on="On" data-off="Off">on</span>
+                                    <span class="custom-switch-handle custom-switch-handle-off"></span>
+                                </div></div>
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="display:none">
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="input-group" >
+                            <span class="input-group-addon" style="font-family:Tahoma, Helvetica, sans-serif;white-space:pre-wrap; width:40%">TRANS_SAVE_BENEFIC_TITLE</span>
+                            <input style="white-space:pre-wrap" onclick = "showInputMNG()" id="id.payee" type="button" class="form-control form-control-righttext" placeholder="BENEFIC_LIST_NORMAL" value="TRANSFER_REMITTANCE_SAVE_BENEFIC"/>
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="tranfer-item" id ="id.sample" style="display:none;">
+                            <div class="holder-border-bottom">
+                                <div class="holder-input-none-icon" style="margin-top:-7px;">
+                                    <input id="id.sample.name" type="text" class="form-control input-none-border" placeholder="TRANSFER_REMITTANCE_NAMED" maxlength="20" />
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="mt-15">
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="tdbtndesktop" style="width:50%">
+                            <input  type='submit' style="float:left;margin-left:65px" class='btnDesktopshadow btnDesktopBack' onClick= 'clickHomeOrBack()' value='INPUT_ACC_BTN_GOBACK'/>
+                        </div>
+                        <div style="width:50%">
+                            <input  type="button" style="margin-right:100px" class="btnshadow btn-second"
+                                    ng-click="sendJSONRequest()" value="TRANS_LOCAL_BTN_SENDREQUEST"/>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="tranfer-item">
+
+            </div>
+            <table width="100%" align="center">
+                <tr >
+                    <td colspan="2">
+                        <div id="seqFormLocal">
+                            <table width="357" align="center"  class='sequence-form-301'>
+                                <tr>
+                                    <td width="33%" class="selected"><span>SEQ_INPUT_TITLE</span></td>
+                                    <td width="33%"><span>SEQ_AUTHEN_TITLE</span></td>
+                                    <td width="33%"><span>SEQ_COMPLETE_TITLE</span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="display:none">
+                    <td colspan="2">
+                        <h5 class="Header">
+                            <span style="white-space:pre-wrap">TRANS_TYPE_BLOCK_TITLE</span>
+                        </h5>
+                    </td>
+                </tr>
+                <tr style="display:none">
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="input-group" onClick="showTransTypeSelection()">
+                            <span class="input-group-addon" style="white-space:pre-wrap; width:40%">TRANS_TYPE_CHOICE_TITLE</span>
+                            <input id="id-trans-local" type="button" class="form-control form-control-righttext" style="white-space: pre-wrap; padding-right: 10px;"  align="left" value="TRANS_LOCAL_SCREEN_TITLE" />
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="display:none">
+                    <td colspan="2">
+                        <h5 class="Header">
+                            <span style="white-space:pre-wrap">TRANS_ACCOUNT_INFO_BLOCK_TITLE</span>
+                        </h5>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="holder-bottom-bar">
+
+    </div>
+    <div class="mobilemode" id="dialog-container">
+
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<!--ThuanTM -->
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

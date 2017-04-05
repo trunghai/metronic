@@ -1,0 +1,210 @@
+<div class="bg-transfer">
+    <table width="100%" style="padding-top:15px;" align="center" class="">
+
+
+
+        <!--Thong tin hr thong-->
+        <tr>
+            <td colspan="2">
+                <h5 class="header-title">
+                    <span>INFORMATION_SYSTEM</span>
+                </h5>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div align="center">
+                    <div  class="recycler-list">
+                        <table  class="recycler-table-ebank">
+                            <tbody>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="guarantee.IDFCATREF"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>AUTHORIZE_INPUT</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="guarantee.CREATE_BY"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>AUTHORIZE_INPUT_DATE</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="guarantee.NGAY_TAO"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>COM_CHEKER</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="guarantee.NGUOI_DUYET"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>TIME_CHECK</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="guarantee.NGAY_DUYET"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>TRANS_STATUS</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="statusVN[guarantee.CODSTATUS]"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <!--Thong tin giao dich-->
+        <tr>
+            <td colspan="2">
+                <h5 class="header-title">
+                    <span>COM_TRASACTION_INFO</span>
+                </h5>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div align="center">
+                    <div class="recycler-list">
+                        <table class="recycler-table-ebank">
+                            <tbody>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>GUARANTEE_SUGGEST_TYPE_TEXT</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="guarantee.FORM_VIEW"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>LOAN_AMOUNT</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="(guarantee.REQUEST_AMOUNT | currency : '' : 0) + ' ' + guarantee.LOAI_TIEN"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>DATE_LOAN_AMOUNT</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="guarantee.TIMES + ' tháng'"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>PROPOSE_DISBURSEMENT_DATE</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="guarantee.PROPOSED_DATE"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>LOAN_PURPOSE</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="guarantee.PURPOSE_VIEW"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>COLLATERAL</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="guarantee.COLLATERAL"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>ACCOUNT_PAID</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="guarantee.DEBITACC"></td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <!--Bọ hồ sơ gửi TPB-->
+        <tr>
+            <td colspan="2">
+                <h5 class="header-title">
+                    <span>DETAIL_FILE_GUARANTEE</span>
+                </h5>
+            </td>
+        </tr>
+        <!--fsdfsdfsdf-->
+        <tr>
+            <td>
+                <table width='96%' align='center' class='recycler-table-ebank desktopview'>
+                    <tr class='recycler-row-title-header recycler-list'>
+                        <td class="recycler-row-align-midle" width="8%"><span>COM_NO</span></td>
+                        <td class="recycler-row-align-midle" width="50%"><span>GUA_FILE_NAME_SENDED</span></td>
+                        <td class="recycler-row-align-midle" width="20%"><span>GUA_DATE_FILE_SENDED</span></td>
+                        <td class="recycler-row-align-midle"><span>GUA_FILE_SIZE_SENDED</span></td>
+                        <td class="recycler-row-align-midle"></td>
+                    </tr>
+                    <tr class="recycler-row-title recycler-list" ng-repeat="x in val track by $index">
+                        <td class="recycler-row-align-midle"><span ng-bind="$index + 1"></span></td>
+                        <td class="recycler-row-align-midle"><span ng-bind="x.FILE_NAME"></span></td>
+                        <td class="recycler-row-align-midle"><span ng-bind="x.DATMAKE"></span></td>
+                        <td class="recycler-row-align-midle"><span ng-bind="(x.CAPACITY/1024/1024|number:2) + ' MB'"></span></td>
+                        <td class="recycler-row-align-midle">
+										<span  type="button" style="color: red; cursor: pointer" ng-click="onViewPDF(x.IDFILE)">
+											<strong> <span>GUA_FILE_REVIEW</span></strong>
+										</span>
+                        </td>
+                    </tr>
+                </table>
+                <table ng-repeat="item in val track by $index" width='96%' align='center' class='recycler-list  recycler-table-ebank mobileview margin-bottom'>
+                    <tr>
+                        <td width="50%" class="recycler-row-align-midle-left"><div><span>GUA_FILE_NAME_SENDED</span></div></td>
+                        <td width="50%" class="recycler-row-align-midle-right"><div style="word-break: break-all;"><span ng-bind="item.FILE_NAME"></span></div></td>
+                    </tr>
+                    <tr>
+                        <td width="50%" class="recycler-row-align-midle-left"><div><span>GUA_DATE_FILE_SENDED</span></div></td>
+                        <td width="50%" class="recycler-row-align-midle-right"><div style="word-break: break-all;"><span ng-bind="item.DATMAKE"></span></div></td>
+                    </tr>
+                    <tr>
+                        <td width="50%" class="recycler-row-align-midle-left"><div><span>GUA_FILE_SIZE_SENDED</span></div></td>
+                        <td width="50%" class="recycler-row-align-midle-right"><div style="word-break: break-all;"><span>{{item.CAPACITY/1024/1024|number:2}}{{' MB'}}</span></div></td>
+                    </tr>
+                    <tr class="desktopview">
+                        <td width="50%" class="recycler-row-align-midle-left"><div><span>GUA_FILE_REVIEW</span></div></td>
+                        <td width="50%" class="recycler-row-align-midle-right"><div style="word-break: break-all;"><span type="button" style="color: red; cursor: pointer" ng-click="onViewPDF(item.IDUSERREFERENCE)">
+									<strong><span>GUA_FILE_REVIEW</span></strong>
+								</span></div></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="trow-space"></tr>
+        <tr>
+            <td>
+                <div class="recycler-list">
+                    <table width='100%' align='center' class='recycler-table-ebank'>
+                        <tr class='recycler-row-normal ' >
+                            <td class='recycler-row-align-midle-left'><span>NOTE_CRE_REQUEST</span></td>
+                            <td class='recycler-row-align-midle-right' style="word-break: hyphenate;" ng-bind=" guarantee.GHI_CHU_HO_SO" ></td>
+                        </tr>
+                    </table>
+                </div>
+
+            </td>
+        </tr>
+        <tr class="trow-space"></tr>
+        <tr>
+            <td>
+                <div class="recycler-list">
+                    <table width='100%' align='center' class='recycler-table-ebank'>
+                        <tr class='recycler-row-normal ' id="id.reason" >
+                            <td class='recycler-row-align-midle-left'><span>COM_AUTH_DENIAL_REASON</span></td>
+                            <td class='recycler-row-align-midle-right' style="word-break: hyphenate;" ng-bind="reason" ></td>
+                        </tr>
+                    </table>
+                </div>
+
+            </td>
+        </tr>
+        <!--sdfsdfsdfd-->
+        <!--<tr>-->
+            <!--<td colspan="2">-->
+                <!--<div align="center">-->
+                    <!--<div id="recycler_list" class="recycler-list">-->
+                        <!--<table id="recycler_table_ebank" class="recycler-table-ebank">-->
+                            <!--<tbody>-->
+                            <!--<tr class="recycler-row-normal" ng-repeat="x in val">-->
+                                <!--<td class="recycler-row-align-midle-left"  ng-bind="x.FILE_NAME"></td>-->
+                                <!--<td class="recycler-row-align-midle-right" ng-bind="(x.CAPACITY/1024/1024|number:2) + ' MB'"></td>-->
+                                <!--<td class="recycler-row-align-midle-right desktopview">-->
+                                    <!--<div style="word-break: break-all;">-->
+                                        <!--<span type="button" style="color: red; cursor: pointer" ng-click="onViewPDF(x.IDFILE)">-->
+										<!--<strong><span>GUA_FILE_REVIEW</span></strong>-->
+									<!--</span></div></td>-->
+
+                            <!--</tr>-->
+
+                            <!--<tr class="recycler-row-normal"  id="id.reason" >-->
+                                <!--<td class="recycler-row-align-midle-left"><span>COM_AUTH_DENIAL_REASON</span></td>-->
+                                <!--<td class="recycler-row-align-midle-right" ng-bind="reason" style="word-break: break-all;width: 68%;"></td>-->
+                            <!--</tr>-->
+
+                            <!--</tbody>-->
+                        <!--</table>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</td>-->
+        <!--</tr>-->
+    </table>
+</div>

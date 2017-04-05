@@ -1,0 +1,66 @@
+
+<div id="mainViewContent" class="main-layout-subview" ng-controller="cre-request-create-result">
+    <div class="bg-transfer">
+        <div class="panelContent">
+            <table width="100%">
+                <tr>
+                    <td colspan="3" style="text-align: center">
+                        <div ng-class="result.messageIconClass" style="display: inline; color: #FAA60D; font-size: 24px; vertical-align: middle; padding: 5px 0px 5px 0px;"></div>
+                        <span style="font-size:16px; vertical-align:middle" ng-bind="infoTrans.message"></span>
+                    </td>
+                </tr>
+				<tr>
+					<td>
+						<div class="header-title">
+							<span>TOPUP_TRANS_INFO_TITLE</span>
+						</div>
+					</td>
+				</tr>
+                <tr>
+                    <td colspan="3">
+                        <div align="center">
+                            <div class="recycler-list">
+                                <table width='100%' align='center' class='recycler-table-ebank'>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>COM_TRANS_CODE</span></td>
+                                        <td class='recycler-row-align-midle-right'>{{infoTrans.transId}}</td>
+									</tr>
+									<tr class="recycler-row-normal">
+										<td class="recycler-row-align-midle-left"><span>NGUOI_NHAP</span></td>
+                                        <td class='recycler-row-align-midle-right'>{{infoTrans.name}}</td>
+									</tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>COM_EXECUTION_TIME</span></td>
+                                        <td class='recycler-row-align-midle-right'>{{infoTrans.time}}</td>
+                                    </tr>
+									<tr class="recycler-row-normal">
+										<td class="recycler-row-align-midle-left"><span>STATUS_TITLE</span></td>
+                                        <td class='recycler-row-align-midle-right'>{{infoTrans.status}}</td>
+									</tr>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="trow-space"></tr>
+                <tr>
+                    <td>
+                        <div style="text-align: center;">
+                            <!--<input style="background: rgb(204, 122, 239);" class="btnshadow-after btn-second-after" ng-click="goHomePage();" type="button" value="RESULT_GO_HOMEPAGE_BTN">-->
+                            <input class="btnshadow-after btn-second-after btn-changecolor" ng-click="onMakeOrderTrans();" type="submit" value="RESULT_MORE_TRANS_BTN" >
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

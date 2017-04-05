@@ -1,0 +1,343 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="cre_guarantee_create" style="top:44px; height: 417px">
+    <div class="bg-transfer">
+        <div class="panelContent">
+            <table class="tableTab" id="periodic-table">
+                <td class='content-periodic selected'>
+                    <span>TRANS_PERIODIC_TRADE_TITLE</span>
+                    <span class="content-span"></span>
+                </td>
+                <td ng-click="changeTab()" class='content-periodic'>
+                    <span>TRANS_PERIODIC_MNG_TITLE</span>
+                    <span class="content-span"></span>
+                </td>
+            </table>
+            <table width="100%">
+                <!--loại giao dịch -->
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title">
+                            <span>CRE_TYPE_GUARANTEE_TITLE</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull" ng-click="showTypeGuarantee();">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">CRE_TYPE_GUARANTEE</span>
+                            <input id="id.gua.transtype" class="form-control form-control-righttext" type="button" value="" >
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                            <input id="id.gua.transtype.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <!--end loại giao dịch -->
+
+            <!--tài khoản thu phí-->
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title">
+                            <span>GUA_ACCOUNT_CHARGES</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull" ng-click="showSourceAccount();">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">GUA_ACCOUNT</span>
+                            <input id="id.gua.sourceAccount" class="form-control form-control-righttext" type="button" value="" >
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                            <input id="id.gua" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div id="trans.sourceaccoutbalance" style="display:none;">
+                            <div class="availblstyle widefull">
+                                <span>COM_TXT_ACC_BALANCE_TITLE</span>:
+                                <span id="id.gua.sourceAccount.balance"></span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <!--end tài khoản thu phí-->
+
+                <!--Bên đề nghị bảo lãnh-->
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title">
+                            <span>GUA_OFFEROR_GUARANTEE</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull" >
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">GUA_NAME_OFFEROR</span>
+                            <input id="id.gua.named.offeror" class="form-control form-control-righttext" type="text" value="" disabled="true">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull" >
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">GUA_ADDRESS_OFFEROR</span>
+                            <input id="id.gua.named.offeror.address" class="form-control form-control-righttext" type="text" value="" disabled="true">
+                        </div>
+                    </td>
+                </tr>
+                <!--end Bên đề nghị bảo lãnh-->
+
+                <!--Bên nhận bảo lãnh-->
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title">
+                            <span>GUA_THE_GUARANTEE</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull" >
+                            <span class="holder-input-none-icon" style="width: 40%; white-space:pre-wrap"></span>
+                            <input id="id.name.the.guarantee" class="input-none-border form-control form-control-righttext" type="text" value="" placeholder="GUA_INPUT_NAME_THE_GUARANTEE" onkeyup="controlInputText(this, 150)">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull" >
+                            <span class="holder-input-none-icon" style="width: 40%; white-space:pre-wrap"></span>
+                            <input id="id.name.the.guarantee.address" class="input-none-border form-control form-control-righttext" type="text" value="" placeholder="GUA_INPUT_ADDRESS_BEN" onkeyup="controlInputText(this, 105)">
+                        </div>
+                    </td>
+                </tr>
+                <!--end Bên nhận bảo lãnh-->
+
+                <!--chi tiết giao dich-->
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title">
+                            <span>GUA_DETAIL_TRANSFER_GUARANTEE</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull" >
+                            <span class="holder-input-none-icon" style="width: 40%; white-space:pre-wrap"></span>
+                            <input id="id.amount.security" class="input-none-border form-control form-control-righttext" type="text" value="" placeholder="GUA_AMOUNT_GUARANTEE" onkeyup="handleInputAmount(event, this);" onchange="removeSpecialCharForNumber(this.value)">
+                        </div>
+                    </td>
+                </tr>
+                <!--<tr>
+					<td class="td-text" valign="middle"  align="center" colspan="2">
+                        <div class="input-group widefull" >
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">GUA_AMOUNT_GUARANTEE</span>
+                            <input style="text-align:right" id="id.amount.security" class="input-none-border form-control form-control-righttext" type="text" value="" placeholder="PLACEHOLDER_CRE_AMOUNT_LIMIT" onkeyup="handleInputAmount(event, this);" onchange="removeSpecialCharForNumber(this.value)">
+						</div>
+                    </td>
+                </tr>-->
+                <!--<tr>
+                    <td colspan="2">
+                        <div>
+                            <div id="row_convert" class="txtmoneystyle widefull">
+                                <span>TRANS_LOCAL_NUM_TO_WORD</span>
+                                <span>: </span>
+                                <span id="trans.amounttotext"></span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>-->
+                <tr id="row_convert" style="display: none;">
+                    <td  id="trans.amounttotext" colspan="2">
+                        <div class="txtmoneystyle">
+
+                        </div>
+                    </td>
+                </tr>
+                <!--end chi tiết giao dich-->
+
+                <!--thời hạn bảo lãnh-->
+
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title">
+                            <span>GUA_PERIOD_GUARANTEE</span>
+                        </div>
+                    </td>
+                </tr>
+                <!--<tr>
+                    <td colspan="3" align="center" valign="middle" class="td-text">
+                        <div class="input-group widefull">
+                          <input style="text-align : left;margin-top: -3px;margin-bottom: -2px;" id="fromDate" type="tel" class="form-control input-none-border" placeholder="GIFT_XCHNG_HIS_FROM_DATE_TITLE_DMY" value="" onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"><span id="begindate" onclick="initDialogCal('fromDate')" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker" style="font-size: 20px !important;margin-top: -3px;right: 10px;"></span>
+                          </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" align="center" valign="middle" class="td-text">
+                        <div class="input-group widefull">
+                          <input style="text-align : left;margin-top: -3px;margin-bottom: -2px;" id="toDate" type="tel" class="form-control input-none-border" placeholder="GIFT_XCHNG_HIS_TO_DATE_TITLE_DMY" value="" onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"><span id="enddate" onclick="initDialogCal('toDate')" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker" style="font-size: 20px !important;margin-top: -3px;right: 10px;"></span>
+                          </div>
+                    </td>
+                </tr>-->
+                <tr id="desktop-mode-tr" class="desktopview">
+                    <td colspan="3" align="center" valign="middle" class="td-text">
+                        <div class="input-group" style="width: 50% !important">
+							<input style="float:right;width:50%;text-align : right;margin-right: 20px;" id="toDate" type="tel" class="form-control input-none-border" placeholder="GIFT_XCHNG_HIS_TO_DATE_TITLE_DMY" value="" onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"><span id="enddate" onclick="initDialogCal('toDate')" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker" style="font-size: 20px !important;margin-top: -3px;right: 12px;"></span>
+                        </div>
+						<div class="input-group" style="width: 50% !important">
+							<input style="width:45%;float:left;" id="fromDate" type="tel" class="form-control input-none-border" placeholder="GIFT_XCHNG_HIS_FROM_DATE_TITLE_DMY" value="" onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"><span id="begindate" onclick="initDialogCal('fromDate')" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker" style="font-size: 20px !important;margin-top: -3px;right: 210px;"></span>
+                        </div>
+                    </td>
+                </tr>	
+                <!-- ngày bắt đầu mb -->
+                <tr id="desktop-mode-tr" class="mobileview">
+                    <td colspan="3" align="center" valign="middle" class="td-text">
+                        <div class="input-group widefull">
+                          <input style="text-align : left;" id="fromDatemb" type="tel" class="form-control input-none-border" placeholder="TRANS_PERIODIC_BEGIN_DATE" value="" onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"><span id="begindate" onclick="initDialogCal('fromDatemb')" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker" style="font-size: 20px !important;margin-top: -3px;right: 10px;"></span>
+                          </div>
+                    </td>
+                </tr>
+                <!-- Ngày kết thúc mb -->
+                <tr id="desktop-mode-tr" class="mobileview">
+                    <td colspan="3" align="center" valign="middle" class="td-text">
+                        <div class="input-group widefull">
+                          <input style="text-align : left;" id="toDatemb" type="tel" class="form-control input-none-border" placeholder="TRANS_PERIODIC_END_DATE" value="" onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"><span id="enddate" onclick="initDialogCal('toDatemb')" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker" style="font-size: 20px !important;margin-top: -3px;right: 10px;"></span>
+                          </div>
+                    </td>
+                </tr>
+                <!-- <tr>
+                    <td class="td-text" valign="middle" align="center">
+                        <div class="input-group widefull" ng-click="showReleasFormOfGuarantee();">
+                            <span class="input-group-addon" style="width: 40%;word-break: break-all; white-space:pre-wrap">GUA_RELEASE_FORMS_OF_GUARANTEE</span>
+                            <input id="id.gua.release.forms" class="form-control form-control-righttext" type="button" value="" >
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                            <input id="id.gua.release.forms.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr> -->
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group border-b widefull" ng-click="showReleasFormOfGuarantee();">
+                            <span class="input-group-addon" style="width: 50%; white-space:pre-wrap">GUA_RELEASE_FORMS_OF_GUARANTEE</span>
+                            <input id="id.gua.release.forms" class="form-control form-control-righttext" type="text" value="">
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                            <input id="id.gua.release.forms.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <!--end thời hạn bảo lãnh-->
+                <!--Nội dung bảo lãnh-->
+                <!-- <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="form-textarea-title widefull">
+                            <span class="desktopview">GUA_CONTENT_GUARANTEE</span>
+                            <span class="mobileview" style="color: #FFF">GUA_CONTENT_GUARANTEE</span>
+                        </div>
+                        <div class="input-group widefull">
+                            <textarea id="id.gua.content" style="height: 50px !important; padding-top: 3%" class="form-control form-control-textarea" placeholder="COM_TXT_INPUT_PLACEHOLDER" maxlength="150" onkeyup="controlInputText(this, 150)"></textarea>
+                        </div>
+                    </td>
+                </tr> -->
+                <tr>
+                    <td>
+                        <div class="tranfer-item">
+                            <div id="holder-transfer-message" class="text-area-content"><div class="bg-text-area"><div class="holderIcon"><div style="display:table;width: 100%;height:100%"><span style="display:table-cell;vertical-align: middle;text-align: center;font-size:24px!important" class="icon-content-note"></span></div></div><div class="holder-txtarea"> <div class="area dummy"></div><textarea class="area" id="trans.content" onkeyup="replaceTextareaContent(this)" value="" placeholder="GUA_CONTENT_GUARANTEE" maxlength="150" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"></textarea></div></div></div>
+                        </div>
+                    </td>
+                </tr>
+
+                <!--Tài khoản ký quỹ-->
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull" ng-click="showMarginAccount();" >
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">GUA_MARGIN_ACCOUNT</span>
+                            <input id="id.gua.margin.account" class="form-control form-control-righttext" type="button" value="" >
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                        </div>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <div id="trans.marginAccount" style="display: none;">
+                            <div class="availblstyle widefull">
+                                <span>COM_TXT_ACC_BALANCE_TITLE</span>:
+                                <span id="id.gua.margin.account.balance"></span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+               <!-- Tỷ lệ ký quỹ-->
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull" >
+                            <span class="holder-input-none-icon" style="width: 40%; white-space:pre-wrap"></span>
+                            <input id="id.gua.deposit.ratio" class="input-none-border form-control form-control-righttext" type="text" value="" max placeholder="GUA_INPUT_DEPOSIT_RATIO" onkeypress='validate(event)' onblur="formatDeposit(event, this);"  maxlength="5">
+                        </div>
+                    </td>
+                </tr>
+                <!--<tr>
+					<td class="td-text" valign="middle"  align="center" colspan="2">
+                        <div class="input-group widefull" >
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">GUA_DEPOSIT_RATIO</span>
+                            <input style="text-align:right" id="id.gua.deposit.ratio" class="input-none-border form-control form-control-righttext" type="text" value="" max placeholder="GUA_INPUT_DEPOSIT_RATIO" onkeypress='validate(event)' onblur="formatDeposit(event, this);"  maxlength="3">
+						</div>
+                    </td>
+                </tr>-->
+                <!--Tài sản đảm bảo khác-->
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull">
+                            <span class="holder-input-none-icon" style="width: 40%; white-space:pre-wrap"></span>
+                            <input id="id.gua.collateral.other" class="input-none-border form-control form-control-righttext" type="text" value="" placeholder="GUA_INPUT_COLLATERAL_OTHER" onkeyup="controlInputText(this, 250)">
+                        </div>
+                    </td>
+                </tr>
+                <!--<tr>
+					<td class="td-text" valign="middle"  align="center" colspan="2">
+                        <div class="input-group widefull" >
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">GUA_COLLATERAL_OTHER</span>
+						    <input style="text-align:right" id="id.gua.collateral.other" class="input-none-border form-control form-control-righttext" type="text" value="" placeholder="GUA_INPUT_COLLATERAL_OTHER" onkeyup="controlInputText(this, 250)">
+						</div>
+                    </td>
+                </tr>-->
+              <!--  Gửi thông báo cho người duyệt-->
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull" >
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">GUA_SEND_NOTIFICATION_TO_USER</span>
+                            <input id="id.gua.sendMethod" class="form-control form-control-righttext" type="text" value="" disabled="true">
+                            <input id="id.gua.sendMethod.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+				<tr class="trow-space"></tr>
+                <tr class="mt-15">
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="tdbtndesktop" style="width:50%">
+                            <input type="submit" style="float:left;margin-left:65px;" class="btnDesktopshadow btnDesktopBack" onclick="clickHomeOrBack()" value="Quay lại" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off">
+                        </div>
+                        <div style="width:50%">
+                            <input type="button" style="margin-right:100px; font-size: 14px!important;" class="btnshadow btn-second" ng-click="onContinuteClick()" value="CM_BTN_SEND_REQ" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>
+

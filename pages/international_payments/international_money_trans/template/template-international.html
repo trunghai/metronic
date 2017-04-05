@@ -1,0 +1,79 @@
+<div id="mainViewContentDialog" class="main-layout-subview" ng-controller="template-transfer-doc" style="margin-top: 44px">
+    <div class="panelContent contact-list">
+        <form>
+
+            <div class="pg-class-list-trans-src">
+                <div>
+                    <span class="icon-account-info"></span>
+                    <input type="text" class="form-control" id="txtSearch" placeholder="INTRODUCE_SREACH_TITLE" autocomplete="off" onkeyup="SearchDocRow(this)" onpaste="SearchDocRow(this)" value="" autocorrect="off" autocapitalize="off" spellcheck="off" />
+                </div>
+            </div>
+        </form>
+        <div  class="desktop-mode title-myaccount">
+            <span>TRANSFER_LOCAL_MYACCOUNT</span>
+        </div>
+        <div id="content-transfer" >
+            <div id="scrollContact"  class=" scroll-contact">
+                <div id="divListDoc"></div>
+            </div>
+        </div>
+    </div>
+    <div class="contact-view">
+        <table cellspacing="0" style="width:90%;margin:0 auto;">
+            <tr>
+                <td style="width:90px">
+                    <div class="sup-icon-accounts">
+                        <span  class="icon-accounts" style="font-size: 61px"></span>
+                    </div>
+                </td>
+                <td class="accountInfo">
+                    <div class="contactName" id="nameuser"></div>
+                </td>
+            </tr>
+            <tr style="display: none">
+                <td style="text-align:left" id='accSource'></td>
+            </tr>
+            <tr>
+                <td style="text-align:left">
+                    <span>TRANS_LOCAL_ACC_DESTINATION</span>
+                </td>
+                <td style="text-align:left" id='nametranfer'></td>
+            </tr>
+            <tr id="tr-accnotitle">
+                <td style="text-align:left">
+                    <span>ACCOUNT_ACC_NO_TITLE</span>
+                </td>
+                <td style="text-align:left" id='accNumbertransfer'></td>
+            </tr>
+            <tr id="tr-bankben">
+                <td style="text-align:left">
+                    <span>INTERNATIONAL_THE_BEN_BANK_NAME_TEMPLATE</span>
+                </td>
+                <td style="text-align:left" id='bankName'></td>
+            </tr>
+            <tr id="tr-nationalben">
+                <td style="text-align:left">
+                    <span>INTERNATIONAL_NAIION_BANK_BEN</span>
+                </td>
+                <td style="text-align:left" id='national'></td>
+            </tr>
+
+            <!--<tr>-->
+            <!--<td style="text-align:left"><span>DAY_TRANSFER</span></td>-->
+            <!--<td style="text-align:left;" id="ngay_chuyen"></td>-->
+            <!--</tr>-->
+            <tr style="cursor:pointer">
+                <td class="transContact" style="border-bottom:none;"></td>
+                <td class="transContact" onclick='temptranferlocalbank()' style="border-bottom:none;"><span>TRANSFER_MONEY_TITLE</span></td>
+            </tr>
+            <tr style="cursor:pointer">
+                <td class="transContact" style="border-bottom:none;"></td>
+                <td class="transContact" ng-click='tempeditselection()' style="border-bottom:none;"><span>TRANSFER_REMITTANCE_MODIFY</span></td>
+            </tr>
+            <tr id='deleteSelection' style="cursor:pointer;">
+                <td class="transContact"></td>
+                <td class="transContact" id="tempdelete"><span>TRANSFER_REMITTANCE_DELETE</span></td>
+            </tr>
+        </table>
+    </div>
+</div>

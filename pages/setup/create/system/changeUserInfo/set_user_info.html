@@ -1,0 +1,115 @@
+<style type="text/css">
+    h5 {
+        font-family: TPBNeoSans_Bold !important;
+        font-weight: normal
+    }
+
+    input[type='file'] {
+        opacity: 0
+    }
+</style>
+<div id="mainViewContent" class="main-layout-subview" ng-controller="set-user-info">
+    <div class="panelContent" style="margin-top:0px;padding-top:10px;">
+        <div id="seqFormLocal"></div>
+        <table width="100%">
+            <tr>
+                <td colspan="2"><h5 style="float:left;margin:8px"><span class="header-title">UTILITIES_CHNG_PER_INFO_TITLE</span>
+                </h5></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="form-common">
+                    <div class="bg-grid-view ">
+                        <div class="grid-item">
+                            <div class="item-label"><span>SET_USER_ID_LOGIN</span></div>
+                            <div class="item-value" style="font-family: 'TPBNeoSans' !important;"><span id="idUserLogin"></span></div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="item-label"><span>SET_USER_FULL_NAME</span></div>
+                            <div class="item-value" style="font-family: 'TPBNeoSans' !important;"><span id="idFullName"></span></div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="item-label"><span>COM_SHORT_NAME</span></div>
+                            <div class="item-value" style="font-family: 'TPBNeoSans' !important;"><span id="idShortName"></span></div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="item-label"><span>SET_USER_NUMBER_CMT</span></div>
+                            <div class="item-value" style="font-family: 'TPBNeoSans' !important;"><span id="idNumberCMT"></span></div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="item-label"><span>SET_USER_DATE_RANGE</span></div>
+                            <div class="item-value" style="font-family: 'TPBNeoSans' !important;"><span id="idDateRange"></span></div>
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><h5 style="float:left;margin:8px"><span class="header-title">UTILITIES_CHNG_PER_INFO_CONTACT_TITLE</span>
+                </h5></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center" valign="middle" class="td-text">
+                    <div class="input-group"><span class="input-group-addon">SET_USER_EMAIL</span>
+                        <input id="idEmail" class="form-control form-control-righttext" value="" maxlength="60"
+                               onkeyup="controlInputText(this, 60, true)" placeholder="COM_TXT_INPUT_PLACEHOLDER"
+                               style="white-space: pre-wrap; padding-right: 10px;" align="left"/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center" valign="middle" class="td-text">
+                    <div class="input-group"><span class="input-group-addon">SET_USER_PHONE_NUMBER</span>
+                        <input id="idPhoneNumber" class="form-control form-control-righttext" value=""
+                               placeholder="COM_TXT_INPUT_PLACEHOLDER" onkeypress="handleInputPhoneNumber(event)"
+                               onkeyup="controlInputText(this, 11)"
+                               style="white-space: pre-wrap; padding-right: 10px;" align="left"/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><h5 style="float:left;margin:8px"><span class="header-title">UTILITIES_CHNG_PER_INFO_OCCUPATION_INFO_TITLE</span>
+                </h5></td>
+            </tr>
+            <!--Chức vụ-->
+            <tr>
+                <td colspan="2" align="center" valign="middle" class="td-text">
+                    <div class="input-group">
+
+                        <span class="input-group-addon">SET_USER_POSITION</span>
+
+                        <input id="idPosition" type="text" class="form-control form-control-righttext"
+                               placeholder="COM_TXT_INPUT_PLACEHOLDER" onkeyup="controlInputText(this, 60, true)"
+                               style="white-space: pre-wrap; padding-right: 10px;" align="left"/>
+                    </div>
+                </td>
+            </tr>
+            <tr class="trow-space"></tr>
+            <tr class="mt-15">
+                <td colspan="2" align="center" valign="middle" class="td-text">
+                    <div class="tdbtndesktop" style="width:50%">
+                        <input  type='submit' style="float:left;margin-left:65px" class='btnDesktopshadow btnDesktopBack' onClick= 'clickHomeOrBack()' value='INPUT_ACC_BTN_GOBACK'/>
+                    </div>
+                    <div style="width:50%">
+                        <input  type="button" style="margin-right:100px" class="btnshadow btn-second"
+                                ng-click="sendRequestUpdate()" value="TRANS_LOCAL_BTN_SENDREQUEST"/>
+                    </div>
+                </td>
+            </tr>
+
+            <!-- <tr class="mt-15" style="height: 75px;">
+                <td colspan="2" align="center" valign="middle" class="td-text">
+                    <div class="tdbtndesktop" style="width:50%">
+                        <input type='submit' style="float:left;margin-left:65px; margin-top: 10px"
+                               class='btnDesktopshadow btnDesktopBack' onClick='clickHomeOrBack()'
+                               value='INPUT_ACC_BTN_GOBACK'/>
+                    </div>
+                    <div style="width:50%">
+                        <input type="button" style="margin-right:100px; margin-top: 10px;" class="btnshadow btn-second"
+                               ng-click="sendRequestUpdate()" value="TRANS_LOCAL_BTN_SENDREQUEST"/>
+                    </div>
+                </td>
+            </tr> -->
+        </table>
+    </div>
+</div>

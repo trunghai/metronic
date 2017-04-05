@@ -1,0 +1,132 @@
+<table width="100%">
+    <tr>
+        <td colspan="2">
+            <div id="seqFormReview">
+                <table xmlns="http://www.w3.org/1999/xhtml" width="357" align="center" cellspacing="0" cellpadding="0"
+                       border="0" style="margin:auto" class="sequence-form-302">
+                    <tbody>
+                    <tr>
+                        <td width="33%"><span>SEQ_INPUT_TITLE</span></td>
+                        <td width="33%" class="selected"><span>SEQ_AUTHEN_TITLE</span></td>
+                        <td width="33%"><span>SEQ_COMPLETE_TITLE</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </td>
+    </tr>
+    <tr></tr>
+    <tr scrinfo="">
+        <td colspan="2"><h5 class="Header" style="display:none;">REVIEW_TITLE_SCREEN</h5></td>
+    </tr>
+
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div id="recycler_list" class="recycler-list">
+                    <table id="recycler_table_ebank" class="recycler-table-ebank">
+                        <tbody>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.transId"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>BATCH_SALARY_PROCESSED_DATE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.NGAY_LAP"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <h5 class="header-title"><span>TRANS_ACCOUNT_INFO_BLOCK_TITLE</span></h5>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div class="recycler-list">
+                    <table class="recycler-table-ebank">
+                        <tbody>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TOPUP_TRANS_TYPE_TITLE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.transType"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>VIEW_TRANS_DETAIL_ACC</span>
+                            </td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.TK_CHUYEN"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANSFER_LIST_TOTAL_AMOUNT</span></td>
+                            <td class="recycler-row-align-midle-right"
+                                ng-bind="infoTrans.totalMoneyView"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANSFER_LIST_TOTAL_FEE</span></td>
+                            <td class="recycler-row-align-midle-right"
+                                ng-bind="infoTrans.totalFeeView"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <div id="recycler_list1" class="recycler-list">
+        <table id="recycler_table_ebank-desktop" class="recycler-table-ebank" ng-if="infoTrans.IDTXN == 'T16'">
+            <tbody>
+            <tr class="recycler-row-title-header recycler-list">
+                <td class="recycler-row-align-midle"><span>COM_NO</span></td>
+                <td class="recycler-row-align-midle"><span>COM_RECEIVE_NAME</span></td>
+                <td class="recycler-row-align-midle"><span>COM_DESCRIPTION</span></td>
+                <td class="recycler-row-align-midle"><span>COM_AMOUNT</span></td>
+                <td class="recycler-row-align-midle"><span>COM_ACCOUNT_DEST</span></td>
+            </tr>
+            <tr class="recycler-row-title recycler-list" ng-repeat="item in infoTrans.listPending track by $index">
+                <td class="recycler-row-align-midle"><span ng-bind="$index + 1"></span></td>
+                <td class="recycler-row-align-midle"><span ng-bind="item.NGUOI_NHAN"></span></td>
+                <td class="recycler-row-align-midle"><span ng-bind="item.MO_TA"></span></td>
+                <td class="recycler-row-align-midle"><span ng-bind="item.SO_TIEN_View"></span></td>
+                <td class="recycler-row-align-midle"><span ng-bind="item.TK_NHAN"></span></td>
+            </tr>
+        </table>
+        <table id="recycler_table_ebank-desktop2" class="recycler-table-ebank" ng-if="infoTrans.IDTXN == 'T17'">
+        <table id="recycler_table_ebank-desktop2" ng-if="infoTrans.IDTXN == 'T17'" width='96%' align='center' class='table-account recycler-table-ebank'>
+            <tr class='recycler-row-title-header recycler-list'>
+                <td width='6%' class='recycler-row-align-midle'><span>COM_NO</span></td>
+                <td width='10%' class='recycler-row-align-midle'><span>COM_RECEIVE_NAME</span></td>
+                <td width='12%' class='recycler-row-align-midle'><span>COM_DESCRIPTION</span></td>
+                <td width='12%' class='recycler-row-align-midle'><span>COM_AMOUNT</span></td>
+                <td width='12%' class='recycler-row-align-midle'><span>COM_ACCOUNT_DEST</span></td>
+                <td width='12%' class='recycler-row-align-midle'><span>COM_RECEIVER_BANK_NAME</span></td>
+                <td width='12%' class='recycler-row-align-midle'><span>BATCH_SALARY_MNG_TIT_BRANCH_NAME</span></td>
+                <td width='18%' class='recycler-row-align-midle'><span>COM_BANK_CODE</span></td>
+            </tr>
+            <tr class="recycler-row-title recycler-list" ng-repeat="item in infoTrans.listPending track by $index">
+                <td width="6%" class=""><div class="mobile-mode"><span>COM_NO</span></div><div class="content-detail"><span ng-bind="$index + 1"></span></div></td>
+                <td width="6%" class=""><div class="mobile-mode"><span>COM_RECEIVE_NAME</span></div><div class="content-detail"><span ng-bind="item.NGUOI_NHAN"></span></div></td>
+                <td width="6%" class=""><div class="mobile-mode"><span>COM_DESCRIPTION</span></div><div class="content-detail"><span ng-bind="item.MO_TA"></span></div></td>
+                <td width="6%" class=""><div class="mobile-mode"><span>COM_AMOUNT</span></div><div class="content-detail"><span ng-bind="item.SO_TIEN_View"></span></div></td>
+                <td width="6%" class=""><div class="mobile-mode"><span>COM_ACCOUNT_DEST</span></div><div class="content-detail"><span ng-bind="item.TK_NHAN"></span></div></td>
+                <td width="6%" class=""><div class="mobile-mode"><span>COM_RECEIVER_BANK_NAME</span></div><div class="content-detail"><span ng-bind="item.TEN_NGAN_HANG"></span></div></td>
+                <td width="6%" class=""><div class="mobile-mode"><span>BATCH_SALARY_MNG_TIT_BRANCH_NAME</span></div><div class="content-detail"><span ng-bind="item.TEN_CHI_NHANH"></span></div></td>
+                <td width="6%" class=""><div class="mobile-mode"><span>COM_BANK_CODE</span></div><div class="content-detail"><span ng-bind="item.MA_NGAN_HANG"></span></div></td>
+
+                
+                <!-- <td width="6%" class=""><div class="mobile-mode"><span ng-bind="$index + 1"></span></td>
+                <td class="recycler-row-align-midle-left"><span ng-bind="item.NGUOI_NHAN"></span></td>
+                <td class="recycler-row-align-midle-left"><span ng-bind="item.MO_TA"></span></td>
+                <td class="recycler-row-align-midle-left"><span ng-bind="item.SO_TIEN_View"></span></td>
+                <td class="recycler-row-align-midle-left"><span ng-bind="item.TK_NHAN"></span></td>
+                <td class="recycler-row-align-midle-left"><span ng-bind="item.TEN_NGAN_HANG"></span></td>
+                <td class="recycler-row-align-midle-left"><span ng-bind="item.TEN_CHI_NHANH"></span></td>
+                <td class="recycler-row-align-midle-left"><span ng-bind="item.MA_NGAN_HANG"></span></td> -->
+            </tr>
+        </table>
+    </div>
+</table>
+</br>

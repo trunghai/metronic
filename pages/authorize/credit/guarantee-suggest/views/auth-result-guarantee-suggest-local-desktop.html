@@ -1,0 +1,33 @@
+<div id="recycler_list">
+    <table id="recycler-table-ebank" class="recycler-table-ebank widefull">
+        <tbody>
+        <tr class='recycler-row-title-header recycler-list'>
+            <td  class="recycler-row-align-midle-left" style="width: 6%"><span>COM_NO</span></td>
+            <td class="recycler-row-align-midle-left" style="width: 12%"><span>COM_MAKER</span></td>
+            <td  class="recycler-row-align-midle-left" style="width: 13%"><span>COM_CREATED_DATE</span></td>
+            <td  class="recycler-row-align-midle-left" style="width: 10%"><span>LOAN_BORROW_MONEY</span></td>
+            <td  class="recycler-row-align-midle-left" style="width: 9%"><span>COM_STATUS</span></td>
+            <td  class="recycler-row-align-midle-left" style="width: 9%"><span>DATE_LOAN_AMOUNT</span></td>
+            <td  class="recycler-row-align-midle-left" style="width: 11%"><span>COM_CHEKER</span></td>
+            <td  class="recycler-row-align-midle-left" style="width: 13%"><span>COM_CHECK_DATE</span></td>
+            <td  class="recycler-row-align-midle-left" style="width: 11%"><span>COM_TRANS_CODE</span></td>
+
+            <!--<td width="50%" class="recycler-row-align-midle-left"><span>AUTHORIZE_TRANS_TIT_COUNT_PENDING</span></td>-->
+        </tr>
+        <tr class="recycler-row-title recycler-list" ng-repeat="x in final track by $index">
+            <td  class="recycler-row-align-midle-left"><span ng-bind="$index + 1"></span></td>
+            <td  class="recycler-row-align-midle-left"><span ng-bind="x.MAKER"></span></td>
+            <td  class="recycler-row-align-midle-left"><span ng-bind="x.DATMAKE"></span></td>
+            <td  class="recycler-row-align-midle-left"><span ng-bind="(x.REQUEST_AMOUNT | currency : ' ' : 0) + ' ' + (x.LOAI_TIEN)"></span></td>
+            <td  class="recycler-row-align-midle-left"><span ng-bind="statusVN[x.STATUS]"></span></td>
+            <td  class="recycler-row-align-midle-left"><span ng-bind="x.TIMES + ' tháng'"></span></td>
+            <td  class="recycler-row-align-midle-left"><span ng-bind="x.SIGNEDBY"></span></td>
+            <td  class="recycler-row-align-midle-left"><span ng-bind="x.DATCHECK"></span></td>
+            <td  class="recycler-row-align-midle-left"><span ng-bind="x.IDFCATREF"></span></td>
+        </tr>
+        <!--<tr class="recycler-row-normal recycler-hover">-->
+            <!--<td class="recycler-row-align-midle"><span ng-bind="final.DATCHECK"></span></td>-->
+        <!--</tr>-->
+        </tbody>
+    </table>
+</div>

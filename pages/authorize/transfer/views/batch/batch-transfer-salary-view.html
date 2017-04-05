@@ -1,0 +1,153 @@
+<table width="100%">
+<!--     <tr>
+        <td colspan="2">
+            <div id="seqFormReview">
+                <table xmlns="http://www.w3.org/1999/xhtml" width="357" align="center" cellspacing="0" cellpadding="0"
+                       border="0" style="margin:auto" class="sequence-form-302">
+                    <tbody>
+                    <tr>
+                        <td width="33%"><span>SEQ_INPUT_TITLE</span></td>
+                        <td width="33%" class="selected"><span>SEQ_AUTHEN_TITLE</span></td>
+                        <td width="33%"><span>SEQ_COMPLETE_TITLE</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </td>
+    </tr>
+    <tr></tr>
+    <tr scrinfo="">
+        <td colspan="2"><h5 class="Header" style="display:none;">REVIEW_TITLE_SCREEN</h5></td>
+    </tr> -->
+    <tr>
+        <td colspan="2">
+				<div align="center">
+					<div class="recycler-list">
+						<table align="center" class="recycler-table-ebank">
+                        <tbody>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANS_ACCNO_ID</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.MA_GD"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>BATCH_SALARY_PROCESSED_DATE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.NGAY_THUC_HIEN"></td>
+                        </tr>
+                        <tr class="recycler-row-normal" id="id.reason">
+                            <td class="recycler-row-align-midle-left"><span>COM_AUTH_DENIAL_REASON</span></td>
+                            <td style="font-size: 13px;" class="recycler-row-align-midle-right" ng-bind="reason"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <h5 class="header-title"><span>TRANS_ACCOUNT_INFO_BLOCK_TITLE</span></h5>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+				<div align="center">
+					<div class="recycler-list">
+						<table align="center" class="recycler-table-ebank">
+                        <tbody>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_TYPE_TRANSACTION</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.LOAI_GD_VIEW"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANS_BATCH_ACC_LABEL</span>
+                            </td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.TK_CHUYEN"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>CRE_DEBT_SURPLUS_AVAILABEL</span>
+                            </td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.SO_DU_VIEW"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANSFER_LIST_TOTAL_AMOUNT</span>
+                            </td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.TONG_SO_TIEN_VIEW"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANSFER_LIST_TOTAL_FEE</span>
+                            </td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.TONG_PHI_VIEW"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANS_BATCH_BALANCE_AFTER</span>
+                            </td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.SO_DU_SAU_CHUYEN_VIEW"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <div id="recycler_list1">
+	    <table width='98%' align='center' class='recycler-table-ebank desktopview' >
+        <!-- <table id="recycler_table_ebank-desktop" class="recycler-table-ebank desktopview"> -->
+            <tr class='recycler-row-title-header recycler-list'>
+                <td width="7%" class="recycler-row-align-midle"><span>COM_NO</span></td>
+                <td class="recycler-row-align-midle"><span>COM_RECEIVE_NAME</span></td>
+                <td class="recycler-row-align-midle"><span>COM_DESCRIPTION</span></td>
+                <td width="14%" class="recycler-row-align-midle"><span>COM_AMOUNT</span></td>
+                <td class="recycler-row-align-midle"><span>COM_ACCOUNT_DEST</span></td>
+                <td class="recycler-row-align-midle" ng-if="infoTrans.LOAI_GD == 'T17'"><span>COM_RECEIVER_BANK_NAME</span></td>
+                <td width="14%" class="recycler-row-align-midle" ng-if="infoTrans.LOAI_GD == 'T17'"><span>BATCH_SALARY_MNG_TIT_BRANCH_NAME</span></td>
+                <td class="recycler-row-align-midle" ng-if="infoTrans.LOAI_GD == 'T17'"><span>COM_BANK_CODE</span></td>
+            </tr>
+            <tr class="recycler-row-title recycler-list" ng-repeat="item in infoTrans.listPending track by $index">
+                <td class="recycler-row-align-midle"><span ng-bind="$index + 1"></span></td>
+                <td class="recycler-row-align-midle"><span ng-bind="item.NGUOI_NHAN"></span></td>
+                <td class="recycler-row-align-midle"><span ng-bind="item.MO_TA"></span></td>
+                <td class="recycler-row-align-midle"><span ng-bind="item.SO_TIEN_VIEW"></span></td>
+                <td class="recycler-row-align-midle"><span ng-bind="item.TK_NHAN"></span></td>
+                <td class="recycler-row-align-midle" ng-if="infoTrans.LOAI_GD == 'T17'"><span ng-bind="item.TEN_NGAN_HANG"></span></td>
+                <td class="recycler-row-align-midle" ng-if="infoTrans.LOAI_GD == 'T17'"><span ng-bind="item.TEN_CHI_NHANH"></span></td>
+                <td class="recycler-row-align-midle" ng-if="infoTrans.LOAI_GD == 'T17'"><span ng-bind="item.MA_NGAN_HANG"></span></td>
+            </tr>
+        </table>
+        <div align='center' class='recycler-table-ebank  mobileview'>
+            <table style='margin-bottom:10px;' width='98%'  class='recycler-list' ng-repeat="item in infoTrans.listPending track by $index">
+				<!--<tr class="recycler-row-normal">
+                    <td class="recycler-row-align-midle-left"><span>COM_NO</span></td>
+                    <td class="recycler-row-align-midle-right"><span ng-bind="$index + 1"></span></td>
+                </tr> -->
+                <tr class="recycler-row-normal">
+                    <td class="recycler-row-align-midle-left"><span>COM_RECEIVE_NAME</span></td>
+                    <td class="recycler-row-align-midle-right"><span ng-bind="item.NGUOI_NHAN"></span></td>
+                </tr>
+                <tr class="recycler-row-normal">
+                    <td class="recycler-row-align-midle-left"><span>COM_DESCRIPTION</span></td>
+                    <td class="recycler-row-align-midle-right"><span ng-bind="item.MO_TA"></span></td>
+                </tr>
+                <tr class="recycler-row-normal">
+                    <td class="recycler-row-align-midle-left"><span>COM_AMOUNT</span></td>
+                    <td class="recycler-row-align-midle-right"><span ng-bind="item.SO_TIEN_VIEW"></span></td>
+                </tr>
+                <tr class="recycler-row-normal">
+                    <td class="recycler-row-align-midle-left"><span>COM_ACCOUNT_DEST</span></td>
+                    <td class="recycler-row-align-midle-right"><span ng-bind="item.TK_NHAN"></span></td>
+                </tr>
+                <tr class="recycler-row-normal" ng-if="infoTrans.LOAI_GD == 'T17'">
+                    <td class="recycler-row-align-midle-left"><span>COM_RECEIVER_BANK_NAME</span></td>
+                    <td class="recycler-row-align-midle-right"><span ng-bind="item.TEN_NGAN_HANG"></span></td>
+                </tr>
+                <tr class="recycler-row-normal" ng-if="infoTrans.LOAI_GD == 'T17'">
+                    <td class="recycler-row-align-midle-left"><span>BATCH_SALARY_MNG_TIT_BRANCH_NAME</span></td>
+                    <td class="recycler-row-align-midle-right"><span ng-bind="item.TEN_CHI_NHANH"></span></td>
+                </tr>
+                <tr class="recycler-row-normal" ng-if="infoTrans.LOAI_GD == 'T17'">
+                    <td class="recycler-row-align-midle-left"><span>COM_BANK_CODE</span></td>
+                    <td class="recycler-row-align-midle-right"><span ng-bind="item.MA_NGAN_HANG"></span></td>
+                </tr>
+            </table>
+        </div>  
+    </div>
+</table>

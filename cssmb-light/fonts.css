@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'TPBNeoSans_Bold';
+    /*src: url('../assets/fonts/TPBNeoSans_Bold.ttf') format('truetype');*/
+    src: url('../assets/fonts/TPBNeoSans_Bold.tff') format('embedded-opentype');
+    src: url('../assets/fonts/TPBNeoSans_Bold.ttf')  format('truetype'),
+         url('../assets/fonts/TPBNeoSans_Bold.ttf') format('svg'),
+         url('../assets/fonts/TPBNeoSans_Bold.ttf') format('embedded-opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TPBNeoSans_Italic';
+    /*src: url('../assets/fonts/TPBNeoSans_Italic.ttf') format('truetype');*/
+    src: url('../assets/fonts/TPBNeoSans_Italic.ttf') format('embedded-opentype');
+    src: url('../assets/fonts/TPBNeoSans_Italic.ttf')  format('truetype'),
+         url('../assets/fonts/TPBNeoSans_Italic.ttf') format('svg'),
+         url('../assets/fonts/TPBNeoSans_Italic.ttf') format('embedded-opentype');
+    font-weight: lighter;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TPBNeoSans';
+    /*src: url('../assets/fonts/TPBNeoSans.ttf') format('truetype');*/
+    src: url('../assets/fonts/TPBNeoSans.ttf') format('embedded-opentype');
+    src: url('../assets/fonts/TPBNeoSans.ttf') format('truetype'),
+         url('../assets/fonts/TPBNeoSans.ttf') format('svg'),
+         url('../assets/fonts/TPBNeoSans.ttf') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TPBNeoSans_Bold_Italic';
+    /*src: url('../assets/fonts/TPBNeoSans_Bold_Italic.ttf') format('truetype');*/
+    src: url('../assets/fonts/TPBNeoSans_Bold_Italic.ttf') format('embedded-opentype');
+    src: url('../assets/fonts/TPBNeoSans_Bold_Italic.ttf')  format('truetype'),
+         url('../assets/fonts/TPBNeoSans_Bold_Italic.ttf') format('svg'),
+         url('../assets/fonts/TPBNeoSans_Bold_Italic.ttf') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*@font-face {*/
+    /*font-family: 'TPB-DaxlinePro-Thin';*/
+    /*src: url('../assets/fonts/TPB-DaxlinePro-Thin.ttf') format('truetype');*/
+    /*src: url('../assets/fonts/tpb-daxlinepro-thin-webfont.eot') format('embedded-opentype');*/
+    /*src: url('../assets/fonts/TPB-DaxlinePro-Thin.ttf')  format('truetype'),*/
+         /*url('../assets/fonts/tpb-daxlinepro-thin-webfont.svg#svgFontName') format('svg'),*/
+         /*url('../assets/fonts/tpb-daxlinepro-thin-webfont.eot?#iefix') format('embedded-opentype');*/
+    /*font-weight: lighter;*/
+    /*font-style: normal;*/
+/*}*/

@@ -1,0 +1,260 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="request-edit-lc-view">
+    <div class="bg-transfer">
+        <div class="panelContent">
+            <table id="dynamic-billing-table" width="100%">
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">REQUEST_RELEASE_VALUE_LC_UP_ROOT</span>
+                            <input id="id.release.value.lc.up.root" class="form-control form-control-righttext" type="text" value="" placeholder="INTERNATIONAL_PLACEHOLDER_INPUT" ng-model="requestlc.AMOUNT_OLD"  disabled>
+                            <input id="id.release.value.lc..up.value.root" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">REQUEST_RELEASE_VALUE_LC_UP</span>
+                            <input id="id.release.value.lc.up" class="form-control form-control-righttext" type="text" value="" placeholder="INTERNATIONAL_PLACEHOLDER_INPUT" ng-model="requestlc.VAL_LC_INCREASE"  disabled>
+                            <input id="id.release.value.lc..up.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">REQUEST_RELEASE_VALUE_LC_DOWN</span>
+                            <input id="id.release.value.lc.down" class="form-control form-control-righttext" type="text" value="" placeholder="INTERNATIONAL_PLACEHOLDER_INPUT" ng-model="requestlc.VAL_LC_REDUCE"  disabled>
+                            <input id="id.release.value.lc.down.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">REQUEST_RELEASE_VALUE_LC_EDIT_AFTER</span>
+                            <input id="id.release.value.lc.edit" class="form-control form-control-righttext" type="text" value="" placeholder="INTERNATIONAL_PLACEHOLDER_INPUT" ng-model="requestlc.VAL_LC_MODIFY"  disabled>
+                            <input id="id.release.value.lc.edit.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">REQUEST_RELEASE_LC_BENEFICIARY</span>
+                            <input id="id.release.been" class="form-control form-control-righttext" type="text" value="" placeholder="INTERNATIONAL_PLACEHOLDER_INPUT" ng-model="requestlc.NAME_BENE" disabled>
+                            <input id="id.release.been.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">REQUEST_RELEASE_LC_BOOL_NEW</span>
+                            <input id="id.release.bool.new" class="form-control form-control-righttext" type="text" value="" placeholder="INTERNATIONAL_PLACEHOLDER_INPUT" ng-model="requestlc.POSITIVE_NEGATIVE" disabled>
+                            <input id="id.release.bool.new.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">REQUEST_RELEASE_LC_BOOL_OLD</span>
+                            <input id="id.release.bool.old" class="form-control form-control-righttext" type="text" value="" placeholder="INTERNATIONAL_PLACEHOLDER_INPUT" ng-model="requestlc.POSITIVE_NEGATIVE_OLD" disabled>
+                            <input id="id.release.bool.old.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">REQUEST_RELEASE_LC_RATE</span>
+                            <input id="id.release.rate" class="form-control form-control-righttext" type="text" value="" placeholder="INTERNATIONAL_PLACEHOLDER_INPUT" ng-model="requestlc.RATE" disabled>
+                            <input id="id.release.rate.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">REQUEST_RELEASE_LC_ADJOURN_EFFICIENCY</span>
+                            <input id="id.release.efficiency" class="form-control form-control-righttext" type="text" value="" placeholder="INTERNATIONAL_PLACEHOLDER_INPUT" ng-model="requestlc.expiry_date" disabled>
+                            <input id="id.release.rate.efficiency" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <!--<tr>-->
+                    <!--<td class="td-text" valign="middle" align="center" colspan="2">-->
+                        <!--<div class="input-group widefull">-->
+                            <!--<span class="input-group-addon" style="width: 40%; white-space:pre-wrap">REQUEST_RELEASE_LC_ADJOURN_SHIP</span>-->
+                            <!--<input id="id.release.ship" class="form-control form-control-righttext" type="text" value="" placeholder="INTERNATIONAL_PLACEHOLDER_INPUT" ng-model="requestlc.shipment_date" disabled>-->
+                            <!--<input id="id.release.rate.ship" type="hidden" value="">-->
+                        <!--</div>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title">
+                            <span>REQUEST_RELEASE_LC_ESCROW</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">REQUEST_RELEASE_LC_ESCROW_AMOUNT_UP</span>
+                            <input id="id.release.escrow.amount.up" class="form-control form-control-righttext" type="text" value="" placeholder="INTERNATIONAL_PLACEHOLDER_INPUT" ng-model="requestlc.MARGIN_LC_INCREASE" disabled>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">REQUEST_RELEASE_LC_ESCROW_ACCOUNT</span>
+                            <input id="id.release.escrow.account" class="form-control form-control-righttext" type="text" value="" disabled>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="account-info" colspan="2">
+                        <div id="holder-account-info" class="combo-box info-account accInfo widefull" ng-click="showAccountSelection()">
+                        </div>
+                        <input id="id.accountno" type="hidden" class="form-control form-control-rightbutton" value="" />
+                    </td>
+                </tr>
+                <!--<tr>-->
+                    <!--<td class="td-text" valign="middle" align="center" colspan="2">-->
+                        <!--<div class="input-group widefull">-->
+                            <!--<span class="input-group-addon" style="width: 40%; white-space:pre-wrap">REQUEST_RELEASE_LC_ESCROW_AMOUNT</span>-->
+                            <!--<input id="id.release.escrow.amount" class="form-control form-control-righttext" type="text" value="" ng-model="requestlc.ESCROW" placeholder="INTERNATIONAL_PLACEHOLDER_INPUT" disabled>-->
+                            <!--<input id="id.release.escrow.amount.value" type="hidden" value="">-->
+                        <!--</div>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title">
+                            <span>REQUEST_RELEASE_LC_TITLE_FEE</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">REQUEST_RELEASE_LC_EDIT_ELECTRONIC_FEE</span>
+                            <input id="id.release.electronic.fee" class="form-control form-control-righttext" type="text" value="" placeholder="INTERNATIONAL_PLACEHOLDER_INPUT" ng-model="requestlc.ELECTRIC_FEE" disabled>
+                            <input id="id.release.electronic.fee.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">REQUEST_RELEASE_LC_EDIT_FEE_UP_LC</span>
+                            <input id="id.release.edit.up.fee" class="form-control form-control-righttext" type="text" value="" placeholder="INTERNATIONAL_PLACEHOLDER_INPUT" ng-model="requestlc.ISSUANCE_FEE" disabled>
+                            <input id="id.release.edit.up.fee.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">REQUEST_RELEASE_LC_EXPRISE_FEE_LC</span>
+                            <input id="id.release.fee" class="form-control form-control-righttext" type="text" value="" placeholder="INTERNATIONAL_PLACEHOLDER_INPUT" ng-model="requestlc.EXTEND_FEE" disabled>
+                            <input id="id.release.fee.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">REQUEST_RELEASE_LC_EDIT_FEE_OTHER</span>
+                            <input id="id.release.fee.other" class="form-control form-control-righttext" type="text" value="" placeholder="INTERNATIONAL_PLACEHOLDER_INPUT" ng-model="requestlc.MODIFY_FEE" disabled>
+                            <input id="id.release.fee.other.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">REQUEST_RELEASE_LC_TOTAL_FEE</span>
+                            <input id="id.release.fee.total" class="form-control form-control-righttext" type="text" value="" placeholder="INTERNATIONAL_PLACEHOLDER_INPUT" ng-model="requestlc.TOTAL_FREE" disabled>
+                            <input id="id.release.fee.total.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">REQUEST_RELEASE_LC_METHOD_FEE</span>
+                            <input id="id.release.method.fee" class="form-control form-control-righttext" type="text" value="" placeholder="INTERNATIONAL_PLACEHOLDER_INPUT" ng-model="requestlc.methodFee" disabled>
+                            <input id="id.release.method.fee.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">REQUEST_RELEASE_LC_ACCOUNT_FEE</span>
+                            <input id="id.release.account.fee" class="form-control form-control-righttext" type="text" value="" placeholder="" disabled>
+                            <input id="id.release.account.fee.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="account-info-fee" colspan="2">
+                        <div id="holder-account-info-fee" class="combo-box info-account accInfo widefull" ng-click="showAccountSelection()">
+                        </div>
+                        <input id="id.accountno.fee" type="hidden" class="form-control form-control-rightbutton" value="" />
+                    </td>
+                </tr>
+                <!--<tr>-->
+                    <!--<td class="td-text" valign="middle" align="center" colspan="2">-->
+                        <!--<div class="input-group widefull">-->
+                            <!--<span class="input-group-addon" style="width: 40%; white-space:pre-wrap">REQUEST_RELEASE_LC_AMOUNT_FEE</span>-->
+                            <!--<input id="id.release.amount.fee" class="form-control form-control-righttext" type="text" value="" ng-model="requestlc.TOTAL_FREE" placeholder="INTERNATIONAL_PLACEHOLDER_INPUT" disabled>-->
+                            <!--<input id="id.release.amount.fee.value" type="hidden" value="">-->
+                        <!--</div>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <tr>
+                    <td id="error">
+                        <table width="50%" style="float: left">
+                            <tr>
+                                <td><span>REQUEST_RELEASE_LC_ERROR_FILE</span></td>
+                            </tr>
+                        </table>
+                        <table width="50%">
+                            <tr ng-repeat="error in errorContent">
+                                <td style="color: red" ng-bind="error"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr class="trow-space"></tr>
+                <tr class="mt-15">
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="tdbtndesktop" style="width:50%">
+                            <input type="submit" style="float:left;margin-left:65px" class="btnDesktopshadow btnDesktopBack" onclick="clickHomeOrBack()" value="CM_BTN_GOBACK" >
+                        </div>
+                        <div style="width:50%">
+                            <input type="button" id="btnNext" style="margin-right:100px" class="btnshadow btn-second" ng-click="onContinuteClick()" value="COM_CONTINUE" />
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>
+
+

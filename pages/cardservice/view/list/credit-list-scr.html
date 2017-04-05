@@ -1,0 +1,118 @@
+<div class="main-layout-subview" id="mainViewContent" ng-controller="credit-list-scr">
+    <div class="desktopview" style="margin:10px 0px 0px 10px">    
+        <table align="center" class="recycler-table-ebank" width="100%" style="float: right;">
+            <thead>
+                <tr class="recycler-row-title-header recycler-list">
+                    <td class="recycler-row-align-midle">
+                        <span>CREDIT_NUMBER_TITLE</span>
+                    </td>
+                    <td class="recycler-row-align-midle">
+                        <span>CREDIT_OWNER_NAME_TITLE</span>
+                    </td>
+                    <td class="recycler-row-align-midle">
+                        <span>CREDIT_GRANTED_LIMIT_TITLE</span>
+                    </td>
+                    <td class="recycler-row-align-midle">
+                        <span >CREDIT_TYPE_TITLE</span>
+                    </td>
+                    <td class="recycler-row-align-midle">
+                        <span>CREDIT_STATUS_TITLE</span>
+                    </td>
+                </tr>
+            </thead>
+            <tbody id="tbodyDetail">
+                <tr class="recycler-row-title recycler-list" ng-repeat="card in infoCardArray track by $index" ng-click="pickCard(card.myHashMap.CARD_NUMBER)">
+                    <td class="recycler-row-align-midle">
+                        <div ng-bind="card.myHashMap.CARD_NUMBER">
+                        </div>
+                    </td>
+                    <td class="recycler-row-align-midle">
+                        <div>
+                            <span ng-bind="card.myHashMap.CARD_HOLD_NAME"></span>
+                        </div>                                
+                    </td>
+                    <td class="recycler-row-align-midle">
+                        <div ng-bind="(card.myHashMap.CREDIT_LIMIT | currency: '' : 0) + ' VND'">
+                        </div>
+                    </td>
+                    <td class="recycler-row-align-midle">
+                        <div ng-bind="((card.myHashMap.BC_FLAG == '1') ? priCard : slvCard) + ' ' + card.myHashMap.PRD_DESC">
+                        </div>
+                    </td>
+                    <td class="recycler-row-align-midle">
+                        <div ng-bind="(card.myHashMap.STAT_COD == '0') ? activeCard : deActiveCard">
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div>
+    <div align="center" class="recycler-list mobileview" id="recycler_list" ng-repeat="card in infoCardArray track by $index" ng-click="pickCard(card.myHashMap.CARD_NUMBER)" style="margin:10px">
+        <table class="recycler-table-ebank" id="recycler_table_ebank" style="width: 97%">
+            <tbody>
+                <tr class="recycler-row-normal">
+                    <td class="recycler-row-align-midle-left">
+                        <span>CREDIT_NUMBER_TITLE</span>
+                    </td>
+                    <td class="recycler-row-align-midle-right">
+                        <span ng-bind="card.myHashMap.CARD_NUMBER"></span>
+                    </td>
+                </tr>
+                <tr class="recycler-row-normal">
+                    <td class="recycler-row-align-midle-left">
+                        <span>CREDIT_OWNER_NAME_TITLE</span>
+                    </td>
+                    <td class="recycler-row-align-midle-right">
+                        <span ng-bind="card.myHashMap.CARD_HOLD_NAME"></span>
+                    </td>
+                </tr>
+                <tr class="recycler-row-normal">
+                    <td class="recycler-row-align-midle-left">
+                        <span>CREDIT_GRANTED_LIMIT_TITLE</span>
+                    </td>
+                    <td class="recycler-row-align-midle-right">
+                        <span ng-bind="(card.myHashMap.CREDIT_LIMIT | currency: '' : 0) + ' VND'"></span>
+                    </td>
+                </tr>
+                <tr class="recycler-row-normal">
+                    <td class="recycler-row-align-midle-left">
+                        <span>CREDIT_TYPE_TITLE</span>
+                    </td>
+                    <td class="recycler-row-align-midle-right">
+                        <span ng-bind="((card.myHashMap.BC_FLAG == '1') ? priCard : slvCard) + ' ' + card.myHashMap.PRD_DESC"></span>
+                    </td>
+                </tr>
+                <tr class="recycler-row-normal">
+                    <td class="recycler-row-align-midle-left">
+                        <span>CREDIT_STATUS_TITLE</span>
+                    </td>
+                    <td class="recycler-row-align-midle-right">
+                        <span ng-bind="(card.myHashMap.STAT_COD == '0') ? activeCard : deActiveCard"></span>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div id="holder-bottom-bar">
+    </div>
+    <div class="mobilemode" id="dialog-container">
+    </div>
+    <div style="text-align: left; color: rgb(255, 140, 41); margin-left: 4%"><span>CREDIT_GET_DETAIL</span></div>
+    <div width="32%">
+        <input type="submit" style="width:18%;" class="btnDesktopshadow btnHomeShadow" onclick="clickHomeOrBack()" value="CM_BTN_GOBACK" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off">
+    </div>
+</div>
+<div align="center" class="dialog-blacktrans" id="selection-dialog" style="display:none">
+    <div class="dialog-backgroundtrans" onclick="closeDialog(this)">
+    </div>
+    <div class="list-group dialog-list" id="divListGroup">
+    </div>
+</div>
+<div align="center" class="dialog-blacktrans" id="selection-dialog-input" style="display:none">
+    <div align="center" class="dialog-backgroundtrans" onclick="closeDialogInput(this)">
+    </div>
+    <div class="list-group dialog-list" id="divListGroupInput">
+    </div>
+</div>

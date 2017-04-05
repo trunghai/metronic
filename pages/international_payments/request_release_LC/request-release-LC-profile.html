@@ -1,0 +1,104 @@
+
+<link rel="stylesheet" href="./assets/libs/angularjs/jquery.fileupload.css" type="text/css"/>
+
+<div id="mainViewContent" class="main-layout-subview" ng-controller="request-release-lc-profile" nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter, pdfFilter">
+    <div class="bg-transfer">
+        <div class="panelContent" >
+            <table width="100%" style="padding-top:15px;" align="center" class="">
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title">
+                            <span>REQUEST_RELEASE_LC_TITLE_PROFILE</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="desktopview" id="recycler-list">
+                            <table id="recycler_table_ebank-desktop" class="recycler-table-ebank widefull">
+                                <tbody>
+                                <tr class="recycler-row-title-header recycler-list">
+                                    <td width="6%" class="recycler-row-align-midle"><span>COM_NO</span></td>
+                                    <td width="36%%" class="recycler-row-align-midle"><span>REQUEST_RELEASE_LC_PROFILE_NAME</span></td>
+                                    <td width="24%" class="recycler-row-align-midle"><span>REQUEST_RELEASE_LC_PROFILE_TYPE</span></td>
+                                    <td width="24%" class="recycler-row-align-midle"><span>REQUEST_RELEASE_LC_PROFILE_NOTE</span></td>
+                                </tr>
+                                <tr class="recycler-row-title recycler-list" ng-repeat="item in docReq">
+                                    <td class="recycler-row-align-midle"><span ng-bind="$index + 1"></span></td>
+                                    <td class="recycler-row-align-midle-left"><span ng-bind="item.DESCREPTION"></span></td>
+                                    <td class="recycler-row-align-midle-left"><span ng-bind="item.FILE_TYPE"></span></td>
+                                    <td class="recycler-row-align-midle-left"><span ng-bind="item.EXPECT"></span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td valign="middle" align="right">
+                        <span class="fileinput-button btnshadow btn-second" >
+                            <span id="titleUploadFile" style="font-size: 13px !important">UPLOAD_FILE_BUTTON</span>
+                            <input type="file" name="file" nv-file-select="" uploader="uploader" multiple  />
+                        </span>
+                    </td>
+                </tr>
+                <tr class="trow-space"></tr>
+                <tr>
+                    <td>
+                        <div class="desktopview">
+                            <table class="recycler-table-ebank widefull" width="100%" align="center">
+                                <tbody>
+                                <tr class="recycler-row-title-header recycler-list">
+                                    <td class="recycler-row-align-midle" width="6%"><span>COM_NO</span></td>
+                                    <td class="recycler-row-align-midle" width="33%"><span>INTERNATIONAL_PROFILE_NAME</span></td>
+                                    <td class="recycler-row-align-midle" width="15%" ng-show="uploader.isHTML5"><span>INTERNATIONAL_PROFILE_SIZE</span></td>
+                                    <td class="recycler-row-align-midle" width="6%"></td>
+                                </tr>
+                                <tr class="recycler-row-title recycler-list" ng-repeat="item in uploader.queue">
+                                    <td class="recycler-row-align-midle" width="6%"><div ng-bind="$index + 1"></div></td>
+                                    <td class="recycler-row-align-midle-left"><div ng-bind="item.file.name"></div></td>
+                                    <td class="recycler-row-align-midle" ng-show="uploader.isHTML5" nowrap><div ng-bind="(item.file.size/1024/1024|number:2) + ' MB'"></div></td>
+                                    <td nowrap class="recycler-row-align-midle" >
+                                        <div  style="word-break: break-all;">
+                                            <span type="button" ng-click="removeFile(item, $index)" style="color: red; cursor: pointer"><strong><span>INTERNATIONAL_REMOVE_PROFILE</span></strong></span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <!-- noi dung -->
+                <tr >
+                    <td id="note" style="display: none">
+                        <div class="tranfer-item">
+                            <div id="holder-transfer-message" class="text-area-content" >
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="trow-space"></tr>
+                <tr class="mt-15">
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="tdbtndesktop" style="width:50%">
+                            <input  type='submit' style="float:left;margin-left:65px" class='btnDesktopshadow btnDesktopBack' onClick= 'clickHomeOrBack()' value='COM_BACK'/>
+                        </div>
+                        <div style="width:50%">
+                            <input  type="button" style="margin-right:100px" class="btnshadow btn-second" ng-click="uploadFile()" value="COM_CONTINUE"/>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <!--<table width="100%" style="padding-top: 10px">-->
+                <!--<tr align="center">-->
+                    <!--<td class="tdbtndesktop" width="32%"><input type="button" style="width:100%;margin:0 auto" class="btnDesktopshadow btnDesktopBack" ng-click="onCancelClick()" value="COM_CANCEL"></td>-->
+                    <!--<td width="32%" id="trCancel"><input type="button" style="background-color: rgba(162, 100, 187, 0.51);border-radius: 20px;width:100%" class="btnshadow btn-primary" onclick="clickHomeOrBack()" value="COM_BACK" ></td>-->
+                    <!--<td width="32%"><input style="width:100%" type="button" class="btnshadow btn-second" ng-click="uploadFile()" value="COM_CONTINUE" ></td>-->
+                <!--</tr>-->
+            <!--</table>-->
+        </div>
+    </div>
+</div>

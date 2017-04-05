@@ -1,0 +1,309 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="cre-guarantee-suggest-scr-auth" style="top:44px; height: 417px;left: 10px;padding-right: 10px;width: 98%">
+    <div class="">
+        <div class="panelContent">
+		<table width="100%">
+			<tr>
+				<td colspan="2">
+					<h5 class="header-title">
+						<span>TRANS_DETAIL_BLOCK_TITLE</span>
+					</h5>
+				</td>
+			</tr>
+			<tr>
+            <td colspan="2">
+                <div align="center">
+                    <div id="recycler_list" class="recycler-list">
+                        <table id="recycler_table_ebank" class="recycler-table-ebank">
+                            <tbody>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>GUARANTEE_SUGGEST_TYPE_TEXT</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="gTrans.typeLoan"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>LOAN_AMOUNT</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="gTrans.loanamount + ' ' + gTrans.transInfo.typeMoney"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>DATE_LOAN_AMOUNT</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="gTrans.dateloan + ' tháng'"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>LOAN_PURPOSE</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="gTrans.purpose"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>COLLATERAL</span></td>
+                                <td style="word-break: hyphenate; width:70%" class="recycler-row-align-midle-right" ng-bind="gTrans.content"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>ACCOUNT_PAID</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="gTrans.accno"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <h5 class="header-title">
+                    <span>DETAIL_FILE_GUARANTEE</span>
+                </h5>
+            </td>
+        </tr>
+            <tr>
+                <td>
+					
+                            <table width='96%' align='center' class='recycler-table-ebank desktopview'>
+                                <tr class='recycler-row-title-header recycler-list'>
+									<td class="recycler-row-align-midle" width="8%"><span>COM_NO</span></td>
+									<td class="recycler-row-align-midle" width="40%"><span>GUA_FILE_NAME_SENDED</span></td>
+									<td class="recycler-row-align-midle"><span>INTERNATIONAL_PROFILE_SIZE</span> </td>
+									<td class="recycler-row-align-midle"></td>
+                                </tr>
+                                <tr class="recycler-row-title recycler-list" ng-repeat="item in infoTrans.listFile">
+                                    <td class="recycler-row-align-midle"><span ng-bind="$index + 1"></span></td>
+                                    <td class="recycler-row-align-midle"><span ng-bind="item.file.name"></span></td>
+                                    <td class="recycler-row-align-midle"><span ng-bind="(item.file.size/1024/1024|number:2) + ' MB'"></span></td>
+									<td class="recycler-row-align-midle">
+										<span  type="button" style="color: red; cursor: pointer" ng-click="onViewPDF(item.file.url_key)">
+											<strong> <span>GUA_FILE_REVIEW</span></strong>
+										</span>
+									</td>
+                                </tr>
+                            </table>
+                            <table ng-repeat="item in infoTrans.listFile track by $index" class="recycler-table-ebank mobileview recycler-list" width="100%" align="center">
+                                <tr>
+                                    <td colspan="1" class="recycler-row-align-midle-left">
+                                        <span>GUA_FILE_NAME_SENDED</span>
+                                    </td>
+                                    <td class="recycler-row-align-midle-right">
+                                        <span ng-bind="item.file.name"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" class="recycler-row-align-midle-left">
+                                        <span>INTERNATIONAL_PROFILE_SIZE</span>
+                                    </td>
+                                    <td class="recycler-row-align-midle-right">
+                                        <span ng-bind="(item.file.size/1024/1024|number:2) + ' MB' "></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" class="recycler-row-align-midle-left">
+                                        <span>GUA_FILE_REVIEW</span>
+                                    </td>
+                                    <td nowrap class="recycler-row-align-midle-right">
+                                        <span type="button" ng-click="onViewPDF(item.file.url_key)" style="color: red; cursor: pointer">
+                                               <strong><span>GUA_FILE_REVIEW</span></strong>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+                </td>
+            </tr>
+        <!--<tr>-->
+            <!--<td colspan="2">-->
+                <!--<div align="center">-->
+                <!--<table class="recycler-table-ebank">-->
+                        <!--<td colspan="3">-->
+                            <!--<div align="center">-->
+                        <!--<table width='100%' align='center' class='recycler-table-ebank'>-->
+                            <!--<tr class='recycler-row-normal'>-->
+                                <!--<td class='recycler-row-align-midle-left'><span>CONTENT_FILE_GUARANTEE_TEXT</span></td>-->
+                                <!--<td class='recycler-row-align-midle-right'><span ng-bind="infoTrans.instructionFile"></span></td>-->
+                 <!--</table>-->
+                 <!--</div>-->
+             <!--</td>-->
+        <!--</tr>-->
+                    <!--ghi chú bộ hồ sơ-->
+                    <tr class="trow-space"></tr>
+                    <tr>
+                        <td>
+                            <div class="recycler-list">
+                                <table width='100%' align='center' class='recycler-table-ebank'>
+                                    <tr class='recycler-row-normal ' >
+                                        <td class='recycler-row-align-midle-left'><span>NOTE_CRE_REQUEST</span></td>
+                                        <td class='recycler-row-align-midle-right' style="word-break: hyphenate;width: 83%;" ng-bind="infoTrans.instructionFile" ></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <!--end ghi chú bộ hồ sơ-->
+
+
+
+                        </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <table width='100%' align='center'>
+        <tr>
+            <td colspan="2"><div id="seqFormAuthen"></div></td>
+        </tr>
+        <tr>
+            <td>
+                <table width="100%" align="center" vspace="30">
+                    <tr>
+                        <td colspan="3"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <h5 id="auth.title" class="Header" style="margin-left:10px;">
+                                <span>AUTHEN_TXT_INPUT_KEY_TITLE</span>
+                            </h5>
+                        </td>
+                    </tr>
+                    <tr id="id.ca00" style="background: transparent">
+                        <td colspan="3" style="    background: rgba(240, 240, 240, 0.47);" align="center" valign="middle" class="td-text">
+                            <div ng-click="clickOnDiv('input-trigger')" class="input-group" id="input-group"  inputmode="numeric" type="tel" tabindex="0" style="height:40px ; width: auto; font-size: 10px">
+                                <div id="tmp-inputotp" style="margin-left: -10%;">
+                                    <ul style="list-style: none; width: 250px">
+                                        <li>
+                                            <span id="li1" class="icon-radio-unchecked" ></span>
+                                        </li>
+                                        <li>
+                                            <span id="li2" class="icon-radio-unchecked" ></span>
+                                        </li>
+                                        <li>
+                                            <span id="li3" class="icon-radio-unchecked" ></span>
+                                        </li>
+                                        <li>
+                                            <span id="li4" class="icon-radio-unchecked" ></span>
+                                        </li>
+                                        <li>
+                                            <span id="li5" class="icon-radio-unchecked" ></span>
+                                        </li>
+                                        <li>
+                                            <span id="li6" class="icon-radio-unchecked"></span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="tess" id="tess" style="display: none; position: absolute;top: -12px;right: -12px;font-size: 20px;">
+                                    <ul style="list-style: none">
+                                        <li style="float: right">
+                                            <span ng-click="removeotp()" class="icon-delete"></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <span id="authen.tokentype"  class="input-group-addon" style="width:40%; display: none;">TOKEN KEY</span>
+                                <input id="authen.tokenkey" type="hidden" class="form-control form-control-righttext" placeholder="COM_TXT_INPUT_PLACEHOLDER" value="" maxlength="6"/>
+                                <input id="input-trigger" type="number" style="position:fixed;left:-1000px;outline: none;width:0px;height:0px;color:transparent;background: transparent;border:0px transparent" maxlength="6"/>
+                            </div>
+                        </td>
+
+                    </tr>
+                    <!--timer 90s-->
+                    <tr id="id.ca02">
+                        <td colspan='3'>
+                            <div id='authen.progressbar' class="progress-wrapper html5-progress-bar" style='display:none'>
+                                <div id="authen.progressbarotp" class="authen-progressbarotp">
+                                    <progress value="0" max="100" min="0" style="animation: loadbar 90s;"></progress>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td colspan="3">
+                            <h5 id="auth.note" style="margin-left:10px;margin-bottom: 15px;">
+                                <span>AUTHEN_TYPE_NOTE_OTP</span>
+                            </h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <h5 id="auth.note.support" style="margin-left:10px;margin-bottom: 15px;">
+                                <span>AUTHEN_TXT_NOTE_CONTENT_SUPPORT</span>
+                            </h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <h5 id="auth.note.mca" style="margin-left:10px;margin-bottom: 15px; display:none;">
+                                <span>AUTHEN_TYPE_NOTE_MCA</span>
+                            </h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <h5 id="auth.note.hard.token" style="margin-left:10px;margin-bottom: 15px; display:none;">
+                                <span>AUTHEN_TYPE_NOTE_VAS_1</span>
+                            </h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <h5 id="auth.note.soft.token" style="margin-left:10px;margin-bottom: 15px; display:none;">
+                                <span>AUTHEN_TYPE_NOTE_MKS</span>
+                            </h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <h5 id="auth.note.mtx" style="margin-left:10px;margin-bottom: 15px; display:none;">
+                                <span>AUTHEN_TYPE_NOTE_MTX</span>
+                            </h5>
+                        </td>
+                    </tr>
+                    <tr class="trow-space"></tr>
+                    <tr align="center">
+                        <td class="tdbtndesktop" width="32%">
+                            <input type='submit' style='width:100%;margin:0 auto' class='btnDesktopshadow btnDesktopBack' ng-click="onBackClick()" value='INPUT_ACC_BTN_GOBACK'/>
+                        </td>
+                        <td width='32%'>
+                            <input type="submit" style="background-color: rgba(162, 100, 187, 0.51);border-radius: 20px;width:100%" class="btnshadow btn-primary" ng-click="onCancelClick()"
+                                   value="REVIEW_BTN_CANCEL"/>
+                        </td>
+                        <td width='32%' id='authen.resendotp' style="display:none">
+                            <input type="submit" class="btnshadow btn-primary" onclick="resendOTP();" value="AUTHEN_BTN_RESEND_OTP_TITLE"/>
+                        </td>
+                        <td width='32%' id="btn-authenrequest">
+                            <input id="authen-send-request" style="width:100%" type="button" class="btnshadow btn-second" name="cf"
+                                   ng-click="sendJSONAuthenRequest()" value="REVIEW_BTN_CONFIRM" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="desktopmode" id="result-export-print" style="display:none;">
+            <td colspan="2">
+                <div align="right" style="padding-right: 5px;">
+                    <a href="javascript:void(0)" onclick="printResultHistory();">
+                        <img title="In trang này" style="margin-right:5px;" src="css/img/print.png"/>
+                    </a>
+                </div>
+            </td>
+        </tr>
+        <tr id="resultNote" style="display:none">
+            <td colspan="2">
+                <div id="divResultNode"></div>
+            </td>
+        </tr>
+    </table>
+</div>
+</div>
+    </div>
+<style type="text/css">
+    #tmp-inputotp {
+        background: transparent;
+    }
+    #tmp-inputotp ul {
+        list-style-type: none;
+    }
+    #tmp-inputotp ul li {
+        float:left;
+        width:30px;
+    }
+    .icon-incheck-number {
+        font-size: 40px;
+        color:#f69013;
+        line-height: 7px;
+    }
+</style>

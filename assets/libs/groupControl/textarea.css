@@ -1,0 +1,35 @@
+.holder-txtarea {
+    width: 50%;
+    position: relative;
+    //font-family: sans-serif;
+    height: 70%;
+    border: 0px solid red;
+}
+
+.holder-txtarea .area {
+    resize: none;
+    outline: none;
+    border: 0px ;
+    display: block;
+    width: 100%;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    padding-left : 10px;
+    //font-family: sans-serif;
+    //font-size: 20px;
+    //text-align: center;
+}
+
+.holder-txtarea textarea.area {
+    left: 0;
+    height: 100%;
+    border: 0px ;
+    background: transparent;
+}
+
+.holder-txtarea .dummy {
+    left: 100%;
+    visibility: hidden;
+}
+

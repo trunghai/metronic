@@ -1,0 +1,292 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="foreign_exchange_mng" data-ng-init="searchExchangeTransfer()">
+	<div class="panelContent">
+	<table width="100%">
+		<table class="tableTab" id="periodic-table">
+			<tbody>
+			<tr>
+				<td ng-click="changeTab()" class="content-periodic">
+					<span>TRANS_PERIODIC_TRADE_TITLE</span>
+					<span class="content-span"></span>
+				</td>
+				<td class="content-periodic selected">
+					<span>TRANS_PERIODIC_MNG_TITLE</span>
+					<span class="content-span"></span>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</table>
+	<table width="100%" style="border-spacing: 0; margin-top:2%; margin-left: 4%;" class="desktopview">
+		<tr class="tr-two-col">
+			<td class="td-two-col">
+				<div class="div-two-col borderbottom"><b><span>COM_TYPE_TRANSACTION</span></b></div>
+				<div class="div-two-col">
+					<div class="input-group">
+						<input style="white-space:pre-wrap" ng-click="showTransferType()" id="id.transType"
+							   type="button" class="form-control form-control-righttext"
+							   placeholder="" value="TRANS_PERIODIC_BTN_SELECT_FUNC"/>
+						<span class="icon-movenext input-group-addon input-group-symbol"></span>
+					</div>
+				</div>
+			</td>
+			<td class="td-two-col">
+				<div class="div-two-col borderbottom"><b><span>ACC_PERSON_ESTABLISH_TRANSACTION</span></b></div>
+				<div class="div-two-col">
+					<div class="input-group">
+						<input style="white-space:pre-wrap" ng-click="getListMaker()" id="id.accountno"
+							   type="button" class="form-control form-control-righttext"
+							   placeholder="" value="TRANS_PERIODIC_BTN_SELECT_FUNC"/>
+						<span class="icon-movenext input-group-addon input-group-symbol"></span>
+					</div>
+				</div>
+			</td>
+
+		</tr>
+		<tr class="tr-two-col">
+			<td class="td-two-col">
+				<div class="div-two-col borderbottom"><b><span>TRANS_PERIODIC_MNG_STT</span></b></div>
+				<div class="div-two-col">
+					<div class="input-group">
+						<input style="white-space:pre-wrap;" ng-click="showStatus()" id="id.stt"
+							   type="button" class="form-control form-control-righttext"
+							   placeholder="" value="TRANS_PERIODIC_BTN_SELECT_FUNC"/>
+						<span class="icon-movenext input-group-addon input-group-symbol"></span>
+					</div>
+				</div>
+			</td>
+			<td class="td-two-col">
+				<div class="div-two-col borderbottom"><b><span>COM_CREATED_TO_DATE</span></b></div>
+				<div class="div-two-col">
+					<div class="input-group">
+						<input id="id.begindate" type="tel"
+							   class="form-control form-control-righttext-datepicker"
+							   placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value=""
+							   onkeydown="return handleCalendarNav(this, event);"
+							   onclick="handleCalendarNav(this, event);" onpaste="return false;"/>
+								<span onclick="initDialogCal('id.begindate')" id="begindate"
+									  class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr class="tr-two-col">
+			<td class="td-two-col">
+				<div class="div-two-col borderbottom"><b><span>COM_TYPE_MONEY</span></b></div>
+				<div class="div-two-col">
+					<div class="input-group">
+						<input style="white-space:pre-wrap;" ng-click="showMoneyUnit()" id="id.moneyType"
+							   type="button" class="form-control form-control-righttext"
+							   placeholder="" value="TRANS_PERIODIC_BTN_SELECT_FUNC"/>
+						<span class="icon-movenext input-group-addon input-group-symbol"></span>
+					</div>
+				</div>
+			</td>
+			<td class="td-two-col">
+				<div class="div-two-col borderbottom"><b><span>COM_CREATED_FROM_DATE</span></b></div>
+				<div class="div-two-col">
+					<div class="input-group">
+						<input id="id.mngenddate" type="tel"
+							   class="form-control form-control-righttext-datepicker"
+							   placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value=""
+							   onkeydown="return handleCalendarNav(this, event);"
+							   onclick="handleCalendarNav(this, event);" onpaste="return false;"/>
+								<span onclick="initDialogCal('id.mngenddate')" id="begindate"
+									  class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<!-- Mobile ------------------------------------------------------------------------------------------------------>
+	<table width='98%' align="center" class="mobileview">
+		<tr>
+			<td class="input-group">
+				<div class="div-two-col"><b>
+					<span>COM_TYPE_TRANSACTION</span></b>
+				</div>
+				<div class="div-two-col">
+					<div class="input-group" style="border-bottom: none !important;">
+						<input style="white-space:pre-wrap" ng-click="showTransferType()" id="id.transTypemb"
+							   type="button" class="form-control form-control-righttext"
+							   placeholder="" value="TRANS_PERIODIC_BTN_SELECT_FUNC"/>
+						<span class="icon-movenext input-group-addon input-group-symbol"></span>
+						<input type="hidden" id="cre_type_money_valuemb" value='0'/>
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="input-group">
+				<div class="div-two-col"><b>
+					<span>TRANS_PERIODIC_MNG_STT</span></b>
+				</div>
+				<div class="div-two-col">
+					<div class="input-group" style="border-bottom: none !important;">
+						<input style="white-space:pre-wrap" ng-click="showStatus()" id="id.sttmb"
+							   type="button" class="form-control form-control-righttext"
+							   placeholder="" value="TRANS_PERIODIC_BTN_SELECT_FUNC"/>
+						<span class="icon-movenext input-group-addon input-group-symbol"></span>
+						<input type="hidden" id="cre_type_deadline_valuemb" value='0'/>
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="input-group">
+				<div class="div-two-col"><b>
+					<span>COM_TYPE_MONEY</span></b>
+				</div>
+				<div class="div-two-col">
+					<div class="input-group" style="border-bottom: none !important;">
+						<input style="white-space:pre-wrap;" ng-click="showMoneyUnit()" id="id.moneyTypemb"
+							   type="button" class="form-control form-control-righttext"
+							   placeholder="" value="TRANS_PERIODIC_BTN_SELECT_FUNC"/>
+						<span class="icon-movenext input-group-addon input-group-symbol"></span>
+						<input type="hidden" id="cre_debt_type_valuemb"/>
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="input-group">
+				<div class="div-two-col"><b>
+					<span>ACC_PERSON_ESTABLISH_TRANSACTION</span></b>
+				</div>
+				<div class="div-two-col">
+					<div class="input-group" style="border-bottom: none !important;">
+						<input style="white-space:pre-wrap;" ng-click="getListMaker()" id="id.accountnomb"
+							   type="button" class="form-control form-control-righttext"
+							   placeholder="" value="TRANS_PERIODIC_BTN_SELECT_FUNC"/>
+						<span class="icon-movenext input-group-addon input-group-symbol"></span>
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="input-group">
+				<div class="div-two-col"><b>
+					<span>COM_CREATED_TO_DATE</span></b>
+				</div>
+				<div class="div-two-col">
+					<div>
+						<input id="id.begindatemb" type="tel"
+							   class="form-control form-control-righttext-datepicker"
+							   placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value=""
+							   onkeydown="return handleCalendarNav(this, event);"
+							   onclick="handleCalendarNav(this, event);" onpaste="return false;"/>
+								<span onclick="initDialogCal('id.begindatemb')" id="begindate"
+									  class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker">
+								</span>
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="input-group">
+				<div class="div-two-col"><b>
+					<span>COM_CREATED_FROM_DATE</span></b>
+				</div>
+				<div class="div-two-col">
+					<div>
+						<input id="id.mngenddatemb" type="tel"
+							   class="form-control form-control-righttext-datepicker"
+							   placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value=""
+							   onkeydown="return handleCalendarNav(this, event);"
+							   onclick="handleCalendarNav(this, event);" onpaste="return false;"/>
+								<span onclick="initDialogCal('id.mngenddatemb')" id="begindate"
+									  class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker">
+								</span>
+					</div>
+				</div>
+			</td>
+		</tr>
+    </table>
+	<table width='98%' align="center">
+		<tr class="trow-space"></tr>
+		<tr>
+			<td colspan="2" align="center" valign="middle" class="td-text">
+				<div class="" style="width:50%">
+					<input type="button" style="float:left;margin-left:47px" class="btnDesktopshadow btnDesktopBack"
+						   onclick="clickHomeOrBack()" value="CM_BTN_GOBACK">
+				</div>
+				<div style="width:50%">
+					<input type="button" style="margin-right:10px; " class="btnshadow btn-second"
+						   ng-click="searchExchangeTransfer()" value="COM_BNTN_SEARCH">
+				</div>
+			</td>
+		</tr>
+        <tr>
+            <td><div id="id.message"><span id="id.message.value"></span></div></td>
+        </tr>
+	</table>
+        <div id="id.searchResult" style="display: none">
+			<table width='98%' align='center' class='recycler-table-ebank desktopview'>
+				<tr class='recycler-row-title-header recycler-list'>
+					<td class="recycler-row-align-midle" width="7%"><span>COM_NO</span></td>
+					<td class="recycler-row-align-midle" width="13%"><span>COM_CREATED_DATE</span></td>
+					<td class="recycler-row-align-midle" width="14%"><span>INTERNATIONAL_AMOUNT_EXCHANGE</span></td>
+					<td class="recycler-row-align-midle" width="10%"><span>INTERNATIONAL_MONEY_UNIT</span></td>
+					<td class="recycler-row-align-midle" width="14%"><span>MENU_BANK_INFO_EXCHANGE</span></td>
+					<td class="recycler-row-align-midle" width="18%"><span>INTERNATIONAL_AMOUNT_MONEY_EXCHANGE</span></td>
+					<td class="recycler-row-align-midle" width="12%"><span>INTERNATIONAL_INFO_STATUS</span></td>
+					<td class="recycler-row-align-midle" width="18%"><span>INTERNATIONAL_TRANSACTION_CODE</span></td>
+				</tr>
+				<tr class="recycler-row-title recycler-list" ng-repeat="item in listPending track by $index">
+					<td  class="recycler-row-align-midle"><span ng-bind="$index + 1"></span></td>
+					<td  class="recycler-row-align-midle"><span ng-bind="item.NGAY_LAP"></span></td>
+					<td  class="recycler-row-align-midle"><span ng-bind="item.SO_LUONG_QUY_DOI | currency : '' : 0"></span></td>
+					<td  class="recycler-row-align-midle"><span ng-bind="item.DON_VI_TIEN"></span></td>
+					<td  class="recycler-row-align-midle"><span ng-bind="(item.TY_GIA | currency : '' : 0)"></span></td>
+					<td  class="recycler-row-align-midle"><span ng-bind="item.SO_TIEN_QUY_DOI | currency : '' : 0"></span></td>
+					<td  class="recycler-row-align-midle"><span ng-bind="status(item.TRANG_THAI)"></span></td>
+                    <td  class="recycler-row-align-midle"><a ng-click="showTransferDetail(item.MA_GIAO_DICH, item.IDUSERREFERENCE);" style="cursor:pointer;"><span class="no-check" ng-bind="item.MA_GIAO_DICH"></span></a></td>
+				</tr>
+			</table>
+			<table  ng-repeat="item in listPending track by $index" class="recycler-table-ebank mobileview recycler-list margin-bottom" width="98%" align="center">
+				<tbody>
+					<tr class="recycler-row-normal">
+						<td class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>
+						<td class="recycler-row-align-midle-right"><span ng-bind="item.NGAY_LAP"></span></td>
+					</tr>
+					<tr class="recycler-row-normal">
+						<td class="recycler-row-align-midle-left"><span>INTERNATIONAL_AMOUNT_EXCHANGE</span></td>
+						<td class="recycler-row-align-midle-right"><span ng-bind="item.SO_LUONG_QUY_DOI | currency : '' : 0"></span></td>
+					</tr>
+					<tr class="recycler-row-normal">
+						<td class="recycler-row-align-midle-left"><span>INTERNATIONAL_MONEY_UNIT</span></td>
+						<td class="recycler-row-align-midle-right"><span ng-bind="item.DON_VI_TIEN"></span></td>
+					</tr>
+					<tr class="recycler-row-normal">
+						<td class="recycler-row-align-midle-left"><span>MENU_BANK_INFO_EXCHANGE</span></td>
+						<td class="recycler-row-align-midle-right"><span ng-bind="(item.TY_GIA | currency : '' : 0)"></span></td>
+					</tr>
+					<tr class="recycler-row-normal">
+						<td class="recycler-row-align-midle-left"><span>INTERNATIONAL_AMOUNT_MONEY_EXCHANGE</span></td>
+						<td class="recycler-row-align-midle-right"><span ng-bind="item.SO_TIEN_QUY_DOI | currency : '' : 0"></span></td>
+					</tr>
+					<tr class="recycler-row-normal">
+						<td class="recycler-row-align-midle-left"><span>INTERNATIONAL_INFO_STATUS</span></td>
+						<td class="recycler-row-align-midle-right"><span ng-bind="status(item.TRANG_THAI)"></span></td>
+					</tr>
+					<tr class="recycler-row-normal" ng-click="showTransferDetail(item.MA_GIAO_DICH, item.IDUSERREFERENCE);">
+						<td class="recycler-row-align-midle-left"><span>INTERNATIONAL_TRANSACTION_CODE</span></td>
+						<td class="recycler-row-align-midle-right"><span ng-bind="item.MA_GIAO_DICH"></span></td>
+					</tr>
+				</tbody>
+			</table>
+			<div align="right" style="float: right; width:100%">
+				<div class="export-print" id="acchis.exportfile" onclick="exportExcelDebtHistory()" style="display: inline-block;float:right; cursor: pointer;">
+					<img style="margin: 10px;" src="css/img/exportfile.png" />
+				</div>
+			</div>
+		</div>
+
+	<div id="tblContent" name="tblContent" style="overflow:auto"></div>
+	<div id="pageIndicatorNums" style="text-align: right" />
+	</div>
+</div>
+
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>

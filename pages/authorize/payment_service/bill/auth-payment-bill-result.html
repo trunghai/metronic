@@ -1,0 +1,97 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="auth_payment_bill_result">
+    <div class="">
+        <div class="panelContent">
+            <table id="dynamic-billing-table" width="100%">
+                <tr>
+                    <td colspan="2" style="text-align: center">
+                        <div ng-class="result.messageIconClass" style="display: inline; color: #FAA60D; font-size: 24px; vertical-align: middle; padding: 5px 0px 5px 0px;"></div>
+                        <span style="font-size:16px; vertical-align:middle" ng-bind="result.message"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+
+                        <table width='100%' align='center' class='recycler-table-ebank desktopview'>
+                                <tbody>
+                                <tr class='recycler-row-title-header recycler-list'>
+                                    <td  class="recycler-row-align-midle"><span>COM_NO</span></td>
+                                    <td  class="recycler-row-align-midle"><span>COM_CREATED_DATE</span></td>
+                                    <td  class="recycler-row-align-midle"><span>PAYMENT_ORDER_CODE</span></td>
+                                    <td  class="recycler-row-align-midle"><span>COM_AMOUNT</span></td>
+                                    <td  class="recycler-row-align-midle"><span>COM_TRANS_CODE</span></td>
+
+                                    <!--<td width="50%" class="recycler-row-align-midle-left"><span>AUTHORIZE_TRANS_TIT_COUNT_PENDING</span></td>-->
+                                </tr>
+                                <tr class="recycler-row-title recycler-list" ng-repeat="trans in currentListTrans track by $index">
+                                    <td  class="recycler-row-align-midle">{{$index + 1}}</td>
+                                    <td  class="recycler-row-align-midle"><span ng-bind="trans.NGAY_LAP"></span></td>
+                                    <td  class="recycler-row-align-midle"><span ng-bind="trans.MA_HOA_DON"></span></td>
+                                    <td  class="recycler-row-align-midle"><span ng-bind="trans.SO_LUONG | currency : '' : 0"></span></td>
+                                    <td  class="recycler-row-align-midle"><span ng-bind="trans.MA_GD"></span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        <!--mobile-->
+                        <table class="recycler-table-ebank mobileview recycler-list margin-bottom" width="98%" align="center" ng-repeat="trans in currentListTrans track by $index">
+                            <tbody>
+                            <tr class="recycler-row-parity">
+                                <td class="recycler-row-align-midle-left"><span>COM_NO</span></td>
+                                <td class="recycler-row-align-midle-right">{{$index + 1}}</td>
+                            </tr>
+                            <tr class="recycler-row-parity">
+                                <td class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>
+                                <td class="recycler-row-align-midle-right"><span ng-bind="trans.NGAY_LAP"></span></td>
+                            </tr>
+                            <tr class="recycler-row-parity">
+                                <td class="recycler-row-align-midle-left"><span>PAYMENT_ORDER_CODE</span></td>
+                                <td class="recycler-row-align-midle-right"><span ng-bind="trans.MA_HOA_DON"></span></td>
+                            </tr>
+                            <tr class="recycler-row-parity">
+                                <td class="recycler-row-align-midle-left"><span>COM_AMOUNT</span></td>
+                                <td class="recycler-row-align-midle-right"><span  ng-bind="trans.SO_LUONG | currency : '' : 0"></span></td>
+                            </tr>
+                            <tr class="recycler-row-parity">
+                                <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                                <td class="recycler-row-align-midle-right"><span ng-bind="trans.MA_GD"></span></td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                        <!---->
+
+                    </td>
+                </tr>
+                <tr>
+                    <td ng-style="{'display': !authen ? 'block' : 'none'}">
+                        <div class="recycler-list recycler-table-ebank" style="margin: 0 auto;">
+                            <table align="center" width="98%" id="trans.reason" style="display: block;">
+                                <tbody>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>COM_AUTH_DENIAL_REASON</span></td>
+                                        <td class="recycler-row-align-midle-right ng-binding" style="word-break: break-all;">: {{reason}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="trow-space"></tr>
+            </table>
+            <table width="100%" align="center" vspace="30">
+                <tr align="center">
+                    <td class="tdbtndesktop" width="32%">
+                        <input type='button' style='display: none;width:100%;margin:0 auto' class='btnDesktopshadow btnDesktopBack' value='COM_BACK'/>
+                    </td>
+                    <td width='32%'>
+                        <input type="button" style="display: none; background-color: rgba(162, 100, 187, 0.51);border-radius: 20px;width:100%" class="btnshadow btn-primary" value="COM_CANCEL"/>
+                    </td>
+                    <td width='32%' id="btn-authenrequest">
+                        <input id="authen-send-request" style="width:100%" type="button" class="btnshadow btn-second" name="cf" ng-click="makeOtherTrans()" value="COM_AUTHORIZE_OTHER_TRANS" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

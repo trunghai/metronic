@@ -1,0 +1,98 @@
+
+<div id="mainViewContent" class="main-layout-subview" ng-controller="manager_cancel_additional_result">
+    <div class="">
+        <div class="panelContent">
+            <table id="dynamic-billing-table" width="100%">
+                <tbody>
+                <tr>
+                    <td colspan="2" style="text-align: center">
+                        <div ng-class="result.messageIconClass" style="display: inline; color: #FAA60D; font-size: 24px; vertical-align: middle; padding: 5px 0px 5px 0px;"></div>
+                        <span style="font-size:16px; vertical-align:middle" ng-bind="result.message"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div align="center">
+                            <div class="recycler-list">
+                                <table width='100%' align='center' class='recycler-table-ebank'>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.IDFCATREF"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>COM_EXECUTION_TIME</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.NGAY_LAP"></span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="trow-space"></tr>
+                <tr>
+                    <td>
+                        <button class="btnshadow btn-second-ringht" type="button" ng-click="onMakeOtherTransClick()" ><span>COM_MAKE_OTHER_TRANS</span></button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div id="contentView" class="modal-content"></div>
+
+</div>
+
+<style>
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+
+        margin: auto;
+        padding: 0px;
+        width: 80%;
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>

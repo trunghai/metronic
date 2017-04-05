@@ -1,0 +1,104 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="setup-search-detail-result">
+    <div class="">
+        <div class="panelContent">
+            <table id="dynamic-billing-table" width="100%">
+                <tbody>
+                <tr>
+                    <td colspan="2" style="text-align: center">
+                        <div ng-class="result.messageIconClass" style="display: inline; color: #FAA60D; font-size: 24px; vertical-align: middle; padding: 5px 0px 5px 0px;"></div>
+                        <span style="font-size:16px; vertical-align:middle" ng-bind="result.message"></span>
+                    </td>
+                </tr>
+				<tr>
+					<td>
+					<table width='100%' align='center' class='recycler-table-ebank desktopview widefull'>
+						<tbody>
+						<tr class="recycler-row-title-header recycler-list">
+							<td class="recycler-row-align-midle" width="15"><span>COM_MAKER</span></td>
+							<td class="recycler-row-align-midle" width="15%"><span>COM_CREATED_DATE</span></td>
+							<td class="recycler-row-align-midle" width="12%"><span>COM_STATUS</span></td>
+							<td class="recycler-row-align-midle" width="15%"><span>COM_CHEKER</span></td>
+							<td class="recycler-row-align-midle" width="15%"><span>COM_CHECK_DATE</span></td>
+							<td class="recycler-row-align-midle" width="18%"><span>COM_TRANS_CODE</span></td>
+						</tr>
+						</tbody>
+						<tbody>
+						<tr class="recycler-row-title recycler-list">
+							<td  class="recycler-row-align-midle" width="15%"><span ng-bind="detailList.MAKER"></span></td>
+							<td  class="recycler-row-align-midle" width="15%"><span ng-bind="detailList.DATMAKE"></span></td>
+							<td  class="recycler-row-align-midle" width="12%"><span ng-bind="status(detailList.STATUS)"></span></td>
+							<td  class="recycler-row-align-midle" width="15%"><span ng-bind="detailList.SIGNEDBY"></span></td>
+							<td  class="recycler-row-align-midle" width="15%"><span ng-bind="detailList.DATCHECK"></span></td>
+							<td  class="recycler-row-align-midle" width="18%"><span ng-bind="detailList.IDFCATREF"></span></td>
+						</tr>
+						</tbody>
+					</table>
+				<!--mobile view-->
+						<table class="recycler-table-ebank mobileview recycler-list margin-bottom" width="98%" align="center">
+							<tbody>
+							<tr class="recycler-row-normal">
+								<td class="recycler-row-align-midle-left"><span>COM_MAKER</span></td>
+								<td class="recycler-row-align-midle-right"><span ng-bind="detailList.MAKER"></span></td>
+							</tr>
+							<tr class="recycler-row-normal">
+								<td class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>
+								<td class="recycler-row-align-midle-right"><span ng-bind="detailList.DATMAKE"></span></td>
+							</tr>
+							<tr class="recycler-row-normal">
+								<td class="recycler-row-align-midle-left"><span>COM_STATUS</span></td>
+								<td class="recycler-row-align-midle-right"><span ng-bind="status(detailList.STATUS)"></span></td>
+							</tr>
+							<tr class="recycler-row-normal">
+								<td class="recycler-row-align-midle-left"><span>COM_CHEKER</span></td>
+								<td class="recycler-row-align-midle-right"><span ng-bind="detailList.SIGNEDBY"></span></td>
+							</tr>
+							<tr class="recycler-row-normal">
+								<td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+								<td class="recycler-row-align-midle-right"><span ng-bind="detailList.IDFCATREF"></span></td>
+							</tr>
+							<tr class="recycler-row-normal">
+								<td class="recycler-row-align-midle-left"><span>COM_CHECK_DATE</span></td>
+								<td class="recycler-row-align-midle-right"><span ng-bind="detailList.DATCHECK"></span></td>
+							</tr>
+							</tbody>
+						</table>
+                    </td>
+                </tr>
+				<!--mobile end-->
+                <tr>
+                    <td colspan="2">
+						<div class="recycler-list" style="margin: 0 auto;width: 99.6%;" ng-hide="authen">
+							<table align="left" id="trans.reason">
+								<tr class="recycler-row-normal">
+									<td class="recycler-row-align-midle-left"><span>COM_AUTH_DENIAL_REASON</span></td>
+									<td class='recycler-row-align-midle-right'style="word-break: break-all;"><span ng-bind="detailCommon.reason"></span></td>
+								</tr>
+							</table>
+						</div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <table width="100%">
+                <tbody>
+				<tr>
+					<td>
+						<div style="text-align: center;">
+							<input id="another_trans" class="btnshadow-after btn-second-after btn-changecolor" onclick="onMakeOrderTrans()" style="background-color: #fa9f1d !important;" type="button" value="RESULT_MORE_TRANS_BTN"/>
+						</div>
+					</td>
+				</tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

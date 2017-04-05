@@ -1,0 +1,38 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="auth-once-trans-review" style="height: 621px; top: 44px; bottom: 0px;">
+    <div class="panelContent">
+        <div ng-include="scr"></div>
+        <table width="98%">
+            <tbody>
+            <tr>
+                <td>
+                    <div class="tranfer-item bg-transfer" style="border-bottom: solid 1px rgb(209, 183, 224); border-top: solid 1px rgb(209, 183, 224);">
+                        <div class="text-area-content" id="holder-transfer-message">
+                            <div class="bg-text-area">
+                                <div class="holderIcon">
+                                    <div style="display:table;width: 100%;height:100%"><span style="display:table-cell;vertical-align: middle;text-align: center;font-size:24px!important" class="icon-content-note"></span></div>
+                                </div>
+                                <div class="holder-txtarea" style="border-left: solid 1px rgb(209, 183, 224);">
+
+                                    <textarea style="padding-left: 5px !important" onkeyup="controlInputText2(this, 250);" class="area" id="trans.reason" placeholder="COM_AUTH_DENIAL_REASON" maxlength="250"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="tranfer-item"></div>
+        <table width="100%">
+            <tbody>
+            <tr align="center">
+                <td class="tdbtndesktop" width="32%"><input type="button" style="width:100%;margin:0 auto" class="btnDesktopshadow btnDesktopBack" ng-click="goToBack()" value="COM_BACK"></td>
+                <td width="32%" id="trCancel"><input type="button" style="background-color: rgba(162, 100, 187, 0.51);border-radius: 20px;width:100%" class="btnshadow btn-primary" ng-click="goToRejectScreen()" value="COM_REJ" ></td>
+                <td width="32%"><input style="width:100%" type="button" class="btnshadow btn-second" ng-click="goToAuthorScreen()" value="COM_AUTH" ></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="holder-bottom-bar"></div>
+    <div class="mobilemode" id="dialog-container"></div>
+</div>

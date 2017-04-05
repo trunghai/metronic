@@ -1,0 +1,1070 @@
+﻿<!DOCTYPE html>
+<html manifest="ebank.appcache">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta http-equiv="X-UA-Compatible" content="IE=10"/>
+<meta name="viewport"
+      content="initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, width=device-width"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="format-detection" content="telephone=no">
+<meta name="msapplication-tap-highlight" content="no"/>
+<meta content="TPBank eBanking" name="description"/>
+<meta content="ebanking, internet banking, internet, banking, mobile banking, mobile, online, tpbank, tienphong, tien phong"
+      name="keywords"/>
+
+<!--fdfdfdgdgfg-->
+<!--ngoc kute-->
+<title>TPBank eBanking</title>
+<link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico"/>
+<link rel="SHORTCUT ICON" href="./assets/images/favicon.ico"/>
+<!-- eBank Desktop -->
+<link rel="stylesheet" href="css/style.css" type="text/css" media="only screen and (min-width:801px)"/>
+<link rel="stylesheet" href="css/fonts.css" type="text/css"/>
+<link rel="stylesheet" href="css/ebankstyle.css" type="text/css" media="only screen and (min-width:801px)"/>
+<!-- eBank Mobile -->
+<link rel="stylesheet" href="./assets/fonts/iconfonts.css" type="text/css"/>
+<link rel="stylesheet" href="cssmb/fonts.css" type="text/css"/>
+<link rel="stylesheet" href="cssmb/style.css" type="text/css" media="only screen and (max-width:801px)">
+<link rel="stylesheet" href="cssmb/ebankstyle.css" type="text/css" media="only screen and (max-width:801px)">
+<!--<script type="text/javascript" src="./assets/libs/framework7.js"></script>-->
+<!--SANGNT1 add-->
+<!--<link rel="stylesheet" href="./assets/libs/fw7/fw7.css" type="text/css"/>
+<link rel="stylesheet" href="./assets/libs/menupageslide/menuslide.css" type="text/css"/>
+<link rel="stylesheet" href="./assets/libs/modalDialog/modaldialog.css" type="text/css"/>
+<link rel="stylesheet" href="./assets/libs/recyclerview/recycler.css" type="text/css"/>-->
+
+<script type="text/javascript" src="./assets/libs/fw7/framework7.js"></script>
+<!-----------------------------SANGNT1------------------------------------------------>
+<script type="text/javascript" src="./assets/libs/navicontrol/ua-parser.js"></script>
+<script type="text/javascript" src="./assets/constant-web-link.js"></script>
+<script type="text/javascript" src="./assets/constants.js"></script>
+<script type="text/javascript" src="./assets/preload.js"></script>
+<script type="text/javascript" src="./assets/libs/es5-shim.js"></script>
+<!--<script type="text/javascript" src="./pages/newsxsl/list_news_cat_menu_scr.js"></script>-->
+<script type="text/javascript" src="./assets/libs/slideinmenu.js"></script>
+<script type="text/javascript" src="./assets/libs/virtualkeyboard.js"></script>
+<script type="text/javascript" src="./assets/common.js"></script>
+<script type="text/javascript" src="./assets/navigation.js"></script>
+<script type="text/javascript" src="./assets/actionbar.js"></script>
+<script type="text/javascript" src="./assets/LangVN.js"></script>
+<script type="text/javascript" src="./assets/LangEN.js"></script>
+<script type="text/javascript" src="./assets/mb-service.js"></script>
+<script type="text/javascript" src="./assets/obj-common.js"></script>
+<script type="text/javascript" src="./assets/init.js"></script>
+<script type="text/javascript" src="./assets/libs/tabs.js"></script>
+<script type="text/javascript" src="./assets/libs/html2canvas.js"></script>
+<script src="assets/libs/floatingbutton/floatingbutton.js" type="text/javascript"></script>
+<script src="assets/libs/bottombar/bottombar.js" type="text/javascript"></script>
+<script src="assets/libs/piechart/piechart.js" type="text/javascript"></script>
+<script src="assets/libs/piechart/single-pie-chart.js" type="text/javascript"></script>
+<script src="assets/libs/groupControl/input.js" type="text/javascript"></script>
+<script src="assets/libs/groupControl/combo.js" type="text/javascript"></script>
+<script src="assets/libs/groupControl/combo_set_currency.js" type="text/javascript"></script>
+<script src="assets/libs/groupControl/textarea.js" type="text/javascript"></script>
+<script type="text/javascript" src="./assets/libs/menupageslide/menuslide.js"></script>
+<script type="text/javascript" src="./assets/libs/modalDialog/ModalDialog.js"></script>
+<script type="text/javascript" src="./assets/libs/notificationdialog/notificationdialog.js"></script>
+<script type="text/javascript" src="./assets/dialog-util.js"></script>
+<script type="text/javascript" src="./assets/validate-util.js"></script>
+<script type="text/javascript" src="./assets/libs/recyclerview/Recycler.js"></script>
+
+<!-- LOAD IMAGE -->
+<script type="text/javascript" src="./assets/libs/carmera/load-image.js"></script>
+<script type="text/javascript" src="./assets/libs/carmera/load-image-ios.js"></script>
+<script type="text/javascript" src="./assets/libs/carmera/load-image-orientation.js"></script>
+<script type="text/javascript" src="./assets/libs/carmera/load-image-meta.js"></script>
+<script type="text/javascript" src="./assets/libs/carmera/load-image-exif.js"></script>
+<script type="text/javascript" src="./assets/libs/carmera/load-image-exif-map.js"></script>
+<script type="text/javascript" src="./assets/libs/carmera/canvas-to-blob.js"></script>
+<link rel="stylesheet" href="./assets/libs/slideshow/js-image-slider.css" type="text/css"/>
+<script type="text/javascript" src="./assets/libs/slideshow/js-image-slider.js"></script>
+<link rel="stylesheet" href="./assets/libs/pinpad/style_lockscreen.css" type="text/css"/>
+<script type="text/javascript" src="./assets/libs/pinpad/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="./assets/libs/pinpad/jquery-ui.min.js"></script>
+<script type="text/javascript" src="./assets/libs/crypto.js"></script>
+<script type="text/javascript" src="./assets/libs/jquery.inputmask.bundle.js"></script>
+
+<script type="text/javascript" src="./assets/libs/angularjs/angular.min.js"></script>
+<script type="text/javascript" src="./assets/libs/angularjs/angular-file-upload.min.js"></script>
+<script type="text/javascript" src="./assets/libs/angularjs/angular-cookies.min.js"></script>
+<script type="text/javascript" src="./assets/libs/angularjs/angular-touch.min.js"></script>
+<script type="text/javascript" src="./assets/libs/angularjs/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="./assets/libs/angularjs/angular-cookies.min.js"></script>
+<script type="text/javascript" src="./assets/libs/angularjs/ocLazyLoad.min.js"></script>
+<script type="text/javascript" src="./assets/libs/angularjs/ui-bootstrap-tpls.min.js"></script>
+<script type="text/javascript" src="./assets/libs/angularjs/angular-file-upload.js"></script>
+<script type="text/javascript" src="./assets/eb_service.js"></script>
+
+<!-- List view -->
+<!--<link rel="stylesheet" href="./assets/libs/swipeActionList/swipeactionlist.css" type="text/css"/>-->
+<script type="text/javascript" src="assets/libs/swipeActionList/swipeactionlist.js"></script>
+
+<!-- End list view -->
+<script type="text/javascript" src="./assets/cache-control.js"></script>
+
+
+<style type="text/css">
+
+    #bodyPage {
+        /*display:none;*/
+    }
+
+    #loadingPage {
+        display: none;
+        z-index: 2000;
+        top: 0px;
+        left: 0px;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+        transition: opacity 1s;
+        -moz-transition: opacity 1s;
+        -webkit-transition: opacity 1s; /* Safari */
+        -ms-transition: opacity 1s;
+        text-align: center;
+        opacity: 1;
+        background-image: -ms-radial-gradient(center, circle closest-side, #63376A 0%, #4D225A 60%);
+        background-image: -moz-radial-gradient(center, circle closest-side, #63376A 0%, #4D225A 60%);
+        background-image: -o-radial-gradient(center, circle closest-side, #63376A 0%, #4D225A 60%);
+        background-image: -webkit-gradient(radial, center center, 0, center center, 140, color-stop(0, #63376A), color-stop(1, #4D225A));
+        background-image: -webkit-radial-gradient(center, circle closest-side, #63376A 0%, #4D225A 60%);
+        background-image: radial-gradient(circle closest-side at center, #63376A 0%, #4D225A 60%);
+    }
+
+    #loadingPage .circle {
+        top: 46%;
+        background-color: rgba(0, 0, 0, 0);
+        border: 5px solid rgba(0, 183, 229, 0.9);
+        /*border: 5px solid rgba(245, 131, 31, 0.9);*/
+        opacity: .9;
+        border-right: 5px solid rgba(0, 0, 0, 0);
+        border-left: 5px solid rgba(0, 0, 0, 0);
+        border-radius: 50px;
+        -webkit-border-radius: 50px;
+        -webkit-border-top-left-radius: 50px;
+        -webkit-border-top-right-radius: 50px;
+        -webkit-border-bottom-left-radius: 50px;
+        -webkit-border-bottom-right-radius: 50px;
+        -moz-border-radius: 50px;
+        box-shadow: 0 0 35px #2187e7;
+        /*box-shadow: 0 0 35px #FFAC48;*/
+        width: 50px;
+        height: 50px;
+        margin: 0 auto;
+        position: relative;
+        animation: spinPulse 1s infinite ease-in-out;
+        -ms-animation: spinPulse 1s infinite ease-in-out;
+        -moz-animation: spinPulse 1s infinite ease-in-out;
+        -webkit-animation: spinPulse 1s infinite linear;
+    }
+
+    #loadingPage .circle1 {
+        top: 41%;
+        background-color: rgba(0, 0, 0, 0);
+        border: 5px solid rgba(0, 183, 229, 0.9);
+        /*border: 5px solid rgba(245, 131, 31, 0.9);*/
+        opacity: .9;
+        border-left: 5px solid rgba(0, 0, 0, 0);
+        border-right: 5px solid rgba(0, 0, 0, 0);
+        border-radius: 50px;
+        -webkit-border-radius: 50px;
+        -webkit-border-top-left-radius: 50px;
+        -webkit-border-top-right-radius: 50px;
+        -webkit-border-bottom-left-radius: 50px;
+        -webkit-border-bottom-right-radius: 50px;
+        -moz-border-radius: 50px;
+        box-shadow: 0 0 15px #2187e7;
+        /*box-shadow: 0 0 15px #FFAC48;*/
+        width: 30px;
+        height: 30px;
+        margin: 0 auto;
+        margin-top: 7px;
+        position: relative;
+        animation: spinoffPulse 1s infinite linear;
+        -ms-animation: spinoffPulse 1s infinite linear;
+        -moz-animation: spinoffPulse 1s infinite linear;
+        -webkit-animation: spinoffPulse 1s infinite linear;
+    }
+
+    @media only screen and (max-width: 800px) {
+        #loadingPage {
+            background-color: #471C51;
+        }
+
+        #loadingPage .circle1 {
+            top: 39%;
+            margin-top: 6px;
+        }
+    }
+
+    @-moz-keyframes spinPulse {
+         0% {
+        -moz-transform:rotate(160deg);
+        opacity:0;
+        box-shadow:0 0 1px #2187e7;
+        }
+         50% {
+        -moz-transform:rotate(145deg);
+        opacity:1;
+        }
+         100% {
+        -moz-transform:rotate(-320deg);
+        opacity:0;
+        }
+        }
+            @-moz-keyframes spinoffPulse {
+         0% {
+        -moz-transform:rotate(0deg);
+        }
+         100% {
+        -moz-transform:rotate(360deg);
+        }
+        }
+            @-webkit-keyframes spinPulse {
+         0% {
+        -webkit-transform:rotate(160deg);
+        opacity:0;
+        box-shadow:0 0 1px #2187e7;
+        }
+         50% {
+        -webkit-transform:rotate(145deg);
+        opacity:1;
+        }
+         100% {
+        -webkit-transform:rotate(-320deg);
+        opacity:0;
+        }
+        }
+            @-webkit-keyframes spinoffPulse {
+         0% {
+        -webkit-transform:rotate(0deg);
+        }
+         100% {
+        -webkit-transform:rotate(360deg);
+        }
+        }
+            @-ms-keyframes spinPulse {
+         0% {
+        -ms-transform:rotate(160deg);
+        opacity:0;
+        box-shadow:0 0 1px #2187e7;
+        }
+         50% {
+        -ms-transform:rotate(145deg);
+        opacity:1;
+        }
+         100% {
+        -ms-transform:rotate(-320deg);
+        opacity:0;
+        }
+        }
+            @-ms-keyframes spinoffPulse {
+         0% {
+        -ms-transform:rotate(0deg);
+        }
+         100% {
+        -ms-transform:rotate(360deg);
+        }
+        }
+    #hideAll
+    {
+        position: fixed;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+        background-color: #471C51;
+        width: 100%;
+        height: 100%;
+        z-index: 99999; /* Higher than anything else in the document */
+
+    }
+</style>
+</head>
+<body ng-controller="AppController">
+<div style="display: none" id="hideAll">&nbsp;</div>
+<script type="text/javascript">
+    document.getElementById("hideAll").style.display = "block";
+    document.onreadystatechange = function () {
+        var state = document.readyState
+        if (state == 'complete') {
+            setTimeout(function(){
+                document.getElementById('hideAll').style.visibility="hidden";
+            },1000);
+        }
+    }
+</script>
+<div id="div-pinpad" onclick="" style="display: none; height:100%;width:100%;z-index: 9999999;position: absolute; background-color: #471C51 !important">
+    <div class="gradient-background-layer-pinpad"></div>
+    <div align="center" id="logo"><img src="./assets/images/TPBank-logo.png" height="25px"/></div>
+    <div align="center" id="divider"><img src="./assets/images/hdivider.png" style="width:100%;"/></div>
+    <br/>
+
+    <!--<img src="../assets/images/diamond.png" style="height: 234px; width: 300px; right: 0; position: absolute; bottom: 20%; background-repeat: no-repeat; background-position: center; background-size: cover; z-index: -1000;" />-->
+    <p id="title_lock" class="pass_button" align="center" style="padding-top: 8%; font-size: large;">
+        <span>PINPAD_INPUT</span></p>
+
+    <div id="enter_code" align="center">
+        <div class="input_pass" align="center">
+            <svg height="30" width="30">
+                <circle id="pass_one" cx="15" cy="15" r="6" stroke="white" stroke-width="1" fill="none"/>
+            </svg>
+        </div>
+        <div class="input_pass" align="center">
+            <svg height="30" width="30">
+                <circle id="pass_two" cx="15" cy="15" r="6" stroke="white" stroke-width="1" fill="none"/>
+            </svg>
+        </div>
+        <div class="input_pass" align="center">
+            <svg height="30" width="30">
+                <circle id="pass_three" cx="15" cy="15" r="6" stroke="white" stroke-width="1" fill="none"/>
+            </svg>
+        </div>
+        <div class="input_pass" align="center">
+            <svg height="30" width="30">
+                <circle id="pass_four" cx="15" cy="15" r="6" stroke="white" stroke-width="1" fill="none"/>
+            </svg>
+        </div>
+        <div class="input_pass" align="center">
+            <svg height="30" width="30">
+                <circle id="pass_five" cx="15" cy="15" r="6" stroke="white" stroke-width="1" fill="none"/>
+            </svg>
+        </div>
+        <div class="input_pass" align="center">
+            <svg height="30" width="30">
+                <circle id="pass_six" cx="15" cy="15" r="6" stroke="white" stroke-width="1" fill="none"/>
+            </svg>
+        </div>
+
+    </div>
+    <p id="error_message" class="pass_button" align="center" style="visibility:hidden; font-size: larger;">message</p>
+
+    <div id="number_pass" align="center" style="z-index:3; padding-top: 5%;">
+        <table id="table_pass" style="z-index:3; position: absolute;" cellspacing="0" cellpadding="0">
+            <tr style="padding-bottom: 0px; ">
+                <td class="common" align="top|justify" style="padding-top: 0px; padding-bottom: 0px;">
+                    <div id="pass1" class="pass_button" align="top|justify">
+                        <p class="pass_number">1</p>
+                    </div>
+                </td>
+                <td class="common" style="padding-top: 0px; padding-bottom: 0px;">
+                    <div id="pass2" class="pass_button">
+                        <p class="pass_number">2</p>
+
+                        <p class="pass_text">ABC</p>
+                    </div>
+                </td>
+                <td class="common" style="padding-top: 0px; padding-bottom: 0px;">
+                    <div id="pass3" class="pass_button" align="center">
+                        <p class="pass_number">3</p>
+
+                        <p class="pass_text">DEF</p>
+                    </div>
+                </td>
+            </tr>
+            <tr style="padding-top: 0px; padding-bottom: 0px;">
+                <td class="common" style="padding-top: 0px; padding-bottom: 0px;">
+                    <div id="pass4" class="pass_button" align="center">
+                        <p class="pass_number" align="center">4</p>
+
+                        <p class="pass_text">GHI</p>
+                    </div>
+                </td>
+                <td class="common" style="padding-top: 0px; padding-bottom: 0px;">
+                    <div id="pass5" class="pass_button">
+                        <p class="pass_number">5</p>
+
+                        <p class="pass_text">JKL</p>
+                    </div>
+                </td>
+                <td class="common" style="padding-top: 0px; padding-bottom: 0px;">
+                    <div id="pass6" class="pass_button" align="center">
+                        <p class="pass_number">6</p>
+
+                        <p class="pass_text">MNO</p>
+                    </div>
+                </td>
+            </tr>
+            <tr style="padding-top: 0px; padding-bottom: 0px;">
+                <td class="common" style="padding-top: 0px; padding-bottom: 0px;">
+                    <div id="pass7" class="pass_button" align="center">
+                        <p class="pass_number">7</p>
+
+                        <p class="pass_text">PQRS</p>
+                    </div>
+                </td>
+                <td class="common" style="padding-top: 0px; padding-bottom: 0px;">
+                    <div id="pass8" class="pass_button" align="center">
+                        <p class="pass_number">8</p>
+
+                        <p class="pass_text">TUV</p>
+                    </div>
+                </td>
+                <td class="common" style="padding-top: 0px; padding-bottom: 0px;">
+                    <div id="pass9" class="pass_button" align="center">
+                        <p class="pass_number">9</p>
+
+                        <p class="pass_text">WXYZ</p>
+                    </div>
+                </td>
+            </tr>
+            <tr style="padding-top: 0px;">
+                <td style="padding-top: 0px; padding-bottom: 0px;" class="common">
+                    <div id="passExit" class="pass_button" align="center">
+                        <p class="pass_number" id="p-exit-pin">BTN_EXIT_PINPAD</p>
+                    </div>
+                </td>
+                <td class="common" style="padding-top: 0px; padding-bottom: 0px;">
+                    <div id="pass0" class="pass_button" align="center">
+                        <p class="pass_number">0</p>
+                    </div>
+                </td>
+                <td align="center" class="common">
+                    <div id="passClear" class="pass_button" align="center"><p class="pass_number" id="p-delete-pin">
+                        BTN_DELETE_PINPAD</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</div>
+<div align="center" id="bodyPage" class="fullPage">
+<div style="background-color: rgba(73, 21, 115, 0.7);">
+    <div id="header-desktopmode">
+        <div class="box_layout_lienhe" id="box_lienhe" style="height:42px">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <!-- <tr>
+                    <td style="" width="20%">
+                        <div id="headerLogo" > <img src="./assets/images/TPBank-logo.png" height="32px"></div>
+                    </td>
+
+                    <td width="70%" style="float: right;">
+                        <div class="bg_top_lienhe"></div>
+                        <div >
+                            <div class="bg_center_lienhe" style="text-align: right;">
+                                <div style="padding: 10px 0px 5px 13px; font-size: 12px;">
+                                    <div style="color: #eee; padding-bottom: 10px"><a class="pageFooterDesktop-color" href="tel:1900 58 58 85">1900 58 58 85</a>
+                                        &nbsp
+                                        <a style="border-right: 1px solid rgba(255,255,255,0.2);border-left: 1px solid rgba(255,255,255,0.2); " class="pageFooterDesktop-color" href="tel:1800 58 58 85">&nbsp 1800 58 58 85 &nbsp</a>
+                                        &nbsp
+                                        <a class="pageFooterDesktop-color" href="tel:(04) 37 683683">(04) 37 683683</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg_botton_lienhe"></div>
+                    </td>
+                    <td width="24%">
+                        <div id="headerdk" class="header-logo-change">
+                            <div class="header-logo-change2" id="btnChangLanguageIB"><img src="./assets/images/english.png" onclick="changeLanguageOnIB()" style="width: 30px; vertical-align: baseline !important;"></div>
+                            <div class="header-logo-change1" onclick="openLinkInWindows('https://tpb.vn/promotion/hot-offers?utm_source=ebank&amp;utm_medium=click%20&amp;utm_campaign=main-ebank-uu-dai');">
+                                <p style="margin: 10px 0 10px; color: #eee ;border-right: 1px solid rgba(255,255,255,0.2);
+    " class="icon-promotions"></p>
+                            </div>
+
+                            <div id="notification-id" class="header-logo-change1" onclick="navController.pushToView('notification/list_notification_scr', true, 'xsl');">
+                                <p style="margin: 10px 0 10px; color: #eee ;border-right: 1px solid rgba(255,255,255,0.2);border-left: 1px solid rgba(255,255,255,0.2);" class="icon-notification"></p>
+                            </div>
+                            <div class="notificationId ripple-add-on" style="display:none">
+                                <p class="icon-contact-us"></p>
+                            </div>
+                        </div>
+                    </td>
+                </tr> -->
+                <tr>
+                    <td style="" width="20%">
+                        <div id="headerLogo"><a href="https://tpb.vn/"><img src="./assets/images/TPBank-logo.png" height="32px" style="cursor: pointer"></a></div>
+                    </td>
+                    <td width="70%" style="float: right;">
+                        <div class="bg_top_lienhe"></div>
+                        <div >
+                            <div class="bg_center_lienhe" style="text-align: right;">
+                                <div style="padding: 10px 0px 5px 13px; font-size: 12px;">
+                                    <div style="color: #eee; padding-bottom: 10px">
+                                    <div id="notification-id" class="header-logo-change1" style="cursor: pointer;float: left;height: 30px;margin-left: 125px;" onclick="window.open('https://tpb.vn/lien-he/')">
+                                        <p style="color: #eee ;border-right: 1px solid rgba(255,255,255,0.2);border-left: 1px solid rgba(255,255,255,0.2);" class="icon-contact-us"></p>
+                                    </div>
+                                    <a class="pageFooterDesktop-color" href="tel:1900 58 58 85">1900 58 58 85</a>
+                                        &nbsp
+                                        <a style="border-right: 1px solid rgba(255,255,255,0.2);border-left: 1px solid rgba(255,255,255,0.2); " class="pageFooterDesktop-color" href="tel:1800 58 58 85">&nbsp 1800 58 58 85 &nbsp</a>
+                                        &nbsp
+                                        <a class="pageFooterDesktop-color" href="tel:(04) 37 683683">(04) 37 683683</a>                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg_botton_lienhe"></div>
+                    </td>
+                    <td width="15%">
+                        <div id="headerdk" class="header-logo-change">
+                            <div class="header-logo-change2" id="btnChangLanguageIB"><img src="./assets/images/english.png" onclick="changeLanguageOnIB()" style="width: 30px; vertical-align: baseline !important;"></div>
+                            <div class="header-logo-change1" onclick="openLinkInWindows('https://tpb.vn/promotion/hot-offers?utm_source=ebank&amp;utm_medium=click%20&amp;utm_campaign=main-ebank-uu-dai');">
+                                <p style="cursor:pointer; margin: 10px 0 10px; color: #eee ;border-right: 1px solid rgba(255,255,255,0.2);
+    " class="icon-promotions"></p>
+                            </div>
+
+                            <div id="notification-id" class="header-logo-change1" onclick="navController.pushToView('notification/list_notification_scr', true, 'xsl');">
+                                <p style="cursor:pointer;margin: 10px 0 10px; color: #eee ;border-right: 1px solid rgba(255,255,255,0.2);border-left: 1px solid rgba(255,255,255,0.2);" class="icon-notification"></p>
+                            </div>
+                            <div class="notificationId ripple-add-on" style="display:none">
+                                <p class="icon-contact-us"></p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="user-background-imageDesktop" class="gradient-background-layerDesktop"> </div>
+<div id="fullPage" align="center" style="height: 600px;top: 0px;position: fixed;bottom: 0px;right: 0px;left: 0px;
+    animation-name: slideInFull;
+    margin: auto;">
+<div id="pageHeader" style="display: none">
+    <!--<table width="100%" cellspacing="0" cellpadding="0" border="0">-->
+        <!--<tr>-->
+            <!--<td style="padding-top:0px;padding-bottom:0px;">-->
+                <!--<table width="100%" border="0" cellpadding="0" cellspacing="0" style="height: 105px;">-->
+                    <!--<tr>-->
+                        <!--<td width="30"></td>-->
+                        <!--<td width="190" valign="middle" style="padding-top:0px;padding-bottom:0px;"><a-->
+                                <!--href="https://tpb.vn" target="_blank"> <img src="./promotion/logo.png" alt=""/> </a>-->
+                        <!--</td>-->
+                        <!--<td width="204"></td>-->
+                        <!--<td width="500">-->
+                            <!--<div id="slideShow" style="float:right; height:91px;">-->
+                            <!--</div>-->
+                        <!--</td>-->
+                        <!--<td width="80"></td>-->
+                    <!--</tr>-->
+                <!--</table>-->
+            <!--</td>-->
+        <!--</tr>-->
+    <!--</table>-->
+</div>
+<!--<div class="desktopmode">-->
+    <!--<div class="box_layout_lienhe" id="box_lienhe">-->
+        <!--<table border="0" cellpadding="0" cellspacing="0">-->
+            <!--<tr>-->
+                <!--<td>-->
+                    <!--<div class="bg_top_lienhe"></div>-->
+                    <!--<div style="width: 211px; height: auto;">-->
+                        <!--<div class="bg_center_lienhe" style="text-align: left;">-->
+                            <!--<div style="padding: 5px 13px 5px 13px; font-size: 12px;">-->
+                                <!--<div style="font-weight: bold; padding-bottom: 10px;"><span id="spanLoginContact">LOGIN_CONTACT</span>-->
+                                <!--</div>-->
+                                <!--<div><span id="spanCustomerService">LOGIN_CUSTOMER_SERVICE</span></div>-->
+                                <!--<div style="color: #f37021; padding-bottom: 10px">1800 58 58 85 | 043 7.683.683</div>-->
+                                <!--<div style="padding-bottom: 10px;"><a class='ref-link'-->
+                                                                      <!--onClick="openLinkInWindows('https://tpb.vn/chi-nhanh/');"-->
+                                                                      <!--style="text-decoration: none;"><span-->
+                                        <!--id="spanLoginBranch">LOGIN_BRANCH</span></a> | <a class='ref-link'-->
+                                                                                          <!--onClick="openLinkInWindows('https://tpb.vn/mang-luoi-atm/');"-->
+                                                                                          <!--style="text-decoration: none;"><span-->
+                                        <!--id="spanLoginATM">LOGIN_ATM</span></a></div>-->
+                                <!--<div style="padding-bottom: 10px;"><a class='ref-link'-->
+                                                                      <!--onClick="openLinkInWindows('https://tpb.vn/lien-he/');"-->
+                                                                      <!--style="text-decoration: none;"><span-->
+                                        <!--id="spanLoginEmail">LOGIN_EMAIL</span></a> | <a class='ref-link'-->
+                                                                                        <!--onClick="openLinkInWindows('https://webchat.tpb.vn/WebchatASP/');"-->
+                                                                                        <!--style="text-decoration: none;"><span-->
+                                        <!--id="spanLoginChat">LOGIN_CHAT</span></a></div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="bg_botton_lienhe"></div>-->
+                <!--</td>-->
+            <!--</tr>-->
+        <!--</table>-->
+    <!--</div>-->
+<!--</div>-->
+<div id="menu-section" class="menu-layout" style="display:none;">
+<div class='menu-header'>
+    <div id="menu-profile-avatar" class="menu-profile-container"
+         onClick="navController.initWithRootView('utilitiesxsl/personal-info-view-scr', true, 'xsl');">
+        <!--<img style="width: 100%" src="./assets/images/acc-info-img.png"/>-->
+        <em id="avatarGD" style="color: #7b1fa2; font-size: 80px" class="icon-Giam-Doc"></em>
+        <em id="avatarKT" style="color: #7b1fa2; font-size: 80px" class="icon-Ke-Toan"></em>
+        <span class="icon-user2 menu-profile-icon"> </span>
+    </div>
+     <span id="menu-profile-name" class="menu-profile-name"
+           onClick="navController.initWithRootView('utilitiesxsl/personal-info-view-scr', true, 'xsl');">TPBank eBank</span>
+
+</div>
+<div id="wrapper-menu" style="position: absolute;width: 260px;">
+<div id="scroller-menu">
+<ul id="menu.slideview" class="menu-layout-contents">
+</ul>
+</div>
+
+
+</div>
+<!--SANGNT1 Share bottom-->
+<div class="menu-layout-share">
+    <a href="http://www.facebook.com/sharer/sharer.php?u=https://tpb.vn/ngan-hang-dien-tu-ebank"
+       onclick="javascript: openLinkInWindows(this.href);return false;"
+       target="_blank" title="Share on Facebook" style="float:left;margin-left:8px;margin-right:1px;">
+        <img src="./assets/images/facebook-icon.png"/>
+    </a>
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tpb.vn/ngan-hang-dien-tu-ebank"
+       onclick="javascript:openLinkInWindows(this.href);return false;"
+       target="_blank" title="Share on LinkedIn" style="float:left;margin-left:1px;margin-right:1px;">
+        <img src="./assets/images/ic_linkedin.png"/>
+    </a>
+
+
+    <a href="https://plus.google.com/share?url=https://tpb.vn/ngan-hang-dien-tu-ebank"
+       onclick="javascript:openLinkInWindows(this.href);return false;"
+       target="_blank" title="Share on Google+" style="float:left;margin-left:1px;">
+        <img src="./assets/images/google-plus-icon.png"/>
+
+    </a>
+    <!--<div style="float:left;margin-left:1px;margin-right:1px;" onclick="navController.initWithRootView('introducexsl/introduce-rule-customer', true, 'xsl');">
+      <img src="./assets/images/ic_friend_intro.png"/>
+    </div>-->
+
+</div>
+
+
+</div>
+<div id="mainview" class="main-layout" style="float:none;border-left-style:none;border-right-style:none; display:block;">
+    <div id="user-background-image" class="gradient-background-layer-0"></div>
+    <div class="gradient-background-layer-1"></div>
+    <!--<div class="gradient-background-layer-2"></div>-->
+    <!--<div class="gradient-background-layer-3"></div>-->
+    <div id="headermb" class="header" style="display:none;">
+        <div class="notificationId ripple-add-on" id="btnChangLanguage"><img src='./assets/images/english.png'
+                                                               onClick="changeLanguageOnIB()" style="width: 30px"></div>
+        <div class="notificationId ripple-add-on" onClick="openLinkInWindows('https://tpb.vn/promotion/hot-offers?utm_source=ebank&utm_medium=click%20&utm_campaign=main-ebank-uu-dai');">
+            <p class='icon-promotions'></p>
+        </div>
+		<!--
+        <div class="notificationId ripple-add-on" onClick="showQRCodeView();" id="id.qrcode.btn" style="right: 70px;display:none;">
+            <div class='icon-qrcode'></div>
+        </div>-->
+
+        <!-- SANGNT1 Notification icon top-->
+        <div id="notification-id" class="notificationId ripple-add-on" onClick="navController.pushToView('notification/list_notification_scr', true, 'xsl');">
+            <p class='icon-notification'></p>
+        </div>
+        <a href="tel:1800585885">
+            <div class="notificationId ripple-add-on" style="position: absolute;
+    color: rgb(255, 255, 255);
+    right: 126px;
+    display: block;">
+                <p class='icon-contact-us'></p>
+            </div>
+        </a>
+
+        <!--end SANGNT1 Notification icon top-->
+    </div>
+    <!--<div id="headerib" class="header" style="height:30px;display:none;">-->
+        <!--&lt;!&ndash;<div style="color:#333;font-size:12px;text-align: left;margin-top: 8px;margin-left: 10px;font-weight: bold;color:#fff;">&ndash;&gt;-->
+            <!--&lt;!&ndash;&lt;!&ndash;<span>MAIN_SCR_HEADER_TITLE</span>&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="langNoStyle" id="lblChangLanguage"></div>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+
+        <!--&lt;!&ndash;<div class="reload-button" style="margin-right: 35px;" onClick="navController.resetBranchView();"><em class="icon-spinner"></em></div>&ndash;&gt;-->
+        <!--<div class="help divImgFeedback" id="btnFeedback" style="display:none"><img-->
+                <!--src="assets/images/TPBank-feedback-logo-vie.png" height="22px" class="html5logo"-->
+                <!--onclick="Html2Canvas(this);"></div>-->
+        <!--<div class="reload-button" onClick="window.open('https://tpb.vn/diem-uu-dai-va-khuyen-mai/Index.aspx')"><em-->
+                <!--class="icon-gift"></em></div>-->
+    <!--</div>-->
+    <div align="center">
+        <div id="tabHostIndicator" style="display:none;"><span class="window8-1"></span> <span class="window8-2"></span>
+            <span class="window8-3"></span> <span class="window8-4"></span> <span class="window8-5"></span> <span
+                    class="window8-6"></span> <span id="tabHostLoadingMsg" style="display:block;">Loading...</span>
+        </div>
+        <div id="tabHostFailMsg"></div>
+    </div>
+    <div id='tabHost' style="position: relative;width: 100%;height: 100%/*;-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px; border-top-right-radius: 5px;border-bottom-right-radius: 5px;*/"></div>
+    <div id="pageJS"></div>
+    <div id="mask-slideview" class="slidemenu-blacktrans" onClick="closeAllSlideMenu();" style="display:none"></div>
+    <div id="mainlayoutfooter" class="footer break-slide" style="display: none;">
+        <div id="footerSlide" style="display: none" class="footer-slide break-slide">
+            <div class="icon_div_out break-slide"
+                 onclick="navController.pushToView('view-non-ebank/fast-register-scr', true,'xsl')"
+                 id="index-non-ebank1"><em class="icon-quick-regist icon_font_view break-slide"
+                                           style="color: #c3b4e5"></em>
+
+                <div class="langNoStyle icon_div_out_title">
+                    <span id="SlideFooter">MENU_FAST_REGISTER</span>
+                </div>
+            </div>
+
+            <div class="icon_div_out break-slide"
+                 
+                 onclick="showQRCodeView();"
+                 id="index-non-ebank2"><em class="icon-qr-code icon_font_view break-slide" style="color: #98c1a2"></em>
+
+                <div class="langNoStyle icon_div_out_title">
+                  
+                    <span id="SlideFooter1">QRCODE_SCAN_TITLE</span>
+                </div>
+            </div>
+            <div class="icon_div_out break-slide"
+                 onclick="openLinkInWindows('https://tpb.vn/promotion/hot-offers?utm_source=ebank&utm_medium=click%20&utm_campaign=main-ebank-uu-dai');"
+                 id="index-non-ebank3"><em class="icon-promotions icon_font_view break-slide" style="color: #dfa1ae"></em>
+
+                <div class="langNoStyle icon_div_out_title">
+                    <span id="SlideFooter2">MENU_DEAL</span>
+                </div>
+            </div>
+            <div class="icon_div_out break-slide"
+                 onclick="navController.pushToView('view-non-ebank/rate-interest-detail', true,'xsl')"
+                 id="index-non-ebank4"><em class="icon-forex-rate icon_font_view break-slide" style="color: #c3b4e5"></em>
+
+                <div class="langNoStyle icon_div_out_title">
+                    <span id="SlideFooter3">MENU_RATE_INTEREST</span>
+                </div>
+            </div>
+            <div class="icon_div_out break-slide"
+                 onclick="navController.pushToView('view-non-ebank/branch-atm-detail', true,'xsl')"
+                 id="index-non-ebank5"><em class="icon-location icon_font_view break-slide" style="color: #98c1a2"></em>
+
+                <div class="langNoStyle icon_div_out_title">
+                    <span id="SlideFooter4">MENU_BRANCH_ATM</span>
+                </div>
+            </div>
+            <div class="icon_div_out break-slide"
+                 onclick="navController.pushToView('utilitiesxsl/utilities-manage-scr', true,'xsl')"
+                 id="index-non-ebank6"><em class="icon-financial-toolkit icon_font_view break-slide" style="color: #98c1a2"></em>
+                <div class="langNoStyle icon_div_out_title">
+                    <span id="SlideFooter5">MENU_UTILITIES_CALCULATOR</span>
+                </div>
+            </div>
+            <!--end-->
+            <div class="icon_div_out break-slide"
+                 onclick="navController.pushToView('view-non-ebank/support-detail', true,'xsl')"
+                 id="index-non-ebank7"><em class="icon-support icon_font_view break-slide" style="color: #dfa1ae"></em>
+
+                <div class="langNoStyle icon_div_out_title">
+                    <span id="SlideFooter6">MENU_SUPPORT_DETAIL</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="navActionbar" class="navActionbar">
+   <!--<button onclick="myFunction()">Click me</button>-->
+    <div id="nav.btn.home" class="icon-menu handle" style="color: #ffffff;font-size:22px;padding: 11px;position:absolute;display: none;"></div>
+    <div id="nav.icon.tpbank" class="icon-home-tpb"><img src="assets/images/image002.png" class="icon-home-tpb-img" /></div>
+    <div id="nav.btn.homeright" class="icon-menu handle ripple-add-on" style="display: none; position: absolute;  color: #ffffff;font-size:22px;padding: 11px; right:0px;"></div>
+    <div id="nav.btn.share" class="icon-share handle ripple-add-on" style="display: none; position: absolute;  color: #ffffff;font-size:22px;padding: 11px; right:0px;" onclick="shareIt()"></div>
+    <div id="nav.btn.right2" style="position: absolute;right:0px;margin-top: 11px;"></div>
+	<div class="icon-qr-code ripple-add-on" onClick="showQRCodeView();" id="id.qrcode.btn" style="position: absolute; color: #ffffff;font-size:22px;padding: 11px 6px 11px 6px;right:40px;"></div>
+    <a href="tel:1800585885"><div class="icon-contact-us ripple-add-on" id="id.call.btn" style="position: absolute; color: #ffffff;font-size:22px;padding: 11px 6px 11px 6px;right:74px;"></div></a>
+    <div id="nav.titleBar" style="height:100%;left: 88px;right: 88px; position: absolute;top:44px;">
+       <div id="nav.title" style=" display: none;text-align: center;text-decoration: none;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;position: absolute;width: 100%;height: 100%;line-height: 30px;font-size: 15px;font-weight: bold;">Tài khoản</div>
+       <div id="nav.subtitle" style="display: none;text-align: center;text-decoration: none;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;position: absolute;width: 100%;height: 14px;line-height: 14px;font-size: 12px;top: 26px;">01437991001</div>
+              <span id="iconTa" class="icon-movenext input-group-symbol" style="margin-top: -26px; margin-left: -19px; font-size: 10px; position: absolute; display: none;"></span>
+    </div>
+
+    <div id="nav.headerbar" class="bg-banner-home">
+        <span id="nav.title.customername" class="customer-name"></span>
+        <span id="nav.title.datetime"></span>
+    </div>
+    <!--<div id="nav.dynamicBack" class="nav-dynamicBack" style="display: none"></div>-->
+</div>
+<div id="navBottomBar" class="navBottomBar"></div>
+<!-- desktop footer -->
+<div id="pageFooter" style="background-color: #5f2f85; float: left;height: 34px;width:100%; display: none">
+
+    <div class="callsupport"><a class="acallphone" onClick="openLinkInWindows('https://webchat.tpb.vn/WebchatASP/');">
+        <div class='icon-chat  btnshadow btn-second btn-round-15'></div>
+    </a></div>
+
+    <!--<div class="mobilemode">-->
+    <div class="changelanguage" id="btnChangLanguageIB"><img class="languageEnglishFlag"
+                                                             src='./assets/images/English_flag_round_30.png'
+                                                             onClick="changeLanguageOnIB()"></div>
+    <!--</div>-->
+    <!--SANGNT1 NOTIFICATION-->
+    <div class="notificationAction" id="btnNotification" onclick="navController.pushToView('notification/list_notification_scr', true, 'xsl');">
+
+        <div class='icon-notification' style="font-size:30px; position:absolute; color:#fff;"></div>
+        <div id="notifi-number-web" align="center" class="icon-number-notifi"
+             style="visibility:hidden; padding:5px;position:fixed;float:right;font-size: 10px;margin-bottom:0px;bottom:16px; background:#F46F20; border-radius: 50%; z-index:1;color:white;margin-left:15px;">
+            4
+        </div>
+
+    </div>
+
+    <!--END NOTIFICATION-->
+
+    <!--DATMD QRCODE-->
+    <div class='desktopmode'>
+        <div id="btnQRcode" onclick="showQRCodeView()" style="margin-left: 135px !important;">
+
+            <div class='icon-qr-code' style="font-size:30px; position:absolute; color:#fff;"></div>
+            <!--<div id="notifi-number-web" align="center" class="icon-number-notifi" style="visibility:hidden; padding:5px;position:fixed;float:right;font-size: 10px;margin-bottom:0px;bottom:16px; background:#F46F20; border-radius: 50%; z-index:1;color:white;margin-left:15px;">4</div>-->
+
+        </div>
+    </div>
+    <!--DATMD QRCODE-->
+
+    <div class="divcopyright">
+        <p class="pcopyrighttext">© 2017 TPBank. All rights reserved.</p>
+    </div>
+</div>
+<div id="bottom_page" align="center" style="    display: none;
+    width: 100%;
+    position: fixed;
+    bottom: 2%;z-index:1000;">
+    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            <td style="padding-top:0px;padding-bottom:2%;">
+                <table id="page_Bannerbottom" width="100%" border="0" cellpadding="0" cellspacing="0" style="height: 103px">
+                    <tr width="100%">
+                        <td width="68%" style="border-right: 1px dashed rgb(225, 190, 231);">
+                            <span id="login.BannerBottom"><a href="https://tpb.vn"><img height="85px" src="https://demo.tpb.vn/retail/promotion/Login_Banner_Bottom_vie.png"></a></span>
+                        </td>
+                        
+                        
+                        <td id="block_download" width="22%"  class="imagelink cblock_download_link"><a style="position: absolute;
+    margin: -1px 0 0 6%;"   class="block_download_link_bt" id="bt_appstore" href="https://itunes.apple.com/vn/app/tpbank-mobile/id450464147?mt=8"></a>
+                        <a style="position: absolute;
+    margin: -44px 0 0 6%;" class="block_download_link_bt" id="bt_google_play" href="https://play.google.com/store/apps/details?id=com.tpb.mb.gprsandroid&amp;hl=en"></a>
+                       
+    </td>   
+                        <td width="68%" id="block_download_qrcode" class="block_download_qr">
+                              
+                        </td>
+                    </tr>
+                    
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+</div><!--/#fullpage-->
+</div>
+<div id="pageFooterDesktop" style="background-color: rgba(73, 21, 115, 0.7); position: fixed;bottom: 0px; float: left; height: 24px; width: 100%; display: block;">
+<div style="max-width: 1024px; margin: 0 auto">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr  >
+<td style="width: 50%; color: #eee; padding-bottom: 10px;"><div style="margin-left: 2%"><a class="pageFooterDesktop-color" href="/quy-dinh-su-dung">Điều khoản sử dụng</a> l <a class="pageFooterDesktop-color" href="/bao-mat-thong-tin-khach-hang">Bảo mật thông tin khách hàng</a> </div>
+</td>
+
+      <td  class="divcopyright" style="float: right; margin-right: 2%;">
+        <p class="pcopyrighttext" style="color: #eee;">Copyright © 2017 TPBank. All rights reserved.</p>
+      </td>
+      </tr>
+      </table>
+      </div>
+    </div>
+<div id="mask-blacktrans" class="alert-blacktrans" align="center" onClick="" style="display:none"></div>
+<div id="loadingMask" class="loading" style="display:none">
+    <div class="circle"></div>
+    <div class="circle1"></div>
+</div>
+<div id="alert-confirm-dialog" class="alert-blacktrans" align="center" onClick="" style="display:none">
+    <div class="alert-info" style="border-radius: 10px;">
+        <p id="alert-confirm-content" style="rgba(187, 187, 187, 0.39);" class="txt-alert-view"></p>
+        <table style="width:100%">
+            <!-- style="width:100% ;border-top:1px solid black"-->
+            <tr>
+                <td style="width:50%;"><!-- style="width:50%; border-right:1px solid black"-->
+
+                    <input type="button" id="btnAlertConfirmCancel" style="margin-left: 15px;
+    padding: 8px;
+    background: #f69013!important;
+    color: #f3f3f3;
+    border-radius: 25px;
+    width: 120px;" value="ALERT_BTN_CANCEL_TITLE"
+                           onclick="closeAlertConfirm(false)" class="btn-alert-close"/></td>
+                <td style="width:50%"><input type="button" style="padding: 8px;
+    background: #f69013;
+    color: #f3f3f3;
+    border-radius: 25px;
+    width: 120px;" id="btnAlertConfirmOk" value="ALERT_BTN_OK_TITLE"
+                                             onClick="closeAlertConfirm(true)"
+                                             class="btn-alert-ok"/></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div id="alert-app-confirm" class="alert-blacktrans" align="center" onClick="" style="display:none">
+    <div class="alert-info" style="border-radius: 10px;">
+        <p id="alert-title" style="background: #6a1b9a;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 7px 7px 0 0;"></p>
+        <p id="alert-app-content" style="    border-bottom: 1px solid rgba(51, 51, 51, 0.21);" class="txt-alert-view"></p>
+        <table style="width:100%">
+            <!-- style="width:100% ;border-top:1px solid black"-->
+            <tr>
+                <td style="width:50%;" id="td-confirm-cancel"><!-- style="width:50%; border-right:1px solid black"-->
+
+                    <input type="button" id="btnAlertAppCancel" style="margin-left: 15px;
+    padding: 8px;
+    background: rgba(162, 100, 187, 0.51) !important;
+    color: #f3f3f3;
+    border-radius: 25px;
+    width: 120px;" value="ALERT_BTN_CANCEL_TITLE"
+                           onclick="closeAlertApp(false)" class="btn-alert-close"/></td>
+                <td style="width:50%" id="td-confirm-ok"><input type="button" style="    padding: 8px;
+    background: #f69013;
+    color: #f3f3f3;
+    border-radius: 25px;
+    width: 120px;" id="btnAlertAppOk"
+                                                                value="ALERT_BTN_OK_TITLE" onClick="closeAlertApp(true)"
+                                                                class="btn-alert-ok"/></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div id="alert-confirm-dialog-schedulebank" class="alert-blacktrans" align="center" onClick="" style="display:none">
+    <div class="alert-info">
+        <p id="alert-confirm-content-schedulebank" class="txt-alert-view"></p>
+        <table style="width:100%">
+            <!-- style="width:100% ;border-top:1px solid black"-->
+            <tr>
+                <td style="width:50%;"><!-- style="width:50%; border-right:1px solid black"-->
+
+                    <input type="button" id="btnCANCEL_SCHEDULE" onClick="closeAlertConfirmScheduleBank(false)"
+                           class="btn-alert-close"/></td>
+                <td style="width:50%"><input type="button" id="btnOK_SCHEDULE"
+                                             onClick="closeAlertConfirmScheduleBank(true)" class="btn-alert-ok"/></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div id="alert-confirm-dialog-qrcode" class="alert-blacktrans" align="center" onClick="" style="display:none">
+    <div class="alert-info">
+        <p id="alert-confirm-content-schedulebank" class="txt-alert-view"></p>
+        <table style="width:100%">
+            <tr>
+                <td style="width:50%;">
+                    <input type="button" id="btnCANCEL_SCHEDULE" onClick="closeAlertConfirmScheduleBank(false)"
+                           class="btn-alert-close" value="Thử lại"/>
+                </td>
+                <td style="width:50%">
+                    <input type="button" id="btnOK_SCHEDULE" onClick="closeAlertConfirmScheduleBank(true)"
+                           class="btn-alert-ok" value="Thoát"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div id="alert-info-dialog" class="alert-blacktrans" align="center" onClick="" style="display:none">
+    <div class="alert-info" style="border-radius: 10px;">
+        <p style="color:#efefef;background-color: #7b1fa2; border-color:#714197; z-index: 2;border-radius: 8px 8px 0 0;height: 30px; font-size:150%; width:100%; "><span>LOGIN_NOTIFICATION</span></p>
+        <p id="alert-info-content" style="    border-bottom: 1px solid rgba(51, 51, 51, 0.21);" class="txt-alert-view" class="txt-alert-view"></p>
+        <input type="button" value="ALERT_BTN_OK_TITLE" onClick="closealert()" style="margin:10px auto;
+    padding: 8px;
+    background: rgba(162, 100, 187, 0.51);
+    color: #f3f3f3;
+    border-radius: 25px;
+    width: 120px;" class="btn-alert-close"/>
+    </div>
+</div>
+<div id="alert-KHCN-KHDN-TERMS-dialog" class="alert-blacktrans" align="center" onClick="" style="display:none">
+    <div class="alert-info">
+        <div class="closepopup" onClick="closealertKHCN_KHDN_TERMS();"></div>
+        <p id="alert-KHCN-KHDN-TERMS-content" class="txt-alert-view"></p>
+        <table style="width:100%">
+            <!-- style="width:100% ;border-top:1px solid black"-->
+            <tr>
+                <td style="width:50%;"><!-- style="width:50%; border-right:1px solid black"-->
+                    <!--
+               <input type="button" value="ALERT_BTN_KHDN"  onclick="closealertKHCN_KHDN_TERMS();window.open('./download/Dieu khoan dieu kien eBank - KHDN - Vietnamese.pdf');" class="btn-alert-close" id="btnTERMS_KHDN" /></td>
+             <td style="width:50%"><input type="button" value="ALERT_BTN_KHCN" onClick="closealertKHCN_KHDN_TERMS();window.open('./download/Dieu khoan dieu kien eBank - KHCN - Vietnamese.pdf');" class="btn-alert-close" id="btnTERMS_KHCN" />
+             -->
+
+                    <input type="button" value="ALERT_BTN_KHDN" onclick="closealertKHDN_TERMS();"
+                           class="btn-alert-close" id="btnTERMS_KHDN" style="white-space:pre-wrap"/></td>
+                <td style="width:50%"><input type="button" value="ALERT_BTN_KHCN" onClick="closealertKHCN_TERMS();"
+                                             class="btn-alert-close" id="btnTERMS_KHCN" style="white-space:pre-wrap"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div id="alert-KHCN-KHDN-INSTRUCTION-dialog" class="alert-blacktrans" align="center" onClick="" style="display:none">
+    <div class="alert-info">
+        <div class="closepopup" onClick="closealertKHCN_KHDN_INSTRUCTION();"></div>
+        <p id="alert-KHCN-KHDN-INSTRUCTION-content" class="txt-alert-view"></p>
+        <table style="width:100%">
+            <!-- style="width:100% ;border-top:1px solid black"-->
+            <tr>
+                <td style="width:50%;"><!-- style="width:50%; border-right:1px solid black"-->
+
+                    <!--
+               <input type="button" value="ALERT_BTN_KHDN"  onclick="closealertKHCN_KHDN_INSTRUCTION();window.open('./download/HDSD Internet Banking - KHDN - Vietnamese.pdf');" class="btn-alert-close" id="btnINSTR_KHDN" /></td>
+             <td style="width:50%"><input type="button" value="ALERT_BTN_KHCN" onClick="closealertKHCN_KHDN_INSTRUCTION();window.open('./download/HDSD Internet Banking - KHCN - Vietnamese.pdf');" class="btn-alert-close"  id="btnINSTR_KHCN" />
+             -->
+
+                    <input type="button" value="ALERT_BTN_KHDN" onclick="closealertKHDN_INSTRUCTION();"
+                           class="btn-alert-close" id="btnINSTR_KHDN"/></td>
+                <td style="width:50%"><input type="button" value="ALERT_BTN_KHCN"
+                                             onClick="closealertKHCN_INSTRUCTION();" class="btn-alert-close"
+                                             id="btnINSTR_KHCN"/></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div id="alert-KHCN-KHDN-FAQ-dialog" class="alert-blacktrans" align="center" onClick="" style="display:none">
+    <div class="alert-info">
+        <div class="closepopup" onClick="closealertKHCN_KHDN_FAQ();"></div>
+        <p id="alert-KHCN-KHDN-FAQ-content" class="txt-alert-view"></p>
+        <table style="width:100%">
+            <tr>
+                <td style="width:50%;"><input type="button" value="ALERT_BTN_KHDN" onclick="closealertKHDN_FAQ();"
+                                              class="btn-alert-close" id="btnFAQ_KHDN"/></td>
+                <td style="width:50%"><input type="button" value="ALERT_BTN_KHCN" onClick="closealertKHCN_FAQ();"
+                                             class="btn-alert-close" id="btnFAQ_KHCN"/></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div id="loadingPage">
+    <div class="circle"></div>
+    <div class="circle1"></div>
+</div>
+<div id="hint-info-dialog" class="dialog-blacktrans" align="center"
+     style="display:none;background-color: rgba(0, 0, 0, 0);">
+    <div class="dialog-backgroundtrans" onClick="closeHint()"></div>
+                      <span id='search_dialog' class="text-hint" style="white-space:pre-wrap;">  
+                    </span>
+</div>
+<!--<div id="calendarShow" >
+    <div id="calendarShowVitual"  ></div>
+    <div id="calendarShowExactly" ></div>-->
+    
+<div id="calendarShow">
+    <div id="calendarShowVitual"></div>
+    <div id="calendarShowOpacity"></div>
+    <div id="exit" style="z-index: 999999999 !important;display:none;
+    position: absolute;width:100%;"> <span id="exitcalender" style="font-size: 40px;
+    float: right;
+    margin-top: -15px;
+    margin-right: 7px;" onclick='hideCalendar()'>&times;</span></div>
+    <div id="calendarShowExactly"></div>
+    <div id="testgae" style="z-index: 999999999 !important; display:none;
+    height: 40px !important;
+    position: absolute;
+    /* height: auto; */
+    margin-top: calc(35% + 320px);width:100%;"><div style="    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #fb8c00;
+    border-radius: 20px;
+    font-weight: bold;
+    text-align: center;
+    align-content: center;
+    padding: 12px;" onclick='hideCalendar()'><span style="font-size: 14px;">SCHEDULER_SET_TITLE</span></div></div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<div id="recycler_list">
+    <table id="recycler_table_ebank-desktop" class="recycler-table-ebank" width="100%" align="center">
+        <tbody>
+        <tr class='recycler-row-title-header recycler-list'>
+            <th class="recycler-row-align-midle-left" width="7%"><span>COM_NO</span></th>
+            <th class="recycler-row-align-midle-left" width="15%"><span>COM_MAKER</span></th>
+            <th class="recycler-row-align-midle-left" width="20%"><span>COM_CREATED_DATE</span></th>
+            <th class="recycler-row-align-midle-left" width="10%"><span>REQUEST_RELEASE_LC_VALUE</span></th>
+            <th class="recycler-row-align-midle-left" width="20%"><span>COM_TRANS_CODE</span></th>
+        </tr>
+        </tbody>
+        <tbody>
+        <tr class="recycler-row-title recycler-list" ng-repeat="trans in listPending track by $index">
+            <td class="recycler-row-align-midle-left" width="7%"><span style="word-break: break-all;">{{$index + 1}}</span></td>
+            <td class="recycler-row-align-midle-left" width="20%"><span style="white-space: pre-wrap;" ng-bind="trans.IDMAKER"></span></td>
+            <td class="recycler-row-align-midle-left" width="15%"><span style="word-break: break-all" ng-bind="trans.NGAY_LAP"></span></td>
+            <td ng-if="trans.AMOUNT != null " class="recycler-row-align-midle-left" width="15%">
+                <span style="word-break: break-all" ng-bind="(trans.TYPE_LC == 'P') ? (trans.AMOUNT | currency : '' : 0) + ' ' + trans.CCY: (trans.VAL_LC_MODIFY | currency : '' : 0) + ' ' + trans.CCY"></span>
+            </td>
+            <td ng-if="trans.AMOUNT == null " class="recycler-row-align-midle-left" width="15%"></td>
+            <td class="recycler-row-align-midle-left" width="20%" >
+                <span>
+                    <a ng-click="showDetailTransaction(trans);" style="cursor:pointer;">
+                        <span class="no-check" ng-bind="trans.MA_GD"></span>
+                    </a>
+                </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!--<div align="right" style="float: right; width:100%">
+    <div class="export-print" id="acchis.exportfile" onclick="exportExcelDebtHistory()" style="display: inline-block;float:right; cursor: pointer;">
+        <img style="margin-top: 20px; margin-right:10px; margin-bottom: 20px;" src="css/img/exportfile.png" />
+    </div>
+</div>-->
+

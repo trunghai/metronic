@@ -1,0 +1,156 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="auth-guarantee-detail-result">
+    <div class="">
+        <div class="panelContent">
+            <table id="dynamic-billing-table" width="100%">
+                <tbody>
+                <tr>
+                    <td colspan="2" style="text-align: center">
+                        <div ng-class="result.messageIconClass" style="display: inline; color: #FAA60D; font-size: 24px; vertical-align: middle; padding: 5px 0px 5px 0px;"></div>
+                        <span style="font-size:16px; vertical-align:middle" ng-bind="result.message"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                            <div style="margin-top: 5px" class="desktopview">
+                                <table class='recycler-table-ebank'>
+                                    <tr class='recycler-row-title-header recycler-list' align='center'>
+                                        <td class="recycler-row-align-midle" width="10%"><span>COM_MAKER</span></td>
+                                        <td class="recycler-row-align-midle" width="12%"><span>COM_CREATED_DATE</span></td>
+                                        <td class="recycler-row-align-midle" width="12%"><span>GUA_STATUS</span></td>
+                                        <td class="recycler-row-align-midle" width="10%"><span>COM_CHEKER</span></td>
+                                        <td class="recycler-row-align-midle" width="14%"><span>COM_CHECK_DATE</span></td>
+                                        <td class="recycler-row-align-midle" width="18%"><span>COM_TRANS_CODE</span></td>
+                                    </tr>
+                                    <tr class="recycler-row-title recycler-list" align='center'>
+                                        <td class="recycler-row-align-midle">
+                                            <div ng-bind="result.MAKER"></div>
+                                        </td>
+                                        <td class="recycler-row-align-midle">
+                                            <div ng-bind="result.DATMAKE"></div>
+                                        </td>
+                                        <td class="recycler-row-align-midle">
+                                            <div ng-bind="status(result.STATUS)"></div>
+                                        </td>
+                                        <td class="recycler-row-align-midle">
+                                            <div ng-bind="result.SIGNEDBY"></div>
+                                        </td>
+                                        <td class="recycler-row-align-midle">
+                                            <div ng-bind="result.DATCHECK"></div>
+                                        </td>
+                                        <td class="recycler-row-align-midle">
+                                            <a><span class="no-check" ng-bind="result.IDFCATREF"></span></a>
+                                        </td>
+                                    </tr>        
+                                </table>
+                            </div>
+                            
+                                <table id="recycler_table_ebank-mobile" class="recycler-list recycler-table-ebank mobileview margin-bottom">
+                                    <tr class="recycler-row-parity">
+                                        <td class="recycler-row-align-midle-left"><span>COM_MAKER</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="result.MAKER"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-parity">
+                                        <td class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="result.DATMAKE"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-parity">
+                                        <td class="recycler-row-align-midle-left"><span>GUA_STATUS</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="status(result.STATUS)"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-parity">
+                                        <td class="recycler-row-align-midle-left"><span>COM_CHEKER</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="result.SIGNEDBY"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-parity">
+                                        <td class="recycler-row-align-midle-left"><span>COM_CHECK_DATE</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="result.DATCHECK"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-parity">
+                                        <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="result.IDFCATREF"></span></td>
+                                    </tr>
+                                </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <table width='100%' align='center' class='recycler-list recycler-table-ebank mobileview'>
+                            <tr class="recycler-row-normal" ng-hide="detailCommon.authen">
+                                <td class="recycler-row-align-midle-left"><span>COM_AUTH_DENIAL_REASON</span></td>
+                                <td class="recycler-row-align-midle-right"><span>{{detailCommon.reason}}</span></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <table width="100%">
+                <tbody>
+                <tr align="center">
+                    <td class="tdbtndesktop" width="32%"><input type="submit" style="display:none; width:100%;margin:0 auto" class="btnDesktopshadow btnDesktopBack" ng-click="clickHomeOrBack()" value="Quay lại"></td>
+                    <td width="32%" id="trCancel"><input type="submit" style="display:none; background-color: rgba(162, 100, 187, 0.51);border-radius: 20px;width:100%" class="btnshadow btn-primary" ng-click="btnCancelClick()" value="Hủy" ></td>
+                    <td width="32%"><input style="width:100%" type="button" class="btnshadow btn-second" ng-click="onMakeOrderTrans()" value="COM_AUTHORIZE_OTHER_TRANS" ></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div id="contentView" class="modal-content"></div>
+
+</div>
+
+<style>
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+
+        margin: auto;
+        padding: 0px;
+        width: 80%;
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>

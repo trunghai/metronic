@@ -1,0 +1,93 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="set-limit">
+	<div class="panelContent" style="margin-top:0px;padding-top:10px">
+			<div id="resultsTable"></div>
+			<table class='recycler-table-ebank desktopview' width='100%' align='center' style='table-layout: fixed;'>
+				<tbody>
+				<tr class='recycler-row-title-header recycler-list'>
+					<td class='recycler-row-align-midle' rowspan='2'><span>CONST_TRANS_LIMIT_TIT_SERVICE</span></td>
+					<td class='recycler-row-align-midle' colspan='2'><span>CONST_TRANS_LIMIT_TIT_MAX_LIMIT</span></td>
+					<td class='recycler-row-align-midle' colspan='2'><span>CONST_TRANS_LIMIT_TIT_SELECTED_LIMIT</span></td>
+				</tr>
+				<tr class='recycler-row-title-header recycler-list'>
+					<td class='recycler-row-align-midle'><span>CONST_TRANS_LIMIT_TIT_LIMIT_CURRENT_TIME</span></td>
+					<td class='recycler-row-align-midle'><span>CONST_TRANS_LIMIT_TIT_LIMIT_CURRENT_DAY</span></td>
+					<td class='recycler-row-align-midle'><span>CONST_TRANS_LIMIT_TIT_LIMIT_CURRENT_TIME</span></td>
+					<td class='recycler-row-align-midle'><span>CONST_TRANS_LIMIT_TIT_LIMIT_CURRENT_DAY</span></td>
+				</tr>
+
+				<tr class="recycler-row-title recycler-list" align="center" ng-repeat="(h1, h2) in currentUserLimit">
+					<td class="recycler-row-align-midle"><span ng-bind="textlimit(h2.MA_DV)"></span></td>
+					<td class="recycler-row-align-midle" ng-attr-id="{{ h2.MA_DV +'-time-old'}}"><span>{{(h2.HAN_MUC_LAN_MAX | currency : '' : 0)}}</span></td>
+					<td class="recycler-row-align-midle" ng-attr-id="{{ h2.MA_DV +'-time-old'}}"><span>{{(h2.HAN_MUC_NGAY_MAX | currency : '' : 0)}}</span></td>
+					<td class="recycler-row-align-midle"><input ng-attr-id="{{ h2.MA_DV +'-time-new'}}" type="text" class="form-control form-control-righttext" placeholder="CONST_TRANS_LIMIT_TIT_LIMIT_CURRENT_TIME" onkeyup="handleInputAmount(event, this);" onchange="keepOnlyNumber(this.value)" ng-value="(h2.HAN_MUC_LAN | currency : '' : 0)"/></td>
+					<td class="recycler-row-align-midle"><input ng-attr-id="{{ h2.MA_DV +'-day-new'}}" type="text" class="form-control form-control-righttext" placeholder="CONST_TRANS_LIMIT_TIT_LIMIT_CURRENT_DAY" onkeyup="handleInputAmount(event, this);" onchange="keepOnlyNumber(this.value)" ng-value="(h2.HAN_MUC_NGAY | currency : '' : 0)"/></td>
+				</tr>
+				</tbody>
+			</table>
+			
+			<div class="recycler_table_ebank-mobile mobileview" ng-repeat="(h1, h2) in currentUserLimit">
+				<div id='recycler_list' class='recycler-list margin-bottom'>
+					<table id='recycler_table_ebank-mobile' class='recycler-table-ebank'>
+						<tbody>
+						<tr class='recycler-row-parity'>
+							<td class='recycler-row-align-midle-left-opacity'><span>CONST_TRANS_LIMIT_TIT_SERVICE</span></td>
+							<td class='recycler-row-align-midle-right-opacity'><span ng-bind="textlimit(h2.MA_DV)"></span></td>
+						</tr>
+						<tr class='recycler-row-parity'>
+							<td class='recycler-row-align-midle-left-opacity'><span>CONST_TRANS_LIMIT_TIT_LIMIT_CURRENT_TIME_MAX</span></td>
+							<td ng-attr-id="{{ h2.MA_DV +'-time-old'}}" class='recycler-row-align-midle-right-opacity'><span>{{(h2.HAN_MUC_LAN_MAX | currency : '' : 0)}}</span></td>
+						</tr>
+						<tr class='recycler-row-parity'>
+							<td class='recycler-row-align-midle-left-opacity'><span>CONST_TRANS_LIMIT_TIT_LIMIT_CURRENT_DAY_MAX</span></td>
+							<td ng-attr-id="{{ h2.MA_DV +'-time-old'}}" class='recycler-row-align-midle-right-opacity'><span>{{(h2.HAN_MUC_NGAY_MAX | currency : '' : 0)}}</span></td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+				<table width='100%' align='center' class="">
+					<tbody>
+					<tr>
+						<td colspan="2" align="right"><div class="input-group widefull"><input ng-attr-id="{{ h2.MA_DV +'-time-new'}}" type="text" class="form-control form-control-righttext input-none-border" placeholder="CONST_TRANS_LIMIT_TIT_LIMIT_CURRENT_TIME" onkeyup="handleInputAmount(event, this);" onchange="keepOnlyNumber(this.value)" ng-value="(h2.HAN_MUC_LAN | currency : '' : 0)"/></div></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="right"><div class="input-group widefull"><input ng-attr-id="{{ h2.MA_DV +'-day-new'}}" type="text" class="form-control form-control-righttext input-none-border" placeholder="CONST_TRANS_LIMIT_TIT_LIMIT_CURRENT_DAY" onkeyup="handleInputAmount(event, this);" onchange="keepOnlyNumber(this.value)" ng-value="(h2.HAN_MUC_NGAY | currency : '' : 0)"/></div></td>
+					</tr>
+					</tbody>
+				</table>
+			</div>	
+
+			<table width='100%' align='center'>
+				<tr>
+					<td><span>CONST_TRANS_LIMIT_TIT_INFO_1</span></td>
+				</tr>
+				<tr>
+					<td><span>CONST_TRANS_LIMIT_TIT_INFO_2</span></td>
+				</tr>
+			</table>
+			
+			<table width='100%'>
+				<tr class="trow-space"></tr>
+				<tr>
+					<!--<td width="50%" id="btnBack">
+						<input type="button" style="padding: 0; margin: 0; float: left;" class='btnshadow btn-primary' onclick="clickHomeOrBack()" value='CM_BTN_GOBACK' />
+					</td>
+					<td width="50%" id="btnNext">
+						<input type="button" style="padding: 0; margin: 0; float: right;" class='btnshadow btn-primary' ng-click='btnNextClick()' value='CM_BTN_SEND_REQ' />
+					</td>-->
+					<td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="tdbtndesktop" style="width:50%">
+                            <input  type='submit' style="float:left;margin-left:65px" class='btnDesktopshadow btnDesktopBack' onClick= 'clickHomeOrBack()' value='INPUT_ACC_BTN_GOBACK'/>
+                        </div>
+                        <div style="width:50%">
+                            <input  type="button" style="margin-right:100px" class="btnshadow btn-second"
+                                    ng-click="btnNextClick()" value="TRANS_LOCAL_BTN_SENDREQUEST"/>
+                        </div>
+                    </td>
+				</tr>				
+			</table>
+	</div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+	<div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+	<div id="divListGroup" class="list-group dialog-list"></div>
+</div>

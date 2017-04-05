@@ -1,0 +1,152 @@
+<link rel="stylesheet" href="./assets/libs/angularjs/jquery.fileupload.css" type="text/css"/>
+
+<div id="mainViewContent" class="main-layout-subview" ng-controller="manager_additional_documents">
+    <div class="">
+        <div class="panelContent" nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter, pdfFilter">
+            <table id="dynamic-billing-table" width="100%">
+                <tbody>
+                <tr>
+                    <td colspan="2">
+                        <div class="recycler-list">
+                            <table width='100%' align='center' class='recycler-table-ebank'>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.idcafcatref"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>COM_STATUS</span></td>
+                                    <td class="recycler-row-align-midle-right"><span  ng-bind="statusVN[infoTrans.TRANG_THAI]"></span></td>
+                                </tr>
+                                <tr ng-show="(infoTrans.info_trans.CODSTATUS == 'REJ' || infoTrans.info_trans.CODSTATUS == 'RES') ? true : false" class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>COM_AUTH_DENIAL_REASON</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.info_trans.TXTREASON"></span></td>
+                                </tr>
+                                <tr ng-show="(infoTrans.info_trans.CODSTATUS == 'RSA' || infoTrans.info_trans.CODSTATUS == 'RJS') ? true : false" class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>INTERNALTIONAL_NOTE_ECM</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.info_trans.TXTREASONECM"></span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <h5 class="header-title">
+                            <span>INTERNATIONAL_CHECKLIST</span>
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <!-- BEGIN MAIN CONTENT -->
+                        <div class="desktopview">
+                            <table class="recycler-table-ebank " width="100%" align="center">
+                                <tbody>
+                                <tr class="recycler-row-title-header recycler-list">
+                                    <td class="recycler-row-align-midle" width="8%"><span>COM_NO</span></td>
+                                    <td class="recycler-row-align-midle" width="50%"><span>INTERNATIONAL_PROFILE_ADDITIONAL</span></td>
+                                    <td class="recycler-row-align-midle" ><span>INTERNATIONAL_REQUEST</span></td>
+                                </tr>
+                                <tr class="recycler-row-title recycler-list" ng-repeat="item in checklist">
+                                    <td class="recycler-row-align-midle" width="8%"><div style="word-break: break-all;" ng-bind="$index + 1"></div></td>
+                                    <td class="recycler-row-align-midle-left"><div style="word-break: break-all;" ng-bind="item.DESCREPTION"></div></td>
+                                    <td class="recycler-row-align-midle"><div style="word-break: break-all;" ng-bind="item.EXPECT"></div></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- END MAIN CONTENT -->
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <h5 class="header-title">
+                            <span>INTERNATIONAL_LIST_PROFILE_ADDITIONAL</span>
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="width:40%"></span>
+                           <span class="fileinput-button form-control form-control-righttext" style="padding-top: 9px;">
+                               <span>GUA_CHOOSE_FILE</span>
+                               <input type="file" name="file" nv-file-select="" uploader="uploader" multiple  />
+                           </span>
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center">
+                        <div class="input-group border-b">
+                            <div style="text-align: right;">
+                                <span style="cursor:pointer;">COMMON_NOTE_FILE_FORMAT</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="trow-space"></tr>
+                <tr>
+                    <td>
+                        <!-- BEGIN MAIN CONTENT -->
+                        <div class="desktopview">
+                            <table class="recycler-table-ebank">
+                                <tbody>
+                                <tr class="recycler-row-title-header recycler-list">
+                                    <td class="recycler-row-align-midle" width="8%"><span>COM_NO</span></td>
+                                    <td class="recycler-row-align-midle" width="50%"><span>INTERNATIONAL_PROFILE_NAME</span></td>
+                                    <td class="recycler-row-align-midle" ng-show="uploader.isHTML5"><span>INTERNATIONAL_PROFILE_SIZE</span></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="recycler-row-title recycler-list" ng-repeat="item in uploader.queue">
+                                    <td class="recycler-row-align-midle" width="8%">
+                                        <div style="word-break: break-all;" ng-bind="$index + 1"></div>
+                                    </td>
+                                    <td class="recycler-row-align-midle-left">
+                                        <div style="word-break: break-all;" ng-bind="item.file.name"></div>
+                                    </td>
+                                    <td class="recycler-row-align-midle" ng-show="uploader.isHTML5" nowrap>
+                                        <div style="word-break: break-all;" ng-bind="(item.file.size/1024/1024|number:2) + ' MB'"></div>
+                                    </td>
+                                    <td class="recycler-row-align-midle" nowrap>
+                                        <div style="word-break: break-all;">
+                                           <span type="button" ng-click="removeFile(item, $index)" style="color: red; cursor: pointer">
+                                               <strong><span>INTERNATIONAL_REMOVE_PROFILE</span></strong>
+                                           </span>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- END MAIN CONTENT -->
+                    </td>
+                </tr>
+                <tr class="trow-space"></tr>
+                <tr class="mt-15">
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="tdbtndesktop" style="width:50%">
+                            <input  type='button' style="float:left;margin-left:65px" class='btnDesktopshadow btnDesktopBack' ng-click="onBackClick()" value='COM_BACK'/>
+                        </div>
+                        <div style="width:50%">
+                            <input id="btnContinute" type="button" style="margin-right:100px" class="btnshadow btn-second" ng-click="uploadFile()" value="COM_CONTINUE"/>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

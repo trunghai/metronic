@@ -1,0 +1,283 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="pay_tax_create_organization"
+     style="height: 417px;top:44px">
+    <div id="content-transfer" style="display:block" class="bg-transfer">
+        <div class="panelContent" style="margin-top:0px;padding-top:0px">
+            <!--<table width="100%">
+                <tr>
+                    <td>
+                        <h5 class="screen-title"><span style="white-space:pre-wrap;">MENU_CHILD_PAY_TAX</span></h5>
+                        <div class="line-separate"/>
+                        <div id="seqFormLocal"></div>
+                    </td>
+                </tr>
+            </table>-->
+            <table width='100%' align='center'>
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title"><span>TAX_PAY_TAX_CUST_INFO</span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div align="center">
+                            <div id="recycler_list" class="recycler-list">
+                                <table id="recycler_table_ebank" class="recycler-table-ebank">
+                                    <tbody>
+                                    <tr class="recycler-row-normal">
+                                        <td width="50%" class="recycler-row-align-midle-left"><span>COM_TAX_NUMBER</span></td>
+                                        <td width="50%" class="recycler-row-align-midle-right" ng-bind="Ma_ST"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td width="50%" class="recycler-row-align-midle-left"><span>TAX_CUST_PAY_TAX</span></td>
+                                        <td width="50%" class="recycler-row-align-midle-right" style="word-break: break-all;" ng-bind="Ten_NNT"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td width="50%" class="recycler-row-align-midle-left"><span>TAX_CUST_PAY_TAX_ADDRESS</span>
+                                        </td>
+                                        <td width="50%" class="recycler-row-align-midle-right" style="word-break: break-all;" ng-bind="Diachi"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td width="50%" class="recycler-row-align-midle-left"><span>TAX_ORI_REVENUE_NAME</span>
+                                        </td>
+                                        <td width="50%" class="recycler-row-align-midle-right" style="word-break: break-all;" ng-bind="Ten_DVQL"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title"><span>TAX_INFO_REVENUE</span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div align="center">
+                            <div id="recycler_list1" class="recycler-list">
+                                <table id="recycler_table_ebank1" class="recycler-table-ebank">
+                                    <tbody>
+                                    <tr class="recycler-row-normal">
+                                        <td width="50%" class="recycler-row-align-midle-left"><span>TAX_BANK_BENEFICIARY_CODE</span>
+                                        </td>
+                                        <td width="50%" class="recycler-row-align-midle-right" ng-bind="Ma_NH_TH"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td width="50%" class="recycler-row-align-midle-left"><span>TAX_BANK_BENEFICIARY_NAME</span>
+                                        </td>
+                                        <td width="50%" class="recycler-row-align-midle-right" style="word-break: break-all;" ng-bind="Ten_NH_TH"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td width="50%" class="recycler-row-align-midle-left"><span>TAX_ACCOUNT_BENEFICIARY</span>
+                                        </td>
+                                        <td width="50%" class="recycler-row-align-midle-right" style="word-break: break-all;" ng-bind="TaiKhoan_TH"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td width="50%" class="recycler-row-align-midle-left">
+                                            <span>TAX_ACCOUNT_BENEFICIARY_NAME</span>
+                                        </td>
+                                        <td width="50%" class="recycler-row-align-midle-right" style="word-break: break-all;" ng-bind="Ten_TaiKhoan_TH"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td width="50%" class="recycler-row-align-midle-left"><span>TAX_EXCHANGERATES_CODE</span>
+                                        </td>
+                                        <td width="50%" class="recycler-row-align-midle-right" ng-bind="Ma_NT"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td width="50%" class="recycler-row-align-midle-left"><span>TAX_EXCHANGERATES_VALUE</span>
+                                        </td>
+                                        <td width="50%" class="recycler-row-align-midle-right" ng-bind="TyGiaView"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td width="50%" class="recycler-row-align-midle-left"><span>TAX_EXCHANGERATES_SUM</span>
+                                        </td>
+                                        <td width="50%" class="recycler-row-align-midle-right" ng-bind="TongTien_NT_View"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td width="50%" class="recycler-row-align-midle-left"><span>TAX_TREASURY_VALUE</span>
+                                        </td>
+                                        <td width="50%" class="recycler-row-align-midle-right" ng-bind="TongTien_VND_View"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title"><span>COM_TXT_ACC_CONFIRM_TRANS_TITLE</span></div>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+
+            <!--<div id="divTable"></div>-->
+            <!--<div ng-include="'pages/payment_service/create/tax/pay_tax_create_organization_tbl.html'"></div>-->
+            <div id="recycler_list2" class="recycler-list">
+                <table id="recycler_table_ebank-desktop" class="recycler-table-ebank desktopview">
+                    <tbody>
+                    <tr class="recycler-row-title-header recycler-list">
+                        <td class="recycler-row-align-midle-left"><span>COM_NO</span></td>
+                        <td class="recycler-row-align-midle-left"><span>TAX_CONTENT</span></td>
+                        <td class="recycler-row-align-midle-left"><span>TAX_CONTENT_TITLE</span></td>
+                        <td class="recycler-row-align-midle-left"><span>TAX_CURRENCY_MONEY</span></td>
+                        <td class="recycler-row-align-midle-left"><span>TAX_CURRENCY_MONEY_LOCAL</span></td>
+                        <td class="recycler-row-align-midle-left"><span>TAX_CURRENCY_NOTE</span></td>
+                        <!--<td width="50%" class="recycler-row-align-midle-left"><span>AUTHORIZE_TRANS_TIT_COUNT_PENDING</span></td>-->
+                    </tr>
+                    <tr class="recycler-row-title recycler-list" align="center"
+                        ng-repeat="item in listPending track by $index">
+                        <td class="recycler-row-align-midle-left"><span ng-bind="$index + 1"></span></td>
+                        <td class="recycler-row-align-midle-left"><span ng-bind="item.NDKT"></span></td>
+                        <td class="recycler-row-align-midle-left"><span ng-bind="item.Ten_NDKT"></span></td>
+                        <td class="recycler-row-align-midle-left"><span
+                                ng-bind="item.SoTien_NT_View"></span></td>
+                        <td class="recycler-row-align-midle-left"><span
+                                ng-bind="item.SoTien_VND_View"></span></td>
+                        <td class="recycler-row-align-midle-left"><span ng-bind="item.GhiChu"></span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div  class="mobileview">
+                <table style="margin-bottom: 10px;" align="center" ng-repeat="item in listPending track by $index" id="recycler_table_ebank-mobile" class="recycler-table-ebank recycler-list">
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <span>COM_NO</span>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <span ng-bind="$index + 1"></span>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <span>TAX_CONTENT</span>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <span ng-bind="item.NDKT"></span>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <span>TAX_CONTENT_TITLE</span>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <span ng-bind="item.Ten_NDKT"></span>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <span>TAX_CURRENCY_MONEY</span>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <span ng-bind="item.SoTien_NT_View"></span>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <span>TAX_CURRENCY_MONEY_LOCAL</span>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <span ng-bind="item.SoTien_VND_View"></span>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <span>TAX_CURRENCY_NOTE</span>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <span ng-bind="item.GhiChu"></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <table width="100%">
+                <!--<tr>
+                  <td colspan="2" align="center" valign="middle" class="td-text">
+                    <div class="input-group" onClick="getTreasuryNumber()"> <span class="input-group-addon" style="width:40%;white-space:pre-wrap">TAX_TREASURY_CODE_1</span>
+                      <input style="white-space:pre-wrap" id="id.treasuryName" type="button" class="form-control form-control-rightbutton" value="COM_TXT_SELECTION_PLACEHOLDER" />
+                      <input type="hidden" id="id.treasuryNum" />
+                      <span class="icon-movenext input-group-addon input-group-symbol"></span> </div>
+                  </td>
+                </tr>-->
+                <tr>
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="input-group" ng-click="saveQueryInfo()"><span class="input-group-addon"
+                                                                                  style="width:40%;white-space:pre-wrap">TAX_SAVE_TAX_QUERY</span>
+                            <input style="white-space:pre-wrap" id="id.saveTaxQuery" type="button"
+                                   class="form-control form-control-rightbutton" value="TAX_SAVE_CODE"/>
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span></div>
+                        <input type='hidden' id="id.saveTaxQueryValue" value='1'/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="white-space:pre-wrap; width:40%">COM_SEND_MSG_APPROVER</span>
+                            <input id="id.notifyTo" class="form-control form-control-righttext" disabled="true"
+                                   style="white-space: pre-wrap; padding-right: 10px;" type="button"/>
+                        </div>
+                    </td>
+                </tr>
+                <!-- <tr>
+                    <td width="100%" style="text-align:right;"><u>
+                        <a ng-click="showReceiverList()" style="cursor:pointer; white-space:pre-wrap;"><span>COM_VIEW_LIST_APPROVER</span></a></u>
+                    </td>
+                </tr> -->
+                <tr class="trow-space"></tr>
+                <!--<tr>
+                    <td>
+                        <table width="100%" align="center" class="button-group button-group-3">
+                            <tr>
+                                <td>
+                                    <input style="margin-top: 15px;" type="button" class="btnshadow btn-primary"
+                                           value="REVIEW_BTN_BACK" ng-click="domesticCallBack()"/>
+                                </td>
+                                <td>
+                                    <input style="margin-top: 15px;" type="button" class="btnshadow btn-primary"
+                                           value="REVIEW_BTN_CANCEL" ng-click="domesticCancel()"/>
+                                </td>
+                                <td>
+                                    <input style="margin-top: 15px;" type="button" class="btnshadow btn-primary"
+                                           value="TRANS_LOCAL_BTN_SENDREQUEST" ng-click="sendJsonRequest()"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>-->
+            </table>
+            <table width="100%">
+                <tbody>
+                <tr align="center">
+                    <td class="tdbtndesktop" width="32%"><input type="submit" style="width:100%;margin:0 auto"
+                                                                class="btnDesktopshadow btnDesktopBack"
+                                                                ng-click="domesticCallBack()" value="REVIEW_BTN_BACK"
+                                                                autocomplete="off" autocorrect="off"
+                                                                autocapitalize="off" spellcheck="off"></td>
+                    <td width="32%" id="trCancel"><input type="submit"
+                                                         style="background-color: rgba(162, 100, 187, 0.51);border-radius: 20px;width:100%"
+                                                         class="btnshadow btn-primary" ng-click="domesticCancel()"
+                                                         value="REVIEW_BTN_CANCEL" autocomplete="off" autocorrect="off"
+                                                         autocapitalize="off" spellcheck="off"></td>
+                    <td width="32%"><input style="width:100%" type="button" class="btnshadow btn-second"
+                                           ng-click="sendJsonRequest()" value="TRANS_LOCAL_BTN_SENDREQUEST"
+                                           autocomplete="off"
+                                           autocorrect="off" autocapitalize="off" spellcheck="off">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"></div>
+</div>

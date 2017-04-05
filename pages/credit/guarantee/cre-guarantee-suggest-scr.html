@@ -1,0 +1,177 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="cre-guarantee-suggest-scr" style="top:44px; height: 417px">
+	<div class="bg-transfer">
+		<div class="panelContent">
+			<table class="tableTab" id="periodic-table">
+				<td class='content-periodic selected'>
+					<span>COM_MAKE_TRANS</span>
+					<span class="content-span"></span>
+				</td>
+				<td ng-click="changeTab()" class='content-periodic'>
+					<span>TRANS_PERIODIC_MNG_TITLE</span>
+					<span class="content-span"></span>
+				</td>
+			</table>
+			<table width="100%">
+
+				<table width="100%" align="center">
+					<tr>
+						<td colspan="2">
+							<div class="header-title">
+								<span>GUARANTEE_SUGGEST_TYPE</span>
+							</div>
+						</td>
+					</tr>
+					<style>
+						.radio-css input[type="radio"] {
+							display: none;
+							padding:0;
+							margin:0;
+						}
+						.radio-css input[type="radio"] + label{
+							height: 15px;
+							display: block;
+							background: url("assets/images/radio.png") no-repeat;
+						}
+						.radio-css input[type="radio"]:checked+label{
+							background-position: 0 -15px;
+						}					
+						.radio-css label{
+							padding-left: 16px;
+							margin-bottom: -2px;
+						}
+					</style>
+					<tr class="radio-css">
+						<td width="1%">
+							<input type="radio" name="token" id="radio1" value="1" checked="true"/>
+							<label for="radio1"></label>
+						</td>
+						<td width="34%"><span>IN_LIMIT</span></td>
+						<td rowspan="2"><span>GUARANTEE_CONTENT</span></td>
+					</tr>
+					<tr class="radio-css">
+						<td width="1%">
+							<input type="radio" name="token" id="radio2" value="2"/>
+							<label for="radio2"></label>
+						</td>
+						<td width="34%"><span>GUARANTEE_BY_COURSE</span></td>
+					</tr>
+				</table>
+				 <!-- end Hinh thuc-->
+
+				 <!--So tien de nghi vay-->
+				<table width="100%">
+					<tr>
+						<td align="center" valign="middle" class="td-text" style="width:93%">
+							<div style="width:98%;" class="input-group">
+								<span class="input-group-addon">LOAN_AMOUNT</span>
+								<input id="id.loanamount" type="tel" maxlength="16" class="form-control form-control-righttext" placeholder="GUARANTEE_INPUT_AMOUNT" ng-model="amount" ng-change="formatNumberToCurrency()"/>
+							</div>
+						</td>
+						<td align="center" valign="middle" class="td-text" style="width:20%;">
+							<div ng-click="showTypeAmount()" style="margin-left:2%;" class="input-group">
+								<input id="id.typeAmount" type="button" class="form-control form-control-righttext" placeholder="COM_TXT_SELECTION_PLACEHOLDER" value="UTILITIES_CALCULATOR_CUR_VND"/>
+								<span class="icon-movenext input-group-addon input-group-symbol"></span>
+							</div>
+						</td>
+					</tr>
+					<!--end So tien de nghi vay-->
+					<!--Thoi han vay-->
+					<tr>
+						<td class="td-text" valign="middle" align="center" colspan="2">
+							<div class="input-group" >
+								<span class="input-group-addon" style="width: 40%; white-space:pre-wrap;">DATE_LOAN_AMOUNT</span>
+								<input id="id.dateloan" maxlength="4" class="form-control form-control-righttext" type="text" value="" placeholder="MONTH_PLACERHOLDER" >
+							</div>
+						</td>
+					</tr>
+					<!--end Thoi han vay-->
+					<!--Muc dich vay-->
+					<tr>
+						<td colspan="2" align="center" valign="middle" class="td-text">
+							<div class="input-group" ng-click="showLoanPurPose()">
+								<span class="input-group-addon" style="white-space:pre-wrap; width:40%;">LOAN_PURPOSE</span>
+								<input id="loan.purpose" type="button" class="form-control form-control-right2linetext" value="COM_TXT_SELECTION_PLACEHOLDER" />
+								<span class="icon-movenext input-group-addon input-group-symbol" style="margin-top:7px;"></span>
+							</div>
+						</td>
+					</tr>
+					<!--end Muc dich vay-->
+
+					<!--Ngay de nghi giai ngan-->
+					<tr>
+						<td colspan="2" align="center" valign="middle">
+							<div class="input-group">
+								<span class="input-group-addon" style="width:40%; white-space:pre-wrap;">PROPOSE_DISBURSEMENT_DATE</span>
+								<input id="propose.date" type="tel" class="form-control form-control-righttext-datepicker" placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value="" onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" />
+								<span id="span.date" onclick="initDialogCal('propose.date')" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+							</div>
+						</td>
+					</tr>
+					<!--end Ngay de nghi giai ngan-->
+
+					<!--Tai san dam bao-->
+				</table>
+
+				<table width="100%" align="center">
+					<tr>
+						<td class="td-text" valign="middle" colspan="2">
+					        <div class="input-group" >
+					            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">CRE_REQUEST_COLLATERAL</span>
+					            <input id="guarantee.content" class="form-control form-control-righttext" type="text" value="" placeholder="COM_TXT_INPUT_PLACEHOLDER" onkeyup="controlInputText(this, 250,true)" maxlength="250">
+					        </div>
+					    </td>
+					</tr>
+
+				<!--end Tai san dam bao-->
+
+				<!--Tai khoan-->
+					<tr>
+						<td colspan="2">
+							<div class="header-title">
+								<span>ACCOUNT_PAID</span>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td id="account-info" colspan="2">
+							<div id="holder-account-info" class="combo-box info-account accInfo" ng-click="showAccountSelection()">
+
+							</div>
+							<input id="id.accountno" type="hidden" class="form-control form-control-rightbutton" value="COM_TXT_SELECTION_PLACEHOLDER" />
+						</td>
+					</tr>
+				</table>
+				<!--end acc-->
+				<table width="100%">
+					<tbody>
+					<tr class="trow-space"></tr>
+					<tr class="mt-15">
+						<td colspan="2" align="center" valign="middle" class="td-text">
+							<div class="tdbtndesktop" style="width:50%">
+								<input  type='submit' style="float:left;margin-left:65px" class='btnDesktopshadow btnDesktopBack' onClick= 'clickHomeOrBack()' value='INPUT_ACC_BTN_GOBACK'/>
+							</div>
+							<div style="width:50%">
+								<input  type="button" style="margin-right:100px; font-size: 14px!important;" class="btnshadow btn-second"
+										ng-click="sendJSONRequest()" value="TRANS_LOCAL_BTN_SENDREQUEST"/>
+							</div>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"> </div>
+    <div id="divListGroup" class="list-group dialog-list"> </div>
+</div>
+
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>
+
+

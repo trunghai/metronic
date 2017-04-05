@@ -1,0 +1,242 @@
+<div id="mainViewContent" class="main-layout-subview" style=" top: 44px;" ng-controller="template-transfer-doc-edit">
+
+<div id="content-transfer" style="display:block" class="bg-transfer">
+<div class="panelContent" style="margin-top:0px;padding-top:0px">
+<div class="tranfer-item">
+    <div style="height:50px; text-align:left; border-top:none; " class="container-input-icon template-line">
+        <div class="holder-icon-input-parent" style="border-right:none;width:20%;"><div class="holder-icon-input-child">
+            <span>TRANSFER_REMITTANCE_NAME</span>
+        </div></div>
+        <div class="holder-input" style="width:80%;"><input readonly="true"  id="id.tenmau"  style="text-align:right" type="tel" class="form-control form-control-righttext input-with-icon"  value="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"></input></div>
+    </div>
+</div>
+<div class="tranfer-item">
+    <div class="header-title" style="text-align:left"><span>HEADER_FROM_TRANSFER</span></div>
+    <div id="account-info">
+        <div id="holder-account-info" style="text-align:left" class="combo-box" ng-click="showAccountSelection()">
+        </div>
+        <input id="id.accountno" type="hidden" class="form-control form-control-rightbutton" value="COM_TXT_SELECTION_PLACEHOLDER" />
+
+    </div>
+</div>
+<div class="tranfer-item">
+    <div style="height:50px;text-align:left" class="container-input-icon">
+        <div class="holder-icon-input-parent">
+            <div class="holder-icon-input-child">
+                <!--<span class="icon-template icon-input"></span>-->
+                VND
+            </div>
+        </div>
+        <div class="holder-input">
+            <input id="trans.amount"  type="tel" class="form-control form-control-righttext input-with-icon" placeholder="PLACEHOLDER_TRANSFER_AMOUNT" onkeyup="handleInputAmount(event, this);" onchange="removeSpecialCharForNumber(this.value)"/>
+        </div>
+    </div>
+</div>
+<div class="tranfer-item">
+    <div id="trans.amounttotext" style="text-align:left">
+        <div style="font-size:11px" class="txtmoneystyle">
+
+        </div>
+    </div>
+</div>
+<div class="tranfer-item" style="display:none;text-align:left">
+    <div id="trans.sourceaccoutbalance">
+        <h6 class="h6style">
+            <span>COM_TXT_ACC_BALANCE_TITLE</span>
+        </h6>
+    </div>
+</div>
+
+<!--TRONG TPB-->
+<div id="trongtpb" style="display: none">
+    <div class="tranfer-item">
+        <div class="header-title" style="text-align:left"><span>HEADER_TRANSFER_TO</span></div>
+    </div>
+    <div class="tranfer-item">
+        <div id="holder-transfer-account" style="text-align:left">
+            <div class="holder-border-bottom">
+                <div class="holder-input-none-icon" >
+                    <input id="trans.targetaccount" type="tel" placeholder="PLACEHOLDER_DEST_ACCOUNT" value="" class="form-control form-control-righttext-datepicker input-none-border" onchange="statusInputAcc = true; loadLocalTransSuccess();"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tranfer-item">
+        <div id="trans.targetaccountname" style="text-align:left" >
+            <div class="holder-input-none-icon">
+                <input id="trans.accountName" type="tel" placeholder="PLACEHOLDER_DEST_ACCOUNT_NAME" value="" class="form-control form-control-righttext-datepicker input-none-border" disabled="disabled"/>
+            </div>
+        </div>
+    </div>
+    <div class="tranfer-item" style="display:none;">
+        <h5 class="Header">
+            <span style="white-space:pre-wrap;text-align:left">TRANS_DETAIL_BLOCK_TITLE</span>
+        </h5>
+    </div>
+
+</div>
+
+<!-- LIEN NGAN HANG -->
+<div id="liennganhang" style="display: none">
+    <div class="tranfer-item">
+        <div class="header-title" style="text-align:left"><span>HEADER_TRANSFER_TO</span></div>
+        <input id="lnh.bankname" type="hidden"
+               class="form-control form-control-right2linetext" value="COM_TXT_INPUT_PLACEHOLDER" onkeyup="checkTabPress();" />
+        <div  class="combo-box input-box holder-border-bottom" style="text-align: left;padding: 0 !important;" ng-click="showBankSelection()"><div  style=" display: flex; border-bottom: yellow; border-top: yellow; border-right-color: yellow; border-left-color: yellow; font-size: 15px; padding: 0px; margin: 0px;"><div style="float:left;width:95%" id="data"><div class=""><span id="spanbankname">TRANS_BANK_SELECTION_SCREEN_TITLE</span></div></div><div style="float:right;width:5%;padding:0%" id="arrow"><span class="icon-movenext input-group-symbol" style="float: right;margin-top: 8px;"></span></div></div></div>
+    </div>
+    <div class="tranfer-item">
+        <div id="holder-transfer-account" style="text-align:left">
+            <div class="holder-border-bottom">
+                <div class="holder-input-none-icon" >
+                    <input id="lnh.targetaccount" type="tel" placeholder="PLACEHOLDER_DEST_ACCOUNT" value="" class="form-control form-control-righttext-datepicker input-none-border" onchange="statusInputAcc = true; loadLocalTransSuccess();"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tranfer-item">
+        <div id="trans.targetaccountname" style="text-align:left" >
+            <div class="holder-input-none-icon">
+                <input id="lnh.accountName" type="text" placeholder="PLACEHOLDER_DEST_ACCOUNT_NAME" value="" class="form-control form-control-righttext-datepicker input-none-border"/>
+            </div>
+        </div>
+    </div>
+    <div class="tranfer-item" style="display:none;">
+        <h5 class="Header">
+            <span style="white-space:pre-wrap;text-align:left">TRANS_DETAIL_BLOCK_TITLE</span>
+        </h5>
+    </div>
+</div>
+<!-- QUA SO TAI KHOAN -->
+<div id="quaSoTaiKhoan" style="display: none">
+    <div class="tranfer-item">
+        <div class="header-title" style="text-align:left"><span>HEADER_TRANSFER_TO</span></div>
+        <input id="ctqsotk.bankname" type="hidden"
+               class="form-control form-control-right2linetext" value="COM_TXT_INPUT_PLACEHOLDER" onkeyup="checkTabPress();" />
+        <div  class="combo-box input-box holder-border-bottom" style="text-align: left;padding: 0 !important;" ng-click="showBankSelection()"><div  style=" display: flex; border-bottom: yellow; border-top: yellow; border-right-color: yellow; border-left-color: yellow; font-size: 15px; padding: 0px; margin: 0px;"><div style="float:left;width:95%" id="data"><div class=""><span id="ctTKBankName"></span></div></div><div style="float:right;width:5%;padding:0%" id="arrow"><span class="icon-movenext input-group-symbol" style="float: right;margin-top: 8px;"></span></div></div></div>
+    </div>
+
+    <div class="tranfer-item">
+        <div style="text-align:left">
+            <div>
+                <div class="holder-input-none-icon" >
+                    <input id="ctqsotk.targetaccount" type="tel" placeholder="PLACEHOLDER_DEST_ACCOUNT" value="" class="form-control form-control-righttext-datepicker input-none-border" onchange="statusInputAcc = true; loadLocalTransSuccess();"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--QUA THE-->
+<div id="quathe" style="display: none">
+    <div class="tranfer-item">
+        <div class="header-title" style="text-align:left"><span>HEADER_TRANSFER_TO</span></div>
+        <div class="holder-input-none-icon" >
+            <input id="quathe.accountcard"  type="tel" placeholder="TRANS_FUND_CARD_DESTINATION" value="" class="form-control form-control-righttext-datepicker input-none-border" />
+        </div>
+    </div>
+</div>
+
+<!--QUA CMTND-->
+<div id="quacmnd" style="display: none">
+    <div class="tranfer-item" style="text-align:left">
+        <div class="header-title"><span>HEADER_TRANSFER_TO</span></div>
+
+
+        <input id="cmt.bankname" type="hidden"
+               class="form-control form-control-right2linetext" value="COM_TXT_INPUT_PLACEHOLDER" onkeyup="checkTabPress();" />
+        <div  class="combo-box holder-border-bottom" style="text-align: left;padding: 0 !important;" ng-click="showBankSelection()">
+            <div  style="display: flex; font-size: 12px; padding: 0px; margin: 0px;">
+                <div style="float:left;width:95%" id="data">
+                    <div class=""><span id="cmt.span.bankname">TRANS_BANK_SELECTION_SCREEN_TITLE</span></div>
+                </div>
+                <div style="float:right;width:5%;padding:0%" id="arrow"><span style="float: right;margin-top: 8px;" class="icon-movenext input-group-symbol"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tranfer-item">
+        <div class="holder-border-bottom" style="text-align:left">
+            <div class="holder-input-none-icon" >
+                <input id="cmt.id" maxlength="12" type="text" class="form-control form-control-righttext input-none-border" placeholder="TRANS_NUM_ID_PP" />
+            </div>
+        </div>
+    </div>
+    <div class="tranfer-item" style="border-bottom:solid 1px rgba(255,255,255,0.2)">
+        <div class="holder-border-bottom" style="text-align:left">
+            <input style="text-align : left" id="cmt.begindate" type="tel" class="form-control form-control-righttext-datepicker" placeholder="dd/mm/yyyy" value="" onkeydown="return handleCalendarNav(this, event);"
+                   ng-click="handleCalendarNav(this, event);" onpaste="return false;" />
+            <!--<span id="begindate" ng-click="initDialogCal('cmt.begindate')" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker" style="color: #f3e5f5;font-size: 20px;margin-top: -3px;right: 5px;"></span>-->
+        </div>
+    </div>
+    <div class="tranfer-item">
+        <div >
+            <div class="holder-border-bottom" style="text-align:left">
+                <div class="holder-input-none-icon">
+                    <input id="cmt.place" maxlength="26" type="text" class="form-control form-control-righttext input-none-border"
+                           placeholder="PLACEOFISSUE_TITLE_BGN" style="white-space:pre-wrap;"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tranfer-item">
+        <div class="holder-border-bottom" style="text-align:left">
+            <div class="holder-input-none-icon">
+                <input id="cmt.numReceive" type="tel" maxlength="11" class="form-control form-control-righttext input-none-border"
+                       placeholder="TRANS_NUM_REC_MOBI" onkeypress="return isNumber(event)"
+                        />
+            </div>
+        </div>
+    </div>
+
+    <div class="tranfer-item">
+
+        <div class="holder-input-none-icon" style="text-align:left">
+            <input id="cmt.nameReceive" type="text" class="form-control form-control-righttext input-none-border"
+                   placeholder="TRANS_UNIQUE_DES_NAME" />
+        </div>
+
+    </div>
+</div>
+
+<div class="tranfer-item">
+    <div id="holder-transfer-message" class="text-area-content">
+        <div class="bg-text-area">
+            <div class="holderIcon">
+                <div style="display:table;width: 100%;height:100%">
+                    <span style="display:table-cell;vertical-align: middle;text-align: center;font-size:24px!important" class="icon-content-note"></span>
+                </div>
+            </div>
+            <div class="holder-txtarea">
+                <div class="area dummy"></div>
+                <textarea class="area" id="trans.content" onkeyup="replaceTextareaContent(this)" value="" placeholder="PLACEHOLDER_TRANSFER_CONTENT" maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<table width="100%">
+    <tr class="mt-15">
+        <td>
+            <div style="text-align: center;">
+                <input class="btnshadow-after btn-second-desktop-after" onclick="clickHomeOrBack()" type="submit" value="INPUT_ACC_BTN_GOBACK"/>
+                <input class="btnshadow-after btn-second-after" ng-click="LuuMauChuyenTien()" type="button" value="ACCOUNT_RENAME_SAVE_TITLE"/>
+            </div>
+        </td>
+    </tr>
+</table>
+</div>
+<div id="holder-bottom-bar">
+
+</div>
+<div class="mobilemode" id="dialog-container">
+
+</div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" ng-click="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" ng-click="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

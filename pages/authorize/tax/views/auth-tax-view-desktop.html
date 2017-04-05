@@ -1,0 +1,22 @@
+<table width='98%' align='center' class='recycler-table-ebank desktopview'>
+    <tr class='recycler-row-title-header recycler-list'>
+        <td class="recycler-row-align-midle" width="7%"><span>COM_NO</span></td>
+        <td class="recycler-row-align-midle" width="10%"><span>COM_MAKER</span></td>
+        <td class="recycler-row-align-midle" width="14%"><span>COM_CREATED_DATE</span></td>
+        <td class="recycler-row-align-midle" width="10%"><span>COM_TYPE_TRANSACTION</span></td>
+        <td class="recycler-row-align-midle" width="10%"><span>TRANS_PERIODIC_MNG_STT</span></td>
+        <td class="recycler-row-align-midle" width="14%"><span>TRANS_ACCNO_AMOUNT_CONT</span></td>
+        <td class="recycler-row-align-midle" width="12%"><span>COM_CHEKER</span></td>
+        <td class="recycler-row-align-midle" width="20%"><span>COM_TRANS_CODE</span></td>
+    </tr>
+    <tr class="recycler-row-title recycler-list" ng-repeat="item in listPending track by $index">
+        <td class="recycler-row-align-midle"><span ng-bind="$index + 1"></span></td>
+        <td class="recycler-row-align-midle"><span ng-bind="item.SHORTNAME"></span></td>
+        <td class="recycler-row-align-midle"><span ng-bind="item.DATMAKE"></span></td>
+        <td class="recycler-row-align-midle"><span ng-bind="item.TAX_TYPE_VIEW"></span></td>
+        <td class="recycler-row-align-midle"><span ng-bind="item.CODSTATUS_VIEW"></span></td>
+        <td class="recycler-row-align-midle"><span ng-bind="item.NUMAMOUNT_VIEW"></span></td>
+		<td class="recycler-row-align-midle"><span ng-bind="item.SIGNEDBY"></span></td>
+		<td class="recycler-row-align-midle"><span ng-bind="item.IDFCATREF"></span></td>
+    </tr>
+</table>

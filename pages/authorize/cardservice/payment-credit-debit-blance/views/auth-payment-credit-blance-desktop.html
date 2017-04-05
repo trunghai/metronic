@@ -1,0 +1,25 @@
+<div id="recycler_list">
+    <table id="recycler_table_ebank-desktop" class="recycler-table-ebank">
+        <tbody>
+        <tr class='recycler-row-title-header recycler-list'>
+            <td  class="recycler-row-align-midle-left"><span>COM_NO</span></td>
+            <!--<td  class="recycler-row-align-midle-left"><span>COM_MAKER</span></td>-->
+            <td  class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>
+            <td  class="recycler-row-align-midle-left"><span>COM_TAX_AMOUNT</span></td>
+            <td  class="recycler-row-align-midle-left"><span>COM_CARD_NUMBER</span></td>
+            <td  class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+            <td  class="recycler-row-align-midle"><input type="checkbox" onclick="selectAllRow('recycler_table_ebank-desktop', 'recycler_table_ebank-mobile', this)" name="parent_0"></td>
+            <!--<td width="50%" class="recycler-row-align-midle-left"><span>AUTHORIZE_TRANS_TIT_COUNT_PENDING</span></td>-->
+        </tr>
+        <tr class="recycler-row-title recycler-list" ng-repeat="item in listPending track by $index">
+            <td  class="recycler-row-align-midle-left"><span ng-bind="$index + 1"></span></td>
+            <!--<td  class="recycler-row-align-midle-left"><span ng-bind="item.IDMAKER"></span></td>-->
+            <td  class="recycler-row-align-midle-left"><span ng-bind="item.NGAY_LAP"></span></td>
+            <td  class="recycler-row-align-midle-left"><span ng-bind="(item.SO_TIEN | currency : '' : 0) + ' VND'"></span></td>
+            <td  class="recycler-row-align-midle-left"><span ng-bind="item.SO_THE"></span></td>
+            <td  class="recycler-row-align-midle-left" ng-click="goToViewScreen(item.MA_GD)"><a><span class="no-check" ng-bind="item.MA_GD"></span></a></td>
+            <td  class="recycler-row-align-midle"><input class="trans.checkbox" type="checkbox" onclick="deSelectRow('recycler_table_ebank-desktop', 'recycler_table_ebank-mobile', this)" name="{{item.MA_GD}}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,28 @@
+<table  ng-repeat="item in listPending track by $index" class="recycler-table-ebank mobileview recycler-list margin-bottom" width="98%" align="center">
+    <tbody>
+    <tr class="recycler-row-normal">
+        <td class="recycler-row-align-midle-left"><span>COM_MAKER</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="item.DATMAKE"></span></td>
+    </tr>
+    <tr class="recycler-row-normal">
+        <td class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="item.TXTDESTACCT"></span></td>
+    </tr>
+    <tr class="recycler-row-normal">
+        <td class="recycler-row-align-midle-left"><span>COM_AMOUNT</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="(item.NUMAMOUNT | currency : '' : 0)  +' VND'"></span></td>
+    </tr>
+    <tr class="recycler-row-normal">
+        <td class="recycler-row-align-midle-left"><span>COM_RECEIVE_NAME</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="item.TXTBENNAME"></span></td>
+    </tr>
+    <tr class="recycler-row-normal">
+        <td class="recycler-row-align-midle-left"><span>COM_CHEKER</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="item.IDCHECKER"></span></td>
+    </tr>
+    <tr class="recycler-row-normal">
+        <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="item.IDFCATREF"></span></td>
+    </tr>
+    </tbody>
+</table>

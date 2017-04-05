@@ -1,0 +1,89 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="batch-tranfer-trans-detail"
+     style="height: 625px; top: 44px; bottom: 0px;">
+    <div id="content-transfer" style="display:block" class="bg-transfer">
+        <div class="panelContent" style="margin-top:0px;padding-top:0px">
+            <table width='100%' align='center'>
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title"><span>COM_TRANS_DETAILS</span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div align="center">
+                            <div id="recycler_list" class="recycler-list">
+                                <table id="recycler_table_ebank" class="recycler-table-ebank">
+                                    <tbody>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                                        <td class="recycler-row-align-midle-right" ng-bind="listObjTransDetail.MA_GD"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>
+                                        <td class="recycler-row-align-midle-right" ng-bind="listObjTransDetail.NGAY_LAP"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>COM_CHECK_DATE</span>
+                                        </td>
+                                        <td class="recycler-row-align-midle-right" ng-bind="listObjTransDetail.NGAY_DUYET"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>COM_APPROVE_STATUS</span>
+                                        </td>
+                                        <td class="recycler-row-align-midle-right" ng-bind="listObjTransDetail.TRANG_THAI_VIEW"></td>
+                                    </tr>
+                                    <!-- tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>AUTHORIZE_UNABLE_TO_CHECK</span>
+                                        </td>
+                                        <td class="recycler-row-align-midle-right" ng-bind="LY_DO_TU_CHOI"></td>
+                                    </tr> -->
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>BATCH_SALARY_NUMB_OF_RECEIVER</span>
+                                        </td>
+                                        <td class="recycler-row-align-midle-right" ng-bind="listObjTransDetail.numbOfReceiver"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>BATCH_SALARY_NUMB_OF_RECEIVER_SUCCESS</span>
+                                        </td>
+                                        <td class="recycler-row-align-midle-right" ng-bind="listObjTransDetail.numbOfSuccess"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>TRANS_BATCH_ACC_LABEL</span>
+                                        </td>
+                                        <td class="recycler-row-align-midle-right" ng-bind="listObjTransDetail.TK_CHUYEN"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>TOTAL_AMOUNT_TRANS_SUCCESS</span>
+                                        </td>
+                                        <td class="recycler-row-align-midle-right" ng-bind="listObjTransDetail.totalTransView"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>TRANSFER_LIST_TOTAL_FEE</span>
+                                        </td>
+                                        <td class="recycler-row-align-midle-right" ng-bind="listObjTransDetail.TotalFeeView"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+
+            <div id="table-detail"></div>
+            <div id="pageIndicatorNums" style="text-align: right;"></div>
+            <table width='100%' style="margin-top: 10px;">
+                <tr align="center">
+                    <td>
+                        <div style="text-align: center;">
+                            <input class="btnshadow-after btn-second-desktop-after" ng-click="btnBackClick()" type="submit" value="CM_BTN_GOBACK"/>
+                            <input id="btnNext" class="btnshadow-after btn-second-after" ng-click="btnNextClick()"  type="button" value="TRANS_PERIODIC_CANC_TRANS"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="trow-space"></tr>
+            </table>
+        </div>
+    </div>
+</div>

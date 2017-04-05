@@ -1,0 +1,26 @@
+<table id="recycler_table_ebank-mobile" class="recycler-table-ebank">
+    <tr class="recycler-row-parity">
+        <td class="recycler-row-align-midle-left"><span>COM_MAKER</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="result.MAKER"></span></td>
+    </tr>
+    <tr class="recycler-row-parity">
+        <td class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="result.DATMAKE"></span></td>
+    </tr>
+    <tr class="recycler-row-parity">
+        <td class="recycler-row-align-midle-left"><span>GUA_STATUS</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="status(result.STATUS)"></span></td>
+    </tr>
+    <tr class="recycler-row-parity">
+        <td class="recycler-row-align-midle-left"><span>COM_CHEKER</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="result.SIGNEDBY"></span></td>
+    </tr>
+    <tr class="recycler-row-parity">
+        <td class="recycler-row-align-midle-left"><span>COM_CHECK_DATE</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="result.DATCHECK"></span></td>
+    </tr>
+    <tr class="recycler-row-parity">
+        <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="result.IDFCATREF"></span></td>
+    </tr>
+</table>

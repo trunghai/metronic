@@ -1,0 +1,71 @@
+<table id="dynamic-billing-table" width="100%">
+    <tbody>
+    <tr>
+        <td colspan="2">
+            <div class="header-title">
+                <span>CREDIT_CARD_INFO_TITLE</span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div class="recycler-list">
+                    <table width='100%' align='center' class='recycler-table-ebank' >
+                        <tr class="recycler-row-normal" >
+                            <td class="recycler-row-align-midle-left"><span>CREDIT_CARD_TRANS_TYPE</span></td>
+                            <td class="recycler-row-align-midle-right" ><span>MENU_PAY_CREDIT_CARD</span></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>CARD_PAY_LIMIT_CARD_NUM</span></td>
+                            <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.cardNumber"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>CREDIT_CARD_HOLDER_NAME</span></td>
+                            <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.cardName"></span></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div class="header-title">
+                <span>PAYMENT_ECOUNTER_TITLE</span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div class="recycler-list">
+                    <table width='100%' align='center' class='recycler-table-ebank' >
+                        <tr class="recycler-row-normal" >
+                            <td class="recycler-row-align-midle-left"><span>CREDIT_CARD_REPAYMENT_ACC_NUMBER_TITLE</span></td>
+                            <td class="recycler-row-align-midle-right" ><span ng-bind="infoTrans.debitAcc"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>CREDIT_CARD_BAL_BEF_PAYMENT</span></td>
+                            <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.balanceAfter + ' VND'"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>CREDIT_CARD_AMOUNT_TITLE</span></td>
+                            <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.amountView + ' VND'"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>CREDIT_CARD_BAL_AFT_PAYMENT</span></td>
+                            <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.balanceBefore + ' VND'"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>CREDIT_CARD_TRANSACTION_DATE</span></td>
+                            <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.date"></span></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr class="trow-space"></tr>            
+    </tbody>
+</table>

@@ -1,0 +1,135 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="auth_international_additional_review">
+    <div class="bg-transfer">
+        <div class="panelContent">
+            <table id="dynamic-billing-table" width="100%">
+                <tbody>
+                <tr>
+                    <td colspan="2">
+                        <div class="recycler-list">
+                            <table width='100%' align='center' class='recycler-table-ebank'>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.IDFCATREF"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>COM_EXECUTION_TIME</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.CREATE_TIME"></span></td>
+                                </tr>
+                                <!--<tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>COM_CHECK_DATE</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ></span></td>
+                                </tr>-->
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>COM_STATUS</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="statusVN[infoTrans.CODSTATUS]"></span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <h5 class="header-title">
+                            <span>INTERNATIONAL_PROFILES</span>
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div align="center">
+                            <div class="desktopview">
+                                <table class="recycler-table-ebank" width="100%" align="center">
+                                    <tbody>
+                                    <tr class="recycler-row-title-header recycler-list">
+                                        <th class="recycler-row-align-midle" width="6%"><span >COM_NO</span></th>
+                                        <th class="recycler-row-align-midle" width="50%"><span >INTERNATIONAL_PROFILE_NAME</span></th>
+                                        <th class="recycler-row-align-midle" width="20%"><span>INTERNATIONAL_DATE_UPLOAD</span></th>
+                                        <th class="recycler-row-align-midle"><span>INTERNATIONAL_PROFILE_SIZE</span></th>
+                                        <th class="recycler-row-align-midle" ng-show="inMoblie"></th>
+                                    </tr>
+                                    </tbody>
+                                    <tbody>
+                                    <tr ng-repeat="item in detailCheckList track by $index" class="recycler-row-title recycler-list">
+                                        <td class="recycler-row-align-midle-left" width="6%"><span  style="word-break: break-all;" ng-bind="$index + 1"></span></td>
+                                        <td class="recycler-row-align-midle-left" width="50%"><span style="word-break: break-all;" ng-bind="item.FILE_NAME"></span></td>
+                                        <td class="recycler-row-align-midle-left" width="20%"><span style="word-break: break-all;" ng-bind="item.DATMAKE"></span></td>
+                                        <td class="recycler-row-align-midle-left"><span style="word-break: break-all;" ng-bind="(item.CAPACITY/1024/1024|number:2) + ' MB'"></span></td>
+                                        <td class="recycler-row-align-midle-left" ng-show="inMoblie"><span style="color: red; cursor: pointer" ng-click="onViewPDF(item.IDFILE, item.FILE_NAME)">INTERNATIONAL_VIEW_PROFILE</span></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="recycler_list margin-bottom mobileview" ng-repeat="item in detailCheckList track by $index">
+                                <table width='98%' align='center' class='recycler-list  recycler-table-ebank'>
+                                    <tr>
+                                        <td width="50%" class="recycler-row-align-midle-left"><div><span>COM_NO</span></div></td>
+                                        <td width="50%" class="recycler-row-align-midle-right"><div style="word-break: break-all;"><span ng-bind="$index + 1"></span></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="50%" class="recycler-row-align-midle-left"><div><span>INTERNATIONAL_PROFILE_NAME</span></div></td>
+                                        <td width="50%" class="recycler-row-align-midle-right"><div style="word-break: break-all;"><span ng-bind="item.FILE_NAME"></span></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="50%" class="recycler-row-align-midle-left"><div><span>INTERNATIONAL_DATE_UPLOAD</span></div></td>
+                                        <td width="50%" class="recycler-row-align-midle-right"><div style="word-break: break-all;"><span ng-bind="item.DATMAKE"></span></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="50%" class="recycler-row-align-midle-left"><div><span>INTERNATIONAL_PROFILE_SIZE</span></div></td>
+                                        <td width="50%" class="recycler-row-align-midle-right"><div style="word-break: break-all;"><span ng-bind="(item.CAPACITY/1024/1024|number:2) + ' MB'"></span></div></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <table width="100%" align="center">
+                            <tr class="trow-space"></tr>
+                            <tr ng-hide="checkTime">
+                                <td>
+                                    <div class="tranfer-item" style="border-bottom: solid 1px rgb(209, 183, 224); border-top: solid 1px rgb(209, 183, 224);">
+                                        <div class="text-area-content" id="holder-transfer-message">
+                                            <div class="bg-text-area">
+                                                <div class="holderIcon">
+                                                    <div style="display:table;width: 100%;height:100%"><span style="display:table-cell;vertical-align: middle;text-align: center;font-size:24px!important" class="icon-content-note"></span></div>
+                                                </div>
+                                                <div class="holder-txtarea" style="border-left: solid 1px rgb(209, 183, 224);">
+                                                    <textarea onkeyup="controlInputText(this, 240);" class="area" style="padding-left: 25px;" id="id.reason-rej" placeholder="COM_AUTH_DENIAL_REASON" maxlength="250"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </td>
+                </tr>
+                <tr class="trow-space"></tr>
+                <tr>
+                    <td colspan="2">
+                        <table width="100%">
+                            <tr align="center">
+                                <td class="tdbtndesktop" width="32%"><input type="submit" style="width:100%;margin:0 auto" class="btnDesktopshadow btnDesktopBack" ng-click="onBackClick()" value="COM_BACK"></td>
+                                <td width="32%" id="trCancel"><input ng-hide="checkTime" type="submit" style="background-color: rgba(162, 100, 187, 0.51);border-radius: 20px;width:100%" class="btnshadow btn-primary" ng-click="onDenyClick()" value="COM_DENY" ></td>
+                                <td width="32%">
+                                    <input style="width:100%" type="button" class="btnshadow btn-second" ng-click="onContinuteClick()" value="COM_AUTH" >
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>
+
+

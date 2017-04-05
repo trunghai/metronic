@@ -1,0 +1,92 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="acc-list-account-info">
+<div id="content-transfer" style="display:block" class="bg-transfer">
+    <div class="panelContent">
+        <table width="100%">
+            <table class="tableTab" id="periodic-table">
+                <tbody>
+                <tr>
+                    <td class="content-periodic selected">
+                        <span>ACCOUNT_PERIOD_TAB_INFO</span>
+                        <span class="content-span"></span>
+                    </td>
+                    <td ng-click="showPageFindTrans()" class="content-periodic">
+                        <span>ACCOUNT_PERIOD_TAB_SEARCH</span>
+                        <span class="content-span"></span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </table>
+        <div>
+            <table width="100%" onclick="showDetailinfoCounter()" style="border-bottom: 1px solid rgba(204, 204, 204, 0.31);">
+                <tr>
+                  <td style="width:25px">
+                      <div id="headclCounter" style="transition: all 0.5s;" class="hideheaderinfo">
+                          <span class="icon-movenext"></span>
+                      </div>
+                  </td>
+                <td id="" class="Header" >
+                    <span>ACCOUNT_PERIOD_COUNTER</span>
+                </td>
+              </tr>
+          </table>
+                <div id="showDetailCounter" style="display:none;clear:both;">
+                    <div id="tblContentCounter" name="tblContent" style="overflow: hidden;"></div>
+                    <div id="pageCounter" align="right" style="width: 100%;"></div>
+                </div>
+        </div>
+        <div id="total_amount_counter" class="colorBetweenDesktopAndMobile" style="margin: 10px;float:left;">
+          </div>
+        <div>
+            <table width="100%" onclick="showDetailinfoOnline()" style="border-bottom: 1px solid rgba(204, 204, 204, 0.31);">
+                <tr>
+                  <td style="width:25px">
+                      <div id="headclOnline" style="transition: all 0.5s;" class="hideheaderinfo">
+                          <span class="icon-movenext"></span>
+                      </div>
+                  </td>
+                <td id="" class="Header" >
+                    <span>ACCOUNT_PERIOD_ONLINE</span>
+                </td>
+              </tr>
+          </table>
+                <div id="showDetailOnline" style="display:none;clear:both;">
+                    <div id="tblContentOnline" name="tblContent"  style="overflow: hidden;"></div>
+                    <div id="pageOnline" align="right" style="width: 100%;"></div>
+                </div>
+          </div>
+          <div class="colorBetweenDesktopAndMobile" style="margin: 10px;"><b>
+                        <span>ACCOUNT_PERIOD_TOTAL_AMOUNT</span>
+                        <span id="total_amount_online"></span>
+                    </b>
+                    </div>
+
+        <br/>
+        <table width="100%">
+            <tr>
+                <td colspan="2" align="center" valign="middle" class="td-text">
+                    <div class="tdbtndesktop" style="width:50%"><input type="submit"
+                                                                       style="float:left;margin-left:45px;margin-top:10px;"
+                                                                       class="btnDesktopshadow btnDesktopBack"
+                                                                       onclick="clickHomeOrBack()" value="CM_BTN_GOBACK"
+                                                                       autocomplete="off" autocorrect="off"
+                                                                       autocapitalize="off" spellcheck="off"></div>
+                    <div style="width:50%"><input id="listInfoExe" type="button"
+                                                  style="margin-right:40px;margin-top:10px; font-size: 14px"
+                                                  class="btnshadow btn-second" ng-click="gotoScreenCreateAccount()"
+                                                  value="ACC_SEND_MONEY_ONLINE" autocomplete="off" autocorrect="off"
+                                                  autocapitalize="off" spellcheck="off"></div>
+                </td>
+            </tr>
+        </table>
+
+        <!--<div>
+            <input type="button" id="listInfoExe" class="btnshadow btn-second" onclick="gotoScreenCreateAccount()" value="ACC_SEND_MONEY_ONLINE"/>
+        </div>-->
+    </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>

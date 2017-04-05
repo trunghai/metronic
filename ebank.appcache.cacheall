@@ -1,0 +1,61 @@
+CACHE MANIFEST
+# version 3.0.3
+# Build Time GMT+7 2015-12-09 09:12 AM
+# LamPT using Command Prompt to build list of cache file: dir /s /b /a:-D > xxx.txt
+# Explicitly cached entries
+
+index.html
+assets\actionbar.js
+assets\cache-control.js
+assets\common.js
+assets\constant-web-link.js
+assets\constants.js
+assets\obj-common.js
+assets\dialog-util.js
+assets\init.js
+assets\LangEN.js
+assets\LangVN.js
+assets\mb-service.js
+assets\navigation.js
+assets\preload.js
+assets\validate-util.js
+assets\fonts\eBankPro.eot
+assets\fonts\eBankPro.svg
+assets\fonts\eBankPro.ttf
+assets\fonts\eBankPro.woff
+assets\fonts\iconfonts.css
+assets\fonts\TPBNeoSans.ttf
+assets\fonts\TPBNeoSans_Bold.ttf
+assets\fonts\TPBNeoSans_Bold_Italic.ttf
+assets\fonts\TPBNeoSans_Italic.ttf
+assets\images\dark.jpg
+assets\images\light.jpg
+assets\images\old.jpg
+assets\images\user_bg.png
+assets\images\back-ground\1.jpg
+assets\images\back-ground\2.jpg
+assets\images\back-ground\3.jpg
+assets\images\back-ground\4.jpg
+assets\images\back-ground\5.jpg
+assets\images\back-ground\6.jpg
+assets\images\back-ground\7.jpg
+assets\images\back-ground\8.jpg
+assets\images\back-ground\9.jpg
+css\ebankstyle.css
+css\fonts.css
+css\menu-layout.css
+css\style.css
+cssmb\ebankstyle.css
+cssmb\fonts.css
+cssmb\style.css
+cssmb-light\ebankstyle.css
+cssmb-light\fonts.css
+cssmb-light\style.css
+
+# offline.html will be displayed if the user is offline
+FALLBACK:
+offline.html
+
+# All other resources (e.g. sites) require the user to be online.
+NETWORK:
+*

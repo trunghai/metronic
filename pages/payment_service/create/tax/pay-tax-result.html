@@ -1,0 +1,86 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="pay-tax-result">
+    <div class="panelContent">
+        <table width="98%" >
+            <tr>
+                <td colspan="2" style="text-align: center">
+                    <div class="icon-correct" style="display: inline; color: #FAA60D; font-size: 24px; vertical-align: middle; padding: 5px 0px 5px 0px;"></div>
+                    <span style="font-size:16px; vertical-align:middle" ng-bind="result.message"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="header-title">
+                        <span>COM_TRASACTION_INFO</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <div id="recycler_list" class="desktopview">
+                    <table id="recycler-table-ebank" class="recycler-table-ebank desktopview">
+                        <tbody>
+                        <tr class='recycler-row-title-header recycler-list'>
+                            <td class="recycler-row-align-midle"><span>COM_MAKER</span></td>
+                            <td  class="recycler-row-align-midle"><span>COM_CREATED_DATE</span></td><!-- Ngày lập -->
+                            <td  class="recycler-row-align-midle"><span>COM_STATUS</span></td><!--trạng thái-->
+                            <td  class="recycler-row-align-midle"><span>COM_CHEKER</span></td><!--người duyệt-->
+                            <td  class="recycler-row-align-midle"><span>COM_CHECK_DATE</span></td><!--ngày duyệt-->
+                            <td  class="recycler-row-align-midle"><span>COM_TRANS_CODE</span></td><!--mã giao dịch-->
+                        </tr>
+                        <tr class="recycler-row-title recycler-list" >
+                            <td  class="recycler-row-align-midle-left"><span ng-bind="resultInfo.NGUOI_LAP"></span></td>
+                            <td  class="recycler-row-align-midle-left"><span ng-bind="resultInfo.NGAY_LAP"></span></td><!--Ngày lập-->
+                            <td  class="recycler-row-align-midle-left"><span ng-bind="statusVN[resultInfo.TRANG_THAI]"></span></td><!--trạng thái-->
+                            <td  class="recycler-row-align-midle-left"><span ng-bind="resultInfo.NGUOI_DUYET"></span></td><!--người duyệt-->
+                            <td  class="recycler-row-align-midle-left"><span ng-bind="resultInfo.NGAY_DUYET"></span></td><!--ngày duyệt-->
+                            <td  class="recycler-row-align-midle-left"><span ng-bind="resultInfo.MA_GD"></span></td><!--Mã giao dịch-->
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mobileview" style="width: 94%; margin-left: 12px;">
+                    <table id="recycler_table_ebank-mobile" class="recycler-table-ebank mobileview recycler-list margin-bottom" width="98%" align="center">
+                        <tbody>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_MAKER</span></td>
+                            <td class="recycler-row-align-midle-right"><span ng-bind="resultInfo.NGUOI_LAP"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>
+                            <td class="recycler-row-align-midle-right"><span ng-bind="resultInfo.NGAY_LAP"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_STATUS</span></td>
+                            <td class="recycler-row-align-midle-right"><span ng-bind="statusVN[resultInfo.TRANG_THAI]"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_CHEKER</span></td>
+                            <td class="recycler-row-align-midle-right"><span ng-bind="resultInfo.NGUOI_DUYET"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_CHECK_DATE</span></td>
+                            <td class="recycler-row-align-midle-right"><span ng-bind="resultInfo.NGAY_DUYET"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                            <td class="recycler-row-align-midle-right"><span ng-bind="resultInfo.MA_GD"></span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </tr>
+        </table>
+        <table width="100%">
+            <tbody>
+            <tr align="center">
+                <td>
+                    <div style="text-align: center;">
+                        <input id="another_trans" class="btnshadow-after btn-second-after btn-changecolor" ng-click="onMakeOtherTransClick()" style="background-color: #fa9f1d !important;" type="button" value="COM_MAKE_OTHER_TRANS" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off">
+                    </div>
+
+                    <!-- <input style="width:25%" type="button" class="btnshadow btn-second" ng-click="onMakeOtherTransClick()" value="COM_MAKE_OTHER_TRANS" > -->
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,279 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="international_trans_review">
+    <div class="">
+        <div class="panelContent">
+            <table width="100%">
+                <tbody>
+                <tr>
+                    <td colspan="2">
+                        <h5 class="Header header-title">
+                            <span>COM_ACCOUNT_INFO</span>
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div align="center">
+                            <div id="recycler_list" class="recycler-list">
+                                <table width='100%' align='center' class='recycler-table-ebank'>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_TRANS_TYPE</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.transtype.name"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_PURPOSE</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.purpose.name"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_ACCOUNT_CHANGE_NGOAITE</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.debitAccountCurrency"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_ACCOUNT_CHANGE_VND</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.sourceAccount"></td>
+                                    </tr>
+                                    <tr ng-show="(infoTrans.feeMethod.value == 'BEN') ? false : true" class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_ACCOUNT_CHARGES</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.accountCharges"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <h5 class="Header header-title">
+                            <span>COM_TRASACTION_INFO</span>
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div align="center">
+                            <div class="recycler-list">
+                                <table width='100%' align='center' class='recycler-table-ebank'>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_NAME_OFFEROR</span></td>
+                                        <td style="word-break: break-all" class='recycler-row-align-midle-right' ng-bind="infoTrans.nameOfferor"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_ADDRESS_OFFEROR</span></td>
+                                        <td style="word-break: break-all" class='recycler-row-align-midle-right' ng-bind="infoTrans.addressOferor"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_NAME_BEN</span></td>
+                                        <td style="word-break: break-all" class='recycler-row-align-midle-right' ng-bind="infoTrans.nameBen"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_ADDRESS_BEN</span></td>
+                                        <td style="word-break: break-all" class='recycler-row-align-midle-right' ng-bind="infoTrans.addressBen"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_NATION_BEN</span></td>
+                                        <td style="word-break: break-all" class='recycler-row-align-midle-right' ng-bind="infoTrans.nationBen.name"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_ACCOUNT_BEN</span></td>
+                                        <td style="word-break: break-all" class='recycler-row-align-midle-right' ng-bind="infoTrans.accountBen"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_CONTENT</span></td>
+                                        <td style="word-break: break-all" class='recycler-row-align-midle-right' ng-bind="infoTrans.content"></td>
+                                    </tr>
+                                    <tr ng-show="swifCode" class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left' style="width: 200px"><span>INTERNATIONAL_SWIFT_CODE_BANK_BEN</span></td>
+                                        <td style="word-break: break-all" class='recycler-row-align-midle-right' ng-bind="infoTrans.swifCode"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_THE_BEN_BANK_NAME</span></td>
+                                        <td style="word-break: break-all" class='recycler-row-align-midle-right' ng-bind="infoTrans.benBankName"></td>
+                                    </tr>
+                                    <tr ng-show="addressBen" class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_ADRESS_BANK_BEN</span></td>
+                                        <td style="word-break: break-all" class='recycler-row-align-midle-right' ng-bind="infoTrans.benBankAddress"></td>
+                                    </tr>
+                                    <tr ng-show="trTempName" class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_NAIION_BANK_BEN</span></td>
+                                        <td style="word-break: break-all" class='recycler-row-align-midle-right' ng-bind="infoTrans.nationBankBen.name"></td>
+                                    </tr>
+                                    <tr ng-show="swiftCodeNHTG" class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_SWIFT_CODE_NHTG1</span></td>
+                                        <td style="word-break: break-all" class='recycler-row-align-midle-right' ng-bind="infoTrans.swiftCodeNHTG"></td>
+                                    </tr>
+                                    <tr ng-show="NHTG" class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_INTERMEDIARY_BANK_NAME1</span></td>
+                                        <td style="word-break: break-all" class='recycler-row-align-midle-right' ng-bind="infoTrans.NHTG.name"></td>
+                                    </tr>
+                                    <tr ng-show="addressNHTG" class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_INTERMEDIARY_BANK_ADDRESS</span></td>
+                                        <td style="word-break: break-all" class='recycler-row-align-midle-right' ng-bind="infoTrans.addressNHTG"></td>
+                                    </tr>
+                                    <tr ng-show="nationBankNHTG" class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_NATION_INTERMEDIARY_BANK</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.nationBankNHTG.name"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal' id="notestyle">
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_INPUT_NO_SAMPLE</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.managerBenInputName"></td>
+                                    </tr>
+                                    <!--<tr class='trow-default'>-->
+                                    <!--<td class='td-left'><span>INTERNATIONAL_PROMOCODE1</span></td>-->
+                                    <!--<td class='td-right' ng-bind="infoTrans.promocode"></td>-->
+                                    <!--</tr>-->
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_CURRENCY</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.currencyType.value"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_TOTAL_CURRENCY</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.totalCurrency + ' ' + infoTrans.currencyType.value"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_DEBIT_ACCOUNT_CURRENCY1</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.debitAmountCurrency + ' ' + infoTrans.currencyType.value" ></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_RATE_VND</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="(infoTrans.foreginExchangeRate | currency : '' : 0 ) + ' VND'"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_DEBIT_ACCOUNT_VND1</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="(infoTrans.debitAmountSource | currency : '' : 0) + ' VND'"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_FEE_METHOD</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.feeMethod.name"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_FEE_EXCHANGE_AMOUNT</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="(infoTrans.feeExchangeAmount | currency : '' : dos)+ ((infoTrans.feeMethod.value == 'BEN') ? (' ' + infoTrans.currencyType.value) : ' VND')"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_ELECTRIC_FEE</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="(infoTrans.electrichargesAmount | currency : '' : dos) + ((infoTrans.feeMethod.value == 'BEN') ? (' ' + infoTrans.currencyType.value) : ' VND')"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal' ng-show="(infoTrans.feeMethod.value == 'OUR') ? true : false">
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_FEE_OUR</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="(infoTrans.feeOURAmount | currency : '' : dos) + ((infoTrans.feeMethod.value == 'OUR') ? ' VND' : '')"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal'>
+                                        <td class='recycler-row-align-midle-left'><span>COM_SEND_MSG_APPROVER</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.approver"></td>
+                                    </tr>
+                                    <tr class='recycler-row-normal' ng-show="(infoTrans.purpose.value == 'IPHH01') ? true : false">
+                                        <td class='recycler-row-align-midle-left'><span>INTERNATIONAL_COMMITMENT_DAY_ADDITION</span></td>
+                                        <td class='recycler-row-align-midle-right' ng-bind="infoTrans.daycommitment"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <h5 class="Header header-title">
+                            <span>INTERNATIONAL_PROFILES</span>
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <!-- BEGIN MAIN CONTENT -->
+                        <table class="recycler-table-ebank desktopview" width="100%" align="center">
+                            <tbody>
+                            <tr class="recycler-row-title-header recycler-list">
+                                <td width="8%" class="recycler-row-align-midle"><span>COM_NO</span></td>
+                                <td width="50%" class="recycler-row-align-midle"><span>INTERNATIONAL_PROFILE_NAME</span></td>
+                                <td class="recycler-row-align-midle"><span>INTERNATIONAL_DATE_UPLOAD</span></td>
+                                <td class="recycler-row-align-midle"><span>INTERNATIONAL_PROFILE_SIZE</span></td>
+                                <td></td>
+                            </tr>
+                            <tr class="recycler-row-title recycler-list" ng-repeat="item in infoTrans.listFile track by $index">
+                                <td class="recycler-row-align-midle"><span ng-bind="$index + 1"></span></td>
+                                <td class="recycler-row-align-midle"><span ng-bind="item.file.name"></span></td>
+                                <td class="recycler-row-align-midle"><span ng-bind="infoTrans.depositDate"></span></td>
+                                <td class="recycler-row-align-midle"><span ng-bind="(item.file.size/1024/1024|number:2) + ' MB'"></span></td>
+                                <td class="recycler-row-align-midle">
+                                    <span  type="button" style="color: red; cursor: pointer" ng-click="onViewPDF(item.file.url_return)">
+                                        <strong> <span>INTERNATIONAL_VIEW_PROFILE</span></strong>
+                                    </span>
+                                </td>
+                            </tr>                            
+                            <tr class="recycler-row-title recycler-list">
+                                <td colspan="5" class="recycler-row-align-midle-left"><span>INTERNATIONAL_PROFILE_NOTE</span><span ng-bind=" ': ' + profileNote"></span></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        
+                        <!-- END MAIN CONTENT -->
+                    </td>
+                </tr><tr class="trow-space"></tr>
+                <tr align="center">
+                    <td class="tdbtndesktop" width="32%"><input type="button" style="width:100%;margin:0 auto" class="btnDesktopshadow btnDesktopBack" ng-click="onBackClick()" value="COM_BACK"></td>
+                    <td width="32%" id="trCancel"><input type="button" style="background-color: rgba(162, 100, 187, 0.51);border-radius: 20px;width:100%" class="btnshadow btn-primary" ng-click="onCancelClick()" value="COM_CANCEL" ></td>
+                    <td width="32%"><input style="width:100%" type="button" class="btnshadow btn-second" ng-click="onContinuteClick()" value="COM_CONTINUE" ></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div id="contentView" class="modal-content"></div>
+
+</div>
+
+<style>
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+
+        margin: auto;
+        padding: 0px;
+        width: 80%;
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>

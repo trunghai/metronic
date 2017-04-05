@@ -1,0 +1,232 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller='transfer-periodic' style="height: 417px; top:44px">
+    <div id="content-transfer" style="display:block" class="bg-transfer">
+        <div class="panelContent">
+            <table class="tableTab" id="periodic-table">
+                <td class='content-periodic selected'>
+                    <span>TRANS_PERIODIC_TRADE_TITLE</span>
+                    <span class="content-span"></span>
+                </td>
+                <td ng-click="showmngpage()" class='content-periodic'>
+                    <span>TRANS_PERIODIC_MNG_TITLE</span>
+                    <span class="content-span"></span>
+                </td>
+            </table>
+            <table width="100%" align="center">
+                <tr>
+                    <td>
+                        <h5 class="header-title"><span>TRANS_ACCOUNT_INFO_BLOCK_TITLE</span></h5></td>
+                </tr>
+                <!-- Tài khoản giao dịch -->
+                <tr>
+                    <td id="account-info" colspan="2">
+                        <div id="holder-account-info" class="combo-box info-account accInfo widefull" ng-click="showAccountSelection()">
+
+                        </div>
+                        <input id="id.accountno" type="hidden" class="form-control form-control-rightbutton" value="COM_TXT_SELECTION_PLACEHOLDER" />
+                    </td>
+                </tr>
+                <!-- Số tiền -->
+                <tr>
+                    <td>
+                        <div class="tranfer-item">
+                            <div class="container-input-icon">
+                                <div class="holder-icon-input-parent">
+                                    <div class="holder-icon-input-child">VND</div>
+                                </div>
+                                <div class="holder-input">
+                                    <input id="trans.amount" ng-model="amount" type="tel" class="form-control form-control-righttext input-with-icon ng-valid ng-valid-maxlength ng-dirty ng-valid-parse ng-touched" placeholder="PLACEHOLDER_TRANSFER_AMOUNT" onkeyup="handleInputAmount(event, this);" onchange="removeSpecialCharForNumber(this.value)" maxlength="16" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off">
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Chuyển tiền thành chữ -->
+                <tr id="trans.textamount" style="display: none;">
+                    <td>
+                        <div id="trans.amounttotext">
+                            <div class="txtmoneystyle"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5 class="header-title"><span>TRANS_TYPE</span></h5></td>
+                </tr>
+                <!-- Tài khoản nhận tiền -->
+                <tr>
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="input-group widefull" onclick="showInputTransferTypeAccount();"> <span class="input-group-addon" style="width:40%; white-space:pre-wrap">TRANS_BATCH_TYPE_LABEL</span>
+                            <input style="white-space:pre-wrap" id="trans.type.trans" type="button" class="form-control form-control-righttext" value="" />
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                            <input type="hidden" id='id.value.trans.type.trans' />
+                        </div>
+                    </td>
+                </tr>
+                <!-- Số tài khoản nhận tiền -->
+                <tr>
+                    <td colspan="2" align="center" valign="middle" class="input-group widefull td-text">
+                         <div class="holder-input-none-icon" style="margin-top: -4px;margin-bottom: -2px;"><input id="trans.desaccount" onkeyup="inputOnlyNumber(this)" type="text" placeholder="TRANS_INPUT_PERIODIC_ACC_NO" value="" class="form-control input-none-border" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off" onchange="loadInfoFromIdAccount(this)" maxlength="30"/>
+                        </div>
+                            <span style="display: none;" id="id.next.icon" class="icon-movenext input-group-addon input-group-symbol"></span>
+                            <span onclick="showPayeePage();" id="span.trans.target" class="tooltip icon-book input-group-addon-datepicker input-group-symbol-datepicker" style="cursor:pointer;display:none;"> <span style="text-align:center; font-size:14px;">TRANSFER_REMITTANCE_SAVE_BENEFIC1</span></span>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Người nhận -->
+                <tr>
+                    <td>
+                        <div>
+                            <h6 class="h6style">
+                                <span id="trans.targetaccountname"></span>
+                            </h6>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Thông tin giao dịch -->
+                <tr>
+                    <td>
+                        <h5 class="header-title"><span>TRANS_DETAIL_BLOCK_TITLE</span></h5></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="tranfer-item">
+                            <div id="holder-transfer-message" class="text-area-content"><div class="bg-text-area"><div class="holderIcon"><div style="display:table;width: 100%;height:100%"><span style="display:table-cell;vertical-align: middle;text-align: center;font-size:24px!important" class="icon-content-note"></span></div></div><div class="holder-txtarea"> <div class="area dummy"></div><textarea class="area" id="trans.content" onkeyup="replaceTextareaContent(this)" value="" placeholder="PLACEHOLDER_TRANSFER_CONTENT" maxlength="100" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"></textarea></div></div></div>
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+            <table width="100%">
+                <!-- Lịch chuyển định kì -->
+                <tr>
+                    <td>
+                        <h5 class="header-title"><span>TRANS_PERIODIC_BOOK_TITLE</span></h5>
+                    </td>
+                </tr>
+                <!-- Tần suất chuyển tiền -->
+                <tr>
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="input-group widefull" ng-click="showInputFrequency()"> <span class="input-group-addon" style="width:40%; white-space:pre-wrap">TRANS_PERIODIC_FREQUENCY</span>
+                            <input id="trans.frequency" type="button" class="form-control form-control-righttext" placeholder="COM_TXT_INPUT_PLACEHOLDER" value="CONST_TRANS_FREQUENCY_D" />
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                            <input type="hidden" id='id.value.trans.frequency' />
+                        </div>
+                    </td>
+                </tr>
+                <!-- Ngày bắt đầu -->
+                <tr id="desktop-mode-tr" class="desktopview">
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="input-group" style="width: 50% !important">
+                          <input style="float:right;width:48%;text-align : left;" id="trans.enddate" type="tel" class="form-control input-none-border" placeholder="TRANS_PERIODIC_END_DATE" value="" onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"><span id="span.enddate" onclick="initDialogCal('trans.enddate')" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker" style="font-size: 20px !important;margin-top: -3px;right: 0px;"></span>
+                          </div>
+                          <div class="input-group" style="width: 50% !important">
+                          <input style="width:50%;float:left;padding-right: 20px;text-align : left;" id="trans.begindate" type="tel" class="form-control input-none-border" placeholder="TRANS_PERIODIC_BEGIN_DATE" value="" onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"><span id="span.begindate" onclick="initDialogCal('trans.begindate')" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker" style="font-size: 20px !important;margin-top: -3px;right: 180px;"></span>
+                          </div>
+                    </td>
+                </tr>
+                <!-- ngày bắt đầu mb -->
+                <tr id="desktop-mode-tr" class="mobileview">
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="input-group widefull">
+                          <input style="text-align : left;" id="trans.begindatemb" type="tel" class="form-control input-none-border" placeholder="TRANS_PERIODIC_BEGIN_DATE" value="" onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"><span id="span.begindate" onclick="initDialogCal('trans.begindatemb')" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker" style="font-size: 20px !important;margin-top: -3px;right: 10px;"></span>
+                          </div>
+                    </td>
+                </tr>
+                <!-- Ngày kết thúc mb -->
+                <tr id="desktop-mode-tr" class="mobileview">
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="input-group widefull">
+                          <input style="text-align : left;" id="trans.enddatemb" type="tel" class="form-control input-none-border" placeholder="TRANS_PERIODIC_END_DATE" value="" onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"><span id="span.enddate" onclick="initDialogCal('trans.enddatemb')" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker" style="font-size: 20px !important;margin-top: -3px;right: 10px;"></span>
+                          </div>
+                    </td>
+                </tr>
+                <!-- Quản lý người thụ hưởng -->
+                <tr>
+                    <td>
+                        <div class="tranfer-item" id="id.luunguoinhan">
+                            <div class="holder-border-bottom" style="overflow:hidden;padding:4px 0;">
+                                <div style="float:left !important">
+                                    <span class="span-label">SAVE_DEST_ACCOUNT</span><div style="top:0px !important;margin-left:8px !important;float:none !important" class="custom-switch custom-switch-on" ng-click="onChangeSwitchSubMenu('save-receiver')" id="save-receiver">
+                                    <input type="checkbox" class="custom-switch-input custom-switch-input-on"  />
+                                    <span class="custom-switch-label custom-switch-label-off" data-on="On" data-off="Off">on</span>
+                                    <span class="custom-switch-handle custom-switch-handle-on"></span>
+                                </div>
+                                </div>
+                                <div style="float:right;text-align:right; display:none;"><span>SAVE_TRANSFER_DOC_TEMPLATE</span> <div style="top:0px !important;margin-left:8px !important;margin-right:3px !important;" class="custom-switch custom-switch-off" ng-click="onChangeSwitchSubMenu('save-doc-temp-transfer')" id="save-doc-temp-transfer">
+                                    <input type="checkbox" class="custom-switch-input custom-switch-input-on"  />
+                                    <span class="custom-switch-label custom-switch-label-off" data-on="On" data-off="Off">on</span>
+                                    <span class="custom-switch-handle custom-switch-handle-off"></span>
+                                </div></div>
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="tranfer-item" id ="id.sample" style="display:none;">
+                            <div class="holder-border-bottom">
+                                <div class="holder-input-none-icon" style="margin-top:-7px;">
+                                    <input id="id.sample.name" type="text" class="form-control input-none-border" placeholder="TRANSFER_REMITTANCE_NAMED" maxlength="20" />
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="desktopview">
+                    <td>
+                        <div class="tranfer-item" style="margin-top: -20px">
+                            <div class="container-input-icon" style="border-top: none">
+                                <div class="holder-icon-input-parent" style="width: 60%">
+                                    <div class="holder-icon-input-child"><span>GUA_SEND_NOTIFICATION_TO_USER</span></div>
+                                </div>
+                                <div class="holder-input not-allow-cursor" style="width: 25%">
+                                    <div class="holder-icon-input-child" style="float:right;">
+                                        <span id="id.notifyTo" style="font-size: 12px; float:right;padding-top: 8px;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="mobileview">
+                    <td>
+                        <div class="tranfer-item" style="margin-top: -8px">
+                            <div class="container-input-icon" style="border-top: none">
+                                <div class="holder-icon-input-parent notification-brn">
+                                    <div class="holder-icon-input-child"><span style="font-size: 12px;">GUA_SEND_NOTIFICATION_TO_USER</span></div>
+                                </div>
+                                <div class="holder-icon-input-parent notification-brn">
+                                    <!--<input type="tel" class="form-control form-control-righttext" placeholder="COM_NOTIFY_3" readonly="true" /> -->
+									<!--<input id="id.notifyTo1" type="tel" class="form-control form-control-righttext" placeholder="" disabled="true" readonly="true"/>-->
+                                    <div class="holder-icon-input-child"><span id="id.notifyTo1" style="font-size: 12px; float:right;"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="trow-space"></tr>
+                <tr class="mt-15">
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="tdbtndesktop" style="width:50%">
+                            <input  type='submit' style="float:left;margin-left:65px" class='btnDesktopshadow btnDesktopBack' onClick= 'clickHomeOrBack()' value='INPUT_ACC_BTN_GOBACK'/>
+                        </div>
+                        <div style="width:50%">
+                            <input  type="button" style="margin-right:100px; font-size:14px!important;" class="btnshadow btn-second"
+                                    ng-click="sendJSONRequest()" value="TRANS_LOCAL_BTN_SENDREQUEST"/>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+</div>
+
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"> </div>
+    <div id="divListGroup" class="list-group dialog-list"> </div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

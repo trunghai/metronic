@@ -1,0 +1,115 @@
+            <table id="dynamic-billing-table" width="100%">
+                <tr  ng-show={{showElement}}>
+                    <td>
+
+                    </td>
+                </tr>
+                <tbody>
+                <tr>
+                    <td colspan="2">
+                        <div class="recycler-list">
+                            <table width='100%' align='center' class='recycler-table-ebank'>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.transCode"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>COM_EXECUTION_TIME</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.dateMake"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal" ng-show="(detailCommon.status == 'REJ') ? true : false">
+                                    <td class="recycler-row-align-midle-left"><span>COM_CHECK_DATE</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.datePend"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal" ng-show="(detailCommon.status == 'REJ') ? true : false">
+                                    <td class="recycler-row-align-midle-left"><span>COM_CHEKER</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.approved"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>COM_STATUS</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.status"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal" ng-show="(detailCommon.status == 'REJ') ? true : false">
+                                    <td class="recycler-row-align-midle-left"><span>GUA_REASON</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.TXTREASON"> </span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title">
+                            <span>COM_ACCOUNT_INFO</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="recycler-list">
+                            <table width='100%' align='center' class='recycler-table-ebank'>
+                                <tr class='recycler-row-normal'>
+                                    <td class='recycler-row-align-midle-left'><span>TRANS_TYPE</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.transType"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>FOREGIN_ACCOUNT</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.accGet"></span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title">
+                            <span>COM_TRASACTION_INFO</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="recycler-list">
+                            <table width='100%' align='center' class='recycler-table-ebank'>
+                                <tr class='recycler-row-normal'>
+                                    <td class='recycler-row-align-midle-left'><span>FOREGIN_ACCOUNT_PAYMENT</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.accSend"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>FOREGIN_SELL_NUMBER</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.amountEX"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>FOREGIN_RATE</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.rate"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>FOREGIN_TOTAL_RECEIVER_AMOUNT</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.amountRece"></span></td>
+                                </tr>	
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>INTERNATIONAL_LIST_AMOUNT_AFTER_TRANS</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.AmountBalance"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>TRANS_BANK_TITLE</span></td>
+                                    <td class="recycler-row-align-midle-right">TPBank</td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>TRANS_FEE_TITLE</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.serviceCharge"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>TRANS_FPTS_CONTENT</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.content"></span></td>
+                                </tr>								
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>COM_SEND_MSG_APPROVER</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="detailCommon.notification"></span></td>
+                                </tr>								
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>

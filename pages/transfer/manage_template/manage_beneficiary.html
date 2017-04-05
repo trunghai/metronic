@@ -1,0 +1,70 @@
+<html>
+<body>
+<div id="mainViewContent" class="main-layout-subview" ng-controller="manage-beneficiary">
+    <div class="panelContentCorp">
+        <table style="width:50%;margin:0px 0px 20px 0px;height:48px; border-spacing: 0px; padding-bottom: 4px;padding-top: 20px; font-size: 13px;">
+                <!--<td class="content-periodic selected">-->
+                    <!--<div class="tab" style="margin-top: 0px;">-->
+                        <!--<div class="item selected ">-->
+                            <!--<div class="text content-span"><span>COM_SAVE_BENE</span></div>-->
+                        <!--</div>-->
+                        <!--<div class="item" onclick="showManageTempPage()">-->
+                            <!--<div class="text content-span"><span>CONST_MANAGE_TRANS_TEMPLATE</span></div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</td>-->
+            <tr>
+                <td class="content-periodic selected">
+                <span>COM_SAVE_BENE</span>
+                <span class="content-span"></span>
+            </td>
+                <td onclick="showManageTempPage()" class="content-periodic item">
+                    <span>CONST_MANAGE_TRANS_TEMPLATE</span>
+                    <span class="content-span"></span>
+                </td>
+
+            </tr>
+        </table>
+        <br/>
+        <div align="left">
+        <table width="50%" class="recycler-list" style="margin: 0px 10px">
+            <tr>
+                <td align="center" valign="middle" class="td-text">
+                    <div class="input-group">
+                        <input id="input.search.value" results='5' name='s' class="form-control form-control-lefttext" placeholder="COM_SEARCH_PLACEHOLDER" value="" onkeypress="searchBeneficiaries(this, event)"/>
+					<span onclick="searchBeneficiariesWithButton();" id="span.trans.target" class="icon-zoom input-group-addon-datepicker input-group-symbol-datepicker" style="cursor:pointer;padding-right:4%;">
+                        <span style="text-align:center; font-size:14px;">
+                          <em id="ds_id"></em>
+                          <br />
+                          <em id="mau_id"></em>
+                        </span>
+                      </span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <br/>
+        <div id="tblContent" name="tblContent" style="overflow:auto"></div>
+        <div id="pagination" style="text-align: right"></div>
+        <br/><br/>
+        <div id="editBeneDetail" name="editBeneDetail" style="overflow:auto ;margin: 10px 10px" class="recycler-list"></div>
+    </div>
+</div>
+            <tr class="mt-15">
+                <td colspan="2" align="center" valign="middle" class="td-text">
+                    <div class="tdbtndesktop" style="width:50%">
+                        <input type='submit' style="float:left;margin-left:65px" class='btnDesktopshadow btnDesktopBack'
+                               onclick="clickHomeOrBack()" value='INPUT_ACC_BTN_GOBACK'/>
+                    </div>
+                    <div style="width:50%">
+                        <input type="button" style="margin-right:100px" class="btnshadow btn-second"
+                               ng-click="sendJSONRequest()" value="TRANS_LOCAL_BTN_SENDREQUEST"/>
+                    </div>
+                </td>
+            </tr>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"> </div>
+    <div id="divListGroup" class="list-group dialog-list"> </div>
+</div>
+</body>
+</html>

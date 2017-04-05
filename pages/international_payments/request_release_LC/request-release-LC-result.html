@@ -1,0 +1,54 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="request-release-lc-result" style="height: 621px; top: 44px; bottom: 0px;">
+    <div class="panelContent">
+        <table width="100%">
+            <tr>
+                <td colspan="2">
+                    <div id="seqFormReview">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center">
+                    <div ng-class="result.messageIconClass" style="display: inline; color: #FAA60D; font-size: 24px; vertical-align: middle; padding: 5px 0px 5px 0px;"></div>
+                    <span style="font-size:16px; vertical-align:middle" ng-bind="result.message"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!--<div id="credit-list-id" style="margin-top: 5px" ng-include="reGenContent()"></div>-->
+                    <div class="recycler-list">
+                        <table width='100%' align='center' class='recycler-table-ebank'>
+                            <tr class='recycler-row-normal'>
+                                <td class='recycler-row-align-midle-left'><span>VIEW_TRANS_CODE</span></td>
+                                <td class='recycler-row-align-midle-right' ng-bind="result.respJsonObj.transId"></td>
+                            </tr>
+                            <tr class='recycler-row-normal'>
+                                <td class='recycler-row-align-midle-left'><span>AUTHORIZE_INPUT</span></td>
+                                <td class='recycler-row-align-midle-right' ng-bind="result.respJsonObj.maker"></td>
+                            </tr>
+                            <tr class='recycler-row-normal'>
+                                <td class='recycler-row-align-midle-left'><span>AUTHORIZE_INPUT_DATE</span></td>
+                                <td class='recycler-row-align-midle-right' ng-bind="result.respJsonObj.time"></td>
+                            </tr>
+                            <tr class='recycler-row-normal'>
+                                <td class='recycler-row-align-midle-left'><span>TRANS_STATUS</span></td>
+                                <td class='recycler-row-align-midle-right'>Chờ duyệt</td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <table width="100%">
+            <tbody>
+            <tr align="center">
+                <td class="tdbtndesktop" width="32%"><input type="submit" style="display:none; width:100%;margin:0 auto" class="btnDesktopshadow btnDesktopBack" ng-click="clickHomeOrBack()" value="Quay lại"></td>
+                <td width="32%" id="trCancel"><input type="submit" style="display:none; background-color: rgba(162, 100, 187, 0.51);border-radius: 20px;width:100%" class="btnshadow btn-primary" ng-click="btnCancelClick()" value="Hủy" ></td>
+                <td width="32%"><input style="width:100%" type="button" class="btnshadow btn-second" ng-click="onClickOtherTrans()" value="COM_MAKE_OTHER_TRANS" ></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="holder-bottom-bar"></div>
+    <div class="mobilemode" id="dialog-container"></div>
+</div>

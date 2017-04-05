@@ -1,0 +1,34 @@
+<table id="recycler_table_ebank-mobile" ng-repeat="item in currentListTrans track by $index" class="recycler-table-ebank mobileview recycler-list margin-bottom" width="98%" align="center">
+    <tbody>
+    <tr class="recycler-row-normal">
+        <td class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="item.NGAY_LAP"></span></td>
+    </tr>
+    <tr class="recycler-row-normal">
+        <td class="recycler-row-align-midle-left"><span>PAYMENT_ORDER_CODE</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="item.MA_HOA_DON"></span></td>
+    </tr>
+    <tr class="recycler-row-normal">
+        <td class="recycler-row-align-midle-left"><span>COM_AMOUNT</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="item.SO_LUONG | currency : '' : 0"></span></td>
+    </tr>
+    <tr class="recycler-row-normal">
+        <td class="recycler-row-align-midle-left"><span>COM_CHEKER</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="item.NGUOI_DUYET"></span></td>
+    </tr>
+    <tr class="recycler-row-normal">
+        <td class="recycler-row-align-midle-left"><span>COM_STATUS</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="item.TRANGTHAI"></span></td>
+    </tr>
+    <tr class="recycler-row-normal" ng-click="goToViewScreen(item.MA_GD);">
+        <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="item.MA_GD"></span></td>
+    </tr>
+    <tr class="recycler-row-normal">
+        <td class="recycler-row-align-midle-left"><span>COM_CHOOSE</span></td>
+        <td class="recycler-row-align-midle-right">
+            <input class="trans.checkbox" type="checkbox" onclick="deSelectRow('recycler_table_ebank-desktop', 'recycler_table_ebank-mobile', this)" name="{{item.MA_GD}}">
+        </td>
+    </tr>
+    </tbody>
+</table>

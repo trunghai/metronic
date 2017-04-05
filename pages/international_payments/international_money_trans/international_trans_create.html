@@ -1,0 +1,320 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="international-trans-create">
+    <div class="bg-transfer">
+        <div class="panelContent">
+            <table class="tableTab" id="periodic-table">
+                <td class='content-periodic selected'>
+                    <span>TRANS_PERIODIC_TRADE_TITLE</span>
+                    <span class="content-span"></span>
+                </td>
+                <td ng-click="changeTab()" class='content-periodic'>
+                    <span>TRANS_PERIODIC_MNG_TITLE</span>
+                    <span class="content-span"></span>
+                </td>
+            </table>
+            <table id="dynamic-billing-table" width="100%">
+                <tbody>
+                    <tr>
+                        <td colspan="2">
+                            <div class="header-title">
+                                <span>INTERNATIONAL_PURPOSE_TRANS</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <!--Loại giao dịch-->
+                    <tr>
+                        <td class="td-text" valign="middle" align="center" colspan="2">
+                            <div class="input-group widefull">
+                                <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">INTERNATIONAL_PURPOSE</span>
+                                <input id="id.international.transtype" class="form-control form-control-righttext" type="button" value="COM_TXT_SELECTION_PLACEHOLDER" ng-click="showInternationlTransType();">
+                                <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                                <input id="id.international.transtype.value" type="hidden" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <!--Mục đích-->
+                    <tr>
+                        <td class="td-text" valign="middle" align="center" colspan="2">
+                            <div class="input-group widefull">
+                                <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">INTERNATIONAL_TRANS_TYPE</span>
+                                <span id="id.international.purpose" class="form-control form-control-righttext" style="min-height: 34px; padding-top: 12px" ng-click="showInternationalPurpose();" >COM_TXT_SELECTION_PLACEHOLDER</span>
+                                <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                                <input id="id.international.purpose.value" type="hidden" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="header-title">
+                                <span>INTERNATIONAL_OFFEROR</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <!--Bên đề nghị-->
+                    <tr>
+                        <td class="td-text" valign="middle" align="center" colspan="2">
+                            <div class="input-group widefull">
+                                <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">INTERNATIONAL_NAME_OFFEROR</span>
+                                <input id="id.international.name.offeror" class="form-control form-control-righttext" type="text" value="" placeholder="INTERNATIONAL_PLACEHOLDER_INPUT" disabled>
+                                <input id="id.international.name.offeror.value" type="hidden" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <!--Địa chỉ bên đề nghị-->
+                    <tr>
+                        <td class="td-text" valign="middle" align="center" colspan="2">
+                            <div class="input-group widefull">
+                                <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">INTERNATIONAL_ADDRESS_OFFEROR</span>
+                                <span style="word-break: break-all; min-height: 34px;" id="id.international.address.offeror" class="form-control form-control-righttext" disabled></span>
+                                <input id="id.international.address.offeror.value" type="hidden" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="header-title">
+                                <span>INTERNATIONAL_BEN</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <!--Tên bên thụ hưởng-->
+                    <tr>
+                        <td class="td-text" valign="middle" align="center" colspan="2">
+                            <div class="input-group widefull">
+                                <span class="holder-input-none-icon" style="width: 40%; white-space:pre-wrap"></span>
+                                <input id="id.international.name.ben" maxlength="150" class="form-control form-control-righttext input-none-border" type="text" value="" placeholder="INTERNATIONAL_INPUT_NAME_BEN" onkeyup="controlInputText(this, 150)">
+                                <input id="id.international.name.ben.value" type="hidden" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <!--Địa chỉ bên thụ hưởng-->
+                    <tr>
+                        <td class="td-text" valign="middle" align="center" colspan="2">
+                            <div class="input-group widefull">
+                                <span class="holder-input-none-icon" style="width: 40%; white-space:pre-wrap"></span>
+                                <input id="id.international.address.ben" maxlength="150" class="form-control form-control-righttext input-none-border" type="text" value="" placeholder="INTERNATIONAL_INPUT_ADDRESS_BEN" onkeyup="controlInputTextAddress(this, 150)">
+                                <input id="id.international.address.ben.value" type="hidden" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <!--Quốc gia bên hụ hưởng-->
+                    <tr>
+                        <td class="td-text" valign="middle" align="center" colspan="2">
+                            <div class="input-group widefull" ng-click="showInternationalNation();">
+                                <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">INTERNATIONAL_NATION_BEN</span>
+                                <input id="id.international.nation.ben" class="form-control form-control-righttext" type="button" value="COM_TXT_SELECTION_PLACEHOLDER" >
+                                <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                                <input id="id.international.nation.ben.value" type="hidden" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <!--Số tài khoản thụ hưởng-->
+                    <tr>
+                        <td class="td-text" valign="middle" align="center" colspan="2">
+                            <div class="input-group border-b widefull">
+                                <span class="holder-input-none-icon" style="width: 40%; white-space:pre-wrap"></span>
+                                <input id="id.international.account.ben" class="form-control form-control-righttext input-none-border" type="text" value="" placeholder="INTERNATIONAL_INPUT_ACCOUNT_BEN" onkeyup="controlInputAccount(this, 34)" maxlength="34">
+                            </div>
+                        </td>
+                    </tr>
+                    <!--Noi dung-->
+                    <tr>
+                        <td>
+                            <div class="tranfer-item">
+                                <div class="text-area-content" id="holder-transfer-message" >
+                                    <div class="bg-text-area">
+                                        <div class="holderIcon">
+                                            <div style="display:table;width: 100%;height:100%">
+                                                <span style="display:table-cell;vertical-align: middle;text-align: center;font-size:24px!important" class="icon-content-note"></span>
+                                            </div>
+                                        </div>
+                                        <div class="holder-txtarea">
+                                            <div class="area dummy"></div>
+                                            <textarea class="area" id="id.international.content" placeholder="PLACEHOLDER_TRANSFER_CONTENT" onkeyup="controlInputText(this, 135)" maxlength="135"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="header-title">
+                                <span>INTERNATIONAL_THE_BEN_BANK</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <!--Phương thức chuyển-->
+                    <tr>
+                        <td class="td-text" valign="middle" align="center" colspan="2">
+                            <div class="input-group widefull">
+                                <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">INTERNATIONAL_TRANS_METHOD</span>
+                                <input id="id.international.trans.method" class="form-control form-control-righttext" type="button" value="COM_TXT_SELECTION_PLACEHOLDER" ng-click="showInternationalTransMethod();">
+                                <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                                <input id="id.international.trans.method.value" type="hidden" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <!--Nhập swift code-->
+                    <tr ng-show="transSwiftCode">
+                        <td class="td-text" valign="middle" align="center" colspan="2">
+                            <div class="input-group widefull">
+                                <span class="holder-input-none-icon" style="width: 40%; white-space:pre-wrap"></span>
+                                <input id="id.international.swift.code" class="form-control form-control-righttext input-none-border" type="text" value="" placeholder="INTERNATIONAL_SWIFT_CODE" onblur="validateSwiftCode(this, 1);angular.element(this).scope().searchBankNameWithSwifCode(this,1)" onkeyup="controlInputTextSwitcode(this, 11)" maxlength="11">
+                                <input id="id.international.swift.code.value" type="hidden" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <!--Tên ngân hàng thụ hưởng-->
+                    <tr>
+                        <td class="td-text" valign="middle" align="center" colspan="2">
+                            <div class="input-group widefull">
+                                <span class="holder-input-none-icon" style="width: 40%; white-space:pre-wrap"></span>
+                                <input id="id.international.ben.bank.name" class="input-none-border form-control form-control-righttext" type="text" value="" placeholder="INTERNATIONAL_INPUT_THE_BEN_BANK_NAME" onkeyup="controlInputText(this, 150)" maxlength="150">
+                                <input id="id.international.ben.bank.name.value" type="hidden" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <!--Địa chỉ ngân hàng thụ hưởng-->
+                    <tr ng-show="transAdderss">
+                        <td class="td-text" valign="middle" align="center" colspan="2">
+                            <div class="input-group widefull">
+                                <span class="holder-input-none-icon" style="width: 40%; white-space:pre-wrap"></span>
+                                <input id="id.international.ben.bank.address" class="form-control form-control-righttext input-none-border" type="text" value="" placeholder="INTERNATIONAL_ADRESS_BANK_BEN" onkeyup="controlInputTextAddress(this, 139)">
+                                <input id="id.international.ben.bank.address.value" type="hidden" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <!--Quốc gia ngân hàng thụ hưởng-->
+                    <tr>
+                        <td class="td-text" valign="middle" align="center" colspan="2">
+                            <div class="input-group widefull">
+                                <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">INTERNATIONAL_NAIION_BANK_BEN</span>
+                                <input id="id.international.nation.bank.ben" class="form-control form-control-righttext" type="button" value="COM_TXT_SELECTION_PLACEHOLDER" ng-click="showInternationalNationBankBen()">
+                                <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                                <input id="id.international.nation.bank.ben.value" type="hidden" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="header-title">
+                                <span>INTERNATIONAL_INTERMEDIARY_BANK</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <!--Ngân hàng  trung gian-->
+                    <tr>
+                        <td class="td-text" valign="middle" align="center" colspan="2">
+                            <div class="input-group widefull">
+                                <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">INTERNATIONAL_INTERMEDIARY_BANK</span>
+                                <input id="id.international.intermediary.bank" class="form-control form-control-righttext" type="button" value="COM_TXT_SELECTION_PLACEHOLDER" ng-click="showInternationalMediaryBank();">
+                                <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                                <input id="id.international.intermediary.bank.value" type="hidden" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <!--Phương thức chuyển NHTG-->
+                    <tr ng-show="transNHTG">
+                        <td class="td-text" valign="middle" align="center" colspan="2">
+                            <div class="input-group widefull">
+                                <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">INTERNATIONAL_TRANS_METHOD_NHTG</span>
+                                <input id="id.international.trans.method.NHTG" class="form-control form-control-righttext" type="button" value="COM_TXT_SELECTION_PLACEHOLDER" ng-click="showInternationalMediaryBankNHTG();">
+                                <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                                <input id="id.international.trans.method.value.NHTG" type="hidden" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <!--Nhập swift code NHTG-->
+                    <tr ng-show="transSwiftCodeNHTG && transNHTG">
+                        <td class="td-text" valign="middle" align="center" colspan="2">
+                            <div class="input-group widefull">
+                                <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">INTERNATIONAL_SWIFT_CODE_NHTG</span>
+                                <input id="id.international.swift.code.NHTG" class="form-control form-control-righttext" type="text" value="" placeholder="INTERNATIONAL_PLACEHOLDER_INPUT" onblur="validateSwiftCode(this, 2);angular.element(this).scope().searchBankNameWithSwifCode(this,2)" onkeyup="controlInputTextSwitcode(this, 11)">
+                                <input id="id.international.swift.code.value.NHTG" type="hidden" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <!--Nhập tên NHTG-->
+                    <tr ng-show="transNHTG">
+                        <td class="td-text" valign="middle" align="center" colspan="2">
+                            <div class="input-group widefull">
+                                <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">INTERNATIONAL_INTERMEDIARY_BANK_NAME</span>
+                                <input id="id.international.name.NHTG" class="form-control form-control-righttext" type="text" value="" placeholder="INTERNATIONAL_PLACEHOLDER_INPUT" onkeyup="controlInputTextAddress(this, 160)" >
+                                <input id="id.international.name.value.NHTG" type="hidden" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <!--Nhập địa chỉ NHTG-->
+                    <tr ng-show="transAdderssNHTG && transNHTG">
+                        <td class="td-text" valign="middle" align="center" colspan="2">
+                            <div class="input-group widefull">
+                                <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">INTERNATIONAL_INTERMEDIARY_BANK_ADDRESS</span>
+                                <input id="id.international.address.NHTG" class="form-control form-control-righttext" type="text" value="" placeholder="INTERNATIONAL_PLACEHOLDER_INPUT" onkeyup="controlInputTextAddress(this, 160)">
+                                <input id="id.international.address.value.NHTG" type="hidden" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <!--quốc gia NHTG-->
+                    <tr ng-show="transNHTG">
+                        <td class="td-text" valign="middle" align="center" colspan="2">
+                            <div class="input-group widefull">
+                                <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">INTERNATIONAL_NAIION_BANK_NHTG</span>
+                                <input id="id.international.nation.NHTG" class="form-control form-control-righttext" type="button" value="COM_TXT_SELECTION_PLACEHOLDER" ng-click="showInternationalNationBankNHTG()">
+                                <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                                <input id="id.international.nation.value.NHTG" type="hidden" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <!--Quản lý thụ hưởng-->
+                    <tr>
+                        <td class="td-text" valign="middle" align="center" colspan="2">
+                            <div class="input-group widefull">
+                                <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">INTERNATIONAL_MANNAGER_BEN</span>
+                                <input id="id.international.manager.ben" class="form-control form-control-righttext" type="button" value="COM_TXT_SELECTION_PLACEHOLDER" ng-click="showInternationalInputMNG();">
+                                <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                                <input id="id.international.manager.ben.value" type="hidden" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr ng-show="managerben">
+                        <td class="td-text" valign="middle" align="center" colspan="2">
+                            <div class="input-group widefull">
+                                <span class="holder-input-none-icon" style="width: 40%; white-space:pre-wrap"></span>
+                                    <input id="id.international.manager.ben.inputname" class="form-control form-control-righttext input-none-border" type="text" value="" placeholder="INTERNATIONAL_INPUT_INPUT_NO_SAMPLE" maxlength="20" >
+                                    <input id="id.international.manager.ben.inputname.value" type="hidden" value="">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="trow-space"></tr>
+                    <tr class="mt-15">
+                        <td colspan="2" align="center" valign="middle" class="td-text">
+                            <div class="tdbtndesktop" style="width:50%">
+                                <input type="submit" style="float:left;margin-left:65px" class="btnDesktopshadow btnDesktopBack" onclick="clickHomeOrBack()" value="CM_BTN_GOBACK" >
+                            </div>
+                            <div style="width:50%">
+                                <input type="button" id="btnNext" style="margin-right:100px" class="btnshadow btn-second" ng-click="onContinuteClick()" value="COM_CONTINUE" />
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- <table width="100%" style="padding-top: 10px">
+                <tr>
+                    <td>
+                        <input type="button" id="btnNext" class="btnshadow btn-second" value="COM_CONTINUE" ng-click="onContinuteClick()" />
+                    </td>
+                </tr>
+            </table> -->
+            
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

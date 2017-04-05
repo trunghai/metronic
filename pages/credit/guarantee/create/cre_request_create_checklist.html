@@ -1,0 +1,167 @@
+
+<link rel="stylesheet" href="./assets/libs/angularjs/jquery.fileupload.css" type="text/css"/>
+
+<div id="mainViewContent" class="main-layout-subview" ng-controller="cre-request-create-checklist" nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter, pdfFilter">
+    <div class="bg-transfer">
+        <div class="panelContent" >
+            <table width="100%" style="padding-top:10px;" align="center" class="">
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title">
+                            <span>LIST_FILE_TPBANK</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width='96%' align='center' class='recycler-table-ebank desktopview'>
+                            <tr class='recycler-row-title-header recycler-list'>
+                                <td width="30%" class="recycler-row-align-midle"><span>REQUEST_RELEASE_LC_PROFILE_NAME</span></td>
+                                <td width="30%" class="recycler-row-align-midle"><span>REQUEST_RELEASE_LC_PROFILE_TYPE</span></td>
+                                <td width="30%" class="recycler-row-align-midle"><span>REQUEST_RELEASE_LC_PROFILE_NOTE</span></td>
+                            </tr>
+                            <tr class="recycler-row-title recycler-list" ng-repeat="x in infoTrans.docInfo">
+                                <td class="recycler-row-align-midle"><span ng-bind="x.DESCREPTION"></span></td>
+                                <td class="recycler-row-align-midle"><span ng-bind="x.FILE_TYPE"></span></td>
+                                <td class="recycler-row-align-midle"><span ng-bind="x.EXPECT"></span></td>
+                            </tr>
+                        </table>
+                        <table style="margin-bottom:10px;" ng-repeat="z in infoTrans.docInfo" class="mobileview recycler-list" width="100%" align="center">
+                                <tr class="recycler-row-normal">
+                                    <td colspan="1" class="recycler-row-align-midle-left">
+                                        <span>REQUEST_RELEASE_LC_PROFILE_NAME</span>
+                                    </td>
+                                    <td class="recycler-row-align-midle-right">
+                                        <span ng-bind="z.DESCREPTION"></span>
+                                    </td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td colspan="1" class="recycler-row-align-midle-left">
+                                        <span>REQUEST_RELEASE_LC_PROFILE_TYPE</span>
+                                    </td>
+                                    <td class="recycler-row-align-midle-right">
+                                        <span ng-bind="z.FILE_TYPE"></span>
+                                    </td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td colspan="1" class="recycler-row-align-midle-left">
+                                        <span>REQUEST_RELEASE_LC_PROFILE_NOTE</span>
+                                    </td>
+                                    <td class="recycler-row-align-midle-right">
+                                        <span ng-bind="z.EXPECT"></span>
+                                    </td>
+                                </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+					<style>
+						.fileUpload {
+							position: relative;
+							overflow: hidden;
+						}
+						.fileUpload input.upload {
+							position: absolute;
+							top: 0;
+							right: 0;
+							margin: 0;
+							padding: 0;
+							height:100%;
+							width:100%;
+							cursor: pointer;
+							opacity: 0;
+							filter: alpha(opacity=0);
+						}
+					</style>
+					<td class="td-text" valign="middle" align="right">
+						<div class="fileUpload btnshadow btn-second">
+							<span id="titleUploadFile">UPLOAD_FILE_BUTTON</span>
+							<input type="file" class="upload" name="file" nv-file-select="" uploader="uploader" multiple />
+						</div>
+					</td>	
+                </tr>
+                <!--<tr align="right">
+                    <td>
+                        <span>NOTED_FILE_TPBANK</span>
+                    </td>
+                </tr>-->
+                <tr>
+                    <td colspan="2">
+						<div class="header-title">
+							<span>SEND_FILE_TPBANK</span>
+						</div>	
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                            <table width='96%' align='center' class='recycler-table-ebank desktopview'>
+                                <tr class='recycler-row-title-header recycler-list'>
+                                    <td width="8%" class="recycler-row-align-midle"><span>COM_NO</span></td>
+                                    <td width="50%" class="recycler-row-align-midle"><span>INTERNATIONAL_PROFILE_NAME</span></td>
+                                    <td ng-show="uploader.isHTML5" class="recycler-row-align-midle"><span>INTERNATIONAL_PROFILE_SIZE</span></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="recycler-row-title recycler-list" ng-repeat="item in uploader.queue">
+                                    <td class="recycler-row-align-midle"><span ng-bind="$index + 1"></span></td>
+                                    <td class="recycler-row-align-midle"><span ng-bind="item.file.name"></span></td>
+                                    <td ng-show="uploader.isHTML5" nowrap class="recycler-row-align-midle"><span ng-bind="(item.file.size/1024/1024|number:2) + ' MB' "></span></td>
+                                    <td nowrap class="recycler-row-align-midle">
+                                        <span type="button" ng-click="removeFile(item,$index)" style="color: red; cursor: pointer">
+                                               <strong><span>GUA_FILE_DELETE</span></strong>
+                                        </span>
+                                    </td>
+
+                                </tr>
+                            </table>
+                            <table ng-repeat="item in uploader.queue" class="recycler-table-ebank mobileview recycler-list" width="100%" align="center">
+                                <tr>
+                                    <td colspan="1" class="recycler-row-align-midle-left">
+                                        <span>GUA_FILE_NAME_SENDED</span>
+                                    </td>
+                                    <td class="recycler-row-align-midle-right">
+                                        <span ng-bind="item.file.name"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" class="recycler-row-align-midle-left" ng-show="uploader.isHTML5">
+                                        <span>GUA_FILE_SIZE_SENDED</span>
+                                    </td>
+                                    <td  ng-show="uploader.isHTML5" nowrap class="recycler-row-align-midle-right">
+                                        <span ng-bind="(item.file.size/1024/1024|number:2) + ' MB' "></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" class="recycler-row-align-midle-left">
+                                        <span>GUA_FILE_DELETE</span>
+                                    </td>
+                                    <td nowrap class="recycler-row-align-midle-right">
+                                        <span type="button" ng-click="removeFile(item,$index)" style="color: red; cursor: pointer">
+                                               <strong><span>GUA_FILE_DELETE</span></strong>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+                    </td>
+                </tr>
+                <!-- noi dung -->
+                <tr >
+                    <td id="note" style="display: none">
+                        <div class="tranfer-item">
+                            <div id="holder-transfer-message" class="text-area-content" >
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="trow-space"></tr>
+            </table>
+            <table width="100%" style="padding-top: 10px">
+                <tr align="center">
+                    <td class="tdbtndesktop" width="32%"><input type="button" style="width:100%;margin:0 auto" class="btnDesktopshadow btnDesktopBack" ng-click="onBackClick()" value="COM_BACK"></td>
+                    <td width="32%" id="trCancel"><input type="button" style="background-color: rgba(162, 100, 187, 0.51);border-radius: 20px;width:100%" class="btnshadow btn-primary" ng-click="onCancelClick()" value="COM_CANCEL" ></td>
+                    <td width="32%"><input style="width:100%" type="button" class="btnshadow btn-second" ng-click="uploadFile()" value="COM_CONTINUE" ></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

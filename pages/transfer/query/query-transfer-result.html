@@ -1,0 +1,55 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="query-transfer-result">
+    <div class="">
+        <div class="panelContent">
+            <table id="dynamic-billing-table" width="98%" >
+                <tr>
+                    <td colspan="2" style="text-align: center">
+                        <div ng-class="result.messageIconClass" style="display: inline; color: #FAA60D; font-size: 24px; vertical-align: middle; padding: 5px 0px 5px 0px;"></div>
+                        <span style="font-size:16px; vertical-align:middle" ng-bind="result.message"></span>
+                    </td>
+                </tr>
+                <tbody>
+                <tr>
+                    <td colspan="2">
+                        <div align="center">
+                            <div class="recycler-list">
+                                <table width="100%" align="center" class="recycler-table-ebank">
+                                    <tbody>
+                                        <tr class="recycler-row-normal">
+                                            <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                                            <td class="recycler-row-align-midle-right"><span ng-repeat="det in result" ng-bind="det.transId"></span></td>
+                                        </tr>
+                                        <tr class="recycler-row-normal">
+                                            <td class="recycler-row-align-midle-left"><span>COM_EXECUTION_TIME</span></td>
+                                            <td class="recycler-row-align-midle-right"><span ng-bind="getDatetime | date:'dd/MM/yyyy HH:mm:ss'"></span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr><td colspan="2"><div class="export-print ex-print" id="acchis-exportFunc" align="right" style="padding-right: 5px; margin-top: 10px; float:right;"><a href="javascript:void(0)" onclick="printComHistory();"><img style="margin-right:5px;" src="css/img/print.png"></a></div></td></tr>
+                <tr class="trow-space"></tr>
+                <tr align="center">
+                    <td>
+                        <div style="width: 50%">
+                            <button class="btnshadow btn-second" type="button" onclick="onMakeOtherTransClick()" ><span>COM_MAKE_OTHER_TRANS</span></button>    
+                        </div>                        
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

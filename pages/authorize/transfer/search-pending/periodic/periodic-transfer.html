@@ -1,0 +1,176 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="periodic-transfer" style="height: 621px; top: 44px; bottom: 0px;" data-ng-init="initData()">
+    <div class="panelContent">
+        <table width="100%" style="padding-top:15px;" align="center" class="">
+            <!--<tr>-->
+            <!--<td colspan="2" style="border: none"><h5 class="Header"><span>GIFT_XCHNG_HIS_SEARCH_TRANS_TITLE</span></h5></td>-->
+            <!--</tr>-->
+            <tr>
+                <td colspan="3" align="center" valign="middle" class="td-text">
+                    <div class="input-group" ng-click="showTransTypeSelection();">
+                        <span class="input-group-addon" >TOPUP_DIALOG_TITLE_TRANSACTION</span>
+                        <input id="transType" type="button" class="form-control form-control-righttext" placeholder="COM_TXT_INPUT_PLACEHOLDER" value="COM_TXT_SELECTION_PLACEHOLDER" />
+                        <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                        <input type='hidden' id='transTypeVal'/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center" valign="middle" class="td-text"><div class="input-group" ng-click="showMakerSelection();"> <span class="input-group-addon" >COM_MAKER</span>
+                    <input id="maker" type="button" class="form-control form-control-righttext" placeholder="COM_TXT_INPUT_PLACEHOLDER" value="COM_TXT_SELECTION_PLACEHOLDER" />
+                    <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                    <input type='hidden' id='makerVal'/>
+                </div></td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center" valign="middle" class="td-text"><div class="input-group" ng-click="showStatusSelection();"> <span class="input-group-addon" >COM_STATUS</span>
+                    <input id="status" type="button" class="form-control form-control-righttext" placeholder="COM_TXT_INPUT_PLACEHOLDER" value="COM_TXT_SELECTION_PLACEHOLDER" />
+                    <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                    <input type='hidden' id='statusVal'/>
+                </div></td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center" valign="middle" class="td-text">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="white-space:pre-wrap">GIFT_XCHNG_HIS_FROM_DATE_TITLE</span>
+                        <input id="fromDate" type="tel" placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value="" class="form-control form-control-righttext-datepicker"
+                               onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" />
+                        <span onclick="initDialogCal('fromDate')" id="begindate" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center" valign="middle" class="td-text">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="white-space:pre-wrap">GIFT_XCHNG_HIS_TO_DATE_TITLE</span>
+                        <input id="toDate" type="tel" placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value="" class="form-control form-control-righttext-datepicker"
+                               onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" />
+                        <span onclick="initDialogCal('toDate')" id="enddate" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr class='trow-space'></tr>
+            <tr>
+                <td colspan="2" align="center" valign="middle" class="td-text">
+                    <div class="" style="width:50%">
+                        <input type="button" style="float:left;margin-left:65px" class="btnDesktopshadow btnDesktopBack"
+                               onclick="clickHomeOrBack()" value="CM_BTN_GOBACK">
+                    </div>
+                    <div style="width:50%">
+                        <input id="btn_search" type="button" style="margin-right:100px" class="btnshadow btn-second"
+                               ng-click="onSearchPending()" value="GIFT_XCHNG_SEARCH_BUTTON">
+                    </div>
+                </td>
+            </tr>
+                <tr>
+                    <td><div id="id.message"><span id="id.message.value"></span></div></td>
+                </tr>
+        </table>
+        <div id="id.searchResult" style="display: none">
+			<table width='98%' align='center' class='recycler-table-ebank desktopview' id="recycler_table_ebank-desktop">
+				<tr class='recycler-row-title-header recycler-list'>
+					<td class="recycler-row-align-midle" width="7%"><span>COM_NO</span></td>
+					<td class="recycler-row-align-midle" width="13%"><span>COM_CREATED_DATE</span></td>
+					<td class="recycler-row-align-midle" width="15%"><span>COM_ACCOUNT_DEST</span></td>
+					<td class="recycler-row-align-midle" width="15%"><span>COM_RECEIVE_NAME</span></td>
+					<td class="recycler-row-align-midle" width="20%"><span>COM_AMOUNT</span></td>
+					<td class="recycler-row-align-midle" width="15%"><span>COM_CHEKER</span></td>
+					<td class="recycler-row-align-midle" width="12%"><span>COM_TRANS_CODE</span></td>
+					<td class="recycler-row-align-midle"><input type="checkbox" onclick="selectAllRow('recycler_table_ebank-desktop', 'recycler_table_ebank-mobile', this)" name="parent_0"></td>
+				</tr>
+				<tr class="recycler-row-title recycler-list" ng-repeat="item in listPending track by $index">
+					<td  class="recycler-row-align-midle"><span ng-bind="$index + 1"></span></td>
+					<td  class="recycler-row-align-midle"><span ng-bind="item.DATMAKE"></span></td>
+					<td  class="recycler-row-align-midle"><span ng-bind="item.TXTDESTACCT"></span></td>
+					<td  class="recycler-row-align-midle"><span ng-bind="item.TXTBENNAME"></span></td>
+					<td  class="recycler-row-align-midle"><span ng-bind="(item.NUMAMOUNT | currency : '' : 0) + ' VND'"></span></td>
+					<td  class="recycler-row-align-midle"><span ng-bind="item.IDCHECKER"></span></td>
+					<td  class="recycler-row-align-midle" ng-click="goToViewScreen(item.IDFCATREF, item.IDUSERREFERENCE)"><a><span class="no-check" ng-bind="item.IDFCATREF"></span></a></td>
+					<td  class="recycler-row-align-midle"><input class="trans.checkbox" type="checkbox" onclick="deSelectRow('recycler_table_ebank-desktop', 'recycler_table_ebank-mobile', this)" name="{{item.IDFCATREF}}"></td>
+				</tr>
+			</table>
+			<table  ng-repeat="item in listPending track by $index" class="recycler-table-ebank mobileview recycler-list margin-bottom" width="98%" align="center" id="recycler_table_ebank-mobile">
+				<tbody>
+					<tr class="recycler-row-normal">
+						<td class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>
+						<td class="recycler-row-align-midle-right"><span ng-bind="item.DATMAKE"></span></td>
+					</tr>
+					<tr class="recycler-row-normal">
+						<td class="recycler-row-align-midle-left"><span>COM_ACCOUNT_DEST</span></td>
+						<td class="recycler-row-align-midle-right"><span ng-bind="item.TXTDESTACCT"></span></td>
+					</tr>
+					<tr class="recycler-row-normal">
+						<td class="recycler-row-align-midle-left"><span>COM_RECEIVE_NAME</span></td>
+						<td class="recycler-row-align-midle-right"><span ng-bind="item.TXTBENNAME"></span></td>
+					</tr>
+					<tr class="recycler-row-normal">
+						<td class="recycler-row-align-midle-left"><span>COM_AMOUNT</span></td>
+						<td class="recycler-row-align-midle-right"><span ng-bind="(item.NUMAMOUNT | currency : '' : 0) +' VND'"></span></td>
+					</tr>
+					<tr class="recycler-row-normal">
+						<td class="recycler-row-align-midle-left"><span>COM_CHEKER</span></td>
+						<td class="recycler-row-align-midle-right"><span ng-bind="item.IDCHECKER"></span></td>
+					</tr>
+					<tr class="recycler-row-normal" ng-click="goToViewScreen(item.IDFCATREF, item.IDUSERREFERENCE);">
+						<td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+						<td class="recycler-row-align-midle-right"><span style="color: #fb8c00;" ng-bind="item.IDFCATREF"></span></td>
+					</tr>
+					<tr class="recycler-row-normal">
+						<td class="recycler-row-align-midle-left"><span>COM_CHOOSE</span></td>
+						<td class="recycler-row-align-midle-right"><input class="trans.checkbox" type="checkbox" onclick="deSelectRow('recycler_table_ebank-desktop', 'recycler_table_ebank-mobile', this)" name="{{item.IDFCATREF}}"></td>
+					</tr>
+				</tbody>
+			</table>
+			<div align="right" style="float: right; width:100%">
+				<div class="export-print ex-print" id="acchis.exportfile" onclick="exportExcelDebtHistory()" style="display: inline-block;float:right; cursor: pointer;">
+					<img style="margin: 10px;" src="css/img/exportfile.png" />
+				</div>
+			</div>
+			
+            <table width="100%" align="center">
+                <tr>
+                    <td>
+                        <div class="tranfer-item bg-transfer" style="border-bottom: solid 1px rgb(209, 183, 224); border-top: solid 1px rgb(209, 183, 224);">
+                            <div class="text-area-content" id="holder-transfer-message">
+                                <div class="bg-text-area">
+                                    <div class="holderIcon">
+                                        <div style="display:table;width: 100%;height:100%"><span style="display:table-cell;vertical-align: middle;text-align: center;font-size:24px!important" class="icon-content-note"></span></div>
+                                    </div>
+                                    <div class="holder-txtarea" style="border-left: solid 1px rgb(209, 183, 224);">
+                                        <textarea onkeyup="controlInputText2(this, 240);" class="area" style="padding-left: 5px;" id="trans.reason" placeholder="COM_AUTH_DENIAL_REASON" maxlength="250" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="trow-space"></tr>
+                <tr class='trow-default'>
+                    <td colspan="2" align="center" valign="middle" class="td-text" >
+                        <div style="width:50%" class='isDesktop-left'>
+                            <input  type='button' class='btnshadow rejectTrans' ng-click="rejectTransaction()" value='COM_REJ'/>
+                        </div>
+                        <div style="width:50%" class='isDesktop-right'>
+                            <input type="button" ng-click="authorizeTransaction()" style="margin-right:100px" class="btnshadow btn-second" value="COM_AUTH"/>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="holder-bottom-bar">
+
+    </div>
+    <div class="mobilemode" id="dialog-container">
+
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<!--ThuanTM -->
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

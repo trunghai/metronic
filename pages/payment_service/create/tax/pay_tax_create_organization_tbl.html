@@ -1,0 +1,21 @@
+<div id="recycler_list" class="recycler-list">
+    <table width='100%' align='center' class='table-account' style=" table-layout: fixed;">
+        <tr class="trow-title">
+            <td style="text-align: center;"><span>COM_NO</span></td>
+            <td style="text-align: center;"><span>TAX_CONTENT</span></td>
+            <td style="text-align: center;"><span>TAX_CONTENT_TITLE</span></td>
+            <td style="text-align: center;"><span>TAX_CURRENCY_MONEY</span></td>
+            <td style="text-align: center;"><span>TAX_CURRENCY_MONEY_LOCAL</span></td>
+            <td style="text-align: center;"><span>TAX_CURRENCY_NOTE</span></td>
+            <!--<td width="50%" class="recycler-row-align-midle-left"><span>AUTHORIZE_TRANS_TIT_COUNT_PENDING</span></td>-->
+        </tr>
+        <tr class="recycler-row-normal recycler-hover" align="center" ng-repeat="item in listPending track by $index">
+            <td style="word-wrap:break-word; text-align: center;"><span ng-bind="$index + 1"></span></td>
+            <td style="word-wrap:break-word; text-align: center;"><span ng-bind="item.NDKT"></span></td>
+            <td style="word-wrap:break-word; text-align: center;"><span ng-bind="item.Ten_NDKT"></span></td>
+            <td style="word-wrap:break-word; text-align: center;"><span ng-bind="item.SoTien_NT_View"></span></td>
+            <td style="word-wrap:break-word; text-align: center;"><span ng-bind="item.SoTien_VND_View"></span></td>
+            <td style="word-wrap:break-word; text-align: center;"><span ng-bind="item.GhiChu"></span></td>
+        </tr>
+    </table>
+</div>

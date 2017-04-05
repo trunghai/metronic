@@ -1,0 +1,135 @@
+<!--Created by GiangBM.FSOFT-->
+<!--User:-->
+<!--Date: 17/02/17-->
+<!--Time: 07:37 AM-->
+<div id="mainViewContent" class="main-layout-subview" ng-controller="com_list_user_approve">
+    <div class="panelContent">
+        <table width="100%">
+        <tr>
+            <td colspan="2">
+                <h5 class="header-title">
+                    <span>COM_LIST_USER_APPROVE_ITEM_TITLE</span>
+                </h5>
+            </td>
+        </tr>
+        <tr style="width: 98%" class="desktopview">
+            <td>
+            <table class="recycler-table-ebank panelContent" align="center">
+            <thead>
+            <tr class='recycler-row-title-header recycler-list'>
+                <td width="7%" class="recycler-row-align-midle_acc"><span>COM_NO</span></td>
+                <td width="12%" class="recycler-row-align-midle_acc"><span>COM_LIST_USER_APPROVE_TBL_NAME</span></td>
+                <td width="12%" class="recycler-row-align-midle_acc"><span>COM_LIST_USER_APPROVE_TBL_CODE</span></td>
+                <td width="12%" class="recycler-row-align-midle_acc"><span>COM_LIST_USER_APPROVE_TBL_POSITION</span></td>
+                <td width="14%" class="recycler-row-align-midle_acc"><span>COM_LIST_USER_APPROVE_TBL_PHONE</span></td>
+                <td width="14%" class="recycler-row-align-midle_acc"><span>COM_LIST_USER_APPROVE_TBL_EMAIL</span></td>
+            </tr>
+            </thead>
+            <tbody id="tbodyDetail">
+            <!--<tr class="recycler-row-normal recycler-hover renames" ng-repeat="accKKH in infoAcc track by $index"  style="cursor:pointer">-->
+            <tr class="recycler-row-title recycler-list renames" ng-repeat="notify in final track by $index"  style="cursor:pointer">
+                <td class="recycler-row-align-midle " >
+                    <div class="accKKH" ng-bind="$index + 1"></div>
+                </td>
+                <td class="recycler-row-align-midle " >
+                    <div class="accKKH" ng-bind="notify.FIRSTNAME"></div>
+                </td>
+                <td class="recycler-row-align-midle " >
+                    <div class="accKKH" ng-bind="notify.IDUSER"></div>
+                </td>
+                <td class="recycler-row-align-midle " >
+                    <div class="accKKH" ng-bind="notify.POSITION"></div>
+                </td>
+                <td class="recycler-row-align-midle " >
+                    <div class="accKKH" ng-bind="notify.PHONENUMBER"></div>
+                </td>
+                <td class="recycler-row-align-midle " >
+                    <div class="accKKH" ng-bind="notify.EMAIL"></div>
+                </td>
+                <!--<td class="recycler-row-align-midle">-->
+                    <!--<div ng-bind="accKKH.DON_VI">321321</div>-->
+                <!--</td>-->
+
+            </tr>
+            </tbody>
+        </table>
+            </td>
+        </tr>
+    <!-- mobile -->
+<tr>
+    <td align='center' class='recycler-table-ebank  mobileview'>
+        <table style='margin-bottom:10px;' width='96%'  class='recycler-list' ng-repeat="notify in final track by $index">
+            <tbody>
+            <tr class="recycler-row-normal">
+                <td class="recycler-row-align-midle-left">
+                    <span>COM_NO</span>
+                </td>
+                <td class="recycler-row-align-midle-right">
+                    <span ng-bind="$index + 1"></span>
+                </td>
+            </tr>
+            <tr class="recycler-row-normal">
+                <td class="recycler-row-align-midle-left">
+                    <span>COM_LIST_USER_APPROVE_TBL_NAME</span>
+                </td>
+                <td class="recycler-row-align-midle-right">
+                    <span ng-bind="notify.FIRSTNAME"></span>
+                </td>
+            </tr>
+            <tr class="recycler-row-normal">
+                <td class="recycler-row-align-midle-left">
+                    <span>COM_LIST_USER_APPROVE_TBL_CODE</span>
+                </td>
+                <td class="recycler-row-align-midle-right">
+                    <span  ng-bind="notify.IDUSER"></span>
+                </td>
+            </tr>
+            <tr class="recycler-row-normal">
+                <td class="recycler-row-align-midle-left">
+                    <span>COM_LIST_USER_APPROVE_TBL_POSITION</span>
+                </td>
+                <td class="recycler-row-align-midle-right">
+                    <span></span>
+                </td>
+            </tr>
+            <tr class="recycler-row-normal">
+                <td class="recycler-row-align-midle-left">
+                    <span>COM_LIST_USER_APPROVE_TBL_PHONE</span>
+                </td>
+                <td class="recycler-row-align-midle-right">
+                    <span ng-bind="notify.PHONENUMBER"></span>
+                </td>
+            </tr>
+            <tr class="recycler-row-normal">
+                <td class="recycler-row-align-midle-left">
+                    <span>COM_LIST_USER_APPROVE_TBL_EMAIL</span>
+                </td>
+                <td class="recycler-row-align-midle-right">
+                    <span ng-bind="notify.EMAIL"></span>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </td>
+</tr>
+        <!--end mobile-->
+    <tr>
+        <td>
+            <div id="acc-pagination" style="text-align: right">
+                <ul class="pagination" id="paging">
+                    <li ng-repeat="i in arrPage" ng-click="changePage(i)" id="{{$index + 1}}" ><span ng-bind="i"></span></li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+    <tr class="mt-15">
+        <td>
+            <div width="32%">
+                <input type="submit" style="width:18%;" class="btnDesktopshadow btnHomeShadow" onclick='clickHomeOrBack()' value="CM_BTN_GOBACK" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off">
+            </div>
+        </td>
+    </tr>
+        </table>
+    </div>
+</div>

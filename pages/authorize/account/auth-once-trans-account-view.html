@@ -1,0 +1,100 @@
+<div class="panelContent">
+    <table width="100%" align="center" class="">
+        <tr id="id.title" style="display: none">
+            <td colspan="2">
+                <h5 align="left" class="screen-title"><span>REVIEW_TITLE_SCREEN</span></h5>
+            </td>
+        </tr>
+        <!--Thong tin tai khoan-->
+        <tr>
+            <td colspan="2">
+                <h5 class="header-title">
+                    <span>ACC_QUERY_TRANSACTION_DETAIL</span>
+                </h5>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div align="center">
+                    <div id="recycler_list" class="recycler-list">
+                        <table id="recycler_table_ebank" class="recycler-table-ebank">
+                            <tbody>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="infoTrans.IDFCATREF"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>COM_EXECUTION_TIME</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="infoTrans.DATMAKE"></td>
+                            </tr>
+                            <tr class="recycler-row-normal"  id="id.reason">
+                                <td class="recycler-row-align-midle-left"><span>COM_AUTH_DENIAL_REASON</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="reason"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>E_ACCOUNT_SEND_MONEY</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="infoTrans.IDSRCACCT"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+
+        <!--Thong tin giao dich-->
+        <tr>
+            <td colspan="2">
+                <h5 class="header-title">
+                    <span>COM_TRASACTION_INFO</span>
+                </h5>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div align="center">
+                    <div class="recycler-list">
+                        <table class="recycler-table-ebank">
+                            <tbody>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>LOAN_AD_AMOUNT</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="(infoTrans.NUMAMOUNT | currency : '' : 0) + ' VND'"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>SAVINGS_TERM</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="infoTrans.DURNAME"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>ACCOUNT_PERIOD_DATESTART</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="infoTrans.DATE_SEND"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>COM_EXPIRE_DATE</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="infoTrans.DATE_END"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>COM_INTEREST</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="(infoTrans.RATE) + ' %'"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>ACC_PROFITS_INTERIM</span></td>                                
+                                <td class="recycler-row-align-midle-right" ng-bind="(infoTrans.PROVISIONAL_RATES | currency : '' : 0) + ' VND'"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>COM_ANNOUNCE_DEADLINE</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="infoTrans.chithidaohan"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>COM_SEND_MSG_APPROVER</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="infoTrans.guitb"></td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

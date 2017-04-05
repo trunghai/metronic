@@ -1,0 +1,68 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="transfer-review" style="height: 621px; top: 44px; bottom: 0px;">
+    <div id="reviewInfo" class="panelContent">
+        <div ng-include="src"></div>
+        <table width="100%">
+            <tbody>
+            <tr align="center">
+                <td class="tdbtndesktop" width="32%"><input type="button" style="width:100%;margin:0 auto" class="btnDesktopshadow btnDesktopBack" onclick="clickHomeOrBack()" value="COM_BACK"></td>
+                <td width="32%" id="trCancel"><input type="button" style="background-color: rgba(162, 100, 187, 0.51);border-radius: 20px;width:100%" class="btnshadow btn-primary" ng-click="btnCancelClick()" value="AUTH_TYPE_BTN_CANCEL" ></td>
+                <td width="32%"><input style="width:100%" type="button" class="btnshadow btn-second" ng-click="sendJSONRequest()" value="AUTH_TYPE_BTN_SEND" ></td>
+            </tr>
+            <tr class="trow-space"></tr>
+            <tr><td colspan="3"><div id="note_mca" style="display: none;"><span class="notestyle">AUTHEN_TYPE_NOTE_MCA</span></div></td></tr>
+            <tr><td colspan="3"><div id="note_finger" style="display: none;"><span class="notestyle">AUTHEN_TYPE_NOTE_FINGERPRINT</span></div></td></tr>
+            </tbody>
+        </table>
+        <div class="tranfer-item">
+
+        </div>
+        <table width="100%" align="center">
+            <tr >
+                <td colspan="2">
+                    <div id="seqFormLocal">
+
+                    </div>
+                </td>
+            </tr>
+            <tr style="display:none">
+                <td colspan="2">
+                    <h5 class="Header">
+                        <span style="white-space:pre-wrap">TRANS_TYPE_BLOCK_TITLE</span>
+                    </h5>
+                </td>
+            </tr>
+            <tr style="display:none">
+                <td colspan="2" align="center" valign="middle" class="td-text">
+                    <div class="input-group" ng-click="showTransTypeSelection()">
+                        <span class="input-group-addon" style="white-space:pre-wrap; width:40%">TRANS_TYPE_CHOICE_TITLE</span>
+                        <input id="id-trans-local" type="button" class="form-control form-control-righttext" style="white-space: pre-wrap; padding-right: 10px;"  align="left" value="TRANS_LOCAL_SCREEN_TITLE" />
+                        <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr style="display:none">
+                <td colspan="2">
+                    <h5 class="Header">
+                        <span style="white-space:pre-wrap">TRANS_ACCOUNT_INFO_BLOCK_TITLE</span>
+                    </h5>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="holder-bottom-bar">
+
+    </div>
+    <div class="mobilemode" id="dialog-container">
+
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<!--ThuanTM -->
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

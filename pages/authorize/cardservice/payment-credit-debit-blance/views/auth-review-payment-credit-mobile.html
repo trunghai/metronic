@@ -1,0 +1,32 @@
+<div  ng-repeat="item in listPending track by $index" >
+    <div id="recycler_list" class="recycler-list margin-bottom">
+        <table id="recycler_table_ebank" class="recycler-table-ebank">
+            <tbody>
+            <!--<tr class="recycler-row-parity">-->
+                <!--<td class="recycler-row-align-midle-left-opacity"><span>COM_NO</span></td>-->
+                <!--<td class="recycler-row-align-midle-right-opacity"><span ng-bind="$index + 1"></span></td>-->
+            <!--</tr>-->
+            <tr class="recycler-row-as">
+                <td class="recycler-row-align-midle-left-opacity"><span>INTERNATIONAL_PERSON_ADD</span></td>
+                <td class="recycler-row-align-midle-right-opacity"><span ng-bind="item.TEN_NGUOI_LAP"></span></td>
+            </tr>
+            <tr class="recycler-row-parity">
+                <td class="recycler-row-align-midle-left-opacity"><span>INTERNATIONAL_DAY_ADD</span></td>
+                <td class="recycler-row-align-midle-right-opacity"><span ng-bind="item.NGAY_LAP"></span></td>
+            </tr>
+            <tr class="recycler-row-as">
+                <td class="recycler-row-align-midle-left-opacity"><span>PAYMENT_CREDIT_AMOUNT</span></td>
+                <td class="recycler-row-align-midle-right-opacity"><span ng-bind="(item.SO_TIEN | currency : '' : 0) + ' VND'"></span></td>
+            </tr>
+            <tr class="recycler-row-parity">
+                <td class="recycler-row-align-midle-left-opacity"><span>TRANSFER_LIST_CARD</span></td>
+                <td class="recycler-row-align-midle-right-opacity"><span ng-bind="item.SO_THE"></span></td>
+            </tr>
+            <tr class="recycler-row-parity">
+                <td class="recycler-row-align-midle-left-opacity"><span>SCHEDULE_BANK_TRANS_CODE</span></td>
+                <td class="recycler-row-align-midle-right-opacity"><span ng-bind="item.MA_GD"></span></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

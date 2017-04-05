@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div id="mainViewContent" class="main-layout-subview" ng-controller="card-lock">
+    <div class="panelContent">
+
+        <table id="id.screenTitle" width="100%">
+
+            <tr>
+                <td colspan="2">
+                    <div id="seqFormLocal"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="tabContainer" class="tabContainer">
+                        <div id="tabscontent">
+                            <div id="tabpage_1">
+                                <table width="100%" align="left" id="id.table1">
+                                    <tr>
+                                        <td colspan="2">
+                                            <div class="notestyle">
+                                                <span>CARD_LOCK_NOTE_INFO</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" align="center" valign="middle" style="background: transparent;" class="td-text">
+                                            <div class="input-group"  ng-click="showCardTypeSelection()">
+                                                <span class="input-group-addon" style="white-space:pre-wrap; width:45%;font-size: 12px;background:transparent">CARD_LOCK_CARD_TITLE</span>
+                                                <input id="card-lock-type" type="button"  class="form-control form-control-righttext" value="COM_TXT_SELECTION_PLACEHOLDER" align="left" style="white-space:pre-wrap;font-size: 12px;border:none;background:transparent;" />
+                                                <span class="icon-movenext input-group-addon input-group-symbol" style="background: transparent;"></span>
+                                            </div>
+                                            <div id = "id.card-lock-type" style="display:none" align="right" >
+                                                <label type ="text" id="id.lbcard-lock-type" class="cssLineColor" style="margin-right:14px;"></label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" align="center" valign="middle" style="background: transparent;" class="td-text">
+                                            <div class="input-group" style="    margin-top: -3px;">
+                                                <span class="input-group-addon" style="white-space:pre-wrap; width:45%;font-size: 12px;background:transparent;">CARD_LOCK_CARD_NO_TITLE</span>
+                                                <input id="card-lock-no" style=" font-size: 12px;background:transparent;border:none;" ng-click="showCardNoSelection()" type="button" class="form-control form-control-righttext" value="COM_TXT_SELECTION_PLACEHOLDER" />
+                                                <span class="icon-movenext input-group-addon input-group-symbol" style="background: transparent;"></span>
+                                            </div>
+
+                                            <div id = "id.card-lock-no" style="display:none" align="right">
+                                                <h6>
+                                                    <label type ="text" id="id.lbcard-lock-no" class="cssLineColor"></label>
+                                                </h6>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td id="showNotice"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="2" align="center" valign="middle" class="td-text">
+                                            <div class="tdbtndesktop" style="width:50%">
+                                                <input  type='submit' style="float:left;margin-left:65px;margin-top: 10px;" class='btnDesktopshadow btnDesktopBack' onClick= 'clickHomeOrBack()' value='INPUT_ACC_BTN_GOBACK'/>
+                                            </div>
+                                            <div style="width:50%">
+                                                <input  type="button" style="margin-right:40px;margin-top: 10px;" class="btnshadow btn-second" ng-click="requestConfirmCardLock()" value="CARD_LOCK_BTN_TITLE"/>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="card-result">
+    <div class="panelContent" style="margin-top: 10px;">
+        <table width="100%">
+            <tr>
+                <td style="text-align: center">
+                    <div class="icon-correct" style="display: inline; color: #FAA60D; font-size: 24px; vertical-align: middle; padding: 5px 0px 5px 0px;"></div>
+                    <span style="font-size:16px; vertical-align:middle" ng-bind="infoTrans.O_DESC"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="header-title">
+                        <span>COM_TXT_ACC_CONFIRM_TRANS_TITLE</span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="recycler-list">
+            <table width='100%' align='center' class='recycler-table-ebank' >
+                <tr class="recycler-row-normal" >
+                    <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                    <td class="recycler-row-align-midle-right" ><span  ng-bind="transInfo.idfcatref"></span></td>
+                </tr>
+                <tr ng-show="(transInfo.typeTrans == '1') ? true : false" class="recycler-row-normal">
+                    <td class="recycler-row-align-midle-left"><span>TRANS_CARD</span></td>
+                    <td class="recycler-row-align-midle-right"><span>LOCK_CARD</span></td>
+                </tr>
+                <tr ng-show="(transInfo.typeTrans == '2') ? true : false" class="recycler-row-normal">
+                    <td class="recycler-row-align-midle-left"><span>TRANS_CARD</span></td>
+                    <td class="recycler-row-align-midle-right"><span>UNLOCK_CARD</span></td>
+                </tr>
+                <tr class="recycler-row-normal">
+                    <td class="recycler-row-align-midle-left"><span>NGUOI_NHAP</span></td>
+                    <td class="recycler-row-align-midle-right"><span  ng-bind="transInfo.Username"></span></td>
+                </tr>
+                <tr ng-show="(transInfo.typeTrans == '1') ? true : false" class="recycler-row-normal">
+                    <td class="recycler-row-align-midle-left"><span>INPUT_DATE</span></td>
+                    <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.time"></span></td>
+                </tr>
+                <tr ng-show="(transInfo.typeTrans == '2') ? true : false" class="recycler-row-normal">
+                    <td class="recycler-row-align-midle-left"><span>INPUT_DATE</span></td>
+                    <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.O_RETURN[0].NGAY_THUC_HIEN"></span></td>
+                </tr>
+                <tr ng-show="(transInfo.typeTrans == '1') ? true : false" class="recycler-row-normal">
+                    <td class="recycler-row-align-midle-left"><span>COM_STATUS</span></td>
+                    <td class="recycler-row-align-midle-right"><span>LOCK_CARD</span></td>
+                </tr>
+                <tr ng-show="(transInfo.typeTrans == '2') ? true : false" class="recycler-row-normal">
+                    <td class="recycler-row-align-midle-left"><span>COM_STATUS</span></td>
+                    <td class="recycler-row-align-midle-right"><span>Chờ duyệt</span></td>
+                </tr>
+            </table>
+        </div>
+        <br />
+        <table width="100%">
+            <tr>
+                <td>
+                    <div style="text-align: center;">
+                        <input class="btnshadow-after btn-second-after" ng-click="onMakeOrderTrans()" type="submit" value="RESULT_MORE_TRANS_BTN" >
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

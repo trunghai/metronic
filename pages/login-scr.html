@@ -1,0 +1,222 @@
+<div id="mainViewContent" class="main-layout-subview login-page" style="padding-top:14%;">
+<!--<div class="desktopmode">-->
+<div>
+    <div id="navigation.logo" class="navigationlogo" style="width:100%;" align="center" onClick="gotoHomePage();"
+         id="homepagexsl/homepage-scr"><img src="./assets/images/TPBank-logo.png" height="36px"/></div>
+    <div id="updateinfo.secondtime" style="display:none" class="mobilemode">
+        <div id="infoMationAvatar" style="display:block; width:70%;float: left;padding-left:7%;">
+            <div>
+                <div style="width:100%">
+                    <span style="font-size:14px">LOGIN_HELLO_TEXT</span><br>
+                </div>
+                <div style="width:100%">
+                    <h4 style="margin-top:0px" id="name.userlogin"></h4>
+                </div>
+            </div>
+            <div onclick="changeModeInputAccNo()"><i class="icon-accounts"></i><span style="padding-left:7px">LOGIN_NOT_ME_TEXT</span>
+            </div>
+        </div>
+        <div id="UserAvatar" style="float: right; padding-right:5%">
+            <img id="user.avatar" alt="user avatar" onerror="this.src='./assets/images/acc-info-img.png'" style="border: solid 2px #ccc;border-radius: 6px;max-height: 80px;">
+        </div>
+    </div>
+</div>
+<div class="display-login-1" id="login-1">
+<div class="fingerprint">
+<span id="PrintandPin" class="icon-pin-fingerprints" onclick="btnLoginWithFingerPrintandPin()"><span>TOUCH_ID_PAGE_TITLE</span></span>
+
+</div>
+<div class="display-login-2" id="login-2">
+    <div id="div-login-normal" style="position: absolute;
+    width: 100%;
+    top: 16px;">
+        <table align="center" class="login-tb-container" border="0" cellpadding="0" cellspacing="0">
+            <tr style="padding-left: 0px;" valign="top">
+                <!--<td valign="top" class="desktopmode" style="width:10px;background-image: url('./assets/images/Login_Left.jpg');-->
+                <!--background-repeat: no-repeat;"></td>-->
+                <td class="login-td-input-container">
+                    <table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                        <tr id="login.accountnumberrow">
+                            <td id="loginAccountnumberrow" align="center"><span id="login.ico.username" class="icon-accounts celliconinline"></span>
+                                <input style="color: white;" id="login.txt.username" type="text" class="form-control login-td-input"
+                                       placeholder="WELCOME_IN_USERNAME" maxlength="12"/></td>
+
+                        </tr>
+                        <tr id="login.accountnamerow">
+                            <td>
+                                <div class="desktopmode">
+                                    <h5 id="login.accountname" class="login-accountname"></h5>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" id="login.border"><span class="icon-login celliconinline"></span>
+								<span style="right:-35%; top: 5%" id="iconForgotPassword" class="icon-password-reset celliconinline" onClick="goForgotPassword()" ></span>
+                                <input type="password" class="form-control login-td-input" style="color: white;" id="login.txt.password"
+                                       placeholder="WELCOME_IN_PASSWORD"
+                                       autocomplete="off"/></td>
+                        </tr>
+                        <tr id="trow_capcha">
+                            <td id="trow_capcha_bottom" align="center">
+                                <img src="./assets/images/re-captcha.png" id="captcha_gen" class="celliconinline"
+                                     onclick="return getCaptcha();" style="cursor: pointer;right: 5%;"/>
+                                <input id="login.txt.captcha" type="text" class="form-control login-td-input login-capchar-text" placeholder="COM_TXT_INPUT_PLACEHOLDER" maxlength="2"/>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" width='95%'>
+                                <div class="btnshadow btn-second login-input-btn" onclick="requestLogin()">
+                                    <span>WELCOME_BTN_LOGIN</span> <span class="icon-enter"></span>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <!--<tr class="desktopmode">-->
+                            <!--<td colspan="2" style="height:5px"></td>-->
+                        <!--</tr>-->
+                        <!--<tr class="desktopmode">-->
+                            <!--<td colspan="2" align="right">-->
+                                <!--<a style="color: #fff; text-decoration: none; font-weight:bold;font-size:11px;"-->
+                                   <!--href="javascript:void(0);" onclick="goSignup();">-->
+                                    <!--<span>LOGIN_SIGN_UP</span>-->
+                                <!--</a>-->
+                                <!--<span style="color:#FFFFFF">|</span>-->
+                                <!--<a style="color: #fff; text-decoration: none; font-weight:bold;font-size:11px;"-->
+                                   <!--href="javascript:void(0);" onclick="goForgotPassword();">-->
+                                    <!--<span>LOGIN_FORGOT_PW</span>-->
+                                <!--</a>-->
+                            <!--</td>-->
+                        <!--</tr>-->
+                    </table>
+                </td>
+                <!--<td class="desktopmode" style="width:5px;background-image: url('./assets/images/Login_LineCenter.jpg');-->
+                <!--background-repeat: no-repeat; padding-left: 0px; padding-top: 30px; height: 300px;"></td>-->
+                <!--<td class="desktopmode" style="width:300px;background-image: url('./assets/images/Login_Center.jpg');-->
+                <!--background-repeat: repeat-x; padding-left: 28px; padding-top: 30px; height: 300px;">-->
+                    <!--<table style="margin-top: 0px;text-align:left">-->
+                        <!--<tr>-->
+                            <!--<td width="33%">-->
+                                <!--<div class="icon_div_view"-->
+                                     <!--onclick="window.open('./index-non-ebank.html?menu=product','_self');"-->
+                                     <!--id="index-non-ebank"><em style="padding-left:3px"-->
+                                                              <!--class="icon-spthongdung icon_font"></em></div>-->
+                            <!--</td>-->
+                            <!--<td width="33%">-->
+                                <!--<div class="icon_div_view"-->
+                                     <!--onclick="window.open('https://tpb.vn/diem-uu-dai-va-khuyen-mai/Index.aspx');"><em-->
+                                        <!--class="icon-promotions icon_font"></em></div>-->
+                            <!--</td>-->
+                            <!--<td width="33%">-->
+                                <!--<div class="icon_div_view"-->
+                                     <!--onclick="window.open('./index-non-ebank.html?menu=caculator','_self');"><em-->
+                                        <!--class="icon-congcutinhtoan icon_font"></em></div>-->
+                            <!--</td>-->
+
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td style="vertical-align: middle;"><a-->
+                                    <!--style="text-decoration:none; color:#FFF; cursor:pointer"-->
+                                    <!--onclick="window.open('./index-non-ebank.html','_self');">-->
+                                <!--<div class="icon_div_title"><span class="icon_title_view" style="white-space:pre-wrap">MENU_PRODUCT_COMMON</span>-->
+                                <!--</div>-->
+                            <!--</a></td>-->
+                            <!--<td style="vertical-align: middle;"><a-->
+                                    <!--style="text-decoration:none; color:#FFF; cursor:pointer"-->
+                                    <!--onclick="window.open('https://tpb.vn/diem-uu-dai-va-khuyen-mai/Index.aspx')">-->
+                                <!--<div class="icon_div_title_view"><span class="icon_title_view">MENU_DEAL</span></div>-->
+                            <!--</a></td>-->
+                            <!--<td style="vertical-align: middle;"><a-->
+                                    <!--style="text-decoration:none; color:#FFF; cursor:pointer"-->
+                                    <!--onclick="window.open('./index-non-ebank.html?menu=caculator','_self');">-->
+                                <!--<div class="icon_div_title_view"><span-->
+                                        <!--class="icon_title_view">MENU_UTILITIES_CALCULATOR</span></div>-->
+                            <!--</a></td>-->
+
+                        <!--</tr>-->
+                        <!--<tr class="trow-space"/>-->
+                        <!--<tr>-->
+                            <!--<td width="33%">-->
+                                <!--<div class="icon_div_view"-->
+                                     <!--onclick="window.open('./index-non-ebank.html?menu=rate','_self');"><em-->
+                                        <!--class="icon-tygialaisuat icon_font"></em></div>-->
+                            <!--</td>-->
+                            <!--<td width="33%">-->
+                                <!--<div class="icon_div_view"-->
+                                     <!--onclick="window.open('./index-non-ebank.html?menu=branch','_self');"><em-->
+                                        <!--class="icon-chinhanhATM icon_font"></em></div>-->
+                            <!--</td>-->
+                            <!--<td width="33%">-->
+                                <!--<div class="icon_div_view"-->
+                                     <!--onclick="window.open('./index-non-ebank.html?menu=support','_self');"><em-->
+                                        <!--class="icon-support icon_font"></em></div>-->
+                            <!--</td>-->
+
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td style="vertical-align: middle;"><a-->
+                                    <!--style="text-decoration:none; color:#FFF; cursor:pointer"-->
+                                    <!--onclick="window.open('./index-non-ebank.html?menu=rate','_self');">-->
+                                <!--<div class="icon_div_title_view"><span class="icon_title_view"-->
+                                                                       <!--style="white-space:pre-wrap">MENU_RATE_INTEREST</span>-->
+                                <!--</div>-->
+                            <!--</a></td>-->
+                            <!--<td style="vertical-align: middle;"><a-->
+                                    <!--style="text-decoration:none; color:#FFF; cursor:pointer"-->
+                                    <!--onclick="window.open('./index-non-ebank.html?menu=branch','_self');">-->
+                                <!--<div class="icon_div_title_view"><span class="icon_title_view">MENU_BRANCH_ATM</span>-->
+                                <!--</div>-->
+                            <!--</a></td>-->
+                            <!--<td style="vertical-align: middle;"><a-->
+                                    <!--style="text-decoration:none; color:#FFF; cursor:pointer"-->
+                                    <!--onclick="window.open('./index-non-ebank.html?menu=support','_self');">-->
+                                <!--<div class="icon_div_title_view"><span-->
+                                        <!--class="icon_title_view">MENU_SUPPORT_DETAIL</span></div>-->
+                            <!--</a></td>-->
+
+                        <!--</tr>-->
+                    <!--</table>-->
+                <!--</td>-->
+
+
+                <!--<td class="desktopmode" valign="top" style="width:10px;background-image: url('./assets/images/Login_Right.jpg');-->
+                <!--background-repeat: no-repeat; padding-left: 0px; padding-top: 55px; height: 135px"></td>-->
+            </tr>
+        </table>
+
+
+        <!-- <div class="desktopmode">
+            <table align="center" width="725" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td><span id="login.BannerBottom">LOGIN_BANNER_BOTTOM</span></td>
+                </tr>
+            </table>
+        </div> -->
+        <div style="display:none;">
+            <form id="fldLoginIBForm" action="https://ebank.tpb.vn/ibank/entry" method="post">
+                <input type="text" name="fldLoginUserId"/>
+                <input type="password" name="fldPassword"/>
+                <input type="password" name="fldCaptchar"/>
+                <input type="password" name="fldCaptcharChecksum"/>
+
+                <input type="hidden" name="fldAppId" value="CO"/>
+                <input type="hidden" name="fldTxnId" value="LGN"/>
+                <input type="hidden" name="fldScrnSeqNbr" value="01"/>
+                <input type="hidden" name="fldLangId" value=""/>
+                <input type="hidden" name="fldDeviceId" value="01"/>
+                <input type="submit" value="Submit" id="fldGoToIBank"/>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="display-login-3" id="login-3">
+        <span class="display-login-3span"></span>
+</div>
+
+
+<div class="display-login-4" id="login-4">
+</div>
+</div>
+</div>

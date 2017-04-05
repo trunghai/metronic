@@ -1,0 +1,65 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="lc-statement-view" style="height: 621px; top: 44px; bottom: 0px;">
+    <div class="panelContent">
+        <div id="load-success">
+            <div id="emtydata" style="display: none;"><span>ERR_NO_DATA</span></div>
+            <div id="view-lc" class="recycler-list desktopview" style="margin-left: 2%; margin-top: 15px; width: 100%;display: none;">
+                <table id="recycler_table_ebank-desktop" class="recycler-table-ebank">
+                    <tr class="recycler-row-title-header recycler-list">
+                        <td  class="recycler-row-align-midle"><span>COM_NO</span></td>
+                        <td  class="recycler-row-align-midle"><span>LC_CONTRACT_REFERENCE</span></td>
+                        <td  class="recycler-row-align-midle"><span>LC_STATUS</span></td>
+                        <td  class="recycler-row-align-midle"><span>LC_BASE_DATE</span></td>            
+                        <td  class="recycler-row-align-midle"><span id="ie1">LC_BENEFICIARY</span></td>
+                        <td  class="recycler-row-align-midle"><span id="ie2">LC_PAY_DATE</span></td>
+                        <td  class="recycler-row-align-midle"><span>LC_AMOUNT</span></td>
+                    </tr>
+                    <tr class="recycler-row-title recycler-list" ng-repeat="item in viewLC track by $index">
+                        <td  class="recycler-row-align-midle-left"><span ng-bind="$index + 1"></span></td>
+                        <td  class="recycler-row-align-midle-left"><span ng-bind="item.myHashMap.CONTRACT_REF_NO"></span></td>
+                        <td  class="recycler-row-align-midle-left"><span ng-bind="item.myHashMap.STATUS"></span></td>
+                        <td  class="recycler-row-align-midle-left"><span ng-bind="item.myHashMap.BASE_DATE"></span></td>
+                        <td  class="recycler-row-align-midle-left"><span ng-bind="item.myHashMap.DRAWER_PARTY_NAME"></span></td>
+                        <td  class="recycler-row-align-midle-left"><span ng-bind="item.myHashMap.PAY_DATE"></span></td>            
+                        <td  class="recycler-row-align-midle-left"><span ng-bind="item.myHashMap.AMOUNT + ' ' + item.myHashMap.CONTRACT_CCY"></span></td>            
+                    </tr>
+                </table>
+            </div>
+            <div style="margin-top: 10px;" class="recycler-list mobileview" ng-repeat="item in viewLC track by $index">
+                    <table id="recycler_table_ebank" class="recycler-table-ebank">
+                        <tr class="recycler-row-normal recycler-hover">
+                            <td width="50%" class="recycler-row-align-midle-left"><span>COM_NO</span></td>
+                            <td width="50%" class="recycler-row-align-midle-right"><span ng-bind="$index + 1"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal recycler-hover">
+                            <td class="recycler-row-align-midle-left"><span>LC_CONTRACT_REFERENCE</span></td>
+                            <td class="recycler-row-align-midle-right"><span ng-bind="item.myHashMap.CONTRACT_REF_NO"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal recycler-hover">
+                            <td class="recycler-row-align-midle-left"><span>LC_STATUS</span></td>
+                            <td class="recycler-row-align-midle-right"><span ng-bind="item.myHashMap.STATUS"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal recycler-hover">
+                            <td class="recycler-row-align-midle-left"><span>LC_BASE_DATE</span></td>
+                            <td class="recycler-row-align-midle-right"><span ng-bind="item.myHashMap.BASE_DATE"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal recycler-hover">
+                            <td class="recycler-row-align-midle-left"><span id="ie1">LC_BENEFICIARY</span></td>
+                            <td class="recycler-row-align-midle-right"><span ng-bind="item.myHashMap.DRAWER_PARTY_NAME"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal recycler-hover">
+                            <td class="recycler-row-align-midle-left"><span id="ie2">LC_PAY_DATE</span></td>
+                            <td class="recycler-row-align-midle-right"><span ng-bind="item.myHashMap.PAY_DATE"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal recycler-hover">
+                            <td class="recycler-row-align-midle-left"><span>LC_AMOUNT</span></td>
+                            <td class="recycler-row-align-midle-right"><span ng-bind="item.myHashMap.AMOUNT + ' ' + item.myHashMap.CONTRACT_CCY"></span></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        <div id="viewPrint" style="text-align: right; margin-top: 8px"><a><img src="css/img/exportfile.png" onclick="exportExcel()" /></a></div>
+    <div id="back-viewlc" style="display: none; margin-top: 15px;">
+        <input type="submit" style="width:18%;" class="btnDesktopshadow btnHomeShadow" onclick="clickHomeOrBack()" value="CM_BTN_GOBACK" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off">
+    </div>
+    </div>
+</div>

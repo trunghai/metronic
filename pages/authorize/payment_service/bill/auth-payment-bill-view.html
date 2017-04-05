@@ -1,0 +1,114 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="auth_payment_bill_view">
+    <div class="">
+        <div class="panelContent">
+            <table id="dynamic-billing-table" width="98%">
+                <tr>
+                    <td>
+                        <div>
+                            <div>
+                                <table class="recycler-table-ebank desktopview" width="100%" align="center">
+                                    <thead>
+                                    <tr class="recycler-row-title-header recycler-list">
+                                        <td class="recycler-row-align-midle" width="6%"><span>COM_NO</span></td>
+                                        <td class="recycler-row-align-midle" width="20%"><span>COM_CREATED_DATE</span></td>
+                                        <td class="recycler-row-align-midle" width="19%"><span>PAYMENT_ORDER_CODE</span></td>
+                                        <td class="recycler-row-align-midle" width="15%"><span>COM_AMOUNT</span></td>
+                                        <td class="recycler-row-align-midle" width="10%"><span>COM_TRANS_CODE</span></td>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="recycler-row-title recycler-list" ng-repeat="trans in currentTrans track by $index">
+                                        <td class="recycler-row-align-midle" width="6%">{{$index + 1}}</td>
+                                        <td class="recycler-row-align-midle" width="20%" ng-bind="trans.NGAY_LAP"></td>
+                                        <td class="recycler-row-align-midle" width="19%" ng-bind="trans.MA_HOA_DON"></td>
+                                        <td class="recycler-row-align-midle" width="15%" ng-bind="trans.SO_LUONG | currency : '' : 0"></td>
+                                        <td class="recycler-row-align-midle" width="10%" ><span class="no-check" ng-bind="trans.MA_GD"></span></td>
+
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <table  ng-repeat="item in currentTrans track by $index" class="recycler-table-ebank mobileview recycler-list margin-bottom" width='98%' align='center' >
+                                    <tbody>
+                                    <tr class="recycler-row-parity">
+                                        <td class="recycler-row-align-midle-left"><span>COM_NO</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="$index + 1"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-parity">
+                                        <td class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="item.NGAY_LAP"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-parity">
+                                        <td class="recycler-row-align-midle-left"><span>PAYMENT_ORDER_CODE</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="item.MA_HOA_DON"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-parity">
+                                        <td class="recycler-row-align-midle-left"><span>COM_AMOUNT</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="item.SO_LUONG | currency : '' : 0"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-parity" ng-click="goToViewScreen(item.MA_GD, item.SO_LUONG);">
+                                        <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="item.MA_GD"></span></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <tr class="trow-space"></tr>
+            <div class="recycler-list" style="width: 96%;">
+                <table align="center" width="98%" id="trans.reason" style="display: block;">
+                    <tbody>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_AUTH_DENIAL_REASON</span></td>
+                            <td class="recycler-row-align-midle-left ng-binding" style="word-break: break-all;">: {{reason}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <table width="98%">
+            <tr class="trow-space"></tr>
+                <tbody>
+                    <tr class="trow-default">
+                        <td align="center" valign="middle" class="td-text">
+                            <div style="width: 50%">
+                                <input type="button" style="float: left; margin-left: 65px" class="btnDesktopshadow btnDesktopBack"
+                                    ng-click="onBackClick()" value="COM_BACK" autocomplete="off" autocorrect="off"
+                                    autocapitalize="off" spellcheck="off">
+                            </div>
+                            <div style="width: 50%">
+                                <input type="button" style="margin-right: 100px" class="btnshadow btn-second"
+                                    ng-click="authenOTP()" value="COM_CONTINUE" autocomplete="off" autocorrect="off"
+                                    autocapitalize="off" spellcheck="off">
+                            </div>
+                        </td>
+                    </tr>
+                <!-- <tr align="center">
+                    <td class="tdbtndesktop" width="32%">
+                        <input type="button" style="width: 100%; margin: 0 auto" class="btnDesktopshadow btnDesktopBack"
+                            ng-click="onBackClick()" value="COM_BACK" autocomplete="off" autocorrect="off"
+                            autocapitalize="off" spellcheck="off">
+                    </td>
+                    <td width="32%">
+                        <input type="button" style="background-color: rgba(162, 100, 187, 0.51); border-radius: 20px;
+                            width: 100%" class="btnshadow btn-primary" ng-click="onBackClick()" value="COM_CANCEL"
+                            autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off">
+                    </td>
+                    <td width="32%">
+                        <input id="authen-send-request" style="width: 100%" type="button" class="btnshadow btn-second"
+                            name="cf" ng-click="authenOTP()" value="COM_CONTINUE" autocomplete="off" autocorrect="off"
+                            autocapitalize="off" spellcheck="off">
+                    </td>
+                </tr> -->
+                <!-- <tr align="center">
+                    <td class="tdbtndesktop" width="32%"><input type="button" style="width:100%;margin:0 auto" class="btnDesktopshadow btnDesktopBack" ng-click="onBackClick()" value="COM_BACK"></td>
+                    <td width="32%" id="trCancel"><input type="button" style="display: none; background-color: rgba(162, 100, 187, 0.51);border-radius: 20px;width:100%" class="btnshadow btn-primary" ng-click="onCancelClick()" value="COM_REJ" ></td>
+                    <td width="32%"><input style="width:100%" type="button" class="btnshadow btn-second" ng-click="authenOTP()" value="COM_AUTH" ></td>
+                </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="recycler-list">
+    <table id="recycler_table_ebank-desktop" class="recycler-table-ebank" align="center">
+        <tbody>
+        <tr class="recycler-row-title-header recycler-list">
+            <td class="recycler-row-align-midle" width="7%"><span>COM_NO</span></td>
+            <td class="recycler-row-align-midle" width="18%"><span>COM_CREATED_DATE</span></td>
+            <td class="recycler-row-align-midle" width="13%"><span>INTERNATIONAL_ACCOUNT_BEN1</span></td>
+            <td class="recycler-row-align-midle" width="13%"><span>INTERNATIONAL_BEN</span></td>
+            <td class="recycler-row-align-midle" width="10%"><span>COM_STATUS</span></td>
+            <td class="recycler-row-align-midle" width="10%"><span>COM_CHEKER</span></td>
+            <td class="recycler-row-align-midle" width="18%"><span>COM_TRANS_CODE</span></td>
+		</tr>
+        <tr class="recycler-row-title recycler-list" ng-repeat="trans in currentListTrans track by $index">
+            <td  class="recycler-row-align-midle-left"><span ng-bind="$index + 1"></span></td>
+            <td  class="recycler-row-align-midle-left"><span style="white-space: pre-wrap;" ng-bind="trans.NGAY_LAP"></span></td>
+            <td  class="recycler-row-align-midle-left"><span ng-bind="trans.BENEFICIARYACCOUNT"></span></td>
+            <td  class="recycler-row-align-midle-left"><span ng-bind="trans.BENEFICIARYNAME"></span></td>
+            <td  class="recycler-row-align-midle-left"><span>{{statusVN[trans.TRANG_THAI]}}</span></td>
+			<td  class="recycler-row-align-midle-left"><span ng-bind="trans.NGUOI_DUYET"></span></td>
+            <td class="recycler-row-align-midle-left">
+                <span>
+                    <a ng-click="showDetailTransaction(trans.MA_GD, trans.TRANG_THAI);" style="cursor:pointer;">
+                        <span class="no-check" ng-bind="trans.MA_GD"></span>
+                    </a>
+                </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

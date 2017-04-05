@@ -1,0 +1,176 @@
+<table width="100%" style="padding-top:15px;" align="center" class="">
+    <tr>
+        <td colspan="2">
+            <h5 class="header-title">
+                <span>REQUEST_RELEASE_LC_INFO_SYSTEM</span>
+            </h5>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div id="recycler_list" class="recycler-list">
+                    <table id="recycler_table_ebank" class="recycler-table-ebank">
+                        <tbody>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.IDFCATREF"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_MAKER</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.IDMAKER"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TIME_INPUT_DETAIL_LC</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.NGAY_LAP"></td>
+                        </tr>
+                        <tr ng-if="infoTrans.TRANG_THAI != 'INT'" class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_CHEKER</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.NGUOI_DUYET"></td>
+                        </tr>
+                        <tr ng-if="infoTrans.TRANG_THAI != 'INT'" class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TIME_CHECK</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.DATCHECK"></td>
+                        </tr>
+                        <tr class="recycler-row-normal" id="id.reason">
+                            <td class="recycler-row-align-midle-left"><span>COM_AUTH_DENIAL_REASON</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="reason"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <h5 class="header-title">
+                <span>COM_TRASACTION_INFO</span>
+            </h5>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div class="recycler-list">
+                    <table class="recycler-table-ebank">
+                        <tbody>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>REQUEST_RELEASE_LC_METHOD</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.typelc"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>REQUEST_RELEASE_VALUE_LC</span></td>
+                            <td class="recycler-row-align-midle-right"
+                                ng-bind="(infoTrans.AMOUNT | currency : '' : 0) + ' ' + infoTrans.CCY"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>REQUEST_RELEASE_LC_BOOL</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.POSITIVE_NEGATIVE"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANS_PERIODIC_PAYEE</span></td>
+                            <td width="70%" class="recycler-row-align-midle-right" ng-bind="infoTrans.NAME_BENE"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>REQUEST_RELEASE_LC_RATE_1</span></td>
+                            <td class="recycler-row-align-midle-right"
+                                ng-bind="(infoTrans.RATE | currency : '' : 0) + ' ' + infoTrans.CCY_FEE"></td>
+                        </tr>
+                        <tr class="recycler-row-normal" ng-switch="infoTrans.CCY">
+                            <td class="recycler-row-align-midle-left"><span>REQUEST_RELEASE_LC_ESCROW_AMOUNT</span></td>
+                            <td ng-switch-when="VND"
+                                class="recycler-row-align-midle-right"
+                                ng-bind="(infoTrans.MARGIN_LC_AMOUNT | currency : '' : 0) + ' ' + infoTrans.CCY"></td>
+
+                            <td ng-switch-when="JPY"
+                                class="recycler-row-align-midle-right"
+                                ng-bind="(infoTrans.MARGIN_LC_AMOUNT | currency : '' : 0) + ' ' + infoTrans.CCY"></td>
+
+                            <td ng-switch-default class="recycler-row-align-midle-right"
+                                ng-bind="infoTrans.MARGIN_LC_AMOUNT + ' ' + infoTrans.CCY"></td>
+
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>REQUEST_RELEASE_LC_ESCROW_ACCOUNT</span>
+                            </td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.MARGIN_ACCOUNT"></td>
+                        </tr>
+                        <!--<tr class="recycler-row-normal">-->
+                        <!--<td class="recycler-row-align-midle-left"><span>REQUEST_RELEASE_LC_EDIT_ELECTRONIC_FEE</span></td>-->
+                        <!--<td class="recycler-row-align-midle-right" ng-bind="infoTrans.ELECTRIC_FEE | currency : '' : 0"></td>-->
+                        <!--</tr>-->
+                        <!--<tr class="recycler-row-normal">-->
+                        <!--<td class="recycler-row-align-midle-left"><span>REQUEST_RELEASE_LC_FEE</span></td>-->
+                        <!--<td class="recycler-row-align-midle-right" ng-bind="infoTrans.ISSUANCE_FEE | currency : '' : 0"></td>-->
+                        <!--</tr>-->
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>REQUEST_RELEASE_LC_TOTAL_FEE</span></td>
+                            <td class="recycler-row-align-midle-right"
+                                ng-bind="(infoTrans.TOTAL_FEE | currency : '' : 0) + ' ' + infoTrans.CCY_FEE"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>REQUEST_RELEASE_LC_ACCOUNT_FEE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.FREE_ACCOUNT"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>REQUEST_RELEASE_LC_METHOD_FEE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.methodFee"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <h5 class="header-title">
+                <span>REQUEST_RELEASE_LC_PROFILE_FULL_SEND_TPBANK</span>
+            </h5>
+        </td>
+    </tr>
+    <tr class="trow-space"></tr>
+    <tr>
+        <td colspan="2">
+            <table class="desktopview recycler-table-ebank " width="100%" align="center">
+                <tr class="recycler-row-title-header recycler-list">
+                    <td class="recycler-row-align-midle"><span>REQUEST_RELEASE_LC_PROFILE_FULL</span></td>
+                    <td class="recycler-row-align-midle"><span>REQUEST_RELEASE_LC_PROFILE_SIZE</span></td>
+                    <td class="recycler-row-align-midle"></td>
+                </tr>
+                <tr class="recycler-row-title recycler-list" ng-repeat="item in listProfile">
+                    <td class="recycler-row-align-midle-left"><div ng-bind="item.FILE_NAME"></div></td>
+                    <td class="recycler-row-align-midle"><div ng-bind="(item.CAPACITY/1024/1024|number:2) + ' MB'"></div></td>
+                    <td class="recycler-row-align-midle">
+                        <div  style="word-break: break-all;">
+                            <span type="button" ng-click="onClickViewPDF(item.IDFILE, item.FILE_NAME)" style="color: red; cursor: pointer"><strong><span>INTERNATIONAL_VIEW_PROFILE</span></strong></span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <!--mobile view-->
+            <div class="recycler_list margin-bottom" ng-repeat="item in listProfile track by $index">
+                <table width='98%' align='center' class='recycler-list  recycler-table-ebank mobileview'>
+                    <tr>
+                        <td width="50%" class="recycler-row-align-midle-left"><div><span>REQUEST_RELEASE_LC_PROFILE_FULL</span></div></td>
+                        <td width="50%" class="recycler-row-align-midle-right"><div style="word-break: break-all;"><span ng-bind="item.FILE_NAME"></span></div></td>
+                    </tr>
+                    <tr>
+                        <td width="50%" class="recycler-row-align-midle-left"><div><span>REQUEST_RELEASE_LC_PROFILE_SIZE</span></div></td>
+                        <td width="50%" class="recycler-row-align-midle-right"><div style="word-break: break-all;"><span ng-bind="(item.CAPACITY/1024/1024|number:2) + ' MB'"></span></div></td>
+                    </tr>
+                    <tr>
+                        <td width="50%" class="recycler-row-align-midle-left"><div><span>INTERNATIONAL_VIEW_PROFILE</span></div></td>
+                        <td width="50%" class="recycler-row-align-midle-right"><div style="word-break: break-all;"><span type="button" style="color: red; cursor: pointer" ng-click="onClickViewPDF(item.IDFILE, item.FILE_NAME)">
+										<strong><span>INTERNATIONAL_VIEW_PROFILE</span></strong>
+									</span></div></td>
+                    </tr>
+                </table>
+            </div>
+            <!--mobile end-->
+        </td>
+    </tr>
+</table>

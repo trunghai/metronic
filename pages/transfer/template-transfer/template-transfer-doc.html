@@ -1,0 +1,115 @@
+<div id="mainViewContentDialog" class="main-layout-subview" ng-controller="template-transfer-doc">
+    <div class="panelContent contact-list">
+        <form>
+
+            <div class="pg-class-list-trans-src">
+                <div>
+                    <span class="icon-account-info"></span>
+                    <input type="text" class="form-control" id="txtSearch" placeholder="INTRODUCE_SREACH_TITLE" autocomplete="off" onkeyup="SearchDocRow(this)" onpaste="SearchDocRow(this)" value="" autocorrect="off" autocapitalize="off" spellcheck="off" />
+                </div>
+            </div>
+        </form>
+        <div  class="desktop-mode title-myaccount">
+            <span>TRANSFER_LOCAL_MYACCOUNT</span>
+        </div>
+        <div id="content-transfer" >
+            <div id="scrollContact"  class=" scroll-contact">
+                <div id="divListDoc"></div>
+                <div id="divListContact"></div>
+            </div>
+        </div>
+    </div>
+    <div class="contact-view">
+        <table cellspacing="0" style="width:90%;margin:0 auto;">
+            <tr>
+                <td style="width:90px">
+                    <div class="sup-icon-accounts">
+                        <span  class="icon-accounts" style="font-size: 61px"></span>
+                    </div>
+                </td>
+                <td class="accountInfo">
+                    <div class="contactName" id="nameuser"></div>
+                </td>
+            </tr>
+            <tr style="display: none">
+                <td style="text-align:left" id='accSource'></td>
+            </tr>
+            <tr id="tr-taiKhoanNhan">
+                <td style="text-align:left">
+                    <span>TRANS_LOCAL_ACC_DESTINATION</span>
+                </td>
+                <td style="text-align:left" id='nametranfer'></td>
+            </tr>
+            <tr id="tr-accnotitle">
+                <td style="text-align:left">
+                    <span>ACCOUNT_ACC_NO_TITLE</span>
+                </td>
+                <td style="text-align:left" id='accNumbertransfer'></td>
+            </tr>
+            <tr id="tr-cmnd" style="display:none">
+                <td style="text-align:left">
+                    <span>REACTIVE_EBANK_IDENTITY_CARD</span>
+                </td>
+                <td style="text-align:left" id='identity-card'></td>
+            </tr>
+            <tr id="tr-ngaycap" style="display:none">
+                <td style="text-align:left">
+                    <span>DATEOFISSUE_TITLE_BGN</span>
+                </td>
+                <td style="text-align:left" id='card-date'></td>
+            </tr>
+            <tr id="tr-noicap" style="display:none">
+                <td style="text-align:left">
+                    <span>PLACEOFISSUE_TITLE_BGN</span>
+                </td>
+                <td style="text-align:left" id='card-place'></td>
+            </tr>
+            <tr id="tr-phone" style="display:none">
+                <td style="text-align:left">
+                    <span>TRANS_NUM_REC_MOBI</span>
+                </td>
+                <td style="text-align:left" id='card-phone'></td>
+            </tr>
+            <tr id="tr-shareholder" style="display:none;">
+                <td style="text-align:left;">
+                    <span>EVN_CUSTOMER_ADDRESS</span>
+                </td>
+                <td style="text-align:left" id="shareholder"></td>
+            </tr>
+            <tr id="tr-bank">
+                <td style="text-align:left">
+                    <span>TRANSFER_BANK</span>
+                </td>
+                <td style="text-align:left" id="ngan-hang-nhan"></td>
+            </tr>
+            <tr>
+                <td style="text-align:left"><span>JUMBO_CURRENCY_UNIT</span></td>
+                <td style="text-align:left" id='so-tien'></td>
+            </tr>
+             <tr id="tr-ngayChuyen" style="display: none">
+                <td style="text-align:left"><span>DAY_TRANSFER</span></td>
+                <td style="text-align:left" id='ngay-chuyen'></td>
+            </tr>
+            <tr >
+                <td style="text-align:left"><span>TRANS_LOCAL_ACC_CONTENT</span></td>
+                <td style="text-align:left;" id="noi-dung"></td>
+            </tr>
+            <!--<tr>-->
+                <!--<td style="text-align:left"><span>DAY_TRANSFER</span></td>-->
+                <!--<td style="text-align:left;" id="ngay_chuyen"></td>-->
+            <!--</tr>-->
+            <tr style="cursor:pointer">
+                <td class="transContact" style="border-bottom:none;"></td>
+                <td class="transContact" onclick='temptranferlocalbank()' style="border-bottom:none;"><span>TRANSFER_MONEY_TITLE</span></td>
+            </tr>
+            <tr style="cursor:pointer">
+                <td class="transContact" style="border-bottom:none;"></td>
+                <td class="transContact" onclick='tempeditselection()' style="border-bottom:none;"><span>TRANSFER_REMITTANCE_MODIFY</span></td>
+            </tr>
+            <tr id='deleteSelection' style="cursor:pointer;">
+                <td class="transContact"></td>
+                <td class="transContact" id="tempdelete"><span>TRANSFER_REMITTANCE_DELETE</span></td>
+            </tr>
+        </table>
+    </div>
+</div>

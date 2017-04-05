@@ -1,0 +1,30 @@
+<div id="recycler_list">
+    <table id="recycler-table-ebank" class="recycler-table-ebank widefull">
+        <tbody>
+        <tr class='recycler-row-title-header recycler-list'>
+            <td  class="recycler-row-align-midle"><span>COM_TRANS_CODE</span></td>
+            <!--<td width="25%"  class="recycler-row-align-midle-left"><span>COM_MAKER</span></td>-->
+            <!--<td  class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>-->
+            <td  class="recycler-row-align-midle"><span>COM_CHEKER</span></td>
+            <td  class="recycler-row-align-midle"><span>COM_CHECK_DATE</span></td>
+            <td  class="recycler-row-align-midle"><span>TRANS_STATUS</span></td>
+
+
+            <!--<td width="50%" class="recycler-row-align-midle-left"><span>AUTHORIZE_TRANS_TIT_COUNT_PENDING</span></td>-->
+        </tr>
+        <tr class="recycler-row-title recycler-list" ng-repeat="item in listResult track by $index">
+            <td  class="recycler-row-align-midle"><span ng-bind="item.IDFCATREF"></span></td>
+            <!--<td  class="recycler-row-align-midle-left"><span ng-bind="item.MAKER"></span></td>-->
+            <!--<td  class="recycler-row-align-midle-left"><span ng-bind="item.DATMAKE"></span></td>-->
+            <td  class="recycler-row-align-midle"><span ng-bind="item.SIGNEDBY"></span></td>
+            <td  class="recycler-row-align-midle"><span ng-bind="DATCHECK"></span></td>
+            <td  class="recycler-row-align-midle"><span ng-bind="item.STATUS"></span></td>
+
+
+        </tr>
+        <!--<tr class="recycler-row-normal recycler-hover">-->
+            <!--<td colspan="5" class="recycler-row-align-midle"><span>COM_CHECK_DATE</span><span ng-bind="': ' + DATCHECK"></span></td>-->
+        <!--</tr>-->
+        </tbody>
+    </table>
+</div>

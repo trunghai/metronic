@@ -1,0 +1,103 @@
+<table width="100%">
+    <tr>
+        <td colspan="2">
+            <h5 class="header-title">
+                <span>COM_ACCOUNT_INFO</span>
+            </h5>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div class="recycler-list">
+                    <table align="center" class="recycler-table-ebank">
+                        <tbody>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANS_TYPE</span></td>
+                            <td class="recycler-row-align-midle-right"><span>TRANS_TO_CARD_NUMBER</span></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANS_BATCH_ACC_LABEL</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.sourceAcc"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>ACCOUNT_AVAILABLE_BALANCE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.balance + ' VND'"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <!--Thong tin giao dich-->
+    <tr>
+        <td colspan="2">
+            <h5 class="header-title">
+                <span>COM_TRASACTION_INFO</span>
+            </h5>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div class="recycler-list">
+                    <table align="center" class="recycler-table-ebank">
+                        <tbody>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_ACCOUNT_DEST</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.destinationAcc"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANS_LOCAL_ACC_DESTINATION_TITLE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.destaccountname"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_RECEIVER_BANK_NAME</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.nganhangnhan"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANS_AMOUNT</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="(infoTrans.amountTrans | currency : '' : 0) + ' VND'"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANS_FEE_TITLE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="(infoTrans.chargeforDom | currency : '' : 0) + ' VND'"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANSFER_LIST_AMOUNT_AFTER_TRANS</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="(infoTrans.sodu | currency : '' : 0) + ' VND'"></td>
+                        </tr>
+
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANSFER_FEE_PAYER</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.dtcp"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANS_LOCAL_ACC_CONTENT</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.contentTrans"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_SAVE_BENE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.savebane"></td>
+                        </tr>
+                        <!--<tr class="recycler-row-normal" ng-if="infoTrans.issavepayee=='TP'">-->
+                        <!--<tr class="recycler-row-normal">-->
+                            <!--<td class="recycler-row-align-midle-left"><span>TRANSFER_REMITTANCE_NAME_REVIEW</span></td>-->
+                            <!--<td class="recycler-row-align-midle-right" ng-bind="infoTrans.savePayee"></td>-->
+                        <!--</tr>-->
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_SEND_MSG_APPROVER</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.sendMethod"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>BATCH_SALARY_PROCESSED_DATE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.date"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>

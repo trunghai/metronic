@@ -1,0 +1,22 @@
+<div id="recycler_list" class="desktopmode" style="margin-left: 1%; width: 100%">
+    <table id="recycler_table_ebank-desktop" class="recycler-table-ebank">
+        <tbody>
+        <tr class="recycler-row-title-header recycler-list">
+            <td  class="recycler-row-align-midle"><span>COM_NO</span></td>
+            <td  class="recycler-row-align-midle"><span>LC_CONTRACT_REFERENCE</span></td>
+            <td  class="recycler-row-align-midle"><span>LC_REGISTER_DATE</span></td>
+            <td  class="recycler-row-align-midle"><span>LC_EXPIRED_DATE</span></td>            
+            <td  class="recycler-row-align-midle"><span>LC_VALUE</span></td>
+            <td  class="recycler-row-align-midle"><span>LC_PROFILES</span></td>
+        </tr>
+        <tr class="recycler-row-normal recycler-hover" ng-repeat="item in listLC track by $index">
+            <td  class="recycler-row-align-midle"><span ng-bind="$index + 1"></span></td>
+            <td  class="recycler-row-align-midle" onclick="referenceDetail(this)"><a><span ng-bind="item.myHashMap.CONTRACT_REF_NO"></span></a></td>
+            <td  class="recycler-row-align-midle"><span ng-bind="item.myHashMap.ISSUE_DATE"></span></td>
+            <td  class="recycler-row-align-midle"><span ng-bind="item.myHashMap.EXPIRY_DATE"></span></td>            
+            <td  class="recycler-row-align-midle"><span ng-bind="item.myHashMap.LIABILITY_AMOUNT + ' ' + item.myHashMap.CONTRACT_CCY"></span></td>            
+            <td  class="recycler-row-align-midle" onclick="goToViewScreen(this)"><input type="text" name="{{item.myHashMap.CONTRACT_REF_NO}}" style="display: none;"><a><span class="no-check">Xem</span></a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

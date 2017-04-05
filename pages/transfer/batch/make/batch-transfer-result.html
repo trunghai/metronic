@@ -1,0 +1,220 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="Main as c"
+     style="height: 625px; top: 44px; bottom: 0px;">
+    <div id="content-transfer" style="display:block" class="bg-transfer">
+        <div class="panelContent" style="margin-top:0px;padding-top:0px">
+            <table width="100%" align="center">
+                <tr>
+                    <td colspan="2">
+                        <table width="357" cellspacing="0" cellpadding="0" border="0" align="center"
+                               class="sequence-form-303" style="margin:auto">
+                            <tbody>
+                            <tr>
+                                <td width="33%">
+                                    <span>SEQ_INPUT_TITLE</span>
+                                </td>
+                                <td width="33%">
+                                    <span>SEQ_AUTHEN_TITLE</span>
+                                </td>
+                                <td width="33%" class="selected">
+                                    <span>SEQ_COMPLETE_TITLE</span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center">
+                        <div ng-class="c.messageIconClass"
+                             style="display: inline; color: #FAA60D; font-size: 24px; vertical-align: middle; padding: 5px 0px 5px 0px;"></div>
+                        <span style="font-size:16px; vertical-align:middle" ng-bind="c.message"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div align="center">
+                            <div id="recycler_list1" class="recycler-list">
+                                <table id="recycler_table_ebank1" class="recycler-table-ebank">
+                                    <tbody>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>RESULT_TRANSACTION_ID</span>
+                                        </td>
+                                        <td class="recycler-row-align-midle-right" ng-bind="c.data.transactionId"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>COM_EXECUTION_TIME</span>
+                                        </td>
+                                        <td class="recycler-row-align-midle-right" ng-bind="c.data.date"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title"><span>TRANS_BATCH_ACC_LABEL</span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div align="center">
+                            <div class="recycler-list">
+                                <table class="recycler-table-ebank">
+                                    <tbody>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>COM_TYPE_TRANSACTION</span></td>
+                                        <td class="recycler-row-align-midle-right" ng-bind="c.transType.value"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>TRANS_BATCH_ACC_LABEL</span>
+                                        </td>
+                                        <td class="recycler-row-align-midle-right" ng-bind="c.account.number"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>COM_TXT_ACC_BALANCE_TITLE</span>
+                                        </td>
+                                        <td class="recycler-row-align-midle-right"
+                                            ng-bind="c.toCurrency(c.account.balance)"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left">
+                                            <span>TRANSFER_LIST_TOTAL_AMOUNT</span>
+                                        </td>
+                                        <td class="recycler-row-align-midle-right"
+                                            ng-bind="c.toCurrency(c.data.totalAmount)"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>TRANSFER_LIST_NUMBER_PEOPEL_RECIVE</span>
+                                        </td>
+                                        <td class="recycler-row-align-midle-right"
+                                            ng-bind="c.data.listTrans.length"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>TRANSFER_LIST_TOTAL_FEE</span>
+                                        </td>
+                                        <td class="recycler-row-align-midle-right"
+                                            ng-bind="c.toCurrency(c.data.totalFee)"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>TRANS_BATCH_BALANCE_AFTER</span>
+                                        </td>
+                                        <td class="recycler-row-align-midle-right"
+                                            ng-bind="c.toCurrency(c.data.balanceAfter)"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title"><span>TRANS_DETAIL_BLOCK_TITLE</span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <table width='100%' align='center' class='recycler-table-ebank desktopview'>
+                            <tr class='recycler-row-title-header recycler-list'>
+                                <td width='7%' class='recycler-row-align-midle'>
+                                    <span>TRANSFER_LIST_STT</span>
+                                </td>
+                                <td width='18%' class='recycler-row-align-midle'>
+                                    <span>COM_RECEIVE_NAME</span>
+                                </td>
+                                <td width='16%' class='recycler-row-align-midle'>
+                                    <span>TRANS_LIST_DESC_TITLE</span>
+                                </td>
+                                <td width='16%' class='recycler-row-align-midle'>
+                                    <span>TRANS_INFO_AMOUNT_TITLE</span>
+                                </td>
+                                <td width='16%' class='recycler-row-align-midle'>
+                                    <span>TRANS_LOCAL_ACC_DESTINATION</span>
+                                </td>
+                                <td ng-if="c.transType.key === 'T17'" width='14%' class='recycler-row-align-midle'>
+                                    <span>COM_RECEIVER_BANK_NAME</span>
+                                </td>
+                                <td ng-if="c.transType.key === 'T17'" width='14%' class='recycler-row-align-midle'>
+                                    <span>BATCH_SALARY_MNG_TIT_BRANCH_NAME</span>
+                                </td>
+                            </tr>
+                            <tr class="recycler-row-title recycler-list" ng-repeat="trans in c.currentListTrans track by trans.index">
+                                <td class="recycler-row-align-midle"><span ng-bind="trans.index"></span></td>
+                                <td class="recycler-row-align-midle"><span ng-bind="trans.name"></span></td>
+                                <td class="recycler-row-align-midle"><span ng-bind="trans.description"></span></td>
+                                <td class="recycler-row-align-midle"><span ng-bind="trans.amount"></span></td>
+                                <td class="recycler-row-align-midle"><span ng-bind="trans.receiver"></span></td>
+                                <td class="recycler-row-align-midle" ng-if="c.transType.key === 'T17'"><span ng-bind="trans.bankName"></span></td>
+                                <td class="recycler-row-align-midle" ng-if="c.transType.key === 'T17'"><span ng-bind="trans.branchName"></span></td>
+                            </tr>
+                        </table>
+                        <div align='center' class='recycler-table-ebank  mobileview'>
+                            <table style='margin-bottom:10px;' width='100%'  class='recycler-list' ng-repeat="trans in c.currentListTrans track by trans.index">
+                                <tr class="recycler-row-normal">
+                                    <td colspan="1" class="recycler-row-align-midle-left"><span>TRANSFER_LIST_STT</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="trans.index"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td colspan="1" class="recycler-row-align-midle-left"><span>COM_RECEIVE_NAME</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="trans.name"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td colspan="1" class="recycler-row-align-midle-left"><span>TRANS_LIST_DESC_TITLE</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="trans.description"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td colspan="1" class="recycler-row-align-midle-left"><span>TRANS_INFO_AMOUNT_TITLE</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="trans.amount"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td colspan="1" class="recycler-row-align-midle-left"><span>TRANS_LOCAL_ACC_DESTINATION</span></td>
+                                    <td class="recycler-row-align-midle-right"><span ng-bind="trans.receiver"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td colspan="1" class="recycler-row-align-midle-left"><span>COM_RECEIVER_BANK_NAME</span></td>
+                                    <td class="recycler-row-align-midle-right" ng-if="c.transType.key === 'T17'"><span ng-bind="trans.bankName"></span></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td colspan="1" class="recycler-row-align-midle-left"><span>BATCH_SALARY_MNG_TIT_BRANCH_NAME</span></td>
+                                    <td class="recycler-row-align-midle-right" ng-if="c.transType.key === 'T17'"><span ng-bind="trans.branchName"></span></td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div id="acc-pagination" style="text-align: right"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <table width="100%">
+                            <tr>
+                                <td>
+                                    <div style="text-align: center;">
+                                        <!-- <input style="background: rgb(204, 122, 239);" class="btnshadow-after btn-second-after" ng-click="goHomePage();" type="button" value="MENU_HOME_PAGE"> -->
+                                        <input class="btnshadow-after btn-second-after" ng-click="c.goBack()" type="submit" value="COM_MAKE_OTHER_TRANS" >
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<!--ThuanTM -->
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"></div>
+</div>

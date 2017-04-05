@@ -1,0 +1,24 @@
+<div id="recycler_list">
+    <table id="recycler-table-ebank" class="recycler-table-ebank widefull">
+        <tr class='recycler-row-title-header recycler-list'>
+            <td  style="width: 7%" class="recycler-row-align-midle-left"><span>COM_NO</span></td><!-- STT -->
+            <td style="width: 18%" class="recycler-row-align-midle-left"><span>COM_MAKER</span></td><!-- Người lập -->
+            <td style="width: 13%" class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td><!-- Ngày lập -->
+            <td  style="width: 9%" class="recycler-row-align-midle-left"><span>COM_STATUS</span></td><!--trạng thái-->
+            <td  style="width: 13%" class="recycler-row-align-midle-left"><span>COM_CARD_NUMBER</span></td><!-- Số thẻ -->
+            <td  style="width: 13%" class="recycler-row-align-midle-left"><span>COM_CHEKER</span></td><!--người duyệt-->
+            <td  style="width: 13%" class="recycler-row-align-midle-left"><span>COM_CHECK_DATE</span></td><!--ngày duyệt-->
+            <td  style="width: 13%" class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td><!--mã giao dịch-->
+        </tr>
+        <tr class="recycler-row-title recycler-list" ng-repeat="item in listResult track by $index">
+            <td  class="recycler-row-align-midle-left"><span ng-bind="$index + 1"></span></td><!--STT-->
+            <td  class="recycler-row-align-midle-left"><span ng-bind="item.MAKER"></span></td><!--Người lập-->
+            <td  class="recycler-row-align-midle-left"><span ng-bind="item.DATMAKE"></span></td><!--Ngày lập-->
+            <td  class="recycler-row-align-midle-left"><span ng-bind="item.STATUS"></span></td><!--trạng thái-->
+            <td  class="recycler-row-align-midle-left"><span ng-bind="item.CARDNUMBER"></span></td><!--Số thẻ-->
+            <td  class="recycler-row-align-midle-left"><span ng-bind="item.SIGNEDBY"></span></td><!--người duyệt-->
+            <td  class="recycler-row-align-midle-left"><span ng-bind="DATCHECK"></span></td><!--ngày duyệt-->
+            <td  class="recycler-row-align-midle-left"><span ng-bind="item.IDFCATREF"></span></td><!--Mã giao dịch-->
+        </tr>
+    </table>
+</div>

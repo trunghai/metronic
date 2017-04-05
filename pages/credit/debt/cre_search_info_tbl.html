@@ -1,0 +1,48 @@
+<table width='98%' align='center' class='table-account'>
+    <tr class="trow-title">
+        <th><span>COM_NO</span></th>
+        <th><span>CRE_DEBT_ITEM_DEBT_NAME</span></th>
+        <th><span>CRE_DEBT_ITEM_DISBURSEMENT_MONEY</span></th>
+        <th><span>CRE_DEBT_DATE</span></th>
+        <th><span>COM_EXPIRE_DATE</span></th>
+        <th><span>CRE_DEBT_ITEM_INTEREST</span></th>
+        <th><span>CRE_DEBT_ITEM_INDENTURE_NO</span></th>
+    </tr>
+    <tr id="CreSearchInfo" ng-repeat="itemhistory in listPending">
+        <td class="td-head-color">
+            <div class="mobile-mode"><span>COM_NO</span></div>
+            <div class="content-detail"><span ng-bind="itemhistory.no"></span></div>
+        </td>
+        <td>
+            <div class="mobile-mode"><span>CRE_DEBT_ITEM_DEBT_NAME</span></div>
+            <div class="content-detail"><span ng-bind="itemhistory.debt_name"></span></div>
+        </td>
+        <td>
+            <div class="mobile-mode"><span>CRE_DEBT_ITEM_DISBURSEMENT_MONEY</span></div>
+            <div class="content-detail"><span ng-bind="itemhistory.disbursement_money"></span></div>
+        </td>
+        <td>
+            <div class="mobile-mode"><span>CRE_DEBT_DATE</span></div>
+            <div class="content-detail"><span ng-bind="itemhistory.debt_date"></span></div>
+        </td>
+        <td>
+            <div class="mobile-mode"><span>COM_EXPIRE_DATE</span></div>
+            <div class="content-detail"><span ng-bind="itemhistory.expire_date"></span></div>
+        </td>
+        <td>
+            <div class="mobile-mode"><span>CRE_DEBT_ITEM_INTEREST</span></div>
+            <div class="content-detail"><span ng-bind="itemhistory.interest"></span></div>
+        </td>
+        <td>
+            <div class="mobile-mode"><span>CRE_DEBT_ITEM_INDENTURE_NO</span></div>
+            <div class="content-detail">
+                <a class="ref-link" onclick="detailDebt('itemhistory.indenture_no', 'itemhistory.debt_name',
+                    'itemhistory.disbursement_money', 'itemhistory.interest', 'itemhistory.debt_date', 
+                    'itemhistory.expire_date', 'itemhistory.expire_near_date', 'itemhistory.root_money', 
+                    'itemhistory.interest_money')" href="javascript:void(0)">
+                    <span ng-bind="itemhistory.indenture_no"></span>
+                </a>
+            </div>
+        </td>
+    </tr>
+</table>

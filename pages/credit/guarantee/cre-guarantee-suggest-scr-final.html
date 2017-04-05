@@ -1,0 +1,79 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="cre-guarantee-suggest-scr-final" style="height: 621px; top: 44px; bottom: 0px;">
+    <div id="reviewInfo" class="panelContent">
+        <table width="100%">
+            <tr>
+                <td colspan="2">
+                    <div id="seqFormReview">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center">
+                    <div ng-class="result.messageIconClass" style="display: inline; color: #FAA60D; font-size: 24px; vertical-align: middle; padding: 5px 0px 5px 0px;"></div>
+                    <span style="font-size:16px; vertical-align:middle" ng-bind="message.message"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="header-title">
+                        <span>TOPUP_TRANS_INFO_TITLE</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div align="center">
+                        <div id="recycler_list" class="recycler-list">
+                            <table id="recycler_table_ebank" class="recycler-table-ebank">
+                                <tbody>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                                    <td class="recycler-row-align-midle-right" ng-bind="result.transId"></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>NGUOI_NHAP</span></td>
+                                    <td class="recycler-row-align-midle-right" ng-bind="result.create_by"></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>INPUT_DATE</span></td>
+                                    <td class="recycler-row-align-midle-right" ng-bind="result.time"></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>STATUS_TITLE</span></td>
+                                    <td class="recycler-row-align-midle-right" ng-bind="result.status"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <table width="100%">
+            <tbody><tr align="center">                
+                <td><input type="button" class="btnshadow-after btn-second-after" ng-click="onClickOtherTrans()" value="COM_MAKE_OTHER_TRANS" ></td>
+            </tr>
+            <tr class="trow-space"></tr>
+            <tr><td colspan="3"><div id="note_mca" style="display: none;"><span class="notestyle">Xác thực bằng chữ ký số mCA</span></div></td></tr>
+            <tr><td colspan="3"><div id="note_finger" style="display: none;"><span class="notestyle">Quý khách vui lòng chạm ngón tay để xác nhận.</span></div></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="holder-bottom-bar">
+
+    </div>
+    <div class="mobilemode" id="dialog-container">
+
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<!--ThuanTM -->
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

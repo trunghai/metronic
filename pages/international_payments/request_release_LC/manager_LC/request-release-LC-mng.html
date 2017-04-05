@@ -1,0 +1,143 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="request-release-LC-mng" style="height: 417px;top:44px">
+    <div id="content-transfer" style="display:block" class="bg-transfer">
+        <div class="panelContent" style="margin-top:0px;padding-top:0px">
+        <table class="tableTab" id="periodic-table" ng-show={{showElement}}>
+                <td ng-click="changeTab()" class='content-periodic'>
+                    <span>TRANS_PERIODIC_TRADE_TITLE</span>
+                    <span class="content-span"></span>
+                </td>
+                <td class='content-periodic  selected'>
+                    <span>TRANS_PERIODIC_MNG_TITLE</span>
+                    <span class="content-span"></span>
+                </td>
+            </table>
+            <table width="100%" align="center">
+                <tr>
+                    <td align="center" valign="middle" class="td-text">
+                        <div class="input-group widefull" ng-click="showTransTypeSelection()">
+                            <span class="input-group-addon" style="width:40%;white-space:pre-wrap">COM_TYPE_TRANSACTION</span>
+                            <input style="white-space:pre-wrap" id="id.pay-type" type="button" class="form-control form-control-righttext" value="COM_ALL"/>
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                            <input type="hidden" id="pay_type_select_value" value='0'/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle" class="td-text">
+                        <div class="input-group widefull" ng-click="showStatusTypeSelection()">
+                            <span class="input-group-addon" style="width:40%;white-space:pre-wrap">TRANS_PERIODIC_MNG_STT</span>
+                            <input style="white-space:pre-wrap" id="id.pay-type-dtl" type="button" class="form-control form-control-righttext" value="COM_ALL" />
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                            <input type="hidden" id="pay_type_status_value" value='0'/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="width:40%;white-space:pre-wrap">CREDIT_CARD_SERVICE_SELECT_DATE_START</span>
+                            <input id="trans.debtStartdate" type="tel" class="form-control form-control-righttext-datepicker" placeholder="dd/mm/yyyy" value="" onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);">
+                            <span onclick="initDialogCal('trans.debtStartdate')" id="begindate" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="width:40%;white-space:pre-wrap">CREDIT_CARD_SERVICE_SELECT_DATE_END</span>
+                            <input id="trans.debtEnddate" type="tel" class="form-control form-control-righttext-datepicker" placeholder="dd/mm/yyyy" value="" onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);">
+                            <span onclick="initDialogCal('trans.debtEnddate')" id="enddate" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="mt-15">
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="tdbtndesktop" style="width:50%">
+                            <input type="submit" style="float:left;margin-left:65px" class="btnDesktopshadow btnDesktopBack" onclick="clickHomeOrBack()" value="CM_BTN_GOBACK">
+                        </div>
+                        <div style="width:50%">
+                            <input type="button" style="margin-right:100px" class="btnshadow btn-second" ng-click="searchTransactionLC()" value="TRANS_PERIODIC_BTN_SRCH">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div class="trow-space"></div>
+            <div id="id.message"><span id="id.message.value"></span></div>
+            <div id="manaLC.searchResult">
+                <div class="">
+                    <table width='96%' align='center' class='recycler-table-ebank desktopview'>
+                        <tr class='recycler-row-title-header recycler-list'>
+                            <td width="7%" class="recycler-row-align-midle"><span>COM_NO</span></td>
+                            <td width="14%" class="recycler-row-align-midle"><span>COM_CREATED_DATE</span></td>
+                            <td class="recycler-row-align-midle"><span>COM_TYPE_TRANSACTION</span></td>
+                            <td class="recycler-row-align-midle"><span>TABLE_TITLE_LC_INTERNATIONAL</span></td>
+                            <td width="13%" class="recycler-row-align-midle"><span>COM_STATUS</span></td>
+                            <td width="14%" class="recycler-row-align-midle"><span>COM_DEADLINE_DATE</span></td>
+                            <td width="22%" class="recycler-row-align-midle"><span>COM_TRANS_CODE</span></td>
+                        </tr>
+                        <tbody id="tbodyDetail">
+                        <tr class="recycler-row-title recycler-list" ng-repeat="trans in listTrans track by $index">
+                            <td class="recycler-row-align-midle"><div ng-bind="trans.RNUM"></div></td>
+                            <td class="recycler-row-align-midle"><div  ng-bind="trans.NGAY_LAP"></div></td>
+                            <td class="recycler-row-align-midle"><div ng-bind="typeTrans[trans.LOAI_GD]"></div></td>
+                            <td class="recycler-row-align-midle"><div ng-bind="formatNumberToCurrency(trans.SO_TIEN_LC)"></div></td>
+                            <td class="recycler-row-align-midle"><div ng-bind="statusVN[trans.TRANG_THAI]"></div></td>
+                            <td class="recycler-row-align-midle"><div  ng-bind="trans.NGAY_DEN_HAN"></div></td>
+                            <td class="recycler-row-align-midle">
+                                <a ng-click="showDetailTransaction(trans.MA_GD, trans.TRANG_THAI);" style="cursor:pointer;">
+                                    <span class="no-check" ng-bind="trans.MA_GD"></span>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table style="margin-top:10px" ng-repeat="trans in listTrans track by $index" width='100%' align='center' class='recycler-hover recycler-list mobileview'>
+                        <tr>
+                            <td class="recycler-row-align-midle-left"><div><span>COM_NO</span></div></td>
+                            <td class="recycler-row-align-midle-right"><div><span ng-bind="trans.RNUM"></span></div></td>
+                        </tr>
+                        <tr>
+                            <td class="recycler-row-align-midle-left"><div><span>COM_CREATED_DATE</span></div></td>
+                            <td class="recycler-row-align-midle-right"><div><span ng-bind="trans.NGAY_LAP"></span></div></td>
+                        </tr>
+                        <tr>
+                            <td class="recycler-row-align-midle-left"><div><span>COM_TYPE_TRANSACTION</span></div></td>
+                            <td class="recycler-row-align-midle-right"><div><span ng-bind="typeTrans[trans.LOAI_GD]"></span></div></td>
+                        </tr>
+                        <tr>
+                            <td class="recycler-row-align-midle-left"><div><span>TABLE_TITLE_LC_INTERNATIONAL</span></div></td>
+                            <td class="recycler-row-align-midle-right"><div><span ng-bind="formatNumberToCurrency(trans.SO_TIEN_LC)"></span></div></td>
+                        </tr>
+                        <tr>
+                            <td class="recycler-row-align-midle-left"><div><span>COM_STATUS</span></div></td>
+                            <td class="recycler-row-align-midle-right"><div><span ng-bind="statusVN[trans.TRANG_THAI]"></span></div></td>
+                        </tr>
+                        <tr>
+                            <td class="recycler-row-align-midle-left"><div><span>COM_DEADLINE_DATE</span></div></td>
+                            <td class="recycler-row-align-midle-right"><div><span ng-bind="trans.NGAY_DEN_HAN"></span></div></td>
+                        </tr>
+                        <tr>
+                            <td class="recycler-row-align-midle-left"><div><span>COM_TRANS_CODE</span></div></td>
+                            <td class="recycler-row-align-midle-right">
+                                <a ng-click="showDetailTransaction(trans.MA_GD, trans.TRANG_THAI);" style="cursor:pointer;">
+                                    <span class="no-check" ng-bind="trans.MA_GD"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div id="lc-pagination" style="text-align: right">
+                <ul class="pagination" id="paging">
+                    <li ng-repeat="i in arrPage" ng-click="changePage(i)" id="page_{{$index + 1}}" ><span ng-bind="i"></span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--ThuanTM -->
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+

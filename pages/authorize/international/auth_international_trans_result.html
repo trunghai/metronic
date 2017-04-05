@@ -1,0 +1,98 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="auth_international_trans_result">
+    <div class="">
+        <div class="panelContent">
+            <table id="dynamic-billing-table" width="100%">
+                <tbody>
+                <tr>
+                    <td colspan="2" style="text-align: center">
+                        <div ng-class="result.messageIconClass" style="display: inline; color: #FAA60D; font-size: 24px; vertical-align: middle; padding: 5px 0px 5px 0px;"></div>
+                        <span style="font-size:16px; vertical-align:middle" ng-bind="result.message"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+						<table width='100%' align='center' class='recycler-table-ebank desktopview'>
+							<tbody>
+							<tr class="recycler-row-title-header recycler-list">
+								<td class="recycler-row-align-midle" width="18%"><span>INTERNATIONAL_PERSON_ADD</span></td>
+								<td class="recycler-row-align-midle" width="12%"><span>INTERNATIONAL_DAY_ADD</span></td>
+								<td class="recycler-row-align-midle" width="15%"><span>COM_STATUS</span></td>
+								<td class="recycler-row-align-midle" width="15%"><span>COM_CHEKER</span></td>
+								<td class="recycler-row-align-midle" width="12%"><span>COM_CHECK_DATE</span></td>
+								<td class="recycler-row-align-midle" width="18%"><span>COM_TRANS_CODE</span></td>
+							</tr>
+							<tr class="recycler-row-title recycler-list" ng-repeat="item in currentListTrans track by $index">
+								<td class="recycler-row-align-midle"><span ng-bind="item.MAKER"></span></td>
+								<td class="recycler-row-align-midle"><span ng-bind="item.DATMAKE"></span></td>
+								<td class="recycler-row-align-midle" style="word-break: normal"><span ng-bind="statusVN[item.STATUS]"></span></td>
+								<td class="recycler-row-align-midle"><span ng-bind="item.SIGNEDBY"></span></td>
+								<td class="recycler-row-align-midle"><span ng-bind="dateCheck"></span></td>
+								<td class="recycler-row-align-midle"><span ng-bind="item.IDFCATREF"></span></td>
+							</tr>
+							</tbody>
+						</table>
+                        <table class='recycler-table-ebank desktopview' ng-if="detail.STATUS == 'REJ'" style="margin-top: 10px; margin-left:1% ">
+                            <tr class="recycler-row-normal recycler-list">
+                                <td class="recycler-row-align-midle-left"><span>AUTHORIZE_TXT_REASON</span></td>
+                                <td class="recycler-row-align-midle-right"><span ng-bind="reason"></span></td>
+                            </tr>
+                        </table>
+						<table class="recycler-table-ebank mobileview recycler-list margin-bottom" width="98%" align="center" ng-repeat="item in currentListTrans track by $index">
+							<tbody>
+							<tr class="recycler-row-normal">
+								<td class="recycler-row-align-midle-left"><span>COM_MAKER</span></td>
+								<td class="recycler-row-align-midle-right"><span ng-bind="item.MAKER"></span></td>
+							</tr>
+							<tr class="recycler-row-normal">
+								<td class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>
+								<td class="recycler-row-align-midle-right"><span ng-bind="item.DATMAKE"></span></td>
+							</tr>
+							<tr class="recycler-row-normal">
+								<td class="recycler-row-align-midle-left"><span>TRANS_STATUS</span></td>
+								<td class="recycler-row-align-midle-right"><span ng-bind="statusVN[item.STATUS]"></span></td>
+							</tr>
+							<tr class="recycler-row-normal">
+								<td class="recycler-row-align-midle-left"><span>COM_CHEKER</span></td>
+								<td class="recycler-row-align-midle-right"><span ng-bind="item.SIGNEDBY"></span></td>
+							</tr>
+							<tr class="recycler-row-normal">
+								<td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+								<td class="recycler-row-align-midle-right"><span ng-bind="item.IDFCATREF"></span></td>
+							</tr>
+							<tr class="recycler-row-normal">
+								<td class="recycler-row-align-midle-left"><span>COM_CHECK_DATE</span></td>
+								<td class="recycler-row-align-midle-right"><span ng-bind="dateCheck"></span></td>
+							</tr>
+                            <tr ng-if="detail.STATUS == 'REJ'" class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>REASON_CANCEL</span></td>
+                                <td class="recycler-row-align-midle-right"><span ng-bind="reason"></span></td>
+                            </tr>
+							</tbody>
+						</table>
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <table width="100%">
+                <tbody>
+                <tr align="center">
+                    <td class="tdbtndesktop" width="32%"><input type="submit" style="display:none; width:100%;margin:0 auto" class="btnDesktopshadow btnDesktopBack" ng-click="clickHomeOrBack()" value="Quay lại"></td>
+                    <td width="32%" id="trCancel"><input type="submit" style="display:none; background-color: rgba(162, 100, 187, 0.51);border-radius: 20px;width:100%" class="btnshadow btn-primary" ng-click="btnCancelClick()" value="Hủy" ></td>
+                    <td width="32%"><input style="width:100%" type="button" class="btnshadow btn-second" ng-click="makeOtherTrans()" value="COM_AUTHORIZE_OTHER_TRANS" ></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

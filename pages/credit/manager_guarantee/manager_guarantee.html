@@ -1,0 +1,295 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="manager_guarantee" style="height: 417px; top: 44px;" >
+    <div class="">
+        <div class="panelContent">
+            <table class="tableTab" id="periodic-table" ng-show={{showElement}}>
+                <td class='content-periodic' ng-click="changeTab()">
+                    <span>TRANS_PERIODIC_TRADE_TITLE</span>
+                    <span class="content-span"></span>
+                </td>
+                <td class='content-periodic selected'>
+                    <span>TRANS_PERIODIC_MNG_TITLE</span>
+                    <span class="content-span"></span>
+                </td>
+            </table>
+            <table width="100%" style="border-spacing: 0; margin-top:2%; margin-left: 2%;" class="desktopview">
+                <tr class="tr-two-col">
+                    <td class="td-two-col">
+                        <div class="div-two-col borderbottom"><b><span>AUTHORIZE_TRANS_MENU</span></b></div>
+                        <div class="div-two-col">
+                            <div class="input-group">
+                                <input style="white-space:pre-wrap" ng-click="showTransTypeSelection()" id="id.trans-type"
+                                       type="button" class="form-control form-control-righttext" value="COM_ALL"/>
+                                <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="td-two-col">
+                        <div class="div-two-col borderbottom"><b><span>COM_TRANS_CODE</span></b></div>
+                        <div class="div-two-col">
+                            <div class="input-group">
+                                <input id="id.trans.code" type="tel"
+                                       class="form-control form-control-righttext"
+                                       placeholder="COM_TXT_INPUT_PLACEHOLDER" value="" maxlength="16" />
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="tr-two-col">
+                    <td class="td-two-col">
+                        <div class="div-two-col borderbottom"><b><span>COM_STATUS</span></b></div>
+                        <div class="div-two-col">
+                            <div class="input-group">
+                                <input style="white-space:pre-wrap;" ng-click="showTransStatusSelection()" id="id.status"
+                                       type="button" class="form-control form-control-righttext"
+                                       placeholder="COM_ALL" value="COM_ALL"/>
+                                <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="td-two-col">
+                        <div class="div-two-col borderbottom"><b><span>COM_START_DATE</span></b></div>
+                        <div class="div-two-col">
+                            <div class="input-group">
+                                <input id="fromDate" type="tel"
+                                       class="form-control form-control-righttext-datepicker"
+                                       placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value=""
+                                       onkeydown="return handleCalendarNav(this, event);"
+                                       onclick="handleCalendarNav(this, event);" onpaste="return false;"/>
+                                        <span onclick="initDialogCal('fromDate')" id="begindate"
+                                              class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="tr-two-col">
+                    <td class="td-two-col">
+                        <div class="div-two-col borderbottom"><b><span>COM_MAKER</span></b></div>
+                        <div class="div-two-col">
+                            <div class="input-group">
+                                <input style="white-space:pre-wrap" ng-click="showMakers()" id="id.maker"
+                                       type="button" class="form-control form-control-righttext"
+                                       placeholder="COM_ALL" value="COM_ALL"/>
+                                <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="td-two-col">
+                        <div class="div-two-col borderbottom"><b><span>COM_TO_DATE</span></b></div>
+                        <div class="div-two-col">
+                            <div class="input-group">
+                                <input id="toDate" type="tel"
+                                       class="form-control form-control-righttext-datepicker"
+                                       placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value=""
+                                       onkeydown="return handleCalendarNav(this, event);"
+                                       onclick="handleCalendarNav(this, event);" onpaste="return false;"/>
+                                        <span onclick="initDialogCal('toDate')" id="enddate"
+                                              class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="tdbtndesktop" style="width:50%"><input type="button" style="float:left;margin-left:23px;margin-top:10px;" class="btnDesktopshadow btnDesktopBack" onclick="clickHomeOrBack()" value="CM_BTN_GOBACK" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"/></div>
+                        <div style="width:50%"><input type="submit" style="margin-right:40px;margin-top:10px; font-size: 14px" class="btnshadow btn-second" id="btn_search" ng-click="searchTransaction()" value="COM_SEARCH" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"/></div>
+                    </td>
+                </tr>
+                <tr class="trow-space"></tr>
+            </table>
+        <!-- Mobile ------------------------------------------------>
+        <table width='98%' align="center" class="mobileview">
+            <tr>
+                <td class="input-group">
+                    <div class="div-two-col"><b>
+                        <span>AUTHORIZE_TRANS_MENU</span></b>
+                    </div>
+                    <div class="div-two-col">
+                        <div class="input-group" style="border-bottom: none !important;">
+                            <input style="white-space:pre-wrap" ng-click="showTransTypeSelection()" id="id.trans-typemb"
+                                   type="button" class="form-control form-control-righttext"
+                                   placeholder="COM_ALL" value="COM_ALL"/>
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="input-group">
+                    <div class="div-two-col"><b>
+                        <span>COM_STATUS</span></b>
+                    </div>
+                    <div class="div-two-col">
+                        <div class="input-group" style="border-bottom: none !important;">
+                            <input style="white-space:pre-wrap" ng-click="showTransStatusSelection()" id="id.statusmb"
+                                   type="button" class="form-control form-control-righttext"
+                                   placeholder="COM_ALL" value="COM_ALL"/>
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="input-group">
+                    <div class="div-two-col"><b>
+                        <span>COM_TRANS_CODE</span></b>
+                    </div>
+                    <div class="div-two-col">
+                        <div class="input-group" style="border-bottom: none !important;">
+                            <input id="id.trans.codemb" type="tel"
+                                       class="form-control form-control-righttext"
+                                       placeholder="COM_TXT_INPUT_PLACEHOLDER" value="" maxlength="16" style="font-size: 15px !important" />
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="input-group">
+                    <div class="div-two-col"><b>
+                        <span>COM_MAKER</span></b>
+                    </div>
+                    <div class="div-two-col">
+                        <div class="input-group" style="border-bottom: none !important;">
+                            <input style="white-space:pre-wrap;" ng-click="showMakers()" id="id.makermb"
+                                   type="button" class="form-control form-control-righttext"
+                                   placeholder="BENEFIC_LIST_NORMAL" value="COM_ALL"/>
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="input-group">
+                    <div class="div-two-col">
+                        <b><span>COM_START_DATE</span></b>
+                    </div>
+                    <div class="div-two-col">
+                        <div>
+                            <input id="fromDatemb" type="tel"
+                                   class="form-control form-control-righttext-datepicker"
+                                   placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value=""
+                                   onkeydown="return handleCalendarNav(this, event);"
+                                   onclick="handleCalendarNav(this, event);" onpaste="return false;"/>
+                                    <span onclick="initDialogCal('fromDatemb')" id="begindate"
+                                          class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker">
+                                    </span>
+                        </div>
+                    </div>
+                </td>
+                <td class="input-group">
+                    <div class="div-two-col">
+                        <b><span>COM_TO_DATE</span></b>
+                    </div>
+                    <div class="div-two-col">
+                        <div>
+                            <input id="toDatemb" type="tel"
+                                   class="form-control form-control-righttext-datepicker"
+                                   placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value=""
+                                   onkeydown="return handleCalendarNav(this, event);"
+                                   onclick="handleCalendarNav(this, event);" onpaste="return false;"/>
+                                    <span onclick="initDialogCal('toDatemb')" id="begindate"
+                                          class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker">
+                                    </span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <br/>
+            <tr>
+                <td colspan="2" align="center" valign="middle" class="td-text">
+                    <div class="" style="width:50%">
+                        <input type="button" style="float:left;margin-left:65px" class="btnDesktopshadow btnDesktopBack"
+                               onclick="clickHomeOrBack()" value="CM_BTN_GOBACK">
+                    </div>
+                    <div style="width:50%">
+                        <input type="submit" style="margin-right:100px" class="btnshadow btn-second"
+                               ng-click="searchTransaction()" value="COM_SEARCH">
+                    </div>
+                </td>
+            </tr>
+            <tr class="trow-space"></tr>
+        </table>
+        <tr>
+            <td><div id="id.message"><span id="id.message.value"></span></div></td>
+        </tr>
+
+            <div id="id.searchResult">
+                <div class="">
+                    <table width='96%' align='center' class='recycler-table-ebank desktopview'>
+                        <tr class='recycler-row-title-header recycler-list'>
+                            <td class="recycler-row-align-midle" width="7%"><span>COM_NO</span></td>
+                            <td class="recycler-row-align-midle" width="14%"><span>COM_CREATED_DATE</span></td>
+                            <td class="recycler-row-align-midle" width="14%"><span>COM_TAX_AMOUNT</span></td>
+                            <td class="recycler-row-align-midle" width="14%"><span>GUA_THE_GUARANTEE</span></td>
+                            <td class="recycler-row-align-midle" width="14%"><span>COM_APPROVE_STATUS</span></td>
+                            <td class="recycler-row-align-midle" width="14%"><span>COM_CHEKER</span></td>
+                            <td class="recycler-row-align-midle" width="20%"><span>COM_TRANS_CODE</span></td>
+                        </tr>
+                        <tbody id="tbodyDetail">
+                        <tr class="recycler-row-title recycler-list" ng-repeat="trans in currentListTrans track by $index">
+                            <td class="recycler-row-align-midle"><span style="word-break: break-all;">{{$index + 1}}</span></td>
+                            <td class="recycler-row-align-midle"><span style="word-break: break-all;" ng-bind="trans.NGAY_LAP"></span></td>
+                            <td class="recycler-row-align-midle"><span style="word-break: break-all;">{{trans.SO_LUONG | currency : "" : 0}}{{' '+ trans.LOAI_TIEN}} VND</span></td>
+                            <td class="recycler-row-align-midle"><span style="word-break: break-all;" ng-bind="trans.GUARANTEE_NAME"></span></td>
+                            <td class="recycler-row-align-midle"><span style="word-break: break-all;">{{statusVN[trans.TRANG_THAI]}}</span></td>
+                            <td class="recycler-row-align-midle"><span style="word-break: break-all;" ng-bind="trans.NGUOI_DUYET"></span></td>
+                            <td class="recycler-row-align-midle"><a ng-click="showDetailTransaction(trans.MA_GD, trans.TRANG_THAI);" style="cursor:pointer;">
+                                    <span class="no-check" ng-bind="trans.MA_GD"></span>
+                                </a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div align='center' class='recycler-table-ebank  mobileview'>
+                        <table style='margin-bottom:10px;' width='96%'  class='recycler-list' ng-repeat="trans in currentListTrans track by $index">
+                            <tr class="recycler-row-normal">
+                                <td colspan="1" class="recycler-row-align-midle-left"><span>COM_NO</span></td>
+                                <td class="recycler-row-align-midle-right"><span style="word-break: break-all;">{{$index + 1}}</span></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td colspan="1" class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>
+                                <td class="recycler-row-align-midle-right"><span style="word-break: break-all;" ng-bind="trans.NGAY_LAP"></span></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td colspan="1" class="recycler-row-align-midle-left"><span>COM_TAX_AMOUNT</span></td>
+                                <td class="recycler-row-align-midle-right"><span style="word-break: break-all;">{{trans.SO_LUONG | currency : "" : 0}}{{' '+ trans.LOAI_TIEN}} VND</span></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td colspan="1" class="recycler-row-align-midle-left"><span>GUA_THE_GUARANTEE</span></td>
+                                <td class="recycler-row-align-midle-right"><span style="word-break: break-all;" ng-bind="trans.GUARANTEE_NAME"></span></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td colspan="1" class="recycler-row-align-midle-left"><span>COM_APPROVE_STATUS</span></td>
+                                <td class="recycler-row-align-midle-right"><span style="word-break: break-all;">{{statusVN[trans.TRANG_THAI]}}</span></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td colspan="1" class="recycler-row-align-midle-left"><span>COM_CHEKER</span></td>
+                                <td class="recycler-row-align-midle-right"><span style="word-break: break-all;" ng-bind="trans.NGUOI_DUYET"></span></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td colspan="1" class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                                <td class="recycler-row-align-midle-right"><a ng-click="showDetailTransaction(trans.MA_GD, trans.TRANG_THAI);" style="cursor:pointer;">
+                                    <span class="no-check" ng-bind="trans.MA_GD" style="word-break: break-all;"></span>
+                                </a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="acc-pagination" style="text-align: right">
+                <ul class="pagination" id="paging">
+                    <li ng-repeat="i in arrPage" ng-click="changePage(i)" id="page_guarantee_{{$index + 1}}" ><span>{{i}}</span></li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

@@ -1,0 +1,82 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="transfer-result-scr" style="height: 621px; top: 44px; bottom: 0px;">
+    <div id="reviewInfo" class="panelContent">
+        <table width="100%">
+            <tr>
+                <td colspan="2">
+                    <div id="seqFormReview">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center">
+                    <div ng-class="result.messageIconClass" style="display: inline; color: #FAA60D; font-size: 24px; vertical-align: middle; padding: 5px 0px 5px 0px;"></div>
+                    <span style="font-size:16px; vertical-align:middle" ng-bind="result.message"></span>
+                </td>
+            </tr>
+            <tr ng-hide="check()">
+                <td colspan="2">
+					<div align="center">
+						<div id="recycler_list" class="recycler-list">
+							<table align="center" class="recycler-table-ebank">
+                    <!-- <div align="center">
+                        <div id="recycler_list" class="recycler-list" style="margin: 0 auto">
+                            <table width="100%" id="recycler_table_ebank" class="recycler-table-ebank"> -->
+                                <tbody>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                                    <td class="recycler-row-align-midle-right" ng-bind="infoTrans.transId"></td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td class="recycler-row-align-midle-left"><span>COM_EXECUTION_TIME</span></td>
+                                    <td class="recycler-row-align-midle-right" ng-bind="infoTrans.createTime"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+		<div ng-hide="hideMe()">
+			<div ng-include="src"></div>
+        </div>
+        <table width="100%">
+            <tbody>
+            <!--<tr align="center">-->
+                <!--<td class="tdbtndesktop" width="32%"><input type="submit" style="display:none; width:100%;margin:0 auto" class="btnDesktopshadow btnDesktopBack" ng-click="clickHomeOrBack()" value="Quay lại"></td>-->
+                <!--<td width="32%" id="trCancel"><input type="submit" style="display:none; background-color: rgba(162, 100, 187, 0.51);border-radius: 20px;width:100%" class="btnshadow btn-primary" ng-click="btnCancelClick()" value="Hủy" ></td>-->
+                <!--<td width="32%"><input style="width:100%" type="button" class="btnshadow btn-second" ng-click="onClickOtherTrans()" value="COM_MAKE_OTHER_TRANS" ></td>-->
+            <!--</tr>-->
+            <tr><td colspan="2"><div class="export-print ex-print" id="acchis-exportFunc" align="right" style="padding-right: 5px; margin-top: 10px; float:right;"><a href="javascript:void(0)" onclick="printComHistory();"><img style="margin-right:5px;" src="css/img/print.png"></a></div></td></tr>
+            <tr>
+                <td>
+                    <div style="text-align: center;">
+                        <input id="another_trans" class="btnshadow-after btn-second-after btn-changecolor" onclick="onClickOtherTrans()" style="background-color: #fa9f1d !important;" type="button" value="RESULT_MORE_TRANS_BTN"/>
+                        <!--<input class="btnshadow-after btn-second-after" onclick="goHomePage()" type="button" value="RESULT_GO_HOMEPAGE_BTN"/>-->
+                    </div>
+                </td>
+            </tr>
+
+            <tr class="trow-space"></tr>
+            <tr><td colspan="3"><div id="note_mca" style="display: none;"><span class="notestyle">AUTHEN_TYPE_NOTE_MCA</span></div></td></tr>
+            <tr><td colspan="3"><div id="note_finger" style="display: none;"><span class="notestyle">AUTHEN_TYPE_NOTE_FINGERPRINT</span></div></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="holder-bottom-bar">
+
+    </div>
+    <div class="mobilemode" id="dialog-container">
+
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<!--ThuanTM -->
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

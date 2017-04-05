@@ -1,0 +1,92 @@
+	<table width="100%">
+<!-- 		<tr>
+			<td colspan="2"><div id="seqFormReview">
+				<table xmlns="http://www.w3.org/1999/xhtml" width="357" align="center" cellspacing="0" cellpadding="0" border="0" style="margin:auto" class="sequence-form-302">
+					<tbody>
+					<tr>
+						<td width="33%"><span>SEQ_INPUT_TITLE</span></td>
+						<td width="33%" class="selected"><span>SEQ_AUTHEN_TITLE</span></td>
+						<td width="33%"><span>SEQ_COMPLETE_TITLE</span></td>
+					</tr>
+					</tbody>
+				</table></div>
+			</td>
+		</tr>-->
+		<tr>
+			<td colspan="2">
+				<h5 class="header-title">
+					<span>SET_USER_ITLE_GET_USER_INFO</span>
+				</h5>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div align="center">
+					<div id="recycler_list" class="recycler-list">
+						<table id="recycler_table_ebank" class="recycler-table-ebank">
+							<tbody>
+							<tr class="recycler-row-normal">
+								<td class="recycler-row-align-midle-left"><span>SET_USER_ID_LOGIN</span></td>
+								<td class="recycler-row-align-midle-right" ng-bind="infoTrans.iduser"></td>
+							</tr>
+							<tr class="recycler-row-normal">
+								<td class="recycler-row-align-midle-left"><span>SET_USER_FULL_NAME</span></td>
+								<td class="recycler-row-align-midle-right" ng-bind="infoTrans.fullname"></td>
+							</tr>
+							<tr class="recycler-row-normal">
+								<td class="recycler-row-align-midle-left"><span>COM_SHORT_NAME</span></td>
+								<td class="recycler-row-align-midle-right" ng-bind="infoTrans.shortname"></td>
+							</tr>
+							<tr class="recycler-row-normal">
+								<td class="recycler-row-align-midle-left"><span>SET_USER_NUMBER_CMT</span></td>
+								<td class="recycler-row-align-midle-right" ng-bind="infoTrans.cardnumber"></td>
+							</tr>
+							<tr class="recycler-row-normal">
+								<td class="recycler-row-align-midle-left"><span>SET_USER_DATE_RANGE</span></td>
+								<td class="recycler-row-align-midle-right" ng-bind="infoTrans.allocatedate"></td>
+							</tr>
+							<tr class="recycler-row-normal">
+								<td class="recycler-row-align-midle-left"><span>SET_USER_POSITION</span></td>
+								<td class="recycler-row-align-midle-right" ng-bind="infoTrans.oldPosition"></td>
+							</tr>
+							<tr class="recycler-row-normal">
+								<td class="recycler-row-align-midle-left"><span>SET_USER_EMAIL</span></td>
+								<td class="recycler-row-align-midle-right" ng-bind="infoTrans.oldEmail"></td>
+							</tr>
+							<tr class="recycler-row-normal">
+								<td class="recycler-row-align-midle-left"><span>SET_USER_PHONE_NUMBER</span></td>
+								<td class="recycler-row-align-midle-right" ng-bind="infoTrans.oldPhoneNumber"></td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</td>
+		</tr>
+	<!-- -->
+		<tr>
+			<td colspan="2">
+				<h5 class="header-title">
+					<span>CONST_SETUP_QUERY_CHANGED_INFO</span>
+				</h5>
+			</td>
+		</tr>
+	<!-- -->
+		<tr>
+			<td colspan="2">
+				<div align="center">
+					<div id="recycler_list" class="recycler-list">
+						<table id="recycler_table_ebank" class="recycler-table-ebank">
+							<tbody>  
+							<tr class="recycler-row-normal" ng-repeat="(f1, f2) in infoTrans.allnew">
+								<td class="recycler-row-align-midle-left">{{f2[0]}}</td>
+								<td class="recycler-row-align-midle-right">{{f2[1]}}</td>  
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>	

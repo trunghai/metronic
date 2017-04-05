@@ -1,0 +1,101 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="account_tenor_deposit">
+<div style="margin:10px 10px; margin-left: 3%" id="acc">
+    <table class="recycler-table-ebank desktopview panelContent" align="center" width="100%">
+        <thead>
+            <tr class='recycler-row-title-header recycler-list'>
+                <td class="recycler-row-align-midle_acc" style="width:1%; display:none;"><span>COM_NO</span></td>
+                <td width="17%" class="recycler-row-align-midle_acc"><span>ACCOUNT_ACC_NO_TITLE</span></td>
+                <td class="recycler-row-align-midle_acc"><span>ACCOUNT_ACC_NAME</span></td>
+                <td class="recycler-row-align-midle_acc"><span>COM_TYPE_MONEY</span></td>
+                <td class="recycler-row-align-midle_acc"><span>ACCOUNT_BALANCE_TITLE</span></td>
+                <td class="recycler-row-align-midle_acc"><span>ACCOUNT_AVAILABLE_BALANCE</span></td>
+            </tr>
+        </thead>
+        <tbody id="tbodyDetail">
+            <tr class="recycler-row-title recycler-list renames" ng-repeat="accKKH in infoAcc track by $index" ng-click="viewAccDetail(accKKH.SO_TK);" style="cursor:pointer">
+                <td style="width:1%;display:none;" class="recycler-row-align-midle " >
+                    <div class="accKKH" ng-bind="{{$index + 1}}"></div>
+                </td>
+                <td class="recycler-row-align-midle_kkh " >
+                    <div class="accKKH" ng-bind="accKKH.SO_TK"></div>
+                </td>
+                <td style="width:40%;" class="recycler-row-align-midle_kkh">
+                    <div>
+                        <div>
+                            <span class="accKKH" id="displayAccName{{accKKH.SO_TK}}" ng-bind="accKKH.TEN_TK" ></span>
+                               <div id="divEdit{{accKKH.SO_TK}}" style="float: right;"><a  class="ref-link rename accKKH" ng-click="showEditPanel(event,accKKH.SO_TK);"><span>ACCOUNT_RENAME_DESCRIPTION</span></a></div>
+                        </div>
+                        <div class="accKKH" style="display: none;" id="divEditSave{{accKKH.SO_TK}}">
+                            <input id="txtNewDes{{accKKH.SO_TK}}" type="text" placeholder="ACCOUNT_RENAME_DESCRIPTION" maxlength="500"><a class="ref-link accKKH" ng-click="saveContent(accKKH.SO_TK)"><span>ACCOUNT_RENAME_SAVE_TITLE</span></a></div>
+                    </div>
+                </td>
+                <td class="recycler-row-align-midle_kkh">
+                    <div ng-bind="accKKH.DON_VI"></div>
+                </td>
+                <td class="recycler-row-align-midle_kkh">
+                    <div  ng-bind="formatNumberToCurrency(accKKH.SO_DU)"></div>
+                </td>
+                <td class="recycler-row-align-midle_kkh">
+                    <div ng-bind="formatNumberToCurrency(accKKH.SO_DU_KHA_DUNG)"></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+ <!--mobile-->
+        <div align="center" class="recycler-list mobileview " id="recycler_list" ng-repeat="accKKH in infoAcc track by $index" ng-click="viewAccDetail(accKKH.SO_TK)" style="margin:10px">
+        <table class="recycler-table-ebank" id="recycler_table_ebank" style="width: 97%; font-size: 13px;">
+            <tbody>
+                <tr class="recycler-row-normal">
+                    <td class="recycler-row-align-midle-left">
+                        <span>ACCOUNT_ACC_NAME</span>
+                    </td>
+                    <td class="recycler-row-align-midle-right">
+                        <span ng-bind="accKKH.SO_TK"></span>
+                    </td>
+                </tr>
+                <tr class="recycler-row-normal">
+                    <td class="recycler-row-align-midle-left">
+                        <span>ACCOUNT_ACC_NO_TITLE</span>
+                    </td>
+                    <td class="recycler-row-align-midle-right">
+                                <span  ng-bind="accKKH.TEN_TK"></span>
+                    </td>
+                </tr>
+                <tr class="recycler-row-normal">
+                    <td class="recycler-row-align-midle-left">
+                        <span>COM_TYPE_MONEY</span>
+                    </td>
+                    <td class="recycler-row-align-midle-right">
+                        <span ng-bind="accKKH.DON_VI"></span>
+                    </td>
+                </tr>
+                <tr class="recycler-row-normal">
+                    <td class="recycler-row-align-midle-left">
+                        <span>ACCOUNT_BALANCE_TITLE</span>
+                    </td>
+                    <td class="recycler-row-align-midle-right">
+                        <span ng-bind="formatNumberToCurrency(accKKH.SO_DU)"></span>
+                    </td>
+                </tr>
+                <tr class="recycler-row-normal">
+                    <td class="recycler-row-align-midle-left">
+                        <span>ACCOUNT_AVAILABLE_BALANCE</span>
+                    </td>
+                    <td class="recycler-row-align-midle-right">
+                        <span ng-bind="formatNumberToCurrency(accKKH.SO_DU_KHA_DUNG)"></span>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+   <div id="pagination" style="width: 97%;text-align: right">
+        <ul class="pagination" id="pagingTrans">
+            <li ng-repeat="i in arrPage" ng-click="kkhSelectedPage(i)" id="page_{{$index + 1}}" ><span ng-bind="i"></span></li>
+        </ul>
+    </div>
+<div width="32%">
+    <input type="submit" style="width:18%;" class="btnDesktopshadow btnHomeShadow" onclick="clickHomeOrBack()" value="CM_BTN_GOBACK" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off">
+</div>
+</div>

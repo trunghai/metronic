@@ -1,0 +1,32 @@
+<div>
+    <table class='recycler-table-ebank'>
+        <tr class='recycler-row-title-header recycler-list' align='center'>
+            <td class="recycler-row-align-midle" width="10%"><span>COM_MAKER</span></td>
+            <td class="recycler-row-align-midle" width="12%"><span>COM_CREATED_DATE</span></td>
+            <td class="recycler-row-align-midle" width="12%"><span>GUA_STATUS</span></td>
+            <td class="recycler-row-align-midle" width="10%"><span>COM_CHEKER</span></td>
+            <td class="recycler-row-align-midle" width="14%"><span>COM_CHECK_DATE</span></td>
+            <td class="recycler-row-align-midle" width="18%"><span>COM_TRANS_CODE</span></td>
+        </tr>
+        <tr class="recycler-row-title recycler-list" align='center'>
+            <td class="recycler-row-align-midle">
+                <div ng-bind="result.MAKER"></div>
+            </td>
+            <td class="recycler-row-align-midle">
+                <div ng-bind="result.DATMAKE"></div>
+            </td>
+            <td class="recycler-row-align-midle">
+                <div ng-bind="status(result.STATUS)"></div>
+            </td>
+            <td class="recycler-row-align-midle">
+                <div ng-bind="result.SIGNEDBY"></div>
+            </td>
+            <td class="recycler-row-align-midle">
+                <div ng-bind="result.DATCHECK"></div>
+            </td>
+            <td class="recycler-row-align-midle">
+                <a><span class="no-check" ng-bind="result.IDFCATREF"></span></a>
+            </td>
+        </tr>        
+    </table>
+</div>

@@ -1,0 +1,41 @@
+<div class="bg-transfer">
+    <table width="100%" style="padding-top:15px;" align="center" class="">
+
+        <tr>
+            <td colspan="2">
+                <h5 class="header-title">
+                    <span>COM_TRASACTION_INFO</span>
+                </h5>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div align="center">
+                    <div  class="recycler-list">
+                        <table  class="recycler-table-ebank" ng-repeat="x in final">
+                            <tbody>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="x.IDFCATREF"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>COM_CHEKER</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="x.MAKER"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>COM_CHECK_DATE</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="x.DATCHECK"></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>COM_STATUS</span></td>
+                                <td class="recycler-row-align-midle-right" ng-bind="statusVN[x.STATUS]"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+    </table>
+</div>

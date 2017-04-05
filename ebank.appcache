@@ -1,0 +1,15 @@
+CACHE MANIFEST
+# version 3.0.3
+# Build Time GMT+7 2015-12-09 09:12 AM
+# LamPT using Command Prompt to build list of cache file: dir /s /b /a:-D > xxx.txt
+# Explicitly cached entries
+
+
+
+# offline.html will be displayed if the user is offline
+FALLBACK:
+offline.html
+
+# All other resources (e.g. sites) require the user to be online.
+NETWORK:
+*

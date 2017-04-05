@@ -1,0 +1,228 @@
+<link rel="stylesheet" href="./assets/libs/angularjs/jquery.fileupload.css" type="text/css"/>
+
+<div id="mainViewContent" class="main-layout-subview" ng-controller="cre_guarantee_checklist">
+    <div class="bg-transfer">
+        <div class="panelContent" nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter, pdfFilter">
+            <table width="100%">
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title">
+                            <span>GUA_CHECKLIST_PROFILE_GUARANTEE</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="">
+                            <table width='96%' align='center' class='recycler-table-ebank desktopview'>
+                                <tr class='recycler-row-title-header recycler-list'>
+                                    <th width="8%" class="recycler-row-align-midle"><span style="color: #424242">COM_NO</span></th>
+                                    <th width="60%" class="recycler-row-align-midle"><span style="color: #424242">INTRODUCE_INFO_ATTACH</span></th>
+                                    <th width="34%" class="recycler-row-align-midle"><span style="color: #424242">INTERNATIONAL_REQUEST</span></th>
+                                </tr>
+                                <tr class="recycler-row-title recycler-list" ng-repeat="item in documentInfo">
+                                    <td class="recycler-row-align-midle"><span ng-bind="$index +1"></span></td>
+                                    <td class="recycler-row-align-midle-left recycler-row-align-midle-left-border-right"><span ng-bind="item.DESCREPTION"></span></td>
+                                    <td class="recycler-row-align-midle"><span ng-bind="item.EXPECT"></span></td>
+                                </tr>
+                            </table>
+                            <table style="margin-bottom:10px;" ng-repeat="item in documentInfo" class="mobileview recycler-list" width="100%" align="center">
+                                <tr class="recycler-row-normal">
+                                    <td colspan="1" class="recycler-row-align-midle-left">
+                                        <span>COM_NO</span>
+                                    </td>
+                                    <td class="recycler-row-align-midle-right">
+                                        <span ng-bind="$index +1"></span>
+                                    </td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td colspan="1" class="recycler-row-align-midle-left">
+                                        <span>INTERNATIONAL_PROFILE_NAME</span>
+                                    </td>
+                                    <td class="recycler-row-align-midle-right">
+                                        <span ng-bind="item.DESCREPTION"></span>
+                                    </td>
+                                </tr>
+                                <tr class="recycler-row-normal">
+                                    <td colspan="1" class="recycler-row-align-midle-left">
+                                        <span>INTERNATIONAL_REQUEST</span>
+                                    </td>
+                                    <td class="recycler-row-align-midle-right">
+                                        <span ng-bind="item.EXPECT"></span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                <tr>
+                    <style>
+                        .fileUpload {
+                            position: relative;
+                            overflow: hidden;
+                        }
+                        .fileUpload input.upload {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            margin: 0;
+                            padding: 0;
+                            height:100%;
+                            width:100%;
+                            cursor: pointer;
+                            opacity: 0;
+                            filter: alpha(opacity=0);
+                        }
+                    </style>
+                    <td class="td-text" valign="middle" align="right">
+                        <div class="fileUpload btnshadow btn-second">
+                            <span id="titleUploadFile">UPLOAD_FILE_BUTTON</span>
+                            <input type="file" class="upload" name="file" nv-file-select="" uploader="uploader" multiple />
+                        </div>
+                    </td>
+                </tr>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title">
+                            <span>GUA_SEND_TRANSFER_FILE</span>
+                        </div>
+                    </td>
+                </tr>
+
+              <!--  <tr class="trow-space"></tr>-->
+                <tr>
+                    <td>
+                        <!-- BEGIN MAIN CONTENT -->
+                        <div class="">
+                            <table width='96%' align='center' class='recycler-table-ebank desktopview'>
+                                <tr class='recycler-row-title-header recycler-list'>
+                                    <td width="8%" class="recycler-row-align-midle"><span style="color: #424242">COM_NO</span></td>
+                                    <td width="50%" class="recycler-row-align-midle"><span style="color: #424242">GUA_FILE_NAME_SENDED</span></td>
+                                    <td ng-show="uploader.isHTML5" class="recycler-row-align-midle"><span style="color: #424242">GUA_FILE_SIZE_SENDED</span></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="recycler-row-title recycler-list" ng-repeat="item in uploader.queue">
+                                    <td class="recycler-row-align-midle"><span ng-bind="$index + 1"></span></td>
+                                    <td class="recycler-row-align-midle"><span ng-bind="item.file.name"></span></td>
+                                    <td ng-show="uploader.isHTML5" nowrap class="recycler-row-align-midle"><span ng-bind="(item.file.size/1024/1024|number:2) + ' MB' "></span></td>
+                                    <td nowrap class="recycler-row-align-midle">
+                                        <span type="button" ng-click="removeFile(item,$index)" style="color: red; cursor: pointer">
+                                               <strong><span>GUA_FILE_DELETE</span></strong>
+                                        </span>
+                                    </td>
+
+                                </tr>
+                            </table>
+                            <table ng-repeat="item in uploader.queue" class="recycler-table-ebank mobileview recycler-list" width="100%" align="center">
+                                <tr>
+                                    <td colspan="1" class="recycler-row-align-midle-left">
+                                        <span>COM_NO</span>
+                                    </td>
+                                    <td class="recycler-row-align-midle-right">
+                                        <span ng-bind="$index + 1"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" class="recycler-row-align-midle-left">
+                                        <span>GUA_FILE_NAME_SENDED</span>
+                                    </td>
+                                    <td class="recycler-row-align-midle-right">
+                                        <span ng-bind="item.file.name"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" class="recycler-row-align-midle-left" ng-show="uploader.isHTML5">
+                                        <span>GUA_FILE_SIZE_SENDED</span>
+                                    </td>
+                                    <td  ng-show="uploader.isHTML5" nowrap class="recycler-row-align-midle-right">
+                                        <span ng-bind="(item.file.size/1024/1024|number:2) + ' MB' "></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" class="recycler-row-align-midle-left">
+                                        <span></span>
+                                    </td>
+                                    <td nowrap class="recycler-row-align-midle-right">
+                                        <span type="button" ng-click="removeFile(item,$index)" style="color: red; cursor: pointer">
+                                               <strong><span>GUA_FILE_DELETE</span></strong>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- END MAIN CONTENT -->
+                    </td>
+                </tr>
+                  <tr class="trow-space"></tr>
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group" >
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">GUA_INSTRUCTION_TPB_FILE</span>
+                            <input id="id.instruction.file" class="form-control form-control-righttext" type="text" value="" placeholder="COM_TXT_INPUT_PLACEHOLDER" onkeyup="controlInputText(this, 250)">
+                        </div>
+                    </td>
+                </tr>
+                <tr class="trow-space"></tr>
+                <tr class="mt-15">
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="tdbtndesktop" style="width:50%">
+                            <input  type='button' style="float:left;margin-left:65px" class='btnDesktopshadow btnDesktopBack' ng-click="onBackClick()" value='COM_BACK'/>
+                        </div>
+                        <div style="width:50%">
+                            <input id="sendData" type="button" style="margin-right:100px" class="btnshadow btn-second" ng-click="uploadFile()" value="COM_CONTINUE"/>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div id="contentView" class="modal-content">
+
+    </div>
+
+</div>
+
+<style>
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+
+        margin: auto;
+        padding: 0px;
+        width: 80%;
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>

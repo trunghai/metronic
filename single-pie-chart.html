@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+ <body>
+	<canvas id="can" width="200" height="200" />
+    <script type="text/javascript">
+        var canvas = document.getElementById("can");
+        var ctx = canvas.getContext("2d");
+        var lastEnd = 0;
+        var curTextSizePercent = 18;
+        var data = [30,40,30];
+        var myTotal = 0;
+        var myColor = ['red','green','blue'];
+
+        for(var e = 0; e < data.length; e++)
+        {
+            myTotal += data[e];
+        }
+        var temp = 0;
+        for (var i = 0; i < data.length; i++) {
+            var x = canvas.width/2;
+            var y = canvas.height/2;
+            var r = canvas.height/2;
+            var angleStart = lastEnd;
+            var angleEnd = lastEnd+(Math.PI*2*(data[i]/myTotal));
+
+            ctx.fillStyle = myColor[i];
+            ctx.beginPath();
+            ctx.moveTo(x,y);
+            ctx.arc(x, y, r ,angleStart - Math.PI/2,angleEnd - Math.PI/2,false);
+
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = myColor[i];
+            ctx.stroke();
+
+
+            var midAngle=angleStart+(angleEnd-angleStart)/2;
+            var labelRadius=r*.85;
+
+            var offsetX = x + (labelRadius) * Math.cos(midAngle - Math.PI / 2) / 2;
+            var offsetY = y + (labelRadius) * Math.sin(midAngle - Math.PI / 2) / 2;
+            var widthText = ctx.measureText(data[i] + "%").width;
+            ctx.fillText(data[i] + "%", offsetX - widthText/2, offsetY);
+
+            ctx.restore();
+			
+            lastEnd += Math.PI*2*(data[i]/myTotal);
+        }
+ 
+
+    </script>
+ </body>
+
+  </html>

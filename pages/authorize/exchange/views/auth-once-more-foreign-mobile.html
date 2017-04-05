@@ -1,0 +1,28 @@
+<table class="recycler-table-ebank mobileview recycler-list margin-bottom" width="98%" align="center" ng-repeat="trans in listPending track by $index">
+	<tbody>
+	<tr class="recycler-row-normal">
+		<td class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>
+		<td class="recycler-row-align-midle-right"><span ng-bind="trans.NGAY_LAP"></span></td>
+	</tr>
+	<tr class="recycler-row-normal">
+		<td class="recycler-row-align-midle-left"><span>FOREGIN_SELL_ACCOUNT</span></td>
+		<td class="recycler-row-align-midle-right"><span ng-bind="trans.TK_CHUYEN"></span></td>
+	</tr>
+	<tr class="recycler-row-normal">
+		<td class="recycler-row-align-midle-left"><span>COM_AMOUNT</span></td>
+		<td class="recycler-row-align-midle-right"><span ng-bind="(trans.SO_LUONG | currency : '' : 0) + ' ' + trans.DV_TIEN"></span></td>
+	</tr>
+	<tr class="recycler-row-normal">
+		<td class="recycler-row-align-midle-left"><span>FOREGIN_TOTAL_EXCHANGE</span></td>
+		<td class="recycler-row-align-midle-right"><span ng-bind="(trans.TONG_TIEN_QUY_DOI | currency : '' : 0) + ' VND'"></span></td>
+	</tr>
+	<tr class="recycler-row-normal">
+		<td class="recycler-row-align-midle-left"><span>COM_CHEKER</span></td>
+		<td class="recycler-row-align-midle-right"><span ng-bind="trans.NGUOI_DUYET"></span></td>
+	</tr>
+	<tr class="recycler-row-normal">
+		<td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+		<td class="recycler-row-align-midle-right"><span ng-bind="trans.MA_GD"></span></td>
+	</tr>
+	</tbody>
+</table>

@@ -1,0 +1,39 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="auth-trans-review" style="height: 621px; top: 44px; bottom: 0px;">
+    <div class="panelContent">
+        <table width="100%" align="center">
+            <tr class="trow-space"></tr>
+			<div id="screenDesk" style="margin-top: 5px" ng-include="srcAuthenDesktop" style="display: none"></div>
+			<div id="screenMobile" style="margin-top: 5px" ng-include="srcAuthenMobile" style="display: none"></div>
+        </table>
+        <div class="recycler-list" style="width: 98%; margin: 0 auto;">
+            <table  align="center" width="98%" id="trans.reason">
+                <tr class="recycler-row-normal">
+					<td class="recycler-row-align-midle-left"><span>COM_AUTH_DENIAL_REASON</span></td>
+					<td class="recycler-row-align-midle-right" style="word-break: break-all;">{{reason}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="tranfer-item"></div>
+        <table width="100%">
+			<tr class="trow-space"></tr>
+            <tbody>
+            <tr class="trow-default">
+                <td align="center" valign="middle" class="td-text">
+                    <div style="width: 50%">
+                        <input type="button" style="float: left; margin-left: 65px" class="btnDesktopshadow btnDesktopBack"
+                            ng-click="goToBack()" value="COM_BACK" autocomplete="off" autocorrect="off"
+                            autocapitalize="off" spellcheck="off">
+                    </div>
+                    <div style="width: 50%">
+                        <input type="button" style="margin-right: 100px" class="btnshadow btn-second"
+                            ng-click="goToAuthorizationScreen()" value="COM_CONTINUE" autocomplete="off" autocorrect="off"
+                            autocapitalize="off" spellcheck="off">
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="holder-bottom-bar"></div>
+    <div class="mobilemode" id="dialog-container"></div>
+</div>

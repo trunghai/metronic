@@ -1,0 +1,32 @@
+<div id="recycler_list" class="recycler-list">
+    <table id="recycler_table_ebank" class="recycler-table-ebank" ng-repeat="item in listResult track by $index">
+        <tr class="recycler-row-normal recycler-hover">
+            <td class="recycler-row-align-midle-left"><span>INTERNATIONAL_PERSON_ADD</span></td>
+            <td class="recycler-row-align-midle-right"><span ng-bind="item.MAKER"></span></td>
+        </tr>
+        <tr class="recycler-row-normal recycler-hover">
+            <td class="recycler-row-align-midle-left"><span>INTERNATIONAL_DAY_ADD</span></td>
+            <td class="recycler-row-align-midle-right"><span ng-bind="item.DATMAKE"></span></td>
+        </tr>
+        <tr class="recycler-row-normal recycler-hover">
+            <td class="recycler-row-align-midle-left"><span>IDENTIFICATION_REVIEW_STATUS</span></td>
+            <td class="recycler-row-align-midle-right"><span ng-bind="item.STATUS"></span></td>
+        </tr>
+        <tr class="recycler-row-normal recycler-hover">
+            <td class="recycler-row-align-midle-left"><span>PAYMENT_CREDIT_AMOUNT</span></td>
+            <td class="recycler-row-align-midle-right"><span ng-bind="(item.AMOUNT | currency : '' : 0) + ' VND'"></span></td>
+        </tr>
+        <tr class="recycler-row-normal recycler-hover">
+            <td class="recycler-row-align-midle-left"><span>COM_CHEKER</span></td>
+            <td class="recycler-row-align-midle-right"><span ng-bind="item.SIGNEDBY"></span></td>
+        </tr>
+        <tr class="recycler-row-normal recycler-hover">
+            <td class="recycler-row-align-midle-left"><span>COM_CHECK_DATE</span></td>
+            <td class="recycler-row-align-midle-right"><span ng-bind="DATCHECK"></span></td>
+        </tr>
+        <tr class="recycler-row-normal recycler-hover">
+            <td class="recycler-row-align-midle-left"><span>SCHEDULE_BANK_TRANS_CODE</span></td>
+            <td class="recycler-row-align-midle-right"><span ng-bind="item.IDFCATREF"></span></td>
+        </tr>
+    </table>
+</div>

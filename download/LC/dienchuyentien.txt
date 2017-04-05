@@ -1,0 +1,48 @@
+==================================
+LENH CHUYEN TIEN QUOC TE QUA EBANK
+==================================
+00.cnMoCif: 019
+01.CIF: 88889998
+02.maGiaoDichEbank: 1709310000028341
+03.ngayGiaTri: 030417
+04.loaiTien: USD
+05.soTien: 1
+06.loaiChuyenTienCap1: Thanh toan hang hoa nhap khau
+07.loaiChuyenTienCap2: Thanh toan truoc khi nhan hang
+==================================
+THONG TIN CHI TIET CAC BEN THAM GIA
+==================================
+11.nguoiRaLenh: /FULL_NAME_88889998
+12.diaChi: /ADDRESS_1_88889998, ADDRESS_2_88889998, ADDRESS_3_88889998, ADDRESS_4_88889998
+
+13.tenNganHangTrungGian: /CITIBANK N.A.
+14.diaChiNganHangTrungGian: /
+15.maSWIFTNganHangTrungGian: CITIUS33
+
+16.tenNganHangBenThuHuong: CITIBANK N.A.
+17.diaChiNganHangBenThuHuong: /
+18.maSWIFTNganHangBenThuHuong: CITIUS33
+
+19.soTaiKhoan,IBAN: /123456789
+
+20.nguoiThuHuong: DUONG TRUNG HAI
+21.diaChiNguoiThuHuong: HA NOI 1
+
+22.noiDungChuyenTien: /RFB/UQEQEWWQE
+23.quocGiaNguoiThuHuong: AL
+
+24.ngayCamKetBoSungHoSo: 20170702
+25.ghiChuBoHoSo: 
+==================================
+TY GIA & PHI
+==================================
+31.hinhThucThuPhi: OUR
+32.noTaiKhoanNgoaiTeTaiTPBso: 88889998009
+33.soTienGhiNoTaiKhoanNgoaiTeTaiTPB: 1
+34.noTaiKhoanVNDTaiTPBso: 88889998008
+35.soTienGhiNoTaiKhoanVNDTaiTPB: 0
+36.tyGiaNgoaiTe: 22333
+37.phiChuyenTien: 112500
+38.dienPhi: 122832
+39.phiOUR: 669990
+40.taiKhoanThuPhi: 88889998008

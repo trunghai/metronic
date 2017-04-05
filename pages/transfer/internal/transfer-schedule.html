@@ -1,0 +1,152 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="transfer-schedule">
+    <div id="content-transfer" style="display:block" class="bg-transfer">
+        <div class="panelContent" style="margin-top:0px;padding-top:0px">
+            <table width="100%" id="dynamic-topup-table" >
+                <tr>
+                    <td colspan="2">
+                        <div id="seqForm">
+
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <div id="content-dialog-transfer-history">
+                                <div style="width:100%;margin-top: 10px;">
+                                    <!--trạng thái-->
+                                    <div class="margin-top">
+                                        <div ng-click="showTransStatusSelection()" id="holder-status" class="holder-data"
+                                             style="width: 100%;">
+                                            <div id="statuslist" class="chartdata">
+                                                <div>
+                                                    <div class="chart-data-item" style="display:flex;">
+                                                        <div class="title-chart-item padding-left-item" style="width: 32%;text-align: left"><span>MENU_TRANS_PERIODIC</span></div>
+                                                        <div id="type-schedule-value" class="value-chart-item" style="width: 68%; text-align: right; margin: auto; margin-right: 5%;">
+                                                            <span>MENU_TRANS_INTER</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <span class="icon-movenext schedulenarrow" id="narrowspinstatus" style="top:20%"></span>
+                                        </div>
+                                        <div id="viewSelectionctStatus" class="viewSelectionct"></div>
+                                    </div>
+                                    <!--ngày bắt đầu-->
+                                    <div id="holder-start-end-date" class="margin-top">
+                                        <div onClick="loadCalendarTrans(this)" id="startDate" class="holder-data"
+                                             style="width: 100%;">
+                                            <div class="chartdata" id="select-startDate">
+                                                <div>
+                                                    <div class="chart-data-item ">
+                                                        <div class="title-chart-item padding-left-item"><span>HIS_CHOOSE_START_DATE</span></div>
+                                                        <div id="start-date-value" class="value-chart-item">
+                                                            <span>OL_TB_CHOICE</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" id="sDate"/>
+                                            </div>
+                                            <span class="icon-movenext schedulenarrow" id="narrowspin2"></span>
+                                        </div>
+                                        <!--them-->
+                                        <div style="display:none" class="" id="holder-calendar-picker">
+                                            <div id="calendar-picker" class="">
+                                            </div>
+                                        </div>
+                                        <div onClick="loadCalendarTrans(this)" id="endDate" class="holder-data"
+                                             style="width: 100%;margin-top:20px">
+                                            <div class="chartdata border-top" id="select-endDate">
+                                                <div>
+                                                    <div class="chart-data-item">
+                                                        <div class="title-chart-item padding-left-item"><span>HIS_CHOOSE_END_DATE</span></div>
+                                                        <div id="end-date-value" class="value-chart-item"><span>OL_TB_CHOICE</span></div>
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" id="eDate"/>
+                                            </div>
+                                            <span class="icon-movenext schedulenarrow" id="narrowspin3"></span>
+                                        </div>
+                                        <!--them-->
+                                        <div style="display:none" class="" id="holder-calendar-pickers">
+                                            <div id="calendar-pickers" class="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="warning-validate" style="display: block; "></div>
+                                    <div style="width:100%;margin-top:5%;" align="center" valign="middle" id="holder-btn-submit">
+                                        <div  class="tdbtndesktop" style="width:50%">
+                                            <input type='button' style="float:left;margin-left:65px" class='btnDesktopshadow btnDesktopBack' ng-click = 'onClickBack()' value='INPUT_ACC_BTN_GOBACK'/>
+                                        </div>
+                                        <div style="width:50%">
+                                            <input  style="margin-right:100px" type="button" class="btnshadow btn-second" ng-click="setSchedule()" value="SCHEDULER_SET_TITLE"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+
+            <div class="tranfer-item">
+
+            </div>
+            <table width="100%" align="center">
+                <tr >
+                    <td colspan="2">
+                        <div id="seqFormLocal">
+                            <table width="357" align="center"  class='sequence-form-301'>
+                                <tr>
+                                    <td width="33%" class="selected"><span>SEQ_INPUT_TITLE</span></td>
+                                    <td width="33%"><span>SEQ_AUTHEN_TITLE</span></td>
+                                    <td width="33%"><span>SEQ_COMPLETE_TITLE</span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="display:none">
+                    <td colspan="2">
+                        <h5 class="Header">
+                            <span style="white-space:pre-wrap">TRANS_TYPE_BLOCK_TITLE</span>
+                        </h5>
+                    </td>
+                </tr>
+                <!--<tr>-->
+                <!--<td colspan="2" align="center" valign="middle" class="td-text">-->
+                <!--<div class="input-group" onClick="showTransTypeSelection()">-->
+                <!--<span class="input-group-addon" style="white-space:pre-wrap; width:40%">TRANS_TYPE_CHOICE_TITLE</span>-->
+                <!--<input id="id-trans-local" type="button" class="form-control form-control-righttext" style="white-space: pre-wrap; padding-right: 10px;"  align="left" value="TRANS_LOCAL_SCREEN_TITLE" />-->
+                <!--<span class="icon-movenext input-group-addon input-group-symbol"></span>-->
+                <!--</div>-->
+                <!--</td>-->
+                <!--</tr>-->
+                <tr style="display:none">
+                    <td colspan="2">
+                        <h5 class="Header">
+                            <span style="white-space:pre-wrap">TRANS_ACCOUNT_INFO_BLOCK_TITLE</span>
+                        </h5>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="holder-bottom-bar">
+
+    </div>
+    <div class="mobilemode" id="dialog-container">
+
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<!--ThuanTM -->
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

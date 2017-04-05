@@ -1,0 +1,134 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="payment_bill_mng_detail">
+    <div>
+        <div class="panelContent">
+            <table width='100%' align='center' id='detailDebt' cellspacing="0">
+                <tr>
+                    <td colspan="2">
+                        <div align="center">
+                            <div class="recycler-list">
+                                <table align="center" class="recycler-table-ebank">
+                                    <tbody>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="detail.transInfo[0].transId"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="detail.transInfo[0].datemaker"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>COM_CHECK_DATE</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="detail.transInfo[0].datecheck"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>COM_STATUS</span></td>
+                                        <td class="recycler-row-align-midle-right"><span>{{statusVN[detail.status]}}</span></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal" ng-if="detail.status === 'REJ'">
+                                        <td class="recycler-row-align-midle-left"><span>COM_AUTH_DENIAL_REASON</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="detail.reson"></span></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <h5 class="header-title">
+                            <span>COM_ACCOUNT_INFO</span>
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div align="center">
+                            <div class="recycler-list">
+                                <table align="center" class="recycler-table-ebank">
+                                    <tbody>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>AUTHORIZE_TRANS_MENU</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="detail.transInfo[0].transType"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>PAYMENT_ISSUEDBY</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="detail.transInfo[0].transProvider"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>COM_TAX_PAYMENT_ACC</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="detail.transInfo[0].sourceAcc"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>CRE_DEBT_SURPLUS_AVAILABEL</span></td>
+                                        <td class="recycler-row-align-midle-right"><span ng-bind="detail.transInfo[0].balance"></span></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- title -->
+                <tr>
+                    <td colspan="2">
+                        <h5 class="header-title">
+                            <span>COM_TRASACTION_INFO</span>
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div align="center">
+                            <div class="recycler-list">
+                                <table align="center" class="recycler-table-ebank">
+                                    <tbody>
+                                    <tr class="recycler-row-normal" ng-repeat="info in detail.transInfo[1]">
+                                        <td class="recycler-row-align-midle-left" ng-bind="info.key"></td>
+                                        <td class="recycler-row-align-midle-right" ng-bind="info.value"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>IDENTIFICATION_TRANS_FEE</span></td>
+                                        <td class="recycler-row-align-midle-right"><span>0 VND</span></td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- tr class="mt-15">
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="tdbtndesktop" style="width:50%" ng-if="detail.status === 'ABH' || detail.status === 'REJ' || detail.status === 'RBH' || detail.status === 'APT' || detail.status === 'CAC'">
+                            <input type='button' style="float:left;margin-left:65px" class='btnDesktopshadow btnDesktopBack' onclick="clickHomeOrBack()" value='COM_BACK'/>
+                        </div>
+                        <div style="width:50%" ng-if="detail.status === 'INT'">
+                            <input type='button' style="float:left;margin-left:65px" class='btnDesktopshadow btnDesktopBack' onclick="clickHomeOrBack()" value='COM_BACK'/>
+                            <input type="button" style="margin-right:100px" class="btnshadow btn-primary" ng-click="onCancelClick()" value="COM_TERMINATE_TRANS"/>
+                        </div>
+                    </td>
+                </tr> -->
+                <table class="button-group button-group-2" style="width: 100%">
+                    <tr align="center">
+                        <td>
+                            <div style="text-align: center;">
+                                <div class="tdbtndesktop" ng-if="detail.status === 'ABH' || detail.status === 'REJ' || detail.status === 'RBH' || detail.status === 'APT' || detail.status === 'CAC'">
+                                    <input class="btnshadow-after btn-second-desktop-after desktopview" onclick="clickHomeOrBack()" type="submit" value="COM_BACK">
+                                </div>
+                                <div  ng-if="detail.status === 'INT'">
+                                    <input class="btnshadow-after btn-second-desktop-after desktopview" onclick="clickHomeOrBack()" type="submit" value="COM_BACK">
+
+                                    <input style="background: #FAA60D !important" class="btnshadow-after btn-second-after btn-changecolor" ng-click='onCancelClick()' type="button" value="COM_TERMINATE_TRANS" >
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </table>
+        </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,250 @@
+<table width="100%">
+    <!--<tr>
+        <td colspan="2">
+            <div id="seqFormReview">
+                <table xmlns="http://www.w3.org/1999/xhtml" width="357" align="center" cellspacing="0" cellpadding="0"
+                       border="0" style="margin:auto" class="sequence-form-302">
+                    <tbody>
+                    <tr>
+                        <td width="33%"><span>SEQ_INPUT_TITLE</span></td>
+                        <td width="33%" class="selected"><span>SEQ_AUTHEN_TITLE</span></td>
+                        <td width="33%"><span>SEQ_COMPLETE_TITLE</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </td>
+    </tr>
+    <tr></tr>-->
+   <!-- <tr scrinfo="">
+        <td colspan="2"><h5 class="Header" style="display:none;">REVIEW_TITLE_SCREEN</h5></td>
+    </tr>-->
+    <tr>
+        <td colspan="2">
+            <h5 class="header-title"><span>COM_TXT_ACC_INFO_TITLE</span></h5>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div id="recycler_list" class="recycler-list">
+                    <table id="recycler_table_ebank" class="recycler-table-ebank">
+                        <tbody>
+                        <tr class="recycler-row-normal">
+                            <td width="50%" class="recycler-row-align-midle-left"><span>TRANS_BATCH_ACC_LABEL</span></td>
+                            <td width="50%" class="recycler-row-align-midle-right" ng-bind="infoTrans.accountNo"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td width="50%" class="recycler-row-align-midle-left"><span>CRE_DEBT_SURPLUS_AVAILABEL</span></td>
+                            <td width="50%" class="recycler-row-align-midle-right" ng-bind="infoTrans.soDuKhaDungView"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <h5 class="header-title"><span>TAX_PAY_TAX_CUST_INFO</span></h5>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div class="recycler-list">
+                    <table class="recycler-table-ebank">
+                        <tbody>
+                        <tr class="recycler-row-normal">
+                            <td width="50%" class="recycler-row-align-midle-left"><span>COM_TAX_NUMBER</span></td>
+                            <td width="50%" class="recycler-row-align-midle-right" ng-bind="infoTrans.MaSoThue"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td width="50%" class="recycler-row-align-midle-left"><span>TAX_CUST_PAY_TAX</span>
+                            </td>
+                            <td width="50%" class="recycler-row-align-midle-right" ng-bind="infoTrans.TenNNT"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td width="50%" class="recycler-row-align-midle-left"><span>TAX_CUST_PAY_TAX_ADDRESS</span></td>
+                            <td width="50%" class="recycler-row-align-midle-right"
+                                ng-bind="infoTrans.Diachi"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td width="50%" class="recycler-row-align-midle-left"><span>TAX_ORI_REVENUE_NAME</span></td>
+                            <td width="50%" class="recycler-row-align-midle-right"
+                                ng-bind="infoTrans.Ten_DVQL"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <h5 class="header-title"><span>TAX_INFO_REVENUE</span></h5>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div class="recycler-list">
+                    <table class="recycler-table-ebank">
+                        <tbody>
+                        <tr class="recycler-row-normal">
+                            <td width="50%" class="recycler-row-align-midle-left"><span>TAX_INFO_REVENUE</span></td>
+                            <td width="50%" class="recycler-row-align-midle-right" ng-bind="infoTrans.Ma_NH_TH"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td width="50%" class="recycler-row-align-midle-left"><span>TAX_BANK_BENEFICIARY_NAME</span>
+                            </td>
+                            <td width="50%" class="recycler-row-align-midle-right" ng-bind="infoTrans.Ten_NH_TH"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td width="50%" class="recycler-row-align-midle-left"><span>TAX_ACCOUNT_BENEFICIARY</span></td>
+                            <td width="50%" class="recycler-row-align-midle-right" ng-bind="infoTrans.TaiKhoan_TH"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td width="50%" class="recycler-row-align-midle-left"><span>TAX_ACCOUNT_BENEFICIARY_NAME</span></td>
+                            <td width="50%" class="recycler-row-align-midle-right" ng-bind="infoTrans.Ten_TaiKhoan_TH"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td width="50%" class="recycler-row-align-midle-left"><span>TAX_EXCHANGERATES_CODE</span></td>
+                            <td width="50%" class="recycler-row-align-midle-right" ng-bind="infoTrans.Ma_NT"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td width="50%" class="recycler-row-align-midle-left"><span>TAX_EXCHANGERATES_VALUE</span></td>
+                            <td width="50%" class="recycler-row-align-midle-right" ng-bind="infoTrans.TyGiaView"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td width="50%" class="recycler-row-align-midle-left"><span>TAX_EXCHANGE_SUM</span></td>
+                            <td width="50%" class="recycler-row-align-midle-right" ng-bind="infoTrans.TongTien_NT_View"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <h5 class="header-title"><span>TAX_INFO_DETAIL</span></h5>
+        </td>
+    </tr>
+    <div id="recycler_list1" class="recycler-list ">
+        <table id="recycler_table_ebank-desktop" class="recycler-table-ebank desktopview">
+            <tbody>
+            <tr class="recycler-row-title-header recycler-list">
+                <td class="recycler-row-align-midle-left"><span>COM_NO</span></td>
+                <td class="recycler-row-align-midle-left"><span>TAX_CONTENT</span></td>
+                <td class="recycler-row-align-midle-left"><span>TAX_CONTENT_TITLE</span></td>
+                <td class="recycler-row-align-midle-left"><span>TAX_CURRENCY_MONEY</span></td>
+                <td class="recycler-row-align-midle-left"><span>TAX_CURRENCY_MONEY_LOCAL</span></td>
+                <td class="recycler-row-align-midle-left"><span>TAX_CURRENCY_NOTE</span></td>
+            </tr>
+            <tr class="recycler-row-title recycler-list" ng-repeat="item in infoTrans.listPending track by $index">
+                <td class="recycler-row-align-midle-left"><span ng-bind="$index + 1"></span></td>
+                <td class="recycler-row-align-midle-left"><span ng-bind="item.NDKT"></span></td>
+                <td class="recycler-row-align-midle-left"><span ng-bind="item.Ten_NDKT"></span></td>
+                <td class="recycler-row-align-midle-left"><span ng-bind="item.SoTien_NT_View"></span></td>
+                <td class="recycler-row-align-midle-left"><span ng-bind="item.SoTien_VND_View"></span></td>
+                <td class="recycler-row-align-midle-left"><span ng-bind="item.GhiChu"></span></td>
+            </tr>
+        </table>
+    </div>
+    <div  class="mobileview">
+        <table style="margin-bottom: 10px;" align="center" ng-repeat="item in infoTrans.listPending track by $index" id="recycler_table_ebank-mobile" class="recycler-table-ebank recycler-list">
+            <tr class="recycler-row-normal">
+                <td class="recycler-row-align-midle-left">
+                    <span>COM_NO</span>
+                </td>
+                <td class="recycler-row-align-midle-right">
+                    <span ng-bind="$index + 1"></span>
+                </td>
+            </tr>
+            <tr class="recycler-row-normal">
+                <td class="recycler-row-align-midle-left">
+                    <span>TAX_CONTENT</span>
+                </td>
+                <td class="recycler-row-align-midle-right">
+                    <span ng-bind="item.NDKT"></span>
+                </td>
+            </tr>
+            <tr class="recycler-row-normal">
+                <td class="recycler-row-align-midle-left">
+                    <span>TAX_CONTENT_TITLE</span>
+                </td>
+                <td class="recycler-row-align-midle-right">
+                    <span ng-bind="item.Ten_NDKT"></span>
+                </td>
+            </tr>
+            <tr class="recycler-row-normal">
+                <td class="recycler-row-align-midle-left">
+                    <span>TAX_CURRENCY_MONEY</span>
+                </td>
+                <td class="recycler-row-align-midle-right">
+                    <span ng-bind="item.SoTien_NT_View"></span>
+                </td>
+            </tr>
+            <tr class="recycler-row-normal">
+                <td class="recycler-row-align-midle-left">
+                    <span>TAX_CURRENCY_MONEY_LOCAL</span>
+                </td>
+                <td class="recycler-row-align-midle-right">
+                    <span ng-bind="item.SoTien_VND_View"></span>
+                </td>
+            </tr>
+            <tr class="recycler-row-normal">
+                <td class="recycler-row-align-midle-left">
+                    <span>TAX_CURRENCY_NOTE</span>
+                </td>
+                <td class="recycler-row-align-midle-right">
+                    <span ng-bind="item.GhiChu"></span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </br>
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div class="recycler-list">
+                    <table class="recycler-table-ebank">
+                        <tbody>
+                        <tr class="recycler-row-normal">
+                            <td width="50%" class="recycler-row-align-midle-left"><span>TOTAL_MONEY_REVENUE</span></td>
+                            <td width="50%" class="recycler-row-align-midle-right" ng-bind="infoTrans.dataTotalAmountView"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td width="50%" class="recycler-row-align-midle-left"><span>TAX_FEE</span>
+                            </td>
+                            <td width="50%" class="recycler-row-align-midle-right" ng-bind="infoTrans.dataFeeView"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td width="50%" class="recycler-row-align-midle-left"><span>TAX_LOCAL_BALANCE_CONT</span></td>
+                            <td width="50%" class="recycler-row-align-midle-right" ng-bind="infoTrans.dataSoDuView"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td width="50%" class="recycler-row-align-midle-left"><span>TAX_DESCRIPTION</span></td>
+                            <td width="50%" class="recycler-row-align-midle-right" ng-bind="infoTrans.decreption"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td width="50%" class="recycler-row-align-midle-left"><span>TAX_LOCAL_DATE_TRANS</span></td>
+                            <td width="50%" class="recycler-row-align-midle-right" ng-bind="infoTrans.dateValue"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td width="50%" class="recycler-row-align-midle-left"><span>TAX_SAVE_TAX_QUERY</span></td>
+                            <td width="50%" class="recycler-row-align-midle-right" ng-bind="infoTrans.saveTaxQuery"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td width="50%" class="recycler-row-align-midle-left"><span>COM_SEND_MSG_APPROVER</span></td>
+                            <td width="50%" class="recycler-row-align-midle-right" ng-bind="infoTrans.sendMSGApprover"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+</br>

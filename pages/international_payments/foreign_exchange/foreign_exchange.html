@@ -1,0 +1,234 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller ="foreign-exchange">
+    <div class="bg-transfer">
+        <div class="panelContent">
+            <table width="100%">
+                <table class="tableTab" id="periodic-table">
+                    <tbody>
+                    <tr>
+                        <td class="content-periodic selected">
+                            <span>TRANS_PERIODIC_TRADE_TITLE</span>
+                            <span class="content-span"></span>
+                        </td>
+                        <td ng-click="showMngPage()" class="content-periodic">
+                            <span>TRANS_PERIODIC_MNG_TITLE</span>
+                            <span class="content-span"></span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </table>
+            <table width="100%" align="center">
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title"><span>FOREGIN_EXCHANGE_RATE</span></div>
+                    </td>
+                </tr>
+            </table>
+            <table align="center" class="table-exchange-rate" style="table-layout: fixed;">
+                <tr>
+                    <th width="20%"><span style="white-space:pre-wrap; color: #F60;">FOREGIN_MONEY</span></th>
+                    <th width="40%"><span style="white-space:pre-wrap; color: #F60;">FOREGIN_BUY_BY_TPB</span></th>
+                </tr>
+                <tr>
+                    <td><span style="white-space:pre-wrap; font-weight: bold;">USD</span></td>
+                    <td>
+                        <input style="white-space:pre-wrap; border: solid 1px rgb(209, 183, 224)" disabled id="rateUSD" class="form-control form-control-rightbutton table-exchange-organe"  />
+                    </td>
+                </tr>
+                <tr>
+                    <td><span style="white-space:pre-wrap; font-weight: bold;">JPY</span></td>
+                    <td>
+                        <input style="white-space:pre-wrap; border: solid 1px rgb(209, 183, 224)" disabled id="rateJPY" class="form-control form-control-rightbutton table-exchange-organe" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><span style="white-space:pre-wrap; font-weight: bold;">EUR</span></td>
+                    <td>
+                        <input style="white-space:pre-wrap; border: solid 1px rgb(209, 183, 224)" disabled id="rateEUR" class="form-control form-control-rightbutton table-exchange-organe" />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="float: left; font-weight: bold;"><span style="white-space:pre-wrap">FOREGIN_UNIT</span></td>
+                </tr>
+            </table>
+            <table width="100%" align="center">
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title"><span>FOREGIN_ACCOUNT_INFO</span></div>
+                    </td>
+                </tr>
+                <!-- Tài khoản ngoại tệ -->
+                <tr>
+                    <td colspan="2" valign="middle" align="left">
+                        <div class="input-group widefull" ng-click="showListAccountForeign()" id="holder-transfer-bank-infor" style=" line-height:30px">
+                            <span class="input-group-addon">FOREGIN_ACCOUNT</span>
+                            <input id="trans.foregin_account" type="tel" class="form-control form-control-righttext" placeholder="ACCOUNT_ACC_NO_TITLE" disabled style="cursor:pointer" />
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Số dư khả dụng -->
+                <tr>
+                    <td colspan="2">
+                        <div id="trans.sourceaccoutbalances">
+                            <div class="availblstyle widefull">
+                                <span>COM_TXT_ACC_BALANCE_TITLE</span>
+                                <span id="balance.foregin"></span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Tài khoản thanh toán -->
+                <tr>
+                    <td colspan="2" valign="middle" align="left">
+                        <div class="input-group widefull" ng-click="showListAccountVND()" style=" line-height:30px">
+                            <span class="input-group-addon">FOREGIN_ACCOUNT_PAYMENT</span>
+                            <input id="trans.foregin_account_payment" type="tel" class="form-control form-control-righttext" placeholder="ACCOUNT_ACC_NO_TITLE" disabled style="cursor:pointer" />
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Số dư khả dụng -->
+                <tr>
+                    <td colspan="2">
+                        <div id="trans.sourceaccoutbalance">
+                            <div class="availblstyle widefull">
+                                <span>COM_TXT_ACC_BALANCE_TITLE</span>
+                                <span id="balance.payment"></span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Số lượng ngoại tệ bán -->
+                <tr>
+                    <td colspan="2" valign="middle" align="left">
+                        <div class="input-group widefull" style=" line-height:30px">
+                            <span class="input-group-addon">FOREGIN_SELL_NUMBER</span>
+                            <input id="amount" style="text-align:right;" type="text" class="form-control-righttext input-with-icon" placeholder="PLACEHOLDER_TRANSFER_AMOUNT" value="" ng-model="amount" onkeyup="checkInputAmount(this,100)" ng-blur="calTotalAmount()" />
+                        </div>
+                    </td>
+                </tr>
+                <!-- Tỷ giá -->
+                <tr>
+                    <td colspan="2" valign="middle" align="left">
+                        <div class="input-group widefull" style=" line-height:30px">
+                            <span class="input-group-addon">FOREGIN_RATE</span>
+                            <input id="trans.foregin_rate" style="text-align:right;" type="tel" class="form-control-righttext input-with-icon" placeholder="FOREGIN_RATE" disabled />
+                        </div>
+                    </td>
+                </tr>
+                <!-- Tổng số tiền nhận được -->
+                <tr>
+                    <td colspan="2" valign="middle" align="left">
+                        <div class="input-group border-b widefull" style=" line-height:30px">
+                            <span class="input-group-addon">FOREGIN_TOTAL_RECEIVER_AMOUNT</span>
+                            <input id="trans.foregin_total_reveiver_amount" style="text-align:right;" type="tel" class="form-control-righttext input-with-icon" placeholder="FOREGIN_TOTAL_RECEIVER_AMOUNT" disabled />
+                        </div>
+                    </td>
+                </tr>
+                <!-- Mô tả giao dịch -->
+                <!--<tr>-->
+                <!--<td colspan="2" align="center" valign="middle" class="td-text">-->
+                <!--<div class="form-textarea-title" style="padding-left: 7px"><span>FOREGIN_DESCRIPTION</span></div>-->
+                <!--<div class="input-group">-->
+                <!--<textarea id="trans.content" class="form-control form-control-textarea" style="padding-left: 7px; margin: 0px; width: 100%" placeholder="COM_TXT_INPUT_PLACEHOLDER" maxlength="162" onkeyup="controlInputText(this, 162, false)"></textarea>-->
+                <!--</div>-->
+                <!--</td>-->
+                <!--</tr>-->
+                <tr>
+                    <td>
+                        <div class="tranfer-item">
+                            <div class="text-area-content" id="holder-transfer-message" >
+                                <div class="bg-text-area">
+                                    <div class="holderIcon">
+                                        <div style="display:table;width: 100%;height:100%">
+                                            <span style="display:table-cell;vertical-align: middle;text-align: center;font-size:24px!important" class="icon-content-note"></span>
+                                        </div>
+                                    </div>
+                                    <div class="holder-txtarea"> 
+                                        <div class="area dummy">PLACEHOLDER_TRANSFER_CONTENT</div>
+                                        <textarea class="area" id="trans.content" placeholder="PLACEHOLDER_TRANSFER_CONTENT" maxlength="100" 
+                                        onblur="removeCharAnd_New(this)" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Gửi thông báo cho người duyệt -->
+                <tr>
+                    <td colspan="2" valign="middle" align="left">
+                        <div class="input-group widefull" style=" line-height:30px">
+                            <span class="input-group-addon">COM_SEND_MSG_APPROVER</span>
+                            <input id="id.notifyTo" type="text" class="form-control form-control-righttext" value="" disabled />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <table class="table-exchange-notice">
+                <tr>
+                    <td>
+                        <span style="font-weight: bold">FOREGIN_EXCHANGE_NOTICE_1</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>FOREGIN_EXCHANGE_NOTICE_2</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>FOREGIN_EXCHANGE_NOTICE_3</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>FOREGIN_EXCHANGE_NOTICE_4</span>
+                    </td>
+                </tr>
+            </table>
+            <table width="100%" style="padding-top: 10px">
+                <!-- <tr>
+                    <td>
+                        <input type="button" id="btnNext" class="btnshadow btn-second" value="COM_CONTINUE" ng-click="sendJSONRequest()" />
+                    </td>
+                </tr> -->
+                <tr class="mt-15">
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="tdbtndesktop" style="width:50%">
+                            <input type="submit" style="float:left;margin-left:65px" class="btnDesktopshadow btnDesktopBack" onclick="clickHomeOrBack()" value="Quay lại" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off">
+                        </div>
+                        <div style="width:50%">
+                            <input type="button" id="btnNext" style="margin-right:100px" class="btnshadow btn-second" ng-click="sendJSONRequest()" value="COM_CONTINUE" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br />
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)"></div>
+    <div id="divListGroupInput" class="list-group dialog-list"></div>
+</div>
+<style>
+    .accountName,.accountNumber,.accountBalance{
+        color: #000000;
+        float:right;
+        width: 75%;
+    }
+    .accName{
+        width: 25%;
+        float: left;
+    }
+    .tranfer-item  .holder-txtarea{
+        float:right;width: 75%;
+        height:70px;
+    }
+</style>

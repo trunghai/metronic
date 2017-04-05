@@ -1,0 +1,109 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="pay_tax_charge_imexport"
+     style="height: 417px;top:44px">
+    <div id="content-transfer" style="display:block" class="bg-transfer">
+        <div class="panelContent" style="margin-top:0px;padding-top:0px">
+            <!--<div><h5 class="screen-title"><span>MENU_CHILD_PAY_TAX</span></h5></div>
+            <div class="line-separate"/>
+            <div id="seqFormLocal"></div>
+            <h5 class="Header"><span style="white-space:pre-wrap">TAX_PAY_TAX_CUST_INFO</span></h5> -->
+            <table width='100%' align='center'>
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title"><span>TAX_PAY_TAX_CUST_INFO</span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div align="center">
+                            <div id="recycler_list" class="recycler-list">
+                                <table id="recycler_table_ebank" class="recycler-table-ebank">
+                                    <tbody>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>COM_TAX_NUMBER</span></td>
+                                        <td class="recycler-row-align-midle-right"><span id="imEx.TaxNo"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>TAX_CUST_PAY_TAX</span></td>
+                                        <td class="recycler-row-align-midle-right"><span id="imEx.TaxName"></span></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td class="recycler-row-align-midle-left"><span>TAX_CUST_PAY_TAX_ADDRESS</span>
+                                        </td>
+                                        <td class="recycler-row-align-midle-right"><span id="imEx.TaxAddress"></span>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <table width='100%' align='center'>
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title"><span>COM_DECLAR</span></div>
+                    </td>
+                </tr>
+            </table>
+            <!--<div ng-include="'pages/payment_service/create/tax/pay_tax_charge_imexport_tbl.html'"></div>-->
+            <div id="recycler_list2">
+                <table id="recycler_table_ebank-desktop" class="recycler-table-ebank desktopview">
+                    <tbody>
+                    <tr class="recycler-row-title-header recycler-list">
+                        <td class="recycler-row-align-midle-left"><span>COM_NO</span></td>
+                        <td class="recycler-row-align-midle-left"><span>COM_DECLAR</span></td>
+                        <td class="recycler-row-align-midle-left"><span>TAX_IM_EX_TBL_YEAR_DECLAR</span></td>
+                        <td class="recycler-row-align-midle-left"><span>TAX_IM_EX_TBL_HAI_QUAN_PHAT_HANH</span></td>
+                    </tr>
+                    <tr class="recycler-row-title recycler-list" align="center" ng-repeat="item in listPending track by $index">
+                        <td class="recycler-row-align-midle-left"><span ng-bind="$index + 1"></span></td>
+                        <td class="recycler-row-align-midle-left"><span ng-bind="item.SoTK"></span></td>
+                        <td class="recycler-row-align-midle-left"><span ng-bind="item.NamDK"></span></td>
+                        <td class="recycler-row-align-midle-left"><a style="white-space:pre-wrap;"
+                                                                     class="ref-link"
+                                                                     ng-click="imExportDetail(item.So_TK, item.Nam_DK, $index+1)"
+                                                                     href="javascript:void(0)"><span
+                                ng-bind="item.TenHQPH"></span></a></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table style='margin-bottom:10px;' class='recycler-list mobileview' ng-repeat="item in listPending track by $index">
+                    <tr class="recycler-row-normal">
+                        <td colspan="1" class="recycler-row-align-midle-left"><span>COM_NO</span></td>
+                        <td class="recycler-row-align-midle-right"><span ng-bind="$index + 1"></span></td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td colspan="1" class="recycler-row-align-midle-left"><span>COM_DECLAR</span></td>
+                        <td class="recycler-row-align-midle-right"><span ng-bind="item.SoTK"></span></td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td colspan="1" class="recycler-row-align-midle-left"><span>TAX_IM_EX_TBL_YEAR_DECLAR</span></td>
+                        <td class="recycler-row-align-midle-right"><span ng-bind="item.NamDK"></span></td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td colspan="1" class="recycler-row-align-midle-left"><span>TAX_IM_EX_TBL_HAI_QUAN_PHAT_HANH</span></td>
+                        <td class="recycler-row-align-midle-right">
+                            <a style="white-space:pre-wrap;" class="ref-link" ng-click="imExportDetail(item.So_TK, item.Nam_DK, $index+1)"
+                               href="javascript:void(0)"><span ng-bind="item.TenHQPH"></span></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br/>
+
+            <div>
+                <div class="tdbtndesktop" style="width:50%">
+                    <input type="submit" style="float:left;margin-left:75px" class="btnDesktopshadow btnDesktopBack"
+                           ng-click="backToScreenDtl()" value="CM_BTN_GOBACK" autocomplete="off" autocorrect="off"
+                           autocapitalize="off" spellcheck="off">
+                </div>
+                <!--<input type="button" class="btnshadow btn-second" ng-click="backToScreenDtl()" value="CM_BTN_GOBACK"/>-->
+            </div>
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>

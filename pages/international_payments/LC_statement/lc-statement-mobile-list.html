@@ -1,0 +1,28 @@
+<div style="margin-top: 10px;" class="recycler-list mobilemodedst" ng-repeat="item in listLC track by $index">
+    <table id="recycler_table_ebank" class="recycler-table-ebank">
+        <!--<tr class="recycler-row-normal recycler-header-hightlight">-->
+            <!--<td width="50%" class="recycler-row-align-midle-left"><span>COM_NO</span></td>-->
+            <!--<td width="50%" class="recycler-row-align-midle-right"><span ng-bind="$index + 1"></span></td>-->
+        <!--</tr>-->
+        <tr class="recycler-row-normal recycler-hover">
+            <td class="recycler-row-align-midle-left"><span>LC_CONTRACT_REFERENCE</span></td>
+            <td class="recycler-row-align-midle-right" onclick="referenceDetail(this)"><a><span ng-bind="item.myHashMap.CONTRACT_REF_NO"></span></a></td>
+        </tr>
+        <tr class="recycler-row-normal recycler-hover">
+            <td class="recycler-row-align-midle-left"><span>LC_REGISTER_DATE</span></td>
+            <td class="recycler-row-align-midle-right"><span ng-bind="item.myHashMap.ISSUE_DATE"></span></td>
+        </tr>
+        <tr class="recycler-row-normal recycler-hover">
+            <td class="recycler-row-align-midle-left"><span>LC_EXPIRED_DATE</span></td>
+            <td class="recycler-row-align-midle-right"><span ng-bind="item.myHashMap.EXPIRY_DATE"></span></td>
+        </tr>
+        <tr class="recycler-row-normal recycler-hover">
+            <td class="recycler-row-align-midle-left"><span>LC_VALUE</span></td>
+            <td class="recycler-row-align-midle-right"><span ng-bind="item.myHashMap.LIABILITY_AMOUNT + ' ' + item.myHashMap.CONTRACT_CCY"></span></td>
+        </tr>
+        <tr class="recycler-row-normal recycler-hover">
+            <td class="recycler-row-align-midle-left"><span>LC_PROFILES</span></td>
+            <td class="recycler-row-align-midle-right" onclick="goToViewScreen(this)"><input type="text" name="{{item.myHashMap.CONTRACT_REF_NO}}" style="display: none;"><a><span class="no-check">Xem</span></a></td>
+        </tr>
+    </table>
+</div>

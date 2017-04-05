@@ -1,0 +1,73 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="lc-statement" style="height: 621px; top: 44px; bottom: 0px;">
+    <div class="panelContent">
+        <table style="padding-top:15px;margin-left: 1%; width: 99%" align="center" class="">            
+            <tr>
+                <td colspan="3" align="center" valign="middle" class="td-text"><div class="input-group" ng-click="showLcTypeSelection();"> <span class="input-group-addon" >LC_TYPE</span>
+                    <input id="lcType" type="button" class="form-control form-control-righttext" placeholder="COM_TXT_INPUT_PLACEHOLDER" value="COM_ALL" />
+                    <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                    <input type='hidden' id='lcTypeVal' value="ALL" />
+                </div></td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center" valign="middle" class="td-text">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="white-space:pre-wrap">GIFT_XCHNG_HIS_FROM_DATE_TITLE</span>
+                        <input id="id.begindate" type="tel" placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value="" class="form-control form-control-righttext-datepicker"
+                               onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" />
+                        <span onclick="initDialogCal('id.begindate')" id="begindate" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center" valign="middle" class="td-text">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="white-space:pre-wrap">GIFT_XCHNG_HIS_TO_DATE_TITLE</span>
+                        <input id="id.enddate" type="tel" placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value="" class="form-control form-control-righttext-datepicker"
+                               onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" />
+                        <span onclick="initDialogCal('id.enddate')" id="enddate" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr class='trow-space'></tr>
+            <tr>
+                <td>
+                    <span style="float: right;" class="btnDesktopshadow btnHomeShadow" type="button"  onclick="clickHomeOrBack()">CM_BTN_GOBACK</span>
+                </td>
+                <td>
+                    <span id="btn_search" class="btnshadow btn-second" type="button" ng-click="onSearchLC()">COM_SEARCH</span>
+                </td>
+            </tr>
+
+        </table>
+
+        <table width="100%">
+            <tr>
+                <td id="emptyData" style="display: none;">
+                    <div><span>ERR_NO_DATA</span></div>
+                </td>
+            </tr>
+            <tr>
+                <td id="hasData">
+                    <div id="screenMobile" style="margin-top: 5px" ng-include="srcmobile"></div>
+                    <div id="screenDesk" style="margin-top: 5px;" ng-include="src"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="holder-bottom-bar">
+
+    </div>
+    <div class="mobilemode" id="dialog-container">
+
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<!--ThuanTM -->
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

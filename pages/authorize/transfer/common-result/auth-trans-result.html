@@ -1,0 +1,51 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="auth-trans-result" style="height: 621px; top: 44px; bottom: 0px;">
+    <div class="panelContent">
+        <table width="100%">
+            <tr>
+                <td>
+                    <div id="seqFormReview">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center">
+                    <div ng-class="result.messageIconClass" style="display: inline; color: #FAA60D; font-size: 24px; vertical-align: middle; padding: 5px 0px 5px 0px;"></div>
+                    <span style="font-size:16px; vertical-align:middle" ng-bind="result.message"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="screenMobile" style="margin-top: 5px" ng-include="srcmobile" style="display: none"></div>
+                    <div id="screenDesk" style="margin-top: 5px" ng-include="src" style="display: none"></div>
+                </td>
+            </tr>
+        </table>
+        <div class="recycler-list" style="margin: 0 auto;width: 97.6%;">
+            <table  align="center" id="trans.reason">
+                <tr class="recycler-row-normal">
+					<td class="recycler-row-align-midle-left"><span>COM_AUTH_DENIAL_REASON</span></td>
+					<td class="recycler-row-align-midle-right" style="word-break: break-all;">{{reasonreject}}</td>
+                </tr>
+            </table>
+        </div>
+        <table width="100%">
+            <tbody>
+			<tr class="trow-space"></tr>
+            <tr align="center">
+                <td>
+                    <!-- <div style="text-align: right;">
+                        <input id="authen-send-request" class="btnshadow-after btn-second-after" ng-click="onClickOtherTrans()"  type="button" value="COM_AUTHORIZE_OTHER_TRANS"/>
+                    </div> -->
+                    
+                    <button class="btnshadow btn-second desktopview" type="button" ng-click="onClickOtherTrans()" ><span>COM_AUTHORIZE_OTHER_TRANS</span></button>
+                    <div style="width: 50%" class="mobileview"> 
+                        <button class="btnshadow btn-second" type="button" ng-click="onClickOtherTrans()" ><span>COM_AUTHORIZE_OTHER_TRANS</span></button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="holder-bottom-bar"></div>
+    <div class="mobileview" id="dialog-container"></div>
+</div>

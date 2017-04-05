@@ -1,0 +1,72 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="com_list_user_approve" style="height: 417px;top:44px">
+    <div id="content-transfer" class="bg-transfer">
+        <div class="panelContent" style="margin-top:0px;padding-top:0px">
+            <table width="100%">
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title">
+                            <span>COM_LIST_USER_APPROVE_ITEM_TITLE</span>
+                        </div>
+                    </td>
+                </tr>
+                <div class="">
+                    <table class="desktopview recycler-table-ebank " align="center" width="100%">
+                        <thead>
+                        <tr class="recycler-row-title-header recycler-list">
+                            <td class="recycler-row-align-midle"><span>COM_NO</span></td>
+                            <td class="recycler-row-align-midle"><span>COM_LIST_USER_APPROVE_TBL_NAME</span></td>
+                            <td class="recycler-row-align-midle"><span>COM_LIST_USER_APPROVE_TBL_CODE</span></td>
+                            <td class="recycler-row-align-midle"><span>COM_LIST_USER_APPROVE_TBL_POSITION</span></td>
+                            <td class="recycler-row-align-midle"><span>COM_LIST_USER_APPROVE_TBL_PHONE</span></td>
+                            <td class="recycler-row-align-midle"><span>COM_LIST_USER_APPROVE_TBL_EMAIL</span></td>
+                        </tr>
+                        </thead>
+                        <tbody id="tbodyDetail">
+                        <tr class="recycler-row-title recycler-list" ng-repeat="trans in approveList track by $index">
+                            <td class="recycler-row-align-midle-left"><div ng-bind="$index + 1"></div></td>
+                            <td class="recycler-row-align-midle-left"><div  ng-bind="trans.FIRSTNAME"></div></td>
+                            <td class="recycler-row-align-midle-left"><div ng-bind="trans.IDUSER"></div></td>
+                            <td class="recycler-row-align-midle-left"><div ng-bind="trans.POSITION"></div></td>
+                            <td class="recycler-row-align-midle-left"><div  ng-bind="trans.PHONENUMBER"></div></td>
+                            <td class="recycler-row-align-midle-left"><span ng-bind="trans.EMAIL"></span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table style="margin-top:10px" ng-repeat="trans in approveList track by $index" width='100%' align='center' class='recycler-hover recycler-list mobileview'>
+                        <tr>
+                            <td class="recycler-row-align-midle-left"><div><span>COM_NO</span></div></td>
+                            <td class="recycler-row-align-midle-right"><div><span ng-bind="$index + 1"></span></div></td>
+                        </tr>
+                        <tr>
+                            <td class="recycler-row-align-midle-left"><div><span>COM_LIST_USER_APPROVE_TBL_NAME</span></div></td>
+                            <td class="recycler-row-align-midle-right"><div><span ng-bind="trans.FIRSTNAME"></span></div></td>
+                        </tr>
+                        <tr>
+                            <td class="recycler-row-align-midle-left"><div><span>COM_LIST_USER_APPROVE_TBL_CODE</span></div></td>
+                            <td class="recycler-row-align-midle-right"><div><span ng-bind="trans.IDUSER"></span></div></td>
+                        </tr>
+                        <tr>
+                            <td class="recycler-row-align-midle-left"><div><span>COM_LIST_USER_APPROVE_TBL_POSITION</span></div></td>
+                            <td class="recycler-row-align-midle-right"><div><span ng-bind="trans.POSITION"></span></div></td>
+                        </tr>
+                        <tr>
+                            <td class="recycler-row-align-midle-left"><div><span>COM_LIST_USER_APPROVE_TBL_PHONE</span></div></td>
+                            <td class="recycler-row-align-midle-right"><div><span ng-bind="trans.PHONENUMBER"></span></div></td>
+                        </tr>
+                        <tr>
+                            <td class="recycler-row-align-midle-left"><div><span>COM_LIST_USER_APPROVE_TBL_EMAIL</span></div></td>
+                            <td class="recycler-row-align-midle-right"><span  ng-bind="trans.EMAIL"></span></td>
+                        </tr>
+                    </table>
+                </div>
+                <tr class="mt-15">
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="tdbtndesktop" style="width:50%">
+                            <input type='button' style="float:left;margin-left:35%" class='btnDesktopshadow btnDesktopBack' onclick="clickHomeOrBack()" value='COM_BACK'/>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

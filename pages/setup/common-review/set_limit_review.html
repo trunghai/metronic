@@ -1,0 +1,70 @@
+	<table width="9%">
+		<tr>
+			<td colspan="2"><div id="seqFormReview">
+				<table xmlns="http://www.w3.org/1999/xhtml" width="357" align="center" cellspacing="0" cellpadding="0" border="0" style="margin:auto" class="sequence-form-302">
+					<tbody>
+					<tr>
+						<td width="33%"><span>Nhập</span></td>
+						<td width="33%" class="selected"><span>Xác thực</span></td>
+						<td width="33%"><span>Hoàn tất</span></td>
+					</tr>
+					</tbody>
+				</table></div>
+			</td>
+		</tr>
+		<!--<tr>
+			<td colspan="2">
+				<h5 class="header-title" ng-bind="infoTrans.title"></h5>
+			</td>
+		</tr>-->
+			<table class='recycler-table-ebank desktopview' align='center' style='table-layout: fixed;'>
+				<tbody>
+				<tr class="recycler-row-title-header recycler-list">
+					<td class='recycler-row-align-midle' rowspan='2'><span>CONST_TRANS_LIMIT_TIT_SERVICE</span></td>
+					<td class='recycler-row-align-midle' colspan='2'><span>CONST_TRANS_LIMIT_TIT_MAX_LIMIT</span></td>
+					<td class='recycler-row-align-midle' colspan='2'><span>CONST_TRANS_LIMIT_TIT_SELECTED_LIMIT</span></td>
+				</tr>
+				<tr class="recycler-row-title-header recycler-list">
+					<td class='recycler-row-align-midle'><span>CONST_TRANS_LIMIT_TIT_LIMIT_CURRENT_TIME</span></td>
+					<td class='recycler-row-align-midle'><span>CONST_TRANS_LIMIT_TIT_LIMIT_CURRENT_DAY</span></td>
+					<td class='recycler-row-align-midle'><span>CONST_TRANS_LIMIT_TIT_LIMIT_CURRENT_TIME</span></td>
+					<td class='recycler-row-align-midle'><span>CONST_TRANS_LIMIT_TIT_LIMIT_CURRENT_DAY</span></td>
+				</tr>
+
+				<tr class="recycler-row-title recycler-list recycler-row-align-midle" align="center" ng-repeat="(h1, h2) in detailCommon.limitTbl">
+					<td class="recycler-row-align-midle"><span>{{h2.TENDV}}</span></td>
+					<td class="recycler-row-align-midle"><span>{{(h2.HAN_MUC_LAN_MAX | currency : '' : 0)}}</span></td>
+					<td class="recycler-row-align-midle"><span>{{(h2.HAN_MUC_NGAY_MAX | currency : '' : 0)}}</span></td>
+					<td class="recycler-row-align-midle"><span>{{(h2.HAN_MUC_LAN | currency : '' : 0)}}</span></td>
+					<td class="recycler-row-align-midle"><span>{{(h2.HAN_MUC_NGAY | currency : '' : 0)}}</span></td>										
+				</tr>
+				</tbody>
+			</table>
+
+					<table  ng-repeat="(h1, h2) in detailCommon.limitTbl" class="recycler-table-ebank mobileview recycler-list margin-bottom" width='98%' align='center' id="recycler_table_ebank-mobile">
+						<tbody>
+						<tr class='recycler-row-normal'>
+							<td class='recycler-row-align-midle-left'><span>CONST_TRANS_LIMIT_TIT_SERVICE</span></td>
+							<td class='recycler-row-align-midle-right'><span>{{h2.TENDV}}</span></td>
+						</tr>
+						<tr class='recycler-row-normal'>
+							<td class='recycler-row-align-midle-left'><span>CONST_TRANS_LIMIT_TIT_LIMIT_CURRENT_TIME_MAX</span></td>
+							<td class='recycler-row-align-midle-right'><span>{{(h2.HAN_MUC_LAN_MAX | currency : '' : 0)}}</span></td>
+						</tr>
+						<tr class='recycler-row-normal'>
+							<td class='recycler-row-align-midle-left'><span>CONST_TRANS_LIMIT_TIT_LIMIT_CURRENT_DAY_MAX</span></td>
+							<td class='recycler-row-align-midle-right'><span>{{(h2.HAN_MUC_NGAY_MAX | currency : '' : 0)}}</span></td>
+						</tr>
+						<tr class="recycler-row-normal">
+							<td class="recycler-row-align-midle-left"><span>CONST_TRANS_LIMIT_TIT_LIMIT_CURRENT_TIME</span></td>
+							<td class="recycler-row-align-midle-right"><span>{{(h2.HAN_MUC_LAN | currency : '' : 0)}}</span></td>
+						</tr>
+						<tr class="recycler-row-normal">
+							<td class="recycler-row-align-midle-left"><span>CONST_TRANS_LIMIT_TIT_LIMIT_CURRENT_DAY</span></td>
+							<td class="recycler-row-align-midle-right"><span>{{(h2.HAN_MUC_NGAY | currency : '' : 0)}}</span></td>
+						</tr>
+						</tbody>
+					</table>
+
+				
+	</table>

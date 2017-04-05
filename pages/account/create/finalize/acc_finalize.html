@@ -1,0 +1,64 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="acc_finalize">
+    <div class="panelContent">
+        <div id="seqFormLocal"></div>
+        <br/>
+        <tr>
+            <td><div id="div-datainfo" align="center"> </div></td>
+        </tr>
+        <br/>
+
+        <tr><td colspan="2"><div class="header-title desktopview" style="float: left;padding-left: 5px"><span>COM_ACC_TRANS</span></div></td></tr>
+        <tr><td colspan="2"><div class="header-title mobileview" style="float: left;"><span>COM_ACC_TRANS</span></div></td></tr>
+        <table width="100%" align="center">
+            <tr>
+                <td colspan="2" align="center" valign="middle" class="td-text">
+                    <div class="input-group widefull" ng-click="showAccountSelection()">
+                        <span class="input-group-addon" style="white-space:pre-wrap; width:40%">ACCOUNT_FINALIZE_DTL_GOAL_ACC</span>
+                        <input id="id.accountno" type="button" onchange="loadInfoFromIdAccount(this)" class="form-control form-control-rightbutton"
+                               value="COM_TXT_SELECTION_PLACEHOLDER"/>
+                        <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center" valign="middle" class="td-text">
+                    <div class="input-group widefull">
+                        <span class="input-group-addon"
+                              style="white-space:pre-wrap; width:40%">COM_SEND_MSG_APPROVER</span>
+                        <input id="id-trans-local" type="button" style="white-space:pre-wrap;"
+                               class="form-control form-control-righttext" disabled="true"/>
+                        <span class="input-group-addon input-group-symbol"></span>
+                    </div>
+                </td>
+            </tr>
+            <!-- <tr>
+                <td class="td-text" width="100%" style="padding:3px; text-align:right;"><u>
+                    <a onclick="showBankName()" id='listUserApprove'
+                       style="font-style:italic; cursor:pointer; padding-left:7px; white-space:pre-wrap;"><span>COM_VIEW_LIST_APPROVER</span></a></u>
+                </td>
+            </tr> -->
+        </table>
+        <br/>
+        <table width="100%">
+            <tbody>
+            <tr>
+                <td colspan="2" align="center" valign="middle" class="td-text">
+                    <div class="tdbtndesktop" style="width:50%"><input type="submit"
+                                                                       style="float:left;margin-left:65px;margin-top:10px;"
+                                                                       class="btnDesktopshadow btnDesktopBack"
+                                                                       onclick="clickHomeOrBack()"
+                                                                       value="CM_BTN_GOBACK"></div>
+                    <div style="width:50%"><input id="exeTrans" type="button"
+                                                  style="margin-right:40px;margin-top:10px; font-size: 14px"
+                                                  class="btnshadow btn-second" ng-click="exeTrans()"
+                                                  value="CM_BTN_SEND_REQ"></div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>

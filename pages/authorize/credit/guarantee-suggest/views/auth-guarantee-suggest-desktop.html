@@ -1,0 +1,30 @@
+<div id="recycler_list">
+    <table id="recycler_table_ebank-desktop" class="recycler-table-ebank">
+        <tbody>
+        <tr class='recycler-row-title-header recycler-list'>
+            <td  class="recycler-row-align-midle-left"><span>COM_NO</span></td>
+            <td  class="recycler-row-align-midle-left"><span>COM_MAKER</span></td>
+            <td  class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>
+            <td  class="recycler-row-align-midle-left"><span>LOAN_BORROW_MONEY</span></td>
+            <td  class="recycler-row-align-midle-left"><span>DATE_LOAN_AMOUNT</span></td>
+            <td  class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+            <td  class="recycler-row-align-midle"><input type="checkbox" onclick="selectAllRow('recycler_table_ebank-desktop', 'recycler_table_ebank-mobile', this)" name="parent_0"></td>
+            <!--<td width="50%" class="recycler-row-align-midle-left"><span>AUTHORIZE_TRANS_TIT_COUNT_PENDING</span></td>-->
+        </tr>
+        <tr class="recycler-row-title recycler-list" ng-repeat="item in listPending track by $index">
+            <td  class="recycler-row-align-midle-left"><span ng-bind="$index + 1"></span></td>
+            <td  class="recycler-row-align-midle-left"><span ng-bind="item.CREATE_BY"></span></td>
+            <td  class="recycler-row-align-midle-left"><span ng-bind="item.NGAY_LAP"></span></td>
+            <td  class="recycler-row-align-midle-left"><span ng-bind="(item.SO_LUONG | currency : ' ' : 0) + ' ' + item.LOAI_TIEN"></span></td>
+            <td  class="recycler-row-align-midle-left"><span ng-bind="item.THOI_HAN_VAY + ' tháng'" ></span></td>
+            <td  class="recycler-row-align-midle-left" ng-click="goToViewScreen(item.MA_GD)"><a><span class="no-check" ng-bind="item.MA_GD"></span></a></td>
+            <td  class="recycler-row-align-midle"><input class="trans.checkbox" type="checkbox" onclick="deSelectRow('recycler_table_ebank-desktop', 'recycler_table_ebank-mobile', this)" name="{{item.MA_GD}}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div align="right" style="float: right; width:100%">
+    <div class="export-print" id="acchis.exportfile" onclick="exportExcelDebtHistory()" style="display: inline-block;float:right; cursor: pointer;">
+        <img style="margin-top: 20px; margin-right:10px; margin-bottom: 20px;" src="css/img/exportfile.png" />
+    </div>
+</div>

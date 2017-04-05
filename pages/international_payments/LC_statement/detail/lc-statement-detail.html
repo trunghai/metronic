@@ -1,0 +1,154 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="lc-statement-detail" style="height: 621px; top: 44px; bottom: 0px;">
+      <div class="panelContent">
+            <div id="printPage">
+            <div id="detailImport" class="recycler-list" style="margin: 10px; margin-left: 2%; width: 98%;">
+                  <!-- nhập khẩu desktop -->
+
+                  <table style="width: 98%" id="recycler_table_ebank" class="recycler-table-ebank desktopview">
+                        <tr class="recycler-row-parity">
+                              <td class="recycler-row-align-midle-left" style="width:25%;"><span>LC_CONTRACT_REFERENCE_NO</span></td>
+                              <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;"><span ng-bind="detailRef.CONTRACT_REF_NO"></span></td>
+                              <td class="recycler-row-align-midle-left" style="width:25%;"><span>LC_PRODUCT_DESCRIPTION</span></td>
+                              <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="detailRef.PRODUCT_DESCRIPTION"></td>
+                        </tr>
+                        <tr class="recycler-row-parity">
+                              <td class="recycler-row-align-midle-left" style="width:25%;"><span>LC_LIABILITY_AMOUNT</span></td>
+                              <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;"><span ng-bind="detailRef.LIABILITY_AMOUNT + ' ' + detailRef.CONTRACT_CCY"></span></td>
+                              <td class="recycler-row-align-midle-left" style="width:25%;"><span>LC_BILL_AMOUNT</span></td>
+                              <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="(detailRef.BILL_AMOUNT | currency: '' : 0) + ' ' + detailRef.CONTRACT_CCY"></td>
+                        </tr>
+                        <tr class="recycler-row-parity">
+                              <td class="recycler-row-align-midle-left" style="width:25%;"><span>LC_REMAIN_VALUE</span></td>
+                              <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;"><span ng-bind="(REMAIN_VALUE | currency: '' : 0) + ' ' + detailRef.CONTRACT_CCY"></span></td>
+                              <td class="recycler-row-align-midle-left" style="width:25%;"><span>LC_REGISTER_DATE</span></td>
+                              <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="detailRef.ISSUE_DATE"></td>
+                        </tr>
+                        <tr class="recycler-row-parity">
+                              <td class="recycler-row-align-midle-left" style="width:25%;"><span>LC_EXPIRED_DATE2</span></td>
+                              <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;"><span ng-bind="detailRef.EXPIRY_DATE"></span></td>
+                              <td class="recycler-row-align-midle-left" style="width:25%;"><span>LC_BENEFICIARY</span></td>
+                              <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="detailRef.BEN_CUSTOMER_NAME"></td>
+                        </tr>
+                        <tr class="recycler-row-parity">
+                              <td class="recycler-row-align-midle-left" style="width:25%;"><span>LC_NNTB</span></td>
+                              <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;"><span ng-bind="detailRef.ABK_CUSTOMER_NAME"></span></td>
+                              <td class="recycler-row-align-midle-left" style="width:25%;"><span>LC_NNDL</span></td>
+                              <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="detailRef.ATB_CUSTOMER_NAME"></td>
+                        </tr>
+                  </table>
+
+                  <!-- nhập khẩu mobile -->
+                  <table  width="100%" style="display: none;" class="recycler-table-ebank mobileview">            
+                        <tr class="recycler-row-normal recycler-hover">
+                        	<td class="recycler-row-align-midle-left"><span>LC_CONTRACT_REFERENCE_NO</span></td>
+                        	<td class="recycler-row-align-midle-right"><span ng-bind="detailRef.CONTRACT_REF_NO"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal recycler-hover">
+                        	<td class="recycler-row-align-midle-left"><span>LC_PRODUCT_DESCRIPTION</span></td>
+                        	<td class="recycler-row-align-midle-right"><span ng-bind="detailRef.PRODUCT_DESCRIPTION"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal recycler-hover">
+                        	<td class="recycler-row-align-midle-left"><span>LC_LIABILITY_AMOUNT</span></td>
+                        	<td class="recycler-row-align-midle-right"><span ng-bind="detailRef.LIABILITY_AMOUNT + ' ' + detailRef.CONTRACT_CCY"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal recycler-hover">
+                        	<td class="recycler-row-align-midle-left"><span>LC_BILL_AMOUNT</span></td>
+                        	<td class="recycler-row-align-midle-right"><span ng-bind="(detailRef.BILL_AMOUNT | currency: '' : 0) + ' ' + detailRef.CONTRACT_CCY"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal recycler-hover">
+                        	<td class="recycler-row-align-midle-left"><span>LC_REMAIN_VALUE</span></td>
+                        	<td class="recycler-row-align-midle-right"><span ng-bind="(REMAIN_VALUE | currency: '' : 0) + ' ' + detailRef.CONTRACT_CCY"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal recycler-hover">
+                        	<td class="recycler-row-align-midle-left"><span>LC_REGISTER_DATE</span></td>
+                        	<td class="recycler-row-align-midle-right"><span ng-bind="detailRef.ISSUE_DATE"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal recycler-hover">
+                        	<td class="recycler-row-align-midle-left"><span>LC_EXPIRED_DATE2</span></td>
+                        	<td class="recycler-row-align-midle-right"><span ng-bind="detailRef.EXPIRY_DATE"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal recycler-hover">
+                        	<td class="recycler-row-align-midle-left"><span>LC_BENEFICIARY</span></td>
+                        	<td class="recycler-row-align-midle-right"><span ng-bind="detailRef.BEN_CUSTOMER_NAME"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal recycler-hover">
+                        	<td class="recycler-row-align-midle-left"><span>LC_NNTB</span></td>
+                        	<td class="recycler-row-align-midle-right"><span ng-bind="detailRef.ABK_CUSTOMER_NAME"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal recycler-hover">
+                        	<td class="recycler-row-align-midle-left"><span>LC_NNDL</span></td>
+                        	<td class="recycler-row-align-midle-right"><span ng-bind="detailRef.ATB_CUSTOMER_NAME"></span></td>
+                        </tr>
+                  </table>
+            </div>
+            <div id="detailExport" class="recycler-list" style="margin: 10px; margin-left: 2%; width: 98%;">
+                  <!-- xuất khẩu  desktop -->                  
+                  <table style="width: 98%" id="recycler_table_ebank" class="recycler-table-ebank desktopview">
+                        <tr class="recycler-row-parity">
+                              <td class="recycler-row-align-midle-left" style="width:25%;"><span>LC_CONTRACT_REFERENCE_NO</span></td>
+                              <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;"><span ng-bind="detailRef.CONTRACT_REF_NO"></span></td>
+                              <td class="recycler-row-align-midle-left" style="width:25%;"><span>LC_PRODUCT_DESCRIPTION</span></td>
+                              <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="detailRef.PRODUCT_DESCRIPTION"></td>
+                        </tr>
+                        <tr class="recycler-row-parity">
+                              <td class="recycler-row-align-midle-left" style="width:25%;"><span>LC_REGISTER_DATE</span></td>
+                              <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;"><span ng-bind="detailRef.ISSUE_DATE"></span></td>
+                              <td class="recycler-row-align-midle-left" style="width:25%;"><span>LC_LIABILITY_AMOUNT</span></td>
+                              <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="detailRef.LIABILITY_AMOUNT + ' ' + detailRef.CONTRACT_CCY"></td>
+                        </tr>
+                        <tr class="recycler-row-parity">
+                              <td class="recycler-row-align-midle-left" style="width:25%;"><span>LC_NGAY_GIAO_HANG_MUON_NHAT</span></td>
+                              <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;"><span ng-bind="detailRef.SHIP_DATE"></span></td>
+                              <td class="recycler-row-align-midle-left" style="width:25%;"><span>LC_NGAY_XUAT_TRINH_CHUNG_TU</span></td>
+                              <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="detailRef.ISSUE_DATE"></td>
+                        </tr>
+                        <tr class="recycler-row-parity">
+                              <td class="recycler-row-align-midle-left" style="width:25%;"><span>LC_NGUOI_NHAP_KHAU</span></td>
+                              <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;"><span ng-bind="detailRef.APP_CUSTOMER_NAME"></span></td>
+                              <td class="recycler-row-align-midle-left" style="width:25%;"><span>LC_NGAN_HANG_PHAT_HANH</span></td>
+                              <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="detailRef.ISB_CUSTOMER_NAME"></td>
+                        </tr>
+                  </table>
+                  <!-- xuất khẩu  mobile -->
+                  <table  width="100%" style="display: none;" align="center" class="recycler-table-ebank">            
+                        <tr class="recycler-row-normal recycler-hover">
+                        	<td class="recycler-row-align-midle-left"><span>LC_CONTRACT_REFERENCE_NO</span></td>
+                        	<td class="recycler-row-align-midle-right"><span ng-bind="detailRef.CONTRACT_REF_NO"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal recycler-hover">
+                        	<td class="recycler-row-align-midle-left"><span>LC_PRODUCT_DESCRIPTION</span></td>
+                        	<td class="recycler-row-align-midle-right"><span ng-bind="detailRef.PRODUCT_DESCRIPTION"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal recycler-hover">
+                        	<td class="recycler-row-align-midle-left"><span>LC_REGISTER_DATE</span></td>
+                        	<td class="recycler-row-align-midle-right"><span ng-bind="detailRef.ISSUE_DATE"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal recycler-hover">
+                        	<td class="recycler-row-align-midle-left"><span>LC_LIABILITY_AMOUNT</span></td>
+                        	<td class="recycler-row-align-midle-right"><span ng-bind="detailRef.LIABILITY_AMOUNT + ' ' + detailRef.CONTRACT_CCY"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal recycler-hover">
+                        	<td class="recycler-row-align-midle-left"><span>LC_NGAY_GIAO_HANG_MUON_NHAT</span></td>
+                        	<td class="recycler-row-align-midle-right"><span ng-bind="detailRef.SHIP_DATE"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal recycler-hover">
+                        	<td class="recycler-row-align-midle-left"><span>LC_NGAY_XUAT_TRINH_CHUNG_TU</span></td>
+                        	<td class="recycler-row-align-midle-right"><span ng-bind="detailRef.ISSUE_DATE"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal recycler-hover">
+                        	<td class="recycler-row-align-midle-left"><span>LC_NGUOI_NHAP_KHAU</span></td>
+                        	<td class="recycler-row-align-midle-right"><span ng-bind="detailRef.APP_CUSTOMER_NAME"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal recycler-hover">
+                        	<td class="recycler-row-align-midle-left"><span>LC_NGAN_HANG_PHAT_HANH</span></td>
+                        	<td class="recycler-row-align-midle-right"><span ng-bind="detailRef.ISB_CUSTOMER_NAME"></span></td>
+                        </tr>
+                  </table>
+            </div>
+            </div>
+            <div style="text-align: right;"><a><img src="css/img/print.png" onclick="printPage()" /></a></div>
+            <div>
+			<input type="submit" style="width:18%;" class="btnDesktopshadow btnHomeShadow" onclick="clickHomeOrBack()" value="CM_BTN_GOBACK" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off">
+            </div>
+      </div>
+</div>

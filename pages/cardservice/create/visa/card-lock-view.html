@@ -1,0 +1,29 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="card-lock-view">
+    <div class="panelContent">
+        <div style="margin-top: 15px;">            
+            <div class="recycler-list">
+                <table width='100%' align='center' class='recycler-table-ebank' >
+                    <tr class="recycler-row-normal" >
+                        <td class="recycler-row-align-midle-left"><span>CARD_PAY_LIMIT_CARD_TIT</span></td>
+                        <td class="recycler-row-align-midle-right" ><span ng-bind="infoTrans.cardType"></span></td>
+                    </tr>
+                    <tr class="recycler-row-normal" >
+                        <td class="recycler-row-align-midle-left"><span>CARD_PAY_LIMIT_CARD_NUM</span></td>
+                        <td class="recycler-row-align-midle-right" ><span ng-bind="infoTrans.cardNo"></span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <table width="100%" style="margin-top: 10px;">
+            <tr align="center">
+                <td>
+                    <div style="text-align: center;">
+                        <input class="btnshadow-after btn-second-desktop-after" onclick="clickHomeOrBack()" type="submit" value="COM_BACK" />
+                        <input class="btnshadow-after btn-second-after btn-changecolor" ng-click="btnCancelClick()" type="submit" value="COM_CANCEL" />
+                        <input style="background-color: #FAA60D"  class="btnshadow-after btn-second-after" ng-click="onContinuteClick()" type="button" value="COM_CONTINUE" />
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

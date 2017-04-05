@@ -1,0 +1,35 @@
+<div>
+    <table id="recycler_table_ebank-desktop" width='96%' align='center' class='recycler-table-ebank'>
+        <tr class='recycler-row-title-header recycler-list'>
+            <td class="recycler-row-align-midle" width="6%"><span>COM_NO</span></td>
+            <td class="recycler-row-align-midle" width="12%"><span>COM_CREATED_DATE</span></td>
+            <td class="recycler-row-align-midle" width="13%"><span>PAYMENT_ORDER_CODE</span></td>
+            <td class="recycler-row-align-midle" width="13%"><span>COM_AMOUNT</span></td>
+            <td class="recycler-row-align-midle" width="10%"><span>COM_CHEKER</span></td>
+            <td class="recycler-row-align-midle" width="15%"><span>COM_STATUS</span></td>
+            <td class="recycler-row-align-midle" width="20%"><span>COM_TRANS_CODE</span></td>
+            <td class="recycler-row-align-midle" width="5%">
+                <input type="checkbox" onclick="selectAllRow('recycler_table_ebank-desktop', 'recycler_table_ebank-mobile', this)" name="parent_0">
+            </td>
+        </tr>
+        <tr class="recycler-row-title recycler-list" ng-repeat="trans in currentListTrans track by $index">
+            <td class="recycler-row-align-midle"><div class="content-detail" style="word-break: break-all;">{{$index + 1}}</div></td>
+            <td class="recycler-row-align-midle"><div class="content-detail" style="white-space: pre-wrap;" ng-bind="trans.NGAY_LAP"></div></td>
+            <td class="recycler-row-align-midle"><div class="content-detail" style="word-break: break-all;" ng-bind="trans.MA_HOA_DON"></div></td>
+            <td class="recycler-row-align-midle"><div class="content-detail" style="word-break: break-all" ng-bind="trans.SO_LUONG | currency : '' : 0"></div></td>
+            <td class="recycler-row-align-midle"><div class="content-detail" style="word-break: break-all" ng-bind="trans.NGUOI_DUYET"></div></td>
+            <td class="recycler-row-align-midle"><div class="content-detail" style="word-break: break-all" ng-bind="trans.TRANGTHAI"></div></td>
+            <td class="recycler-row-align-midle">
+                <a ng-click="showDetailTransaction(trans.MA_GD, trans.SO_LUONG);" style="cursor:pointer;"><span class="no-check" ng-bind="trans.MA_GD"></span></a>
+            </td>
+            <td class="recycler-row-align-midle">
+                <input class="trans.checkbox" type="checkbox"  onclick="deSelectRow('recycler_table_ebank-desktop', 'recycler_table_ebank-mobile', this)" name="{{trans.MA_GD}}">
+            </td>
+        </tr>
+    </table>
+</div>
+<div align="right" style="float: right; width:100%">
+    <div class="export-print" id="acchis.exportfile" onclick="exportExcelDebtHistory()" style="display: inline-block;float:right; cursor: pointer;">
+        <img style="margin-top: 20px; margin-right:10px; margin-bottom: 20px;" src="css/img/exportfile.png" />
+    </div>
+</div>

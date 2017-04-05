@@ -1,0 +1,30 @@
+<div id="recycler_list">
+    <table id="recycler_table_ebank-desktop" class="recycler-table-ebank">
+        <tbody>
+        <tr class="recycler-row-title-header recycler-list">
+            <td class="recycler-row-align-midle"><span>COM_NO</span></td>
+            <td class="recycler-row-align-midle"><span>COM_MAKER</span></td>
+            <td class="recycler-row-align-midle"><span>COM_CREATED_DATE</span></td>
+            <td class="recycler-row-align-midle"><span>COM_TYPE_TRANSACTION</span></td>
+            <td class="recycler-row-align-midle"><span>TRANS_PERIODIC_MNG_STT</span></td>
+            <td class="recycler-row-align-midle"><span>TRANS_ACCNO_AMOUNT_CONT</span></td>
+            <td class="recycler-row-align-midle"><span>COM_CHEKER</span></td>
+            <td class="recycler-row-align-midle"><span>COM_TRANS_CODE</span></td>
+        </tr>
+        <tr class="recycler-row-normal recycler-hover" ng-repeat="item in listPending track by $index">
+            <td class="recycler-row-align-midle-left"><span ng-bind="$index + 1"></span></td>
+            <td class="recycler-row-align-midle-left"><span ng-bind="item.SHORTNAME"></span></td>
+            <td class="recycler-row-align-midle-left"><span ng-bind="item.DATMAKE"></span></td>
+            <td class="recycler-row-align-midle-left"><span ng-bind="item.TAX_TYPE_VIEW"></span></td>
+            <td class="recycler-row-align-midle-left"><span ng-bind="item.CODSTATUS_VIEW"></span></td>
+            <td class="recycler-row-align-midle-left"><span ng-bind="item.NUMAMOUNT_VIEW"></span></td>
+            <td class="recycler-row-align-midle-left"><span ng-bind="item.SIGNEDBY"></span></td>
+            <td class="recycler-row-align-midle-left"><a style="white-space:pre-wrap;" class="ref-link"
+                                                         ng-click="showDetailAuthTax(item.IDFCATREF, true)"
+                                                         href="javascript:void(0)"><span
+                    ng-bind="item.IDFCATREF"></span></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

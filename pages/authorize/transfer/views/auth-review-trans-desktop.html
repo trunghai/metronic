@@ -1,0 +1,20 @@
+<table width='100%' align='center' class='recycler-table-ebank desktopview'>
+    <tr class='recycler-row-title-header recycler-list'>
+        <td class="recycler-row-align-midle" width="6%"><span>COM_NO</span></td>
+        <td class="recycler-row-align-midle" width="12%"><span>COM_CREATED_DATE</span></td>
+        <td class="recycler-row-align-midle" width="13%"><span>COM_ACCOUNT_DEST</span></td>
+        <td class="recycler-row-align-midle" width="10%"><span>COM_RECEIVE_NAME</span></td>
+        <td class="recycler-row-align-midle" width="15%"><span>COM_AMOUNT</span></td>
+        <td class="recycler-row-align-midle" width="14%"><span>COM_CHEKER</span></td>
+        <td class="recycler-row-align-midle" width="18%"><span>COM_TRANS_CODE</span></td>
+    </tr>
+    <tr class="recycler-row-title recycler-list" ng-repeat="item in listPending track by $index">
+        <td class="recycler-row-align-midle"><span ng-bind="$index + 1"></span></td>
+        <td class="recycler-row-align-midle"><span ng-bind="item.NGAY_LAP"></span></td>
+        <td class="recycler-row-align-midle"><span ng-bind="item.TK_NHAN"></span></td>
+        <td class="recycler-row-align-midle"><span ng-bind="item.NGUOI_NHAN"></span></td>
+        <td class="recycler-row-align-midle"><span ng-bind="(item.SO_TIEN | currency : '' : 0) +' VND'"></span></td>
+        <td class="recycler-row-align-midle"><span ng-bind="item.NGUOI_DUYET"></span></td>
+        <td class="recycler-row-align-midle"><span ng-bind="item.MA_GD"></span></td>
+    </tr>
+</table>

@@ -1,0 +1,72 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="auth-search-view">
+    <div class="">
+        <div class="panelContent">
+            <table id="dynamic-billing-table" width="100%">
+                <tr>
+                    <td>
+						<table width='98%' align='center' class='recycler-table-ebank desktopview widefull'>
+							<tr class='recycler-row-title-header recycler-list'>
+								<td class="recycler-row-align-midle" width="6%"><span>COM_NO</span></td>
+								<td class="recycler-row-align-midle" width="15%"><span>COM_CREATED_DATE</span></td>
+								<td class="recycler-row-align-midle" width="18%"><span>COM_MAKER</span></td>
+								<td class="recycler-row-align-midle" width="18%"><span>COM_CHEKER</span></td>
+								<td class="recycler-row-align-midle" width="20%"><span>COM_TRANS_CODE</span></td>
+							</tr>
+							<tr class="recycler-row-title recycler-list" ng-repeat="item in currentTrans track by $index">
+								<td class="recycler-row-align-midle">{{$index + 1}}</td>
+								<td class="recycler-row-align-midle" ng-bind="item.NGAY_LAP"></td>
+								<td class="recycler-row-align-midle" ng-bind="item.NGUOI_LAP"></td>
+								<td class="recycler-row-align-midle" ng-bind="item.NGUOI_DUYET"></td>
+								<td class="recycler-row-align-midle" ng-bind="item.MA_GD" ></td>
+							</tr>
+						</table>
+						<!--mobile-->
+						<table  ng-repeat="item in currentTrans track by $index" class="recycler-table-ebank mobileview recycler-list margin-bottom" width="98%" align="center">
+							<tbody>
+							<tr class="recycler-row-parity">
+								<td class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>
+								<td class="recycler-row-align-midle-right"><span ng-bind="item.NGAY_LAP"></span></td>
+							</tr>
+							<tr class="recycler-row-parity">
+								<td class="recycler-row-align-midle-left"><span>COM_MAKER</span></td>
+								<td class="recycler-row-align-midle-right"><span ng-bind="item.NGUOI_DUYET"></span></td>
+							</tr>
+							<tr class="recycler-row-parity">
+								<td class="recycler-row-align-midle-left"><span>COM_CHEKER</span></td>
+								<td class="recycler-row-align-midle-right"><span ng-bind="item.NGUOI_DUYET"></span></td>
+							</tr>
+							<tr class="recycler-row-parity">
+								<td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+								<td class="recycler-row-align-midle-right"><span ng-bind="item.MA_GD"></span></td>
+							</tr>
+							</tbody>
+						</table>
+						<!---->
+                    </td>
+                </tr>
+                <tr>
+                    <td ng-style="{'display': !authen ? 'block' : 'none'}">
+						<div class="recycler-list" style="margin: 0 auto;width: 100%;">
+							<table align="left" id="trans.reason">
+								<tr class="recycler-row-normal">
+									<td class="recycler-row-align-midle-left"><span>COM_AUTH_DENIAL_REASON</span></td>
+									<td class='recycler-row-align-midle-right'style="word-break: break-all;">{{reason}}</td>
+								</tr>
+							</table>
+						</div>
+                    </td>
+                </tr>
+            </table>
+            <table width="98%">
+                <tr>
+                    <td>
+                        <div style="text-align: center;">
+                            <input style="background-color: rgb(207, 150, 217);" class="btnshadow-after btn-second-after tdbtndesktop" ng-click="onBackClick()" type="button" value="COM_BACK">
+                            <input class="btnshadow-after btn-second-after btn-changecolor" ng-click="authenOTP()" type="submit" value="CM_BTN_SEND_REQ" >
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

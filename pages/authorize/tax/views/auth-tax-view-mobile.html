@@ -1,0 +1,32 @@
+<table  ng-repeat="item in listPending track by $index" class="recycler-table-ebank mobileview recycler-list margin-bottom" width="98%" align="center">
+    <tbody>
+    <tr class="recycler-row-parity">
+        <td class="recycler-row-align-midle-left"><span>COM_MAKER</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="item.SHORTNAME"></span></td>
+    </tr>
+    <tr class="recycler-row-parity">
+        <td class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="item.DATMAKE"></span></td>
+    </tr>
+    <tr class="recycler-row-parity">
+        <td class="recycler-row-align-midle-left"><span>COM_TYPE_TRANSACTION</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="item.TAX_TYPE_VIEW"></span></td>
+    </tr>
+    <tr class="recycler-row-parity">
+        <td class="recycler-row-align-midle-left"><span>TRANS_PERIODIC_MNG_STT</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="item.CODSTATUS_VIEW"></span></td>
+    </tr>
+    <tr class="recycler-row-parity">
+        <td class="recycler-row-align-midle-left"><span>TRANS_ACCNO_AMOUNT_CONT</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="item.NUMAMOUNT_VIEW"></span></td>
+    </tr>
+    <tr class="recycler-row-parity">
+        <td class="recycler-row-align-midle-left"><span>COM_CHEKER</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="item.SIGNEDBY"></span></td>
+    </tr>
+    <tr class="recycler-row-parity">
+        <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="item.IDFCATREF"></span></td>
+    </tr>
+    </tbody>
+</table>

@@ -1,0 +1,28 @@
+<table  ng-repeat="item in listResult track by $index" class="recycler-table-ebank mobileview recycler-list margin-bottom" width="98%" align="center">
+    <tbody>
+    <tr class="recycler-row-normal">
+        <td class="recycler-row-align-midle-left"><span>COM_MAKER</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="item.MAKER"></span></td>
+    </tr>
+    <tr class="recycler-row-normal">
+        <td class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="item.DATMAKE"></span></td>
+    </tr>
+    <tr class="recycler-row-normal">
+        <td class="recycler-row-align-midle-left"><span>TRANS_STATUS</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="item.STATUS"></span></td>
+    </tr>
+    <tr class="recycler-row-normal">
+        <td class="recycler-row-align-midle-left"><span>COM_CHEKER</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="item.SIGNEDBY"></span></td>
+    </tr>
+    <tr class="recycler-row-normal">
+        <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="item.IDFCATREF"></span></td>
+    </tr>
+    <tr class="recycler-row-normal">
+        <td class="recycler-row-align-midle-left"><span>COM_CHECK_DATE</span></td>
+        <td class="recycler-row-align-midle-right"><span ng-bind="item.DATCHECK"></span></td>
+    </tr>
+    </tbody>
+</table>

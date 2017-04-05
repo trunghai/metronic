@@ -1,0 +1,134 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller ="manager-guarantee-suggest" style="height: 417px; top: 44px;" >
+    <div class="bg-transfer">
+        <div class="panelContent">
+            <table class="tableTab" id="periodic-table" ng-show={{showElement}}>
+                <td class='content-periodic' ng-click="changeTab()">
+                    <span>COM_MAKE_TRANS</span>
+                    <span class="content-span"></span>
+                </td>
+                <td class='content-periodic selected'>
+                    <span>TRANS_PERIODIC_MNG_TITLE</span>
+                    <span class="content-span"></span>
+                </td>
+            </table>
+            <table width="100%">
+                <tr>
+                    <td class="td-text" valign="middle" align="center">
+                        <div class="input-group" ng-click="showTransStatusSelection()">
+                            <span class="input-group-addon" style="width:40%; white-space:pre-wrap">COM_STATUS</span>
+                            <input id="id.status" class="form-control form-control-righttext" type="button" value="COM_ALL" >
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td  valign="middle" align="right">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="width:40%; white-space:pre-wrap">COM_START_DATE</span>
+                            <input id="fromDate" type="tel" placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value="" class="form-control form-control-righttext-datepicker"
+                                   onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" />
+                            <span onclick="initDialogCal('fromDate')" id="begindate" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td  valign="middle" align="right">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="width:40%; white-space:pre-wrap">COM_TO_DATE</span>
+                            <input id="toDate" type="tel" placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value="" class="form-control form-control-righttext-datepicker"
+                                   onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" />
+                            <span onclick="initDialogCal('toDate')" id="enddate" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="trow-space"></tr>
+                <tr class="mt-15">
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="tdbtndesktop" style="width:50%">
+                            <input type="submit" style="float:left;margin-left:65px" class="btnDesktopshadow btnDesktopBack" onclick="clickHomeOrBack()" value="CM_BTN_GOBACK">
+                        </div>
+                        <div style="width:50%">
+                            <input type="button" style="margin-right:100px; font-size: 14px!important;" class="btnshadow btn-second" ng-click="searchTransaction()" value="COM_SEARCH">
+                        </div>
+                    </td>
+                </tr>
+                <tr class="trow-space"></tr>
+                <tr>
+                    <td><div id="id.message"><span id="id.message.value"></span></div></td>
+                </tr>
+            </table>
+
+            <div id="gua.searchResult">
+                    <table width='96%' align='center' class='recycler-table-ebank desktopview'>
+                        <tr class='recycler-row-title-header recycler-list'>
+                            <td class="recycler-row-align-midle"><span>COM_NO</span></td>
+                            <td class="recycler-row-align-midle"><span>COM_CREATED_DATE</span></td>
+                            <td class="recycler-row-align-midle"><span>LOAN_VALUE</span></td>
+                            <td class="recycler-row-align-midle"><span>STATUS_TITLE</span></td>
+                            <td class="recycler-row-align-midle"><span>PROPOSE_DISBURSEMENT_DATE</span></td>
+                            <td class="recycler-row-align-midle"><span>COM_TRANS_CODE</span></td>
+                        </tr>
+                        <tbody id="tbodyDetail">
+                        <tr class="recycler-row-title recycler-list" ng-repeat="trans in listTrans track by $index">
+                            <td class="recycler-row-align-midle"><div ng-bind="trans.RNUM"></div></td>
+                            <td class="recycler-row-align-midle"><div  ng-bind="trans.NGAY_LAP"></div></td>
+                            <td class="recycler-row-align-midle"><div ng-bind="(trans.GIA_TRI_KHOAN_VAY | currency : ' ' : 0) + ' '+ trans.LOAI_TIEN"></div></td>
+                            <td class="recycler-row-align-midle"><div  ng-bind="statusVN[trans.TRANG_THAI]"></div></td>
+                            <td class="recycler-row-align-midle"><div ng-bind="trans.NGAY_DE_NGHI_GIAI_NGAN" ></div></td>
+                            <td class="recycler-row-align-midle">
+                                <a ng-click="showDetailTransaction(trans.MA_GD, trans.TRANG_THAI);" style="cursor:pointer;">
+                                    <span class="no-check" ng-bind="trans.MA_GD"></span>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div align='center' class='recycler-table-ebank  mobileview'>
+                        <table style='margin-bottom:10px;' width='96%'  class='recycler-list' ng-repeat="trans in listTrans track by $index">
+                            <tr class="recycler-row-normal">
+                                <td colspan="1" class="recycler-row-align-midle-left"><span>COM_NO</span></td>
+                                <td class="recycler-row-align-midle-right"><span ng-bind="trans.RNUM"></span></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td colspan="1" class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>
+                                <td class="recycler-row-align-midle-right"><span ng-bind="trans.NGAY_LAP"></span></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td colspan="1" class="recycler-row-align-midle-left"><span>LOAN_VALUE</span></td>
+                                <td class="recycler-row-align-midle-right"><span ng-bind="trans.GIA_TRI_KHOAN_VAY"></span></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td colspan="1" class="recycler-row-align-midle-left"><span>STATUS_TITLE</span></td>
+                                <td class="recycler-row-align-midle-right"><span ng-bind="statusVN[trans.TRANG_THAI]"></span></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td colspan="1" class="recycler-row-align-midle-left"><span>PROPOSE_DISBURSEMENT_DATE</span></td>
+                                <td class="recycler-row-align-midle-right"><span ng-bind="trans.NGAY_DE_NGHI_GIAI_NGAN"></span></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td colspan="1" class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                                <td class="recycler-row-align-midle-right"><a ng-click="showDetailTransaction(trans.MA_GD, trans.TRANG_THAI);" style="cursor:pointer;">
+                                    <span class="no-check" ng-bind="trans.MA_GD"></span>
+                                </a></td>
+                            </tr>
+                        </table>
+                </div>
+            </div>
+            <div id="acc-pagination" style="text-align: right">
+                <ul class="pagination" id="paging">
+                    <li ng-repeat="i in arrPage" ng-click="changePage(i)" id="page_{{$index + 1}}" ><span ng-bind="i"></span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

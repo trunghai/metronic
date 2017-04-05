@@ -1,0 +1,215 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="cre_guarantee_info" style="height:417px; top: 44px">
+	<div class="panelContent">
+		<br/>    
+		<table width='96%' align="center" class="desktopview" style="border-spacing: 0">
+			<tr class="tr-two-col">
+				<td class="td-two-col">
+					<div class="div-two-col borderbottom"><b><span>CRE_RELEASE_DATE_FROM</span></b></div>
+					<div class="div-two-col">
+						<div class="input-group">
+							<input id="trans.releaseStartdate" type="tel" class="form-control form-control-righttext-datepicker" placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value="" onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" />
+							<span onclick="initDialogCal('trans.releaseStartdate')" id="begindate" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+						</div>
+					</div>
+				</td>
+				<td class="td-two-col">
+					<div class="div-two-col borderbottom"><b><span>COM_TO</span></b></div>
+					<div class="div-two-col">
+						<div class="input-group">
+							<input id="trans.releaseEnddate" type="tel" class="form-control form-control-righttext-datepicker" placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value="" onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;"/>
+							<span onclick="initDialogCal('trans.releaseEnddate')" id="begindate" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr class="tr-two-col">
+				<td class="td-two-col">
+					<div class="div-two-col borderbottom"><b><span>CRE_DEADLINE_DATE_FROM</span></b></div>
+					<div class="div-two-col">
+						<div class="input-group">
+							<input id="trans.deadlineStartdate" type="tel" class="form-control form-control-righttext-datepicker" placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value="" onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" />             
+							<span onclick="initDialogCal('trans.deadlineStartdate')" id="begindate" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+						</div>
+					</div>
+				</td>
+				<td class="td-two-col">
+					<div class="div-two-col borderbottom"><b><span>COM_TO</span></b></div>
+					<div class="div-two-col">
+						<div class="input-group">
+							<input id="trans.deadlineEnddate" type="tel" class="form-control form-control-righttext-datepicker" placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value="" onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;"/>
+							<span onclick="initDialogCal('trans.deadlineEnddate')" id="begindate" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr class="tr-two-col">
+				<td class="td-two-col">
+					<div class="div-two-col borderbottom"><b><span>CRE_TYPE_GUARANTEE</span></b></div>
+					<div class="div-two-col">
+						<div class="input-group">
+							<input style="white-space:pre-wrap" ng-click="showTypeGuarantee()" id="cre_type_guarantee" type="button" class="form-control form-control-righttext" placeholder="BENEFIC_LIST_NORMAL" value="COM_ALL" />
+							<span class="icon-movenext input-group-addon input-group-symbol"></span>
+							<input type="hidden" id="cre_type_guarantee_value" value="BLVV,BLVD,BLTH,BLHD,BLTT,BLTD,SG00,SGUT,BLDT,BLDD,BLTU,BLKH,BLKD"/>
+						</div>
+					</div>
+				</td>
+				<td class="td-two-col">
+					<div class="div-two-col borderbottom"><b><span>COM_TYPE_MONEY</span></b></div>
+					<div class="div-two-col">
+						<div class="input-group">
+							<input style="white-space:pre-wrap" ng-click="showTypeMoney()" id="cre_type_money" type="button" class="form-control form-control-righttext" placeholder="BENEFIC_LIST_NORMAL" value="COM_ALL" />
+							<span class="icon-movenext input-group-addon input-group-symbol"></span>
+							<input type="hidden" id="cre_type_money_value" value="0"/>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+	            <td colspan="2" align="center" valign="middle" class="td-text">
+	                <div class="" style="width:50%">
+	                    <input type="submit" style="float:left;margin-left:65px" class="btnDesktopshadow btnDesktopBack"
+	                           onclick="clickHomeOrBack()" value="CM_BTN_GOBACK">
+	                </div>
+	                <div style="width:50%">
+	                    <input type="button" style="margin-right:100px" class="btnshadow btn-second"
+	                           ng-click="creGuaranteeSearchInfo()" value="COM_BNTN_SEARCH">
+	                </div>
+	            </td>
+	        </tr>
+		</table>
+		
+		<!-- Mobile -->
+		<table width='98%' align="center" class="mobileview">
+		    <tr>
+		        <td class="input-group">
+		            <div class="div-two-col">
+		                <b><span>CRE_RELEASE_DATE_FROM</span></b>
+		            </div>
+		            <div class="div-two-col">
+		                <div>
+		                    <input id="trans.releaseStartdatemb" type="tel"
+		                           class="form-control form-control-righttext-datepicker"
+		                           placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value=""
+		                           onkeydown="return handleCalendarNav(this, event);"
+		                           onclick="handleCalendarNav(this, event);" onpaste="return false;"/>
+		                            <span onclick="initDialogCal('trans.releaseStartdatemb')" id="begindate"
+		                                  class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker">
+		                            </span>
+		                </div>
+		            </div>
+		        </td>
+		    </tr>
+		    <tr>
+		        <td class="input-group">
+		            <div class="div-two-col"><b>
+		                <span>COM_TO</span></b>
+		            </div>
+		            <div class="div-two-col">
+		                <div>
+		                    <input id="trans.releaseEnddatemb" type="tel"
+		                           class="form-control form-control-righttext-datepicker"
+		                           placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value=""
+		                           onkeydown="return handleCalendarNav(this, event);"
+		                           onclick="handleCalendarNav(this, event);" onpaste="return false;"/>
+		                            <span onclick="initDialogCal('trans.releaseEnddatemb')" id="begindate"
+		                                  class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker">
+		                            </span>
+		                </div>
+		            </div>
+		        </td>
+		    </tr>
+		    <tr>
+		        <td class="input-group">
+		            <div class="div-two-col"><b>
+		                <span>CRE_DEADLINE_DATE_FROM</span></b>
+		            </div>
+		            <div class="div-two-col">
+		                <div>
+		                    <input id="trans.deadlineStartdatemb" type="tel"
+		                           class="form-control form-control-righttext-datepicker"
+		                           placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value=""
+		                           onkeydown="return handleCalendarNav(this, event);"
+		                           onclick="handleCalendarNav(this, event);" onpaste="return false;"/>
+		                            <span onclick="initDialogCal('trans.deadlineStartdatemb')" id="begindate"
+		                                  class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker">
+		                            </span>
+		                </div>
+		            </div>
+		        </td>
+		    </tr>
+		    <tr>
+		        <td class="input-group">
+		            <div class="div-two-col"><b>
+		                <span>COM_TO</span></b>
+		            </div>
+		            <div class="div-two-col">
+		                <div>
+		                    <input id="trans.deadlineEnddatemb" type="tel"
+		                           class="form-control form-control-righttext-datepicker"
+		                           placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value=""
+		                           onkeydown="return handleCalendarNav(this, event);"
+		                           onclick="handleCalendarNav(this, event);" onpaste="return false;"/>
+		                            <span onclick="initDialogCal('trans.deadlineEnddatemb')" id="begindate"
+		                                  class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker">
+		                            </span>
+		                </div>
+		            </div>
+		        </td>
+		    </tr>
+		    <tr>
+		        <td class="input-group">
+		            <div class="div-two-col"><b>
+		                <span>CRE_TYPE_GUARANTEE</span></b>
+		            </div>
+		            <div class="div-two-col">
+		                <div class="input-group" style="border-bottom: none !important;">
+		                    <input style="white-space:pre-wrap" ng-click="showTypeGuarantee()" id="cre_type_guaranteemb"
+		                           type="button" class="form-control form-control-righttext"
+		                           placeholder="BENEFIC_LIST_NORMAL" value="COM_ALL"/>
+		                    <span class="icon-movenext input-group-addon input-group-symbol"></span>
+		                    <input type="hidden" id="cre_type_guarantee_valuemb" value="BLVV,BLVD,BLTH,BLHD,BLTT,BLTD,SG00,SGUT,BLDT,BLDD,BLTU,BLKH,BLKD"/>
+		                </div>
+		            </div>
+		        </td>
+		    </tr>
+		    <tr>
+		        <td class="input-group">
+		            <div class="div-two-col"><b>
+		                <span>COM_TYPE_MONEY</span></b>
+		            </div>
+		            <div class="div-two-col">
+		                <div class="input-group" style="border-bottom: none !important;">
+		                    <input style="white-space:pre-wrap" ng-click="showTypeMoney()" id="cre_type_moneymb"
+		                           type="button" class="form-control form-control-righttext"
+		                           placeholder="BENEFIC_LIST_NORMAL" value="COM_ALL"/>
+		                    <span class="icon-movenext input-group-addon input-group-symbol"></span>
+		                    <input type="hidden" id="cre_type_money_valuemb" value="0"/>
+		                </div>
+		            </div>
+		        </td>
+		    </tr>
+		    <br/>
+		    <tr>
+		        <td colspan="2" align="center" valign="middle" class="td-text">
+		            <div class="" style="width:50%" style="margin-top: 10px">
+		                <input type="button" style="float:left;margin-left:65px" class="btnDesktopshadow btnDesktopBack"
+		                       onclick="clickHomeOrBack()" value="CM_BTN_GOBACK">
+		            </div>
+		            <div style="width:50%" style="margin-top: 10px">
+		                <input type="button" style="margin-right:100px" class="btnshadow btn-second"
+		                       ng-click="creGuaranteeSearchInfo()" value="COM_BNTN_SEARCH">
+		            </div>
+		        </td>
+		    </tr>
+		</table>
+
+		<br/>
+		<div id="tblContent" name="tblContent" style="overflow:auto;">
+		</div>
+		<div style="text-align: right;" id="pageIndicatorNums" />
+	</div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+	<div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+	<div id="divListGroup" class="list-group dialog-list"></div>
+</div>

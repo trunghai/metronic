@@ -1,0 +1,127 @@
+<table width="100%" style="padding-top:15px;" align="center" class="">
+    <div class="bg-transfer">
+    <tr id="id.title" style="display: none">
+        <td colspan="2">
+            <h5 align="left" class="screen-title"><span>REVIEW_TITLE_SCREEN</span></h5>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div class="recycler-list">
+                    <table align="center" class="recycler-table-ebank">
+                        <tbody>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.IDFCATREF"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_EXECUTION_TIME</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.DATMAKE"></td>
+                        </tr>
+                        <tr class="recycler-row-normal"  id="id.reason">
+                            <td class="recycler-row-align-midle-left"><span>COM_AUTH_DENIAL_REASON</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="reason"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+    <td colspan="3">
+    <h5 class="header-title" style="margin-left:10px;">
+    <span>COM_TXT_ACC_INFO_TITLE</span>
+    </h5>
+    </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div class="recycler-list">
+                    <table align="center" class="recycler-table-ebank">
+                        <tbody>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANS_TYPE</span></td>
+                            <td class="recycler-row-align-midle-right"><span>MENU_PERIODIC_TRANS</span></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANS_BATCH_ACC_LABEL</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.IDSRCACCT"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>ACCOUNT_AVAILABLE_BALANCE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="(infoTrans.BALANCE_BEFOR | currency : '' : 0) + ' ' + infoTrans.CODTRNCURR"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+    <td colspan="3">
+    <h5 class="header-title" style="margin-left:10px;">
+    <span>COM_TXT_ACC_CONFIRM_TRANS_TITLE</span>
+    </h5>
+    </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div class="recycler-list">
+                    <table align="center" class="recycler-table-ebank">
+                        <tbody>
+
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANS_AMOUNT</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="(infoTrans.NUMAMOUNT | currency : '' : 0)+ ' ' + infoTrans.CODTRNCURR"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_ACCOUNT_DEST</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.TXTDESTACCT"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_BEN_NAME</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.TXTBENNAME"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANS_FEE_TITLE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.FEE"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANS_LOCAL_ACC_CONTENT</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.TXTPAYMTDETAILS1"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANS_PERIODIC_MNG_FIND_SDATE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.DATSTART"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANS_PERIODIC_MNG_FIND_EDATE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.DATEND"></td>
+                        </tr>
+
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANS_PERIODIC_FREQUENCY</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.Frequency"></td>
+                        </tr>
+
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_SEND_MSG_APPROVER</span></td>
+                            <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.method"></span></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANS_PERIODIC_MGN_PAYEE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.Template"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+    </div>
+</table>

@@ -1,0 +1,111 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="auth-trans-list-pending" style="height: 621px; top: 44px; bottom: 0px;">
+    <div class="panelContent">
+        <table width="100%" style="padding-top:15px;" align="center" class="">
+            <tr>
+                <td colspan="3" align="center" valign="middle" class="td-text"><div class="input-group" ng-click="showMakerSelection();"> <span class="input-group-addon" >COM_MAKER</span>
+                    <input id="maker" type="button" class="form-control form-control-righttext" placeholder="COM_TXT_INPUT_PLACEHOLDER" value="COM_TXT_SELECTION_PLACEHOLDER" />
+                    <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                    <input type='hidden' id='makerVal'/>
+                </div></td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center" valign="middle" class="td-text"><div class="input-group" ng-click="showStatusSelection();"> <span class="input-group-addon" >COM_STATUS</span>
+                    <input id="status" type="button" class="form-control form-control-righttext" placeholder="COM_TXT_INPUT_PLACEHOLDER" value="COM_TXT_SELECTION_PLACEHOLDER" />
+                    <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                    <input type='hidden' id='statusVal'/>
+                </div></td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center" valign="middle" class="td-text">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="white-space:pre-wrap">GIFT_XCHNG_HIS_FROM_DATE_TITLE</span>
+                        <input id="fromDate" type="tel" placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value="" class="form-control form-control-righttext-datepicker"
+                               onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" />
+                        <span onclick="initDialogCal('fromDate')" id="begindate" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center" valign="middle" class="td-text">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="white-space:pre-wrap">GIFT_XCHNG_HIS_TO_DATE_TITLE</span>
+                        <input id="toDate" type="tel" placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value="" class="form-control form-control-righttext-datepicker"
+                               onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" />
+                        <span onclick="initDialogCal('toDate')" id="enddate" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr class='trow-space'></tr>
+            <tr>
+                <td colspan="2" align="center" valign="middle" class="td-text">
+                    <div class="" style="width:50%">
+                        <input type="button" style="float:left;margin-left:65px" class="btnDesktopshadow btnDesktopBack"
+                               onclick="clickHomeOrBack()" value="CM_BTN_GOBACK">
+                    </div>
+                    <div style="width:50%">
+                        <input id="btn_search" type="button" style="margin-right:100px" class="btnshadow btn-second"
+                               ng-click="onSearchPending()" value="COM_SEARCH">
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <table width="100%">
+            <tr>
+                <td>
+                    <div id="screenMobile" style="margin-top: 5px" ng-include="srcmobile" style="display: none"></div>
+                    <div id="screenDesk" style="margin-top: 5px" ng-include="src" style="display: none"></div>
+
+                </td>
+            </tr>
+        </table>
+        <div class="tranfer-item">
+
+        </div>
+        <table width="100%" align="center">
+            <tr>
+                <td>
+                    <div class="tranfer-item bg-transfer" style="border-bottom: solid 1px rgb(209, 183, 224); border-top: solid 1px rgb(209, 183, 224);">
+                        <div class="text-area-content" id="holder-transfer-message">
+                            <div class="bg-text-area">
+                                <div class="holderIcon">
+                                    <div style="display:table;width: 100%;height:100%"><span style="display:table-cell;vertical-align: middle;text-align: center;font-size:24px!important" class="icon-content-note"></span></div>
+                                </div>
+                                <div class="holder-txtarea" style="border-left: solid 1px rgb(209, 183, 224);">
+
+                                    <textarea onkeyup="controlInputText2(this, 250);" style="padding-left: 5px;" class="area" id="trans.reason" placeholder="COM_AUTH_DENIAL_REASON" maxlength="250"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr class="trow-space"></tr>
+            <tr class='trow-default'>
+                <td colspan="2" align="center" valign="middle" class="td-text" >
+                    <div style="width:50%" class='isDesktop-left'>
+                        <input  type='button' class='btnshadow rejectTrans' ng-click="rejectTransaction()" value='COM_REJ'/>
+                    </div>
+                    <div style="width:50%" class='isDesktop-right'>
+                        <input type="button" ng-click="authorizeTransaction()" style="margin-right:100px" class="btnshadow btn-second" value="COM_AUTH"/>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="holder-bottom-bar">
+
+    </div>
+    <div class="mobilemode" id="dialog-container">
+
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<!--ThuanTM -->
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

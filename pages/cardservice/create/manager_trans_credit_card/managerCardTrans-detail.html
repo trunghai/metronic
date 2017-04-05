@@ -1,0 +1,122 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller ="managerCardTrans-detail">
+    <div class="panelContent">
+        <table width="100%"  >
+            <tr>
+                <td colspan="2">
+                    <div class="header-title">
+                        <span>INFORMATION_SYSTEM</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="recycler-list">
+                        <table width='100%' align='center' class='recycler-table-ebank'>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>NGUOI_NHAP</span></td>
+                                <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.NGUOI_TAO" ></span></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>INPUT_DATE</span></td>
+                                <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.NGAY_TAO" ></span></td>
+                            </tr>
+                            <tr class="recycler-row-normal" ng-if="(infoTrans.TRANG_THAI != 'INT' && infoTrans.TXTTYPETRANS != '1')">
+                                <td class="recycler-row-align-midle-left"><span>COM_CHECK_DATE</span></td>
+                                <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.NGAY_DUYET" ></span></td>
+                            </tr>
+                            <tr class="recycler-row-normal" ng-if="(infoTrans.TRANG_THAI != 'INT' && infoTrans.TXTTYPETRANS != '1')">
+                                <td class="recycler-row-align-midle-left"><span>COM_CHEKER</span></td>
+                                <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.NGUOI_DUYET" ></span></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>COM_STATUS</span></td>
+                                <td class="recycler-row-align-midle-right"><span ng-bind="statusVN[infoTrans.TRANG_THAI]" ></span></td>
+                            </tr>
+                            <tr class="recycler-row-normal" ng-if="(infoTrans.LY_DO != null)">
+                                <td class="recycler-row-align-midle-left"><span>COM_AUTH_DENIAL_REASON</span></td>
+                                <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.LY_DO"></span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="header-title">
+                        <span>CREDIT_CARD_INFO_TITLE</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="recycler-list">
+                        <table width='100%' align='center' class='recycler-table-ebank'>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>COM_TYPE_TRANSACTION</span></td>
+                                <td class="recycler-row-align-midle-right"><span ng-bind="typeTrans[infoTrans.LOAI_GD]" ></span></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>COM_CARD_NUMBER</span></td>
+                                <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.SO_THE" ></span></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>CREDIT_CARD_HOLDER_NAME</span></td>
+                                <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.CARDHOLDNAME" ></span></td>
+                            </tr>
+                        </table>
+                     </div>
+                </td>
+            </tr>
+            <tr ng-show="(infoTrans.LOAI_GD == 'D12') ? true : flase ">
+                <td colspan="2">
+                    <div class="header-title">
+                        <span>PAYMENT_CARD_TITLE</span>
+                    </div>
+                </td>
+            </tr>
+            <tr ng-show="(infoTrans.LOAI_GD == 'D12') ? true : flase ">
+                <td colspan="2">
+                    <div class="recycler-list">
+                        <table width='100%' align='center' class='recycler-table-ebank'>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>CREDIT_CARD_REPAYMENT_ACC_NUMBER_TITLE</span></td>
+                                <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.SO_TK" ></span></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>CREDIT_CARD_BAL_BEF_PAYMENT</span></td>
+                                <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.tongTien" ></span>&nbsp;<span ng-bind="infoTrans.LOAI_TIEN"></span></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>CREDIT_CARD_AMOUNT_TITLE</span></td>
+                                <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.tienTT" ></span>&nbsp;<span ng-bind="infoTrans.LOAI_TIEN"></span></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>CREDIT_CARD_BAL_AFT_PAYMENT</span></td>
+                                <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.sauTT" ></span>&nbsp;<span ng-bind="infoTrans.LOAI_TIEN"></span></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>CARD_CONNECT_ACCOUNT_CHOOSE_VALUEDATE</span></td>
+                                <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.TG_THUC_HIEN" ></span></td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left"><span>CREDIT_CARD_REPAYMENT_OPTION</span></td>
+                                <td class="recycler-row-align-midle-right"><span ng-bind="infoTrans.method" ></span></td>
+                            </tr>
+
+                        </table>
+                     </div>
+                </td>
+            </tr>
+            <tr class="mt-15">
+                <td colspan="2" align="center" valign="middle" class="td-text">
+                    <div class="tdbtndesktop" style="width:50%">
+                        <input type='button' style="float:left;margin-left:65px" class='btnDesktopshadow btnDesktopBack' onclick="clickHomeOrBack()" value='COM_BACK'/>
+                    </div>
+                    <div style="width:50%" ng-show="(infoTrans.TRANG_THAI == 'INT')? true : flase">
+                        <input type="button" style="margin-right:100px" class="btnshadow btn-primary" ng-click="onCancelClick()" value="COM_TERMINATE_TRANS"/>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

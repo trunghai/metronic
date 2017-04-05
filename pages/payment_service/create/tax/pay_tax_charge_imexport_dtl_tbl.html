@@ -1,0 +1,22 @@
+<div id="recycler_list" class="recycler-list">
+    <table width='100%' align='center' class='table-account'>
+        <tr class="trow-title">
+            <td style="text-align: center;"><span>COM_NO</span></td>
+            <td style="text-align: center;"><span>TAX_CHAPTER</span></td>
+            <td style="text-align: center;"><span>TAX_CONTENT</span></td>
+            <td style="text-align: center;"><span>COM_AMOUNT</span></td>
+            <td style="text-align: center;"><span>COM_CHOOSE</span></td>
+            <!--<td width="50%" class="recycler-row-align-midle-left"><span>AUTHORIZE_TRANS_TIT_COUNT_PENDING</span></td>-->
+        </tr>
+        <tr class="recycler-row-normal recycler-hover" align="center" ng-repeat="item in listPending track by $index">
+            <td style="word-wrap:break-word; text-align: center;"><span ng-bind="$index + 1"></span></td>
+            <td style="word-wrap:break-word; text-align: center;"><span ng-bind="item.TieuMuc"></span></td>
+            <td style="word-wrap:break-word; text-align: center;"><span ng-bind="item.TenTieuMuc"></span></td>
+            <td style="word-wrap:break-word; text-align: center;"><span ng-bind="item.DuNo"></span></td>
+            <td style="word-wrap:break-word; text-align: center;">
+                <div class="content-detail"><span><input type="checkbox" name="userRefId" ng-bind="$index +1"/></span>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,218 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller ="pay-tax-list-detail-scr" >
+    <div id="reviewInfo" class="panelContent">
+		<div class="panelContent" style="margin-bottom:40px">	
+		<table width="100%">
+		<tbody>
+			<tr>
+				<td colspan="2">
+					<div align="center">
+						<div class="recycler-list">
+							<table class="recycler-table-ebank" width="97%">
+								<tbody>
+								<tr class="recycler-row-normal">
+									<td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+									<td class="recycler-row-align-midle-right" ng-bind ="infoCredit.transcode"></td>
+								</tr>
+								<tr class="recycler-row-normal">
+									<td class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>
+									<td class="recycler-row-align-midle-right" ng-bind ="infoCredit.createdate"></td>
+								</tr>
+								<tr class="recycler-row-normal">
+									<td class="recycler-row-align-midle-left"><span>COM_CHECK_DATE</span></td>
+									<td class="recycler-row-align-midle-right" ng-bind ="infoCredit.checkdate"></td>
+								</tr>
+								<tr class="recycler-row-normal">
+									<td class="recycler-row-align-midle-left"><span>COM_STATUS</span></td>
+									<td class="recycler-row-align-midle-right" ng-bind ="infoCredit.comstatus"></td>
+								</tr>
+								<tr class="recycler-row-normal" ng-if="infoCredit.transstatus =='REJ'">
+									<td class="recycler-row-align-midle-left"><span>COM_AUTH_DENIAL_REASON</span></td>
+									<td class="recycler-row-align-midle-right" ng-bind ="infoCredit.denialreason" ></td>  
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<h5 class="header-title">
+						<span>COM_ACCOUNT_INFO</span>
+					</h5>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div align="center">
+						<div class="recycler-list">
+							<table class="recycler-table-ebank" width="97%">
+								<tbody>
+								<tr class="recycler-row-normal">
+									<td class="recycler-row-align-midle-left"><span>COM_TYPE_TRANSACTION</span></td>
+									<td class="recycler-row-align-midle-right"><span>MENU_CHILD_PAY_TAX</span></td>
+								</tr>
+								<tr class="recycler-row-normal">
+									<td class="recycler-row-align-midle-left"><span>TRANS_BATCH_ACC_LABEL</span></td>
+									<td class="recycler-row-align-midle-right" ng-bind ="infoCredit.acclabel"></td>
+								</tr>
+								<tr class="recycler-row-normal">
+									<td class="recycler-row-align-midle-left"><span>CRE_DEBT_SURPLUS_AVAILABEL</span></td>
+									<td class="recycler-row-align-midle-right" ng-bind ="infoCredit.surplus"></td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<h5 class="header-title">
+						<span>TAX_PAY_TAX_CUST_INFO</span>
+					</h5>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div align="center">
+						<div class="recycler-list">
+							<table class="recycler-table-ebank" width="97%">
+								<tbody>
+								<tr class="recycler-row-normal">
+									<td class="recycler-row-align-midle-left"><span>COM_TAX_NUMBER</span></td>
+									<td class="recycler-row-align-midle-right" ng-bind="infoCredit.taxnumber"></td>
+								</tr>
+								<tr class="recycler-row-normal">
+									<td class="recycler-row-align-midle-left"><span>TAX_CUST_PAY_TAX</span></td>
+									<td class="recycler-row-align-midle-right" ng-bind="infoCredit.custpaytax"></td>
+								</tr>
+								<tr class="recycler-row-normal">
+									<td class="recycler-row-align-midle-left"><span>TAX_CUST_PAY_TAX_ADDRESS</span></td>
+									<td class="recycler-row-align-midle-right" ng-bind="infoCredit.taxaddress"></td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</td>
+			</tr>
+<!--1-->			
+			<tr ng-if="infoCredit.GetTaxType =='01' || infoCredit.GetTaxType =='02' || infoCredit.GetTaxType =='05' || infoCredit.GetTaxType =='06'">
+				<td colspan="2">
+					<h5 class="header-title" ng-bind="infoCredit.NameTable[0]"></h5>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div align="center">
+						<div class="recycler-list">
+							<table class="recycler-table-ebank" width="97%">
+								<tbody>
+									<tr class="recycler-row-normal" ng-if="infoCredit.GetTaxType =='01' || infoCredit.GetTaxType =='02' || infoCredit.GetTaxType =='05' || infoCredit.GetTaxType =='06'">
+										<td class="recycler-row-align-midle-left" ng-bind="infoCredit.NameTable[1]"></td>
+										<td class="recycler-row-align-midle-right" ng-bind="infoCredit.DataTable[0]"></td>  
+									</tr>
+									<tr class="recycler-row-normal" ng-if="infoCredit.GetTaxType =='01' || infoCredit.GetTaxType =='02' || infoCredit.GetTaxType =='05' || infoCredit.GetTaxType =='06'">
+										<td class="recycler-row-align-midle-left" ng-bind="infoCredit.NameTable[2]"></td>
+										<td class="recycler-row-align-midle-right" ng-bind="infoCredit.DataTable[1]"></td>  
+									</tr>
+									<tr class="recycler-row-normal" ng-if="infoCredit.GetTaxType =='01' || infoCredit.GetTaxType =='02' || infoCredit.GetTaxType =='05' || infoCredit.GetTaxType =='06'">
+										<td class="recycler-row-align-midle-left" ng-bind="infoCredit.NameTable[3]"></td>
+										<td class="recycler-row-align-midle-right" ng-bind="infoCredit.DataTable[2]"></td>    
+									</tr>
+									<tr class="recycler-row-normal"ng-if="infoCredit.GetTaxType =='01' || infoCredit.GetTaxType =='02' || infoCredit.GetTaxType =='05' || infoCredit.GetTaxType =='06'">
+										<td class="recycler-row-align-midle-left" ng-bind="infoCredit.NameTable[4]"></td>
+										<td class="recycler-row-align-midle-right" ng-bind="infoCredit.DataTable[3]"></td>  
+									</tr>
+									<tr class="recycler-row-normal" ng-if=" infoCredit.GetTaxType =='02' || infoCredit.GetTaxType =='05' || infoCredit.GetTaxType =='06'">
+										<td class="recycler-row-align-midle-left" ng-bind="infoCredit.NameTable[5]"></td>
+										<td class="recycler-row-align-midle-right" ng-bind="infoCredit.DataTable[4]"></td>  
+									</tr>
+									<tr class="recycler-row-normal" ng-if=" infoCredit.GetTaxType =='02' || infoCredit.GetTaxType =='05' || infoCredit.GetTaxType =='06'">
+										<td class="recycler-row-align-midle-left" ng-bind="infoCredit.NameTable[6]"></td>
+										<td class="recycler-row-align-midle-right" ng-bind="infoCredit.tienHQ"></td>
+									</tr>
+									<tr class="recycler-row-normal" ng-if=" infoCredit.GetTaxType =='02' || infoCredit.GetTaxType =='05' || infoCredit.GetTaxType =='06'">
+										<td class="recycler-row-align-midle-left" ng-bind="infoCredit.NameTable[7]"></td>
+										<td class="recycler-row-align-midle-right" ng-bind="infoCredit.DataTable[6]"></td>  
+									</tr>
+									<tr class="recycler-row-normal" ng-if=" infoCredit.GetTaxType =='02' || infoCredit.GetTaxType =='05' || infoCredit.GetTaxType =='06'">
+										<td class="recycler-row-align-midle-left" ng-bind="infoCredit.NameTable[8]"></td>
+										<td class="recycler-row-align-midle-right" ng-bind="infoCredit.maXNK"></td>
+									</tr>										
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr ng-if="infoCredit.GetTaxType =='01' || infoCredit.GetTaxType =='02' || infoCredit.GetTaxType =='05' || infoCredit.GetTaxType =='06'">
+				<td colspan="2">
+					<h5 class="header-title">
+						<span>COM_TRASACTION_INFO</span>
+					</h5>
+				</td>
+			</tr>
+		</tbody>
+		</table>	
+		<div id="id.table"></div>
+		<table width="100%">
+			<tbody>
+			<tr>
+				<td colspan="2">
+					<div align="center">
+						<div id="recycler_list" class="recycler-list">
+							<table id="recycler_table_ebank" class="recycler-table-ebank">
+								<tbody>
+								<tr class="recycler-row-normal" ng-if="infoCredit.GetTaxType =='01'">
+									<td class="recycler-row-align-midle-left" style="width: 200px;"><span>TAX_TREASURY_CODE_1</span></td>
+									<td class="recycler-row-align-midle-right" ng-bind ="infoCredit.TaxTreasuryCode"></td>
+								</tr>
+								<tr class="recycler-row-normal">
+									<td class="recycler-row-align-midle-left"><span>COM_TOTAL_PAY_MONEY</span></td>
+									<td class="recycler-row-align-midle-right" ng-bind ="infoCredit.TotalPayMoney"></td>
+								</tr>
+								<tr class="recycler-row-normal">
+									<td class="recycler-row-align-midle-left"><span>TAX_FEE</span></td>
+									<td class="recycler-row-align-midle-right" ng-bind ="infoCredit.TaxFee"></td>
+								</tr>
+								<tr class="recycler-row-normal">
+									<td width="30%" class="recycler-row-align-midle-left" style="word-break: break-all;"><span>TAX_DESCRIPTION</span></td>
+									<td class="recycler-row-align-midle-right" style="word-break: break-all;" ng-bind ="infoCredit.TaxDescription"></td>
+								</tr>
+								<tr class="recycler-row-normal">
+									<td width="14%" class="recycler-row-align-midle-left"><span>TAX_SAVE_TAX_QUERY</span></td>
+									<td class="recycler-row-align-midle-right" ng-bind ="infoCredit.TaxSaveTax" ></td>  
+								</tr>
+								<tr class="recycler-row-normal">
+									<td width="26%" class="recycler-row-align-midle-left"><span>COM_SEND_MSG_APPROVER</span></td>
+									<td class="recycler-row-align-midle-right" ng-bind ="infoCredit.SendMSGApprover" ></td>  
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+		<table class="button-group button-group-2" style="width: 100%">
+            <tr align="center">
+                <td>
+                    <div style="text-align: center;">
+                        <input class="btnshadow-after btn-second-desktop-after desktopview" onclick="clickHomeOrBack()" type="submit" value="INPUT_ACC_BTN_GOBACK">
+                        <input id="INT_CANCE" class="btnshadow-after btn-second-after btn-changecolor" ng-click='cancelPayTax()' type="button" value="REVIEW_BTN_CANCEL" >
+                        <input id="ABH_PRINT" class="btnshadow-after btn-second-after"  ng-click='createReport()' type="button" value="TAX_PRINT_REPORT">
+                    </div>
+                </td>
+            </tr>
+        </table>
+		</div>
+	</div>
+</div>	
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

@@ -1,0 +1,412 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="account-history">
+    <div style="margin-top: 10px !important;" class="panelContent">
+        <div class="mobileview" id="accinfo-selection-btn">
+            <table width="100%" class="" align="center" style="margin-bottom: 10px;">
+                <tr>
+                    <td colspan="2">
+                    <h5 class="Header">
+                        <span>ACCOUNT_SELECT</span>
+                    </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" class="td-text" style="width:75%">
+                        <div style="width:98%;" class="input-group accont-bg-selection" ng-click="showAccountSelection()">
+                            <input style="font-size: 13px;" id="acchis_accountnomb" type="button" class="form-control form-control-rightbutton" value="COM_TXT_SELECTION_PLACEHOLDER" />
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div id="mAcc">
+            <table class="recycler-list" width="100%" align="center" style="padding-right: 11px;" ng-repeat="accKKH in infoAcc">
+                <tr class="recycler-row-normal mobileview">
+                    <td class="recycler-row-align-midle-left"><span>ACC_TYPE_TITLE</span></td>
+                    <td class="recycler-row-align-midle-right" style="font-weight:bold;"><span>ACCOUNT_TYPE_DETAIL_TITLE</span></td>
+                </tr>
+                <tr class="recycler-row-normal mobileview">
+                    <td class="recycler-row-align-midle-left"><span>ACC_CURRENCY_TITLE</span></td>
+                    <td class="recycler-row-align-midle-right" style="font-weight:bold;" ng-bind="accKKH.CODACCTCURR"></td>
+                </tr>
+                <tr class="recycler-row-normal mobileview">
+                    <td class="recycler-row-align-midle-left"><span>ACC_OPENDATE_TITLE</span></td>
+                    <td class="recycler-row-align-midle-right" style="font-weight:bold;" ng-bind="accKKH.ACCTOPENDT"></td>
+                </tr>
+                <tr class="recycler-row-normal mobileview">
+                    <td class="recycler-row-align-midle-left"><span>ACC_BRANCH_OPEN_TITLE</span></td>
+                    <td class="recycler-row-align-midle-right" style="font-weight:bold;" ng-bind="accKKH.BRANCH_NAME"></td>
+                </tr>
+                <tr class="recycler-row-normal mobileview">
+                    <td class="recycler-row-align-midle-left"><span>ACC_BALANCE_TITLE</span></td>
+                    <td class="recycler-row-align-midle-right" style="font-weight:bold;" ng-bind="formatNumberToCurrency(accKKH.NUMBALANCE) + ' ' +  accKKH.CODACCTCURR"></td>
+                </tr>
+                <tr class="recycler-row-normal mobileview">
+                    <td class="recycler-row-align-midle-left"><span>ACC_AVAI_BALANCE_TITLE</span></td>
+                    <td class="recycler-row-align-midle-right" style="font-weight:bold;" ng-bind="formatNumberToCurrency(accKKH.NUMAVAILBAL) + ' ' +  accKKH.CODACCTCURR"></td>
+                </tr>
+                <tr class="recycler-row-normal mobileview">
+                    <td class="recycler-row-align-midle-left"><span>ACC_OVERDRAFT_RATE_TITLE</span></td>
+                    <td class="recycler-row-align-midle-right" style="font-weight:bold;" ng-bind="accKKH.RATE + ' %'"></td>
+                </tr>
+                <tr class="recycler-row-normal mobileview">
+                    <td class="recycler-row-align-midle-left"><span>ACC_OVERDRAFT_LIMIT_TITLE</span></td>
+                    <td class="recycler-row-align-midle-right" style="font-weight:bold;" ng-bind="accKKH.NUMAVAILCREDIT"></td>
+                </tr>
+                <tr class="recycler-row-normal mobileview">
+                        <td class="recycler-row-align-midle-left"><span>ACC_OVERDRAFT_START_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="font-weight:bold;" ng-bind="accKKH.TRN_TODAY"></td>
+                    </tr>
+                    <tr class="recycler-row-normal mobileview">
+                        <td class="recycler-row-align-midle-left"><span>ACC_OVERDRAFT_END_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="font-weight:bold;" ng-bind="accKKH.EXPIRE_CREDIT"></td>
+                    </tr>
+                <tr class="recycler-row-normal mobileview">
+                    <td class="recycler-row-align-midle-left"><span>ACCOUNT_AMOUNT_BLOCK</span></td>
+                    <td class="recycler-row-align-midle-right" style="font-weight:bold;" ng-bind="formatNumberToCurrency(accKKH.BLOCK_AMOUNT) + ' ' + accKKH.CODACCTCURR"></td>
+                </tr>
+                <tr class="recycler-row-normal mobileview">
+                    <td class="recycler-row-align-midle-left"><span>ACCOUNT_SEARCH_4</span></td>
+                    <td class="recycler-row-align-midle-right" style="font-weight:bold;" ng-bind="formatNumberToCurrency(accKKH.MONEY_UN_AUTHORIZE) + ' ' + accKKH.CODACCTCURR"></td>
+                </tr>
+            </table>
+            </div>
+            <div id="mAccDetail" style="display:none;">
+                <table class="recycler-list" width="100%" align="center" style="padding-right: 11px;">
+                    <tr class="recycler-row-normal mobileview">
+                        <td class="recycler-row-align-midle-left"><span>ACC_TYPE_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="font-weight:bold;"><span>ACCOUNT_TYPE_DETAIL_TITLE</span></td>
+                    </tr>
+                    <tr class="recycler-row-normal mobileview">
+                        <td class="recycler-row-align-midle-left"><span>ACC_CURRENCY_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="font-weight:bold;" ng-bind="infoAcc.CODACCTCURR"></td>
+                    </tr>
+                    <tr class="recycler-row-normal mobileview">
+                        <td class="recycler-row-align-midle-left"><span>ACC_OPENDATE_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="font-weight:bold;" ng-bind="infoAcc.ACCTOPENDT"></td>
+                    </tr>
+                    <tr class="recycler-row-normal mobileview">
+                        <td class="recycler-row-align-midle-left"><span>ACC_BRANCH_OPEN_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="font-weight:bold;" ng-bind="infoAcc.BRANCH_NAME"></td>
+                    </tr>
+                    <tr class="recycler-row-normal mobileview">
+                        <td class="recycler-row-align-midle-left"><span>ACC_BALANCE_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="font-weight:bold;" ng-bind="formatNumberToCurrency(infoAcc.NUMBALANCE) + ' ' +  infoAcc.CODACCTCURR"></td>
+                    </tr>
+                    <tr class="recycler-row-normal mobileview">
+                        <td class="recycler-row-align-midle-left"><span>ACC_AVAI_BALANCE_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="font-weight:bold;" ng-bind="formatNumberToCurrency(infoAcc.NUMAVAILBAL) + ' ' +  infoAcc.CODACCTCURR"></td>
+                    </tr>
+                    <tr class="recycler-row-normal mobileview">
+                        <td class="recycler-row-align-midle-left"><span>ACC_OVERDRAFT_RATE_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="font-weight:bold;" ng-bind="infoAcc.RATE + ' %'"></td>
+                    </tr>
+                    <tr class="recycler-row-normal mobileview">
+                        <td class="recycler-row-align-midle-left"><span>ACC_OVERDRAFT_LIMIT_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="font-weight:bold;" ng-bind="infoAcc.NUMAVAILCREDIT"></td>
+                    </tr>
+                    <tr class="recycler-row-normal mobileview">
+                        <td class="recycler-row-align-midle-left"><span>ACC_OVERDRAFT_START_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="font-weight:bold;" ng-bind="accKKH.TRN_TODAY"></td>
+                    </tr>
+                    <tr class="recycler-row-normal mobileview">
+                        <td class="recycler-row-align-midle-left"><span>ACC_OVERDRAFT_END_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="font-weight:bold;" ng-bind="infoAcc.EXPIRE_CREDIT"></td>
+                    </tr>
+                    <tr class="recycler-row-normal mobileview">
+                        <td class="recycler-row-align-midle-left"><span>ACCOUNT_AMOUNT_BLOCK</span></td>
+                        <td class="recycler-row-align-midle-right" style="font-weight:bold;" ng-bind="formatNumberToCurrency(infoAcc.BLOCK_AMOUNT) + ' ' + infoAcc.CODACCTCURR"></td>
+                    </tr>
+                    <tr class="recycler-row-normal mobileview">
+                        <td class="recycler-row-align-midle-left"><span>ACCOUNT_SEARCH_4</span></td>
+                        <td class="recycler-row-align-midle-right" style="font-weight:bold;" ng-bind="formatNumberToCurrency(infoAcc.MONEY_UN_AUTHORIZE) + ' ' + infoAcc.CODACCTCURR"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <table width="93%" class="desktopview" align="center">
+                    <tr>
+                        <td>
+                        <h5 class="Header">
+                            <span>ACCOUNT_SELECT</span>
+                        </h5>
+                        </td>
+                        <td colspan="1" class="td-text" style="width:75%">
+                            <div style="width:100%" class="input-group accont-bg-selection" ng-click="showAccountSelection()">
+                                <!-- <span class="input-group-addon">ACCOUNT_ACC_NO_TITLE</span> -->
+                                <input id="acchis_accountno" type="button" style="color: #6a1b9a;font-weight: bold;" class="form-control form-control-rightbutton" value="COM_TXT_SELECTION_PLACEHOLDER" />
+                                <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+        <div id="id.accInfo" class="infoaccount" style="padding: 18px;display: none;" align="center">
+            <div id="" class="recycler-list">
+                <table style="width: 98%" id="recycler_table_ebank" class="recycler-table-ebank" ng-repeat="accKKH in infoAcc">
+                    <tr class="recycler-row-parity desktopview">
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>ACC_TYPE_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;"><span>ACCOUNT_TYPE_DETAIL_TITLE</span></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>ACC_CURRENCY_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="accKKH.CODACCTCURR"></td>
+                    </tr>
+                    <tr class="recycler-row-as desktopview">
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>ACC_OPENDATE_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="accKKH.ACCTOPENDT"></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>ACC_BRANCH_OPEN_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="accKKH.BRANCH_NAME"></td>
+                    </tr>
+                    <tr class="recycler-row-parity desktopview" >
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>ACC_BALANCE_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="formatNumberToCurrency(accKKH.NUMBALANCE) + ' ' +  accKKH.CODACCTCURR"></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>ACC_AVAI_BALANCE_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="formatNumberToCurrency(accKKH.NUMAVAILBAL) + ' ' +  accKKH.CODACCTCURR"></td>
+                    </tr>
+                    <tr class="recycler-row-as desktopview">
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>ACC_OVERDRAFT_RATE_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="accKKH.RATE + ' %'"></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>ACC_OVERDRAFT_LIMIT_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="accKKH.NUMAVAILCREDIT"></td>
+                    </tr>
+                    <tr class="recycler-row-parity desktopview" >
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>ACC_OVERDRAFT_START_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="accKKH.TRN_TODAY"></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>ACC_OVERDRAFT_END_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="accKKH.EXPIRE_CREDIT"></td>
+                    </tr>
+                    <tr class="recycler-row-as desktopview">
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>ACCOUNT_AMOUNT_BLOCK</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="formatNumberToCurrency(accKKH.BLOCK_AMOUNT) + ' ' + accKKH.CODACCTCURR"></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>ACCOUNT_SEARCH_4</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="formatNumberToCurrency(accKKH.MONEY_UN_AUTHORIZE) + ' ' + accKKH.CODACCTCURR"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="accDetail" class="infoaccount" style="padding: 18px; display: none;" align="center;">
+            <div  class="recycler-list">
+                <table style="width: 98%"  class="recycler-table-ebank" >
+                    <tr class="recycler-row-parity desktopview">
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>ACC_TYPE_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;"><span>ACCOUNT_TYPE_DETAIL_TITLE</span></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>ACC_CURRENCY_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="infoAcc.CODACCTCURR"></td>
+                    </tr>
+                    <tr class="recycler-row-as desktopview">
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>ACC_OPENDATE_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="infoAcc.ACCTOPENDT"></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>ACC_BRANCH_OPEN_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="infoAcc.BRANCH_NAME"></td>
+                    </tr>
+                    <tr class="recycler-row-parity desktopview" >
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>ACC_BALANCE_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="formatNumberToCurrency(infoAcc.NUMBALANCE) + ' ' +  infoAcc.CODACCTCURR"></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>ACC_AVAI_BALANCE_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="formatNumberToCurrency(infoAcc.NUMAVAILBAL) + ' ' +  infoAcc.CODACCTCURR"></td>
+                    </tr>
+                    <tr class="recycler-row-as desktopview">
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>ACC_OVERDRAFT_RATE_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="infoAcc.RATE + ' %'"></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>ACC_OVERDRAFT_LIMIT_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="infoAcc.NUMAVAILCREDIT"></td>
+                    </tr>
+                    <tr class="recycler-row-parity desktopview" >
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>ACC_OVERDRAFT_START_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="infoAcc.TRN_TODAY"></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>ACC_OVERDRAFT_END_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="infoAcc.EXPIRE_CREDIT"></td>
+                    </tr>
+                    <tr class="recycler-row-as desktopview">
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>ACCOUNT_AMOUNT_BLOCK</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="formatNumberToCurrency(infoAcc.BLOCK_AMOUNT) + ' ' + infoAcc.CODACCTCURR"></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>ACCOUNT_SEARCH_4</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="formatNumberToCurrency(infoAcc.MONEY_UN_AUTHORIZE) + ' ' + infoAcc.CODACCTCURR"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div style="padding:5px;" id="parse_transaction">
+        <table width="100%" align="center" style="padding-right: 9px;">
+            <tr>
+                <td colspan="2">
+                    <h5 class='Header'><span>ACC_PERIOD_HISTORY_TITLE</span></h5>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center" valign="middle" class="td-text">
+                    <div class="input-group input-desktop">
+                    <span class="input-group-addon input-left span-desktop">ACC_PERIOD_START_DATE_TITLE</span>
+                    <input id="id.begindate" type="tel" placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value="" onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" class="form-control form-control-righttext-datepicker datepicker-desktop" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off">
+                    <span onclick="initDialogCal('id.begindate')" id="begindate" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+                    </div>
+                </td>
+              
+            </tr>
+            <tr>
+                <td colspan="2" align="center" valign="middle" class="td-text">
+                    <div class="input-group input-desktop">
+                    <span class="input-group-addon input-left span-desktop">ACC_PERIOD_END_DATE_TITLE</span>
+                    <input id="id.enddate" type="tel" placeholder="COM_TXT_SELECTION_PLACEHOLDER_DATE" value="" onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);" onpaste="return false;" class="form-control form-control-righttext-datepicker datepicker-desktop" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off">
+                    <span onclick="initDialogCal('id.enddate')" id="enddate" class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table id="adv-search-controls" class="table-account" style="display: none; width: 100%">
+                        <!-- luong tien, loai giao dich-->
+                        <tr class="nohover" style="background: none">
+                            <td colspan="2" align="center" valign="middle" class="td-text widefull">
+                                <div class="input-group input-desktop-width" onClick="showMoneyFlowSelection()">
+                                    <span class="input-group-addon span-desktop-high" style="white-space:pre-wrap">ACC_HIS_MONEY_FLOW_TITLE</span>
+                                    <input id="idMonneyFlow" type="button" class="form-input-desktop form-control form-control-rightbutton"  value="COM_TXT_SELECTION_PLACEHOLDER" />
+                                    <span class="input-group-addon input-group-symbol"></span>
+                                </div>
+                                <div class="input-group input-desktop-width" onClick="showTransTypeSelection()">
+                                    <span class="input-group-addon span-desktop-high" style="white-space:pre-wrap">COM_TYPE_TRANSACTION</span>
+                                    <input id="idTransaction" type="button" class="form-input-desktop form-control form-control-rightbutton"  value="COM_TXT_SELECTION_PLACEHOLDER" />
+                                    <span class="input-group-addon input-group-symbol"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- So tai khoan gui nhan-->
+                        <tr class="nohover" style="background: none">
+                            <td colspan="2" align="center" valign="middle" class="td-text widefull">
+                                <div class="input-group input-desktop-width" onClick="">
+                                    <span class="input-group-addon span-desktop-high" style="white-space:pre-wrap">ACC_HIS_ACC_NO_TITLE</span>
+                                    <input id="idAccountSendReceive" type="text" placeholder="COM_TXT_INPUT_PLACEHOLDER" class="form-input-desktop form-control form-control-rightbutton" maxlength="11" onkeyup="onChangeAccountNumber(event, this)" />
+                                    <span class="input-group-addon input-group-symbol"></span>
+                                </div>
+                                <div class="input-group input-desktop-width" onClick="">
+                                    <span class="input-group-addon span-desktop-high" style="white-space:pre-wrap">ACC_HIS_ACC_NAME_TITLE</span>
+                                    <input id="idNameAccountSendReceive" placeholder="COM_TXT_INPUT_PLACEHOLDER" type="text" class="form-input-desktop form-control form-control-rightbutton" maxlength="255" onkeyup="onChangeAccountNumber(event, this)" />
+                                    <span class="input-group-addon input-group-symbol"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- tu so tien den so tien -->
+                        <tr class="nohover" style="background: none">
+                            <td colspan="2" align="center" valign="middle" class="td-text widefull">
+                                <div class="input-group input-desktop-width" onClick="">
+                                    <span class="input-group-addon span-desktop-high" style="white-space:pre-wrap">ACC_FROM_AMOUNT</span>
+                                    <input id="idFromMoney" type="text" placeholder="UTILITIES_CALCULATOR_PLACERHOLDER" class="form-input-desktop form-control form-control-rightbutton" onkeyup="handleInputAmount(event, this);" />
+                                    <span class="input-group-addon input-group-symbol"></span>
+                                </div>
+                                <div class="input-group input-desktop-width" onClick="">
+                                    <span class="input-group-addon span-desktop-high" style="white-space:pre-wrap">ACC_TO_AMOUNT</span>
+                                    <input id="idToMoney" type="text" placeholder="UTILITIES_CALCULATOR_PLACERHOLDER" class="form-input-desktop form-control form-control-rightbutton" onkeyup="handleInputAmount(event, this);" />
+                                    <span class="input-group-addon input-group-symbol"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- So giao dich, mo ta -->
+                        <tr class="nohover" style="background: none">
+                            <td colspan="2" align="center" valign="middle" class="td-text widefull">
+                                <div class="input-group input-desktop-width" onClick="">
+                                    <span class="input-group-addon span-desktop-high" style="white-space:pre-wrap">ACC_TRANSACTION_NUM</span>
+                                    <input id="idNumTransaction" type="text" placeholder="COM_TXT_INPUT_PLACEHOLDER" class="form-input-desktop form-control form-control-rightbutton" onkeyup="onChangeAccountNumber(event, this)" />
+                                    <span class="input-group-addon input-group-symbol"></span>
+                                </div>
+                                <div class="input-group input-desktop-width" onClick="">
+                                    <span class="input-group-addon span-desktop-high" style="white-space:pre-wrap">TRANS_LIST_DESC_TITLE</span>
+                                    <input id="idDescription" type="text" placeholder="COM_TXT_INPUT_PLACEHOLDER" class="form-input-desktop form-control form-control-rightbutton" />
+                                    <span class="input-group-addon input-group-symbol"></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        </div>
+        <table width="100%" align="center" style="padding-left: 0px;padding-right: 9px; padding-top:10px;">
+            <tr>
+                <td class="tdbtndesktop" width="50%">
+                    <div style="width: 33%;float: right;" id=" " class="btnDesktopshadow btnDesktopBack btncenter" onclick="clickHomeOrBack()"><span>CM_BTN_GOBACK</span>
+                    </div>
+                </td>
+                <td width="50%">
+                    <input style="" type="button" class="btnshadow btn-second btn-morefunc bt" ng-click="sendJSONRequest()" value="ACC_HIS_NOR_SEARCH_BTN"/>
+                </td>
+                <td id="advanceSearch" width="50%" style="text-align:right;" class="advSearchAcc">
+
+                    <a width="50%"  style=" margin:0; width:100%;padding: 8px" class="btnshadow btn-second btn-morefunc" href="javascript:void(0);" onclick="showAdvandSearch()" id="acchis.btnAdvSearch"><span>ACC_HIS_ADV_SEARCH_BTN</span></a>
+                </td>
+            </tr>
+            <tr class = "advAccSearch">
+                <td>
+                    <a style="margin-left:93%;width:50%;text-align:center;color:#6a1b9a;float:left;margin-top:0px;text-decoration: underline;font-size: 13px;font-weight: bold;" href="javascript:void(0);" onclick="showAdvandSearch()" id="acchis.btnAdvSearchDesktop"><h5><span>ACC_HIS_ADV_SEARCH_BTN</span></h5></a>
+                </td>
+            </tr>
+        </table>
+        <!-- show bang hien ket qua liet ke giao dich -->
+        <div id="tblContent" name="tblContent"></div>
+        <div id="idHistoryInfo" style="display:none; padding: 15px"><span>CREDIT_HIS_NO_DATA</span></div>
+
+        <table style="width: 98%">
+            <tr>
+                <td>
+                    <!-- Bang sau tong ket -->
+                    <table id="tblSummary" style="display: none">
+                        <!-- so du dau ki-->
+                        <tr style="height:30px;" id="trBeginBalance">
+                            <td>
+                                <div>
+                                    <span style="width:40%; font-weight:bold;">ACC_QUERY_NUM_BEGIN_BALANCE</span>
+                                    <span id="idBeginBalance"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Tong ghi co-->
+                        <tr style="height:30px;">
+                            <td>
+                                <div>
+                                    <span style="width:40%; font-weight:bold;">ACC_QUERY_NUM_SUM_CREDIT</span>
+                                    <span id="idCredit"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Tong ghi no-->
+                        <tr style="height:30px;">
+                            <td>
+                                <div>
+                                    <span style="width:40%; font-weight:bold;">ACC_QUERY_NUM_SUM_DEBIT</span>
+                                    <span id="idDebit"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- So du cuoi ki-->
+                        <tr style="height:30px;" id="trEndBalance">
+                            <td>
+                                <div>
+                                    <span style="width:40%; font-weight:bold;">ACC_QUERY_NUM_END_BALANCE</span>
+                                    <span id="idEndBalance"></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td style="text-align: right">
+                    <div id="idSearchFun" style="display: none">
+                        <!--in giao dich -->
+                        <div class="export-print">
+                            <a href="javascript:void(0)" id="acchis.exportfile" onclick="sendRequestExportExcel()"><img src="css/img/exportfile.png" /></a>
+                            <a style="margin-left: 10px;" href="javascript:void(0)" onclick="printAccHistory();"><img src="css/img/print.png" /></a>
+                        </div>
+                        <div id="id.search">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<!--ThuanTM -->
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

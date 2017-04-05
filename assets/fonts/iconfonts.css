@@ -1,0 +1,489 @@
+@font-face {
+	font-family: 'eBankPro';
+	src:url('eBankPro.eot?c66wh0');
+	src:url('eBankPro.svg?c66wh0#eBankPro') format('svg'),
+        url('eBankPro.eot?c66wh0#iefix') format('embedded-opentype'),
+		url('eBankPro.woff?c66wh0') format('woff'),
+        url('eBankPro.ttf?c66wh0') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'eBankPro' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon-Cap-Tin-Dung:before {
+  content: "\e904";
+}
+.icon-Chuyen-Doi-Ngoai-Te:before {
+  content: "\e905";
+}
+.icon-Chuyen-Tien-Quoc-Te:before {
+  content: "\e906";
+}
+.icon-De-Nghi-Giai-Ngan:before {
+  content: "\e907";
+}
+.icon-Duyet-GD-01:before {
+  content: "\e908";
+}
+.icon-Giam-Doc:before {
+  content: "\e909";
+}
+.icon-Han-Muc-GD-01:before {
+  content: "\e90a";
+}
+.icon-Ke-Toan:before {
+  content: "\e90b";
+}
+.icon-Khoan-Vay-01:before {
+  content: "\e90c";
+}
+.icon-LC:before {
+  content: "\e90d";
+}
+.icon-May-In:before {
+  content: "\e90e";
+}
+.icon-Phat-Hanh-Bao-Lanh:before {
+  content: "\e90f";
+}
+.icon-Phat-Hanh-LC:before {
+  content: "\e910";
+}
+.icon-Qly-GD-The-01:before {
+  content: "\e911";
+}
+.icon-Tai-Ve:before {
+  content: "\e912";
+}
+.icon-Thay-doi-Mat-Khau-01:before {
+  content: "\e913";
+}
+.icon-Thong-Bao-cho-nguoi-duyet-01:before {
+  content: "\e914";
+}
+.icon-Tra-Cuu-Bao-Lanh:before {
+  content: "\e915";
+}
+.icon-Tra-Cuu-GD-TT-Thue:before {
+  content: "\e916";
+}
+.icon-Tra-Cuu-Khoan-Vay:before {
+  content: "\e917";
+}
+.icon-Tra-Cuu-LC:before {
+  content: "\e918";
+}
+.icon-Tra-Luong-Theo-Lo-01:before {
+  content: "\e919";
+}
+.icon-Truy-Van-GD-01:before {
+  content: "\e91a";
+}
+.icon-TT-Thue:before {
+  content: "\e91b";
+}
+.icon-TT-Thue-01:before {
+  content: "\e91c";
+}
+.icon-Tu-Chinh-LC:before {
+  content: "\e91d";
+}
+.icon-Upload:before {
+  content: "\e91e";
+}
+.icon-fortune-savings:before {
+  content: "\e900";
+}
+.icon-connect-ewallet:before {
+  content: "\1f563";
+}
+.icon-notification:before {
+  content: "\1f564";
+}
+.icon-content-note:before {
+  content: "\1f565";
+}
+.icon-template:before {
+  content: "\1f566";
+}
+.icon-reg-acc-statement:before {
+  content: "\1f567";
+}
+.icon-set-security-question:before {
+  content: "\1f568";
+}
+.icon-close-easy-link:before {
+  content: "\1f569";
+}
+.icon-set-visa-statement-pass:before {
+  content: "\1f56a";
+}
+.icon-edit:before {
+  content: "\1f56b";
+}
+.icon-favourite:before {
+  content: "\1f56c";
+}
+.icon-template2:before {
+  content: "\1f56d";
+}
+.icon-calendar:before {
+  content: "\1f56e";
+}
+.icon-circle-down:before {
+  content: "\1f56f";
+}
+.icon-circle-right:before {
+  content: "\1f570";
+}
+.icon-circle-up:before {
+  content: "\1f571";
+}
+.icon-credit-card-info:before {
+  content: "\1f572";
+}
+.icon-credit-card-repayment:before {
+  content: "\1f573";
+}
+.icon-login:before {
+  content: "\1f574";
+}
+.icon-qr-code:before {
+  content: "\1f575";
+}
+.icon-account-ebank:before {
+  content: "\1f576";
+}
+.icon-savings:before {
+  content: "\1f577";
+}
+.icon-cards:before {
+  content: "\1f578";
+}
+.icon-loans1:before {
+  content: "\1f579";
+}
+.icon-mpos:before {
+  content: "\1f57a";
+}
+.icon-quick-regist:before {
+  content: "\1f57b";
+}
+.icon-promotions:before {
+  content: "\1f57c";
+}
+.icon-exchange-rate:before {
+  content: "\1f57d";
+}
+.icon-interest-rate:before {
+  content: "\1f57e";
+}
+.icon-forex-rate:before {
+  content: "\1f57f";
+}
+.icon-branches:before {
+  content: "\1f580";
+}
+.icon-atm:before {
+  content: "\1f581";
+}
+.icon-location:before {
+  content: "\1f582";
+}
+.icon-terms-conditions:before {
+  content: "\1f583";
+}
+.icon-user-guide:before {
+  content: "\1f584";
+}
+.icon-faqs:before {
+  content: "\1f585";
+}
+.icon-contact-us:before {
+  content: "\1f586";
+}
+.icon-password-reset:before {
+  content: "\1f587";
+}
+.icon-support:before {
+  content: "\1f588";
+}
+.icon-financial-toolkit:before {
+  content: "\1f589";
+}
+.icon-accounts:before {
+  content: "\1f58a";
+}
+.icon-payments:before {
+  content: "\1f58c";
+}
+.icon-easylink:before {
+  content: "\1f58d";
+}
+.icon-loyalty:before {
+  content: "\1f58e";
+}
+.icon-utilities:before {
+  content: "\1f58f";
+}
+.icon-settings:before {
+  content: "\1f590";
+}
+.icon-homepage:before {
+  content: "\1f591";
+}
+.icon-recents:before {
+  content: "\1f592";
+}
+.icon-financial-overview:before {
+  content: "\1f593";
+}
+.icon-financial-management:before {
+  content: "\1f594";
+}
+.icon-account-info:before {
+  content: "\1f595";
+}
+.icon-easylink-account-info:before {
+  content: "\1f596";
+}
+.icon-logo:before {
+  content: "\1f597";
+}
+.icon-another-bank-account:before {
+  content: "\1f598";
+}
+.icon-via-id-number:before {
+  content: "\1f59a";
+}
+.icon-securities-account:before {
+  content: "\1f59b";
+}
+.icon-bulk-transfer:before {
+  content: "\1f59c";
+}
+.icon-beneficiaries:before {
+  content: "\1f59d";
+}
+.icon-fund-transfer-history:before {
+  content: "\1f59e";
+}
+.icon-scheduled-transfers-list:before {
+  content: "\1f59f";
+}
+.icon-prepaid-subcriber:before {
+  content: "\1f5a0";
+}
+.icon-ewallet:before {
+  content: "\1f5a1";
+}
+.icon-tv-cable:before {
+  content: "\1f5a2";
+}
+.icon-game-account:before {
+  content: "\1f5a3";
+}
+.icon-tuition:before {
+  content: "\1f5a4";
+}
+.icon-topup:before {
+  content: "\1f5a5";
+}
+.icon-postpaid:before {
+  content: "\1f5a6";
+}
+.icon-internet:before {
+  content: "\1f5a7";
+}
+.icon-home-phone:before {
+  content: "\1f5a8";
+}
+.icon-water:before {
+  content: "\1f5a9";
+}
+.icon-electricity:before {
+  content: "\1f5aa";
+}
+.icon-railway-ticket:before {
+  content: "\1f5ab";
+}
+.icon-air-ticket:before {
+  content: "\1f5ac";
+}
+.icon-bill-payment:before {
+  content: "\1f5ad";
+}
+.icon-ecomm-payments:before {
+  content: "\1f5ae";
+}
+.icon-savings-info:before {
+  content: "\1f5af";
+}
+.icon-esavings:before {
+  content: "\1f5b0";
+}
+.icon-ngoi-nha-mo-uoc:before {
+  content: "\1f5b2";
+}
+.icon-oto-sang-trong:before {
+  content: "\1f5b3";
+}
+.icon-xe-may-ca-tinh:before {
+  content: "\1f5b4";
+}
+.icon-nang-cao-tri-thuc:before {
+  content: "\1f5b5";
+}
+.icon-du-lich-nam-chau:before {
+  content: "\1f5b6";
+}
+.icon-muc-dich-khac:before {
+  content: "\1f5b7";
+}
+.icon-future-savings:before {
+  content: "\1f5b8";
+}
+.icon-auto-savings:before {
+  content: "\1f5b9";
+}
+.icon-change-savings-info:before {
+  content: "\1f5ba";
+}
+.icon-withdrawal-savings:before {
+  content: "\1f5bb";
+}
+.icon-loans-info:before {
+  content: "\1f5bc";
+}
+.icon-standy-overdraft-limit:before {
+  content: "\1f5bd";
+}
+.icon-cash-advance-from-credit-card:before {
+  content: "\1f5be";
+}
+.icon-personal-loans:before {
+  content: "\1f5bf";
+}
+.icon-loans:before {
+  content: "\1f5c0";
+}
+.icon-online-transaction-limits:before {
+  content: "\1f5c1";
+}
+.icon-credit-card-repayment-method:before {
+  content: "\1f5c2";
+}
+.icon-lock-unlock-your-cards:before {
+  content: "\1f5c3";
+}
+.icon-apply-for-cards:before {
+  content: "\1f5c4";
+}
+.icon-secured-overdraft-limit:before {
+  content: "\1f5c5";
+}
+.icon-points-management:before {
+  content: "\1f5c6";
+}
+.icon-exchange-rewards:before {
+  content: "\1f5c7";
+}
+.icon-rewards-exchange-history:before {
+  content: "\1f5c8";
+}
+.icon-personal-info:before {
+  content: "\1f5c9";
+}
+.icon-change-personal-info:before {
+  content: "\1f5ca";
+}
+.icon-appointment-with-tpbank:before {
+  content: "\1f5cb";
+}
+.icon-friend-referral:before {
+  content: "\1f5cc";
+}
+.icon-referral-management:before {
+  content: "\1f5cd";
+}
+.icon-authentication-methods:before {
+  content: "\1f5ce";
+}
+.icon-change-password:before {
+  content: "\1f5cf";
+}
+.icon-pin-fingerprints:before {
+  content: "\1f5d0";
+}
+.icon-change-username:before {
+  content: "\1f5d1";
+}
+.icon-customize-menu:before {
+  content: "\1f5d2";
+}
+.icon-change-language:before {
+  content: "\1f5d3";
+}
+.icon-change-theme:before {
+  content: "\1f5d4";
+}
+.icon-back:before {
+  content: "\1f5d5";
+}
+.icon-menu:before {
+  content: "\1f5d6";
+}
+.icon-delete:before {
+  content: "\1f5d7";
+}
+.icon-detail:before {
+  content: "\1f5d8";
+}
+.icon-collapse-expand:before {
+  content: "\1f5d9";
+}
+.icon-logout:before {
+  content: "\1f5da";
+}
+.icon-fund-transfer:before {
+  content: "\e901";
+}
+.icon-via-card-number:before {
+  content: "\e902";
+}
+.icon-share:before {
+  content: "\e903";
+}
+.icon-radio-checked:before {
+  content: "\1f55c";
+}
+.icon-radio-unchecked:before {
+  content: "\1f55d";
+}
+.icon-arrowleft:before {
+  content: "\1f55e";
+}
+.icon-arrowright:before {
+  content: "\1f55f";
+}
+.icon-checkbox-unchecked:before {
+  content: "\1f560";
+}
+.icon-checked:before {
+  content: "\1f561";
+}
+.icon-movenext:before {
+  content: "\1f562";
+}

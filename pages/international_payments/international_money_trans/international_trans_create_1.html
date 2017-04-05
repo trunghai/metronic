@@ -1,0 +1,242 @@
+<script src="international_trans_create_1.js"></script>
+<div id="mainViewContent" class="main-layout-subview" ng-controller="international_trans_create_1">
+    <div class="">
+        <div class="panelContent">
+            <table id="dynamic-billing-table" width="100%">
+                <tbody>
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title">
+                            <span>INTERNATIONAL_INFO_TRANS</span>
+                        </div>
+                    </td>
+                </tr>
+                <!--Loại tiền-->
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull" >
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">INTERNATIONAL_CURRENCY</span>
+                            <input id="id.international.currency" class="form-control form-control-righttext" type="button" value="COM_TXT_SELECTION_PLACEHOLDER" ng-click="showInternationalCurrency();">
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                            <input id="id.international.currency.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <!--tổng ngoại tệ cần chuyển-->
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull" >
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">INTERNATIONAL_TOTAL_CURRENCY</span>
+                            <input id="idInternationalTotalCurrency" class="form-control form-control-righttext" type="text" ng-model="totalCurrency" onblur="removeCharNegative(this)" ng-blur="inputAmountCurrency(totalCurrency)" value="" placeholder="INTERNATIONAL_PLACEHOLDER_INPUT">
+                            <input id="id.international.total.currency.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title">
+                            <span>INTERNATIONAL_DEBIT_ACCOUNT_CURRENCY</span>
+                        </div>
+                    </td>
+                </tr>
+                <!--Số tài khoản ngoại tệ-->
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull" >
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">INTERNATIONAL_NO_ACCOUNT_CURRENCY</span>
+                            <input id="id.international.debit.account.currency" class="form-control form-control-righttext" type="button" value="COM_TXT_SELECTION_PLACEHOLDER" ng-click="showInternationalAccountCurrency();">
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                            <input id="id.international.debit.account.currency.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <!--Số dư khả dụng-->
+                <tr>
+                    <td>
+                        <div id="trans.sourceaccoutbalance">
+                            <div class="availblstyle widefull">
+                                <span>COM_TXT_ACC_BALANCE_TITLE</span>:
+                                <span id="id.international.sourceAccount.balance"></span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <!--Số tiền ghi nợ-->
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull" >
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">INTERNATIONAL_DEBIT_AMOUNT</span>
+                            <input id="idInternationalDebitAmount" class="form-control form-control-righttext" type="text" ng-model="debitAmountCurrency" onblur="removeCharNegative(this)" ng-blur="inputDebitAmountCurrency(debitAmountCurrency)" value="" placeholder="INTERNATIONAL_PLACEHOLDER_INPUT">
+                            <input id="id.international.debit.amount.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title">
+                            <span>INTERNATIONAL_DEBIT_ACCOUNT_VND</span>
+                        </div>
+                    </td>
+                </tr>
+                <!--Số tài khoản VND-->
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull" >
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">INTERNATIONAL_NO_ACCOUNT_VND</span>
+                            <input id="id.international.account.VND" class="form-control form-control-righttext" type="button" value="COM_TXT_SELECTION_PLACEHOLDER" ng-click="showInternationalSourceAccount();">
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                            <input id="id.international.account.VND.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <!--Số dư khả dụng-->
+                <tr>
+                    <td>
+                        <div id="trans.sourceaccoutbalance.VND">
+                            <div class="availblstyle widefull">
+                                <span>COM_TXT_ACC_BALANCE_TITLE</span>:
+                                <span id="id.international.sourceAccount.balance.VND"></span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <!--Mua ngoại tệ theo tỷ giá-->
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull" >
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">INTERNATIONAL_BUY_FOREGIN_EXCHANGE_RATE</span>
+                            <input id="id.international.foregin.exchange.rate" class="form-control form-control-righttext" type="text" value="" disabled>
+                        </div>
+                    </td>
+                </tr>
+                <!--Số tiền ghi nợ-->
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull" >
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">INTERNATIONAL_DEBIT_AMOUNT</span>
+                            <input id="id.international.debit.amount.VND" class="form-control form-control-righttext" type="text" value="" disabled>
+                            <input id="id.international.debit.amount.VND.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title">
+                            <span>INTERNATIONAL_FEE</span>
+                        </div>
+                    </td>
+                </tr>
+                <!--hình thức thu phí-->
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull" >
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">INTERNATIONAL_FEE_METHOD</span>
+                            <input id="id.international.fee.method" class="form-control form-control-righttext" type="button" value="COM_TXT_SELECTION_PLACEHOLDER" ng-click="showInternationalFeeMethod();">
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                            <input id="id.international.fee.method.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <!--Phí chuyển tiền-->
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull" >
+                            <span class="input-group-addon" style="width: 30%; white-space:pre-wrap">INTERNATIONAL_FEE_EXCHANGE_AMOUNT</span>                            
+                            <input id="id.international.fee.exchange.amount" class="form-control-righttext" style="padding-right: 10px; width: 20%; border: none; background: none; height: 30px; color: #674185" type="text" disabled>
+                            <span style="width: 10%; height: 30px"> = </span>
+                            <input id="id.international.fee.exchange.amount.value" class="form-control-righttext"  style="width: 40%; height: 30px; border: none; background: none; color: #674185" type="text" disabled>
+                        </div>
+                    </td>
+                </tr>
+                <!--Điện phí-->
+                <tr>
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull" >
+                            <span class="input-group-addon" style="width: 30%; white-space:pre-wrap">INTERNATIONAL_ELECTRIC_FEE</span>
+                            <input id="id.international.electricharge.amount" class="form-control-righttext" style="padding-right: 10px; width: 20%; height: 30px;border: none; background: none; color: #674185"  type="text" value="" disabled>
+                            <span style="width: 10%; height: 30px"> = </span>
+                            <input id="id.international.electricharge.amount.value" class="form-control-righttext"  style="width: 40%; height: 30px; border: none; background: none; color: #674185" type="text" value="" disabled>
+                        </div>
+                    </td>
+                </tr>
+                <!--Phí OUR-->
+                <tr ng-show="(selectFeeMethod == 'BEN' || selectFeeMethod == 'SHA') ? false : true">
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull" >
+                            <span class="input-group-addon" style="width: 30%; white-space:pre-wrap">INTERNATIONAL_FEE_OUR</span>
+                            <input id="id.international.fee.our.amount" class="form-control-righttext" style="padding-right: 10px; width: 20%; height: 30px; border: none; background: none; color: #674185"  type="text" value="" disabled>
+                            <span style="width: 10%; height: 30px"> = </span>
+                            <input id="id.international.fee.our.amount.value" class="form-control-righttext"  style="width: 40%; height: 30px; border: none; background: none; color: #674185" type="text" value="" disabled>
+                        </div>
+                    </td>
+                </tr>
+                <tr id="noteInter" ng-show="(selectFeeMethod == 'BEN' || selectFeeMethod == 'SHA') ? false : true">
+                    <td colspan="2" align="center" valign="middle">
+                        <div style="text-align: right;">
+                            <span style="cursor:pointer; color: red">INTERNATIONAL_NOTE_CHARGE_OUR_1</span>
+                        </div>
+                    </td>
+                </tr>
+                <!--tài khoản thu phí-->
+                <tr ng-show="(selectFeeMethod == 'BEN') ? false : true">
+                    <td class="td-text" valign="middle" align="center" colspan="2">
+                        <div class="input-group widefull" >
+                            <span class="input-group-addon" style="width: 40%; white-space:pre-wrap">INTERNATIONAL_ACCOUNT_CHARGES</span>
+                            <input id="id.international.account.charges" class="form-control form-control-righttext" type="button" value="COM_TXT_SELECTION_PLACEHOLDER" ng-click="showInternationalAccountCharges();">
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                            <input id="id.international.account.charges.value" type="hidden" value="">
+                        </div>
+                    </td>
+                </tr>
+                <!--Số dư khả dụng-->
+                <tr ng-show="(selectFeeMethod == 'BEN') ? false : true">
+                    <td>
+                        <div id="trans.sourceaccoutbalance.charges">
+                            <div class="availblstyle widefull">
+                                <span>COM_TXT_ACC_BALANCE_TITLE</span>:
+                                <span id="id.international.sourceAccount.balance.charges"></span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <!--Gửi thông báo cho người duyệt-->
+                <tr>
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="white-space:pre-wrap; width:40%">COM_SEND_MSG_APPROVER</span>
+                            <input style="white-space:pre-wrap;" id="id.notifyTo" type="button" class="form-control form-control-righttext" disabled="true" />
+                        </div>
+                    </td>
+                </tr>
+                <tr class="trow-space"></tr>
+                <tr class="mt-15">
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="tdbtndesktop" style="width:50%">
+                            <input  type='submit' style="float:left;margin-left:65px" class='btnDesktopshadow btnDesktopBack' ng-click="onBackClick()" value='INPUT_ACC_BTN_GOBACK'/>
+                        </div>
+                        <div style="width:50%">
+                            <input id="btnContinute" type="button" style="margin-right:100px" class="btnshadow btn-second"
+                                    ng-click="onContinuteClick()" value="COM_CONTINUE"/>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>
+<div id="selection-dialog-promocode" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogPromocode(this)">
+    </div>
+    <div id="divPromocode" class="list-group dialog-list"> </div>
+</div>>

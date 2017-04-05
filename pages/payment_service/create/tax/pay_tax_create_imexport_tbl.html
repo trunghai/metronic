@@ -1,0 +1,16 @@
+<div id="recycler_list" class="recycler-list">
+    <table width='100%' align='center' class='table-account' style=" table-layout: fixed;">
+        <tr class="trow-title">
+            <td style="text-align: center;"><span>COM_NO</span></td>
+            <td style="text-align: center;"><span>COM_DECLAR</span></td>
+            <td style="text-align: center;"><span>TAX_IM_EX_TBL_YEAR_DECLAR</span></td>
+            <td style="text-align: center;"><span>TAX_IM_EX_TBL_HAI_QUAN_PHAT_HANH</span></td>
+        </tr>
+        <tr class="recycler-row-normal recycler-hover" align="center" ng-repeat="item in listPending track by $index">
+            <td style="word-wrap:break-word; text-align: center;"><span ng-bind="$index + 1"></span></td>
+            <td style="word-wrap:break-word; text-align: center;"><span ng-bind="item.So_TK"></span></td>
+            <td style="word-wrap:break-word; text-align: center;"><span ng-bind="item.Nam_DK"></span></td>
+            <td style="word-wrap:break-word; text-align: center;"><a style="white-space:pre-wrap;"  class="ref-link" ng-click="imExportDetail(item.So_TK, item.Nam_DK, $index+1)" href="javascript:void(0)"><span ng-bind="item.Ten_HQ_PH" ></span></a></span></td>
+        </tr>
+    </table>
+</div>

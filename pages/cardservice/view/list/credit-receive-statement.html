@@ -1,0 +1,532 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="list-history-transactions">
+    <div>
+        <!-- view card detai -->
+        <div id="id.accInfo">
+            <div class="recycler_list" id="pricard">
+                <table style="width:97%; margin: 10px;" class="recycler-table-ebank desktopview">
+                    <tr class="recycler-row-parity" >
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CREDIT_NUMBER_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="infoCardDetail.myHashMap.CARD_NUMBER"></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CREDIT_OWNER_NAME_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="infoCardDetail.myHashMap.CARD_HOLD_NAME"></td>
+                    </tr>
+                    <tr class="recycler-row-as">
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CREDIT_GRANTED_LIMIT_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="(infoCardDetail.myHashMap.CREDIT_LIMIT | currency : '' : 0) + ' VND'"></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CREDIT_TYPE_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="((infoCardDetail.myHashMap.BC_FLAG == '1') ? priCard : slvCard) + ' ' + infoCardDetail.myHashMap.PRD_DESC"></td>
+                    </tr>
+                    <tr class="recycler-row-parity" >
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CREDIT_STATUS_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="(infoCardDetail.myHashMap.STAT_COD == '0') ? activeCard : deActiveCard"></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CREDIT_CUR_LIMIT_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="(infoCardDetail.myHashMap.CURR_LIMIT | currency : '' : 0) + ' VND'"></td>
+                    </tr>
+                    <tr class="recycler-row-as">
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CREDIT_MIN_REPAY_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="(infoCardDetail.myHashMap.TT_DU_NO_TOI_THIEU | currency : '' : 0) + ' VND'"></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CREDIT_CUR_DEBT_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="(infoCardDetail.myHashMap.CURR_BAL | currency : '' : 0) + ' VND'"></td>
+                    </tr>
+                    <tr class="recycler-row-parity" >
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CREDIT_PAY_DATE_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="infoCardDetail.myHashMap.PMT_DT"></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CREDIT_STATE_DEBT_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="(infoCardDetail.myHashMap.TT_DU_NO_CONLAI | currency : '' : 0) + ' VND'"></td>
+                    </tr>
+                    <tr class="recycler-row-as">
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CREDIT_WAITING_AMOUNT_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="(infoCardDetail.myHashMap.CHO_TQT | currency : '' : 0) + ' VND'"></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span></span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;"></td>
+                    </tr>
+                </table>
+                <div align="center" class="recycler-list mobileview" id="recycler_list" style="margin:10px">
+                    <table class="recycler-table-ebank" id="recycler_table_ebank" style="width: 97%">
+                        <tbody>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CREDIT_NUMBER_TITLE</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="infoCardDetail.myHashMap.CARD_NUMBER"></span>
+                                </td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CREDIT_OWNER_NAME_TITLE</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="infoCardDetail.myHashMap.CARD_HOLD_NAME"></span>
+                                </td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CREDIT_GRANTED_LIMIT_TITLE</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="(infoCardDetail.myHashMap.CREDIT_LIMIT | currency : '' : 0) + ' VND'"></span>
+                                </td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CREDIT_TYPE_TITLE</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="((infoCardDetail.myHashMap.BC_FLAG == '1') ? priCard : slvCard) + ' ' + infoCardDetail.myHashMap.PRD_DESC"></span>
+                                </td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CREDIT_STATUS_TITLE</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="(infoCardDetail.myHashMap.STAT_COD == '0') ? activeCard : deActiveCard"></span>
+                                </td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CREDIT_CUR_LIMIT_TITLE</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="(infoCardDetail.myHashMap.CURR_LIMIT | currency : '' : 0) + ' VND'"></span>
+                                </td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CREDIT_MIN_REPAY_TITLE</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="(infoCardDetail.myHashMap.MIN_DUE | currency : '' :0) + ' VND'"></span>
+                                </td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CREDIT_CUR_DEBT_TITLE</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="(infoCardDetail.myHashMap.CURR_BAL | currency : '' : 0) + ' VND'"></span>
+                                </td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CREDIT_PAY_DATE_TITLE</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="infoCardDetail.myHashMap.PMT_DT"></span>
+                                </td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CREDIT_STATE_DEBT_TITLE</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="(infoCardDetail.myHashMap.TT_DU_NO_CONLAI | currency : '' : 0) + ' VND'"></span>
+                                </td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CREDIT_WAITING_AMOUNT_TITLE</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="(infoCardDetail.myHashMap.CHO_TQT | currency : '' : 0) + ' VND'"></span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="recycler_list" id="subcard">
+                <table style="width:97%; margin: 10px;" class="recycler-table-ebank desktopview">
+                    <tr class="recycler-row-parity" >
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CREDIT_NUMBER_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="infoCardDetail.myHashMap.CARD_NUMBER"></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CREDIT_OWNER_NAME_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="infoCardDetail.myHashMap.CARD_HOLD_NAME"></td>
+                    </tr>
+                    <tr class="recycler-row-as">
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CREDIT_LIMIT_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="(infoCardDetail.myHashMap.CREDIT_LIMIT | currency : '' : 0) + ' VND'"></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CREDIT_CUR_LIMIT_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="(infoCardDetail.myHashMap.CURR_LIMIT | currency : '' : 0) + ' VND'"></td>
+                    </tr>        
+                    <tr class="recycler-row-parity" >        
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CREDIT_TYPE_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="((infoCardDetail.myHashMap.BC_FLAG == '1') ? priCard : slvCard) + ' ' + infoCardDetail.myHashMap.PRD_DESC"></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CREDIT_STATUS_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="(infoCardDetail.myHashMap.STAT_COD == '0') ? activeCard : deActiveCard"></td>
+                    </tr>
+                </table>
+                <div align="center" class="recycler-list mobileview" id="recycler_list" style="margin:10px">
+                    <table class="recycler-table-ebank" id="recycler_table_ebank" style="width: 97%">
+                        <tbody>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CREDIT_NUMBER_TITLE</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="infoCardDetail.myHashMap.CARD_NUMBER"></span>
+                                </td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CREDIT_OWNER_NAME_TITLE</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="infoCardDetail.myHashMap.CARD_HOLD_NAME"></span>
+                                </td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CREDIT_LIMIT_TITLE</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="(infoCardDetail.myHashMap.CREDIT_LIMIT | currency : '' : 0) + ' VND'"></span>
+                                </td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CREDIT_CUR_LIMIT_TITLE</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="(infoCardDetail.myHashMap.CURR_LIMIT | currency : '' : 0) + ' VND'"></span>
+                                </td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CREDIT_TYPE_TITLE</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="((infoCardDetail.myHashMap.BC_FLAG == '1') ? priCard : slvCard) + ' ' + infoCardDetail.myHashMap.PRD_DESC"></span>
+                                </td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CREDIT_STATUS_TITLE</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="(infoCardDetail.myHashMap.STAT_COD == '0') ? activeCard : deActiveCard"></span>
+                                </td>
+                            </tr>            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- view card detai end -->
+
+        <!-- input search -->
+        <table style="width: 100%;">
+            <tr>
+                <td>
+                    <div class="input-group" onClick="showMonth()">
+                        <span class="input-group-addon" style="white-space:pre-wrap;padding-left: 9px;">CREDIT_PERIOD_MONTH</span>
+                        <input id="idMonthSelect" type="button" class="form-control form-control-rightbutton" value="COM_TXT_SELECTION_PLACEHOLDER" />
+                        <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                    </div>
+                </td>
+                <td>
+                   <div class="input-group" onClick="showYear()">
+                        <span class="input-group-addon" style="white-space:pre-wrap">CREDIT_PERIOD_YEAR</span>
+                        <input id="idYearSelect" type="button" class="form-control form-control-rightbutton" value="COM_TXT_SELECTION_PLACEHOLDER" />
+                        <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                    </div>   
+                </td>
+            </tr>
+        </table>              
+         <!-- input search end -->
+        <table style="width: 98%; margin: auto">
+            <tr>
+                <td align="center" valign="middle" class="td-text">
+                    <div class="tdbtndesktop" style="width: 50%">
+                        <input type="button" style="float: left; margin-left: 37px; margin-top: 10px;" class="btnDesktopshadow btnDesktopBack"
+                            onclick="clickHomeOrBack()" value="ACC_HIS_LIST_BACK_ACC" autocomplete="off" autocorrect="off"
+                            autocapitalize="off" spellcheck="off"></div>
+                    <div style="width: 50%">
+                        <input id="listInfoExe" type="submit" style="margin-right: 40px; margin-top: 10px;
+                            font-size: 14px" class="btnshadow btn-second" ng-click="sendJSONRequest()" value="COM_CONTINUE"
+                            autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"></div>
+                </td>
+            </tr>
+            <tr class="trow-space"></tr>
+        </table>
+
+        <!-- Sao ke giao dich -->
+
+        <div id="statementView" style="display: none;">
+            <div style="color: orange; text-align: center; margin-top: 15px;"><span>VISA_HIS_TITLE</span></div>
+            <div class="recycler_list">
+                <table style="width:97%; margin: 10px;" class="recycler-table-ebank desktopview">
+                    <tr class="recycler-row-parity" >
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CARD_STATEMENT_MR</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="hisTransaction[0].myHashMap.CARD_NAME"></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CARD_STATEMENT_ADDRESS</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="hisTransaction[0].myHashMap.ADDRESS"></td>
+                    </tr>
+                    <tr class="recycler-row-parity" >
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CREDIT_NUMBER_TITLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="hisTransaction[0].myHashMap.CARD_NUMBER"></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>COM_ACCOUNT_NUMBER</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="hisTransaction[0].myHashMap.ACC"></td>
+                    </tr>
+                    <tr class="recycler-row-as">
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CARD_STATEMENT_LIMIT</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="(hisTransaction[0].myHashMap.CREDIT_LIMIT | currency : '' :0)"></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CARD_STATEMENT_AVAILBLE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="(hisTransaction[0].myHashMap.OPEN_BAL | currency : '' :0)"></td>
+                    </tr>
+                    <tr class="recycler-row-parity" >
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CARD_STATEMENT_AVAILBLE_NEED_PAY</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="(hisTransaction[0].myHashMap.CLOSE_BAL | currency : '' : 0)"></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CARD_STATEMENT_MINIMUM_NEED_PAY</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="(hisTransaction[0].myHashMap.MIN_DUE | currency : '' : 0)"></td>
+                    </tr>
+                    <tr class="recycler-row-as">
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CARD_STATEMENT_PLEASE_PAY</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="hisTransaction[0].myHashMap.PMT_DATE"></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>CARD_STATEMENT_DATE_STATEMENT</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="hisTransaction[0].myHashMap.DT_STMT"></td>
+                    </tr>
+                    <tr style="border: none;">
+                        <td class="recycler-row-align-midle-right" colspan="4">
+                            <span>CURRENCY_VND</span>
+                        </td>
+                    </tr>
+                </table>
+                
+                
+                <div align="center" class="recycler-list mobileview" id="recycler_list" style="margin:10px">
+                    <table class="recycler-table-ebank" id="recycler_table_ebank" style="width: 97%">
+                        <tbody>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CARD_STATEMENT_MR</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="infoCardDetail.myHashMap.CARD_NUMBER"></span>
+                                </td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CARD_STATEMENT_ADDRESS</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="infoCardDetail.myHashMap.CARD_HOLD_NAME"></span>
+                                </td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CREDIT_NUMBER_TITLE</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="(infoCardDetail.myHashMap.CREDIT_LIMIT | currency : '' : 0) + ' VND'"></span>
+                                </td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>COM_ACCOUNT_NUMBER</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="((infoCardDetail.myHashMap.BC_FLAG == '1') ? priCard : slvCard) + ' ' + infoCardDetail.myHashMap.PRD_DESC"></span>
+                                </td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CARD_STATEMENT_LIMIT</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="(infoCardDetail.myHashMap.STAT_COD == '0') ? activeCard : deActiveCard"></span>
+                                </td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CARD_STATEMENT_AVAILBLE</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="(infoCardDetail.myHashMap.CURR_LIMIT | currency : '' : 0) + ' VND'"></span>
+                                </td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CARD_STATEMENT_AVAILBLE_NEED_PAY</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="(infoCardDetail.myHashMap.MIN_DUE | currency : '' : 0) + ' VND'"></span>
+                                </td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CARD_STATEMENT_MINIMUM_NEED_PAY</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="(infoCardDetail.myHashMap.CURR_BAL | currency : '' : 0) + ' VND'"></span>
+                                </td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CARD_STATEMENT_PLEASE_PAY</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="infoCardDetail.myHashMap.PMT_DT"></span>
+                                </td>
+                            </tr>
+                            <tr class="recycler-row-normal">
+                                <td class="recycler-row-align-midle-left">
+                                    <span>CARD_STATEMENT_DATE_STATEMENT</span>
+                                </td>
+                                <td class="recycler-row-align-midle-right">
+                                    <span ng-bind="(infoCardDetail.myHashMap.CURR_BAL | currency : '' : 0) + ' VND'"></span>
+                                </td>
+                            </tr>                        
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div  class="mobileview" style="float: right;margin-right: 4%"><span>CURRENCY_VND</span></div>
+            <div style="height: 1px; background: #ce652b; width: 97%; margin: 0 auto;"></div>
+            <!-- bang ghi no ghi co -->
+            <div style="margin:10px" id="debitCredit">    
+                <table align="center" class="recycler-table-ebank desktopview" width="100%">
+                    <thead>
+                        <tr class='recycler-row-title-header recycler-list'>
+                            <th class="recycler-row-align-midle-left">
+                                <span>VISA_HIS_TRANSDATE</span>
+                            </th>
+                            <th class="recycler-row-align-midle-left">
+                                <span>VISA_HIS_POSTDATE</span>
+                            </th>
+                            <th class="recycler-row-align-midle-left">
+                                <span>VISA_HIS_TRANSAMOUNT</span>
+                            </th>
+                            <th class="recycler-row-align-midle-left">
+                                <span>VISA_HIS_DEBIT</span>
+                            </th>
+                            <th class="recycler-row-align-midle-left">
+                                <span>VISA_HIS_CREDIT</span>
+                            </th>
+                            <th class="recycler-row-align-midle-left">
+                                <span>VISA_HIS_DES</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyDetail">
+                        <tr class="recycler-row-title recycler-list" ng-repeat="item in hisTransactionItem track by $index">
+                            <td class="recycler-row-align-midle-left">
+                                <div ng-bind="item.myHashMap.TXNDATE">
+                                </div>
+                            </td>
+                            <td class="recycler-row-align-midle-left">
+                                <div>
+                                    <span ng-bind="item.myHashMap.POSDATE"></span>
+                                </div>                                
+                            </td>
+                            <td class="recycler-row-align-midle-left">
+                                <div ng-bind="(item.myHashMap.AMOUNT | currency: '': 0 )">
+                                </div>
+                            </td>
+                            <td class="recycler-row-align-midle-left">
+                                <div ng-bind="(item.myHashMap.DR | currency: '' : 0)">
+                                </div>                                
+                            </td>
+                            <td class="recycler-row-align-midle-left">
+                                <div ng-bind="(item.myHashMap.CR | currency: '' : 0)">
+                                </div>
+                            </td>
+                            <td class="recycler-row-align-midle-left">
+                                <div ng-bind="item.myHashMap.TXN_DESC">
+                                </div>
+                            </td>                            
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="recycler-table-ebank recycler-list mobileview margin-bottom" ng-repeat="item in hisTransactionItem track by $index">
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <span>VISA_HIS_TRANSDATE</span>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <span ng-bind="item.myHashMap.TXNDATE"></span>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <span>VISA_HIS_POSTDATE</span>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <span ng-bind="item.myHashMap.POSDATE"></span>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <span>VISA_HIS_TRANSAMOUNT</span>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <span ng-bind="(item.myHashMap.AMOUNT | currency: '': 0 )"></span>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <span>VISA_HIS_DEBIT</span>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <span ng-bind="(item.myHashMap.DR | currency: '' : 0)"></span>
+                        </td>
+                    </tr>    
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <span>VISA_HIS_CREDIT</span>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <span ng-bind="(item.myHashMap.CR | currency: '' : 0)"></span>
+                        </td>
+                    </tr>
+                    <tr class="recycler-row-normal">
+                        <td class="recycler-row-align-midle-left">
+                            <span>VISA_HIS_DES</span>
+                        </td>
+                        <td class="recycler-row-align-midle-right">
+                            <span ng-bind="item.myHashMap.TXN_DESC"></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="height: 1px; background: #ce652b; width: 97%; margin: 0 auto;"></div>
+            <div class="recycler_list">
+                <table style="width:97%; margin: 10px;" class="recycler-table-ebank">
+                    <tr class="recycler-row-parity" >
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>TRANS_TOTAL_DEDIT</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;">{{ (getTotalDR() | currency : '' :0 )}}</td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>TRANS_TOTAL_CREDIT</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;">{{ (getTotalCR() |currency : '' : 0) }}</td>
+                    </tr>
+                    <tr class="recycler-row-parity" >
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span>TRANS_STATEMENT_BALANCE</span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;" ng-bind="(hisTransaction[0].myHashMap.CLOSE_BAL | currency : '' : 0)"></td>
+                        <td class="recycler-row-align-midle-left" style="width:25%;"><span></span></td>
+                        <td class="recycler-row-align-midle-right" style="width:25%;font-weight:bold;"></td>
+                    </tr>
+                </table>
+            </div>
+            <div style="color: orange;text-align: center;margin-bottom: 10px">
+                <div>****</div>
+                <div><span>TRANS_STATEMENT_END</span></div>
+            </div>
+        </div>
+        <!-- Sao ke giao dich end -->
+
+        <div id="idHistoryInfo" style="display:none; padding: 15px"><span>CREDIT_HIS_NO_DATA</span></div>        
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<!--ThuanTM -->
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

@@ -1,0 +1,65 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="cre_guarantee_info_dtl">
+    <div class="panelContent">
+        <!-- <table width="100%">
+            <tr>
+                <td>
+                    <h5 class="Header desktopview" style="margin-top: 10px"><span
+                            style="white-space:pre-wrap; color: #7B1FA2">CRE_GUA_DTL_TITLE</span></h5>
+                    <h5 class="Header mobileview" style="margin-top: 10px"><span
+                            style="white-space:pre-wrap; color: #FFF">CRE_GUA_DTL_TITLE</span></h5>
+                </td>
+            </tr>
+        </table> -->
+        <div class="recycler-list recycler-table-ebank" style="margin-top: 10px">
+            <table style="width: 98%" id="recycler_table_ebank" class="recycler-table-ebank">
+                <tr class="recycler-row-parity">
+                    <td class="recycler-row-align-midle-left"><span>CRE_ITEM_GUARANTEE_GUA_NO</span></td>
+                    <td class="recycler-row-align-midle-right"><span id="gua_no"></span></td>
+                </tr>
+                <tr class="recycler-row-parity">
+                    <td class="recycler-row-align-midle-left"><span>CRE_TYPE_GUARANTEE</span></td>
+                    <td class="recycler-row-align-midle-right"><span id="gua_type"></span></td>
+                </tr>
+                <tr class="recycler-row-parity">
+                    <td class="recycler-row-align-midle-left"><span>CRE_ITEM_GUARANTEE_GUA_AMOUNT</span></td>
+                    <td class="recycler-row-align-midle-right"><span id="gua_amount"></span></td>
+                </tr>
+                <tr class="recycler-row-parity">
+                    <td class="recycler-row-align-midle-left"><span>CRE_ITEM_GUARANTEE_GUA_RECEIVER</span></td>
+                    <td class="recycler-row-align-midle-right"><span id="gua_receiver"></span></td>
+                </tr>
+                <tr class="recycler-row-parity">
+                    <td class="recycler-row-align-midle-left"><span>CRE_RELEASE_DATE</span></td>
+                    <td class="recycler-row-align-midle-right"><span id="release_date"></span></td>
+                </tr>
+                <tr class="recycler-row-parity">
+                    <td class="recycler-row-align-midle-left"><span>CRE_ITEM_GUARANTEE_SERI_NO</span></td>
+                    <td class="recycler-row-align-midle-right"><span id="seri_no"></span></td>
+                </tr>
+                <tr class="recycler-row-parity">
+                    <td class="recycler-row-align-midle-left"><span>COM_DEADLINE_DATE</span></td>
+                    <td class="recycler-row-align-midle-right"><span id="deadline_date"></span></td>
+                </tr>
+                <tr class="recycler-row-parity">
+                    <td class="recycler-row-align-midle-left"><span>COM_STATUS</span></td>
+                    <td class="recycler-row-align-midle-right"><span id="status"></span></td>
+                </tr>
+                <tr class="recycler-row-parity">
+                    <td class="recycler-row-align-midle-left"><span>CRE_ITEM_GUARANTEE_GUA_CONTENT</span></td>
+                    <td style="width: 78%" class="recycler-row-align-midle-right"><span id="gua_content"></span></td>
+                </tr>
+            </table>
+        </div>
+        <div align="right" style="margin: 5px; width:100%" class="export-print">
+            <a href="javascript:void(0)" id="acchis.exportfile" ng-click="exportExcelGuarantee()">
+                <img style="margin-right:5px;" src="css/img/exportfile.png"/>
+            </a>
+        </div>
+        <div>
+            <!-- <input type="button" class="btnshadow btn-second" ng-click="creGuarantDtlBack()" value="CM_BTN_GOBACK"/> -->
+            <input type="submit" style="float:left;margin-left:230px" class="btnDesktopshadow btnDesktopBack"
+                   ng-click="creGuarantDtlBack()" value="CM_BTN_GOBACK" autocomplete="off" autocorrect="off"
+                   autocapitalize="off" spellcheck="off">
+        </div>
+    </div>
+</div>

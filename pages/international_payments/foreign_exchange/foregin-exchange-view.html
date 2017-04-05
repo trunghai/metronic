@@ -1,0 +1,105 @@
+<table width="100%">
+	<!--<tr>
+        <td colspan="2"><div id="seqFormReview">
+            <table xmlns="http://www.w3.org/1999/xhtml" width="357" align="center" cellspacing="0" cellpadding="0" border="0" style="margin:auto" class="sequence-form-302">
+                <tbody>
+                <tr>
+                    <td width="33%"><span>SEQ_INPUT_TITLE</span></td>
+                    <td width="33%" class="selected"><span>SEQ_AUTHEN_TITLE</span></td>
+                    <td width="33%"><span>SEQ_COMPLETE_TITLE</span></td>
+                </tr>
+                </tbody>
+            </table></div>
+        </td>
+    </tr>
+    <tr></tr>
+    <tr scrinfo=""><td colspan="2"><h5 class="Header" style="display:none;">REVIEW_TITLE_SCREEN</h5></td></tr> -->
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div class="recycler-list">
+                    <table align="center" class="recycler-table-ebank">
+                        <tbody>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANS_TYPE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.transTypeName"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>FOREGIN_ACCOUNT</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.foreignAcc"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>FOREGIN_ACCOUNT_PAYMENT</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.foreignAccVND"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div class="recycler-list">
+                    <table align="center" class="recycler-table-ebank">
+                        <tbody>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>FOREGIN_SELL_NUMBER</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="(infoTrans.sellNumber |  currency : '' : 0) + ' ' + infoTrans.exchangeUnit"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>FOREGIN_RATE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.exchangeRate | currency : '' : 0"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>FOREGIN_TOTAL_RECEIVER_AMOUNT</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="(infoTrans.totalAmout | currency : '' : 0) + ' VND'"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>FOREGIN_DESCRIPTION</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.description"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TRANS_LOCAL_FEE</span></td>
+                            <td class="recycler-row-align-midle-right">0 VND</td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>FOREGIN_BALANCE_FOR_AFTER_EXCHANGE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.foreignAccBalanceAfter"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>FOREGIN_BALANCE_VND_AFTER_EXCHANGE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.foreignAccVNDBalanceAfter"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>FOREGIN_EXPIRE_DATE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.expireDate"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_SEND_MSG_APPROVER</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.approve"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <!--<tr>-->
+    <!--<td colspan="2">-->
+    <!--<div align="center">-->
+    <!--<div class="recycler-list">-->
+    <!--<table class="recycler-table-ebank">-->
+    <!--<tbody>-->
+    <!--<tr class="recycler-row-normal">-->
+    <!--<td class="recycler-row-align-midle-left">Số tiền</td>-->
+    <!--<td class="recycler-row-align-midle-right" ng-bind="(infoTrans.amountTrans | currency : '' : 0) + ' VND'"></td>-->
+    <!--</tr>-->
+    <!--</tbody>-->
+    <!--</table>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</td>-->
+    <!--</tr>-->
+</table>

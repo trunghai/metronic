@@ -1,0 +1,324 @@
+<div id="mainViewContent" class="main-layout-subview" style="height: 417px; top:44px"
+     ng-controller="identification-trans-src">
+<div id="content-transfer" style="display:block" class="bg-transfer">
+<div class="panelContent" style="margin-top:0px;padding-top:0px">
+<table width="100%" id="dynamic-topup-table">
+
+<tr>
+    <td colspan="2">
+        <div id="seqFormLocal"></div>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="2">
+        <h5 class="header-title"><span style="white-space:pre-wrap">TRANS_ACCOUNT_INFO_BLOCK_TITLE</span></h5></td>
+</tr>
+
+<tr>
+    <td id="account-info" colspan="2">
+        <div id="holder-account-info" class="combo-box info-account accInfo widefull" ng-click="showAccountSelection()">
+        </div>
+        <input id="id.accountno" type="hidden" class="form-control form-control-rightbutton"
+               value="COM_TXT_SELECTION_PLACEHOLDER"/>
+    </td>
+</tr>
+<!-- so tien chuyen -->
+<tr>
+    <td>
+        <div class="tranfer-item">
+            <div class="container-input-icon">
+                <div class="holder-icon-input-parent">
+                    <div class="holder-icon-input-child">VND</div>
+                </div>
+                <div class="holder-input">
+                    <input id="trans.amount" ng-model="amount" type="tel"
+                           class="form-control form-control-righttext input-with-icon ng-valid ng-valid-maxlength ng-dirty ng-valid-parse ng-touched ng-pristine ng-untouched"
+                           placeholder="PLACEHOLDER_TRANSFER_AMOUNT" onkeyup="handleInputAmount(event, this);"
+                           onchange="removeSpecialCharForNumber(this.value)" autocomplete="off" autocorrect="off"
+                           autocapitalize="off" spellcheck="off">
+                </div>
+            </div>
+        </div>
+    </td>
+</tr>
+<tr id="row_convert" style="display: none;">
+    <td id="trans.amounttotext" colspan="2">
+        <div class="txtmoneystyle">
+
+        </div>
+    </td>
+</tr>
+
+<!--end acc-->
+
+<tr>
+    <td colspan="2">
+        <h5 class="header-title"><span style="white-space:pre-wrap">IDENTIFICATION_RECEIVER_INFO</span></h5></td>
+</tr>
+
+<tr id="tr.identification">
+    <td colspan="2" align="center" valign="middle" class="td-text">
+        <div class="input-group widefull holder-input-none-icon" style="margin-top: -4px;"><input
+                id="trans.identification" maxlength="12" type="text"
+                class="form-control form-control-righttext input-none-border" onkeyup="controlInputTextCMT(this, 30)"
+                placeholder="IDENTIFICATION_INPUT_NUMBER" value="" autocomplete="off" autocorrect="off"
+                autocapitalize="off" spellcheck="off"/>
+            <span id="span.trans.target"
+                  class="tooltip icon-book input-group-addon-datepicker input-group-symbol-datepicker"
+                  style="cursor:pointer;" onclick="showPayeePage();">
+                          <span style="text-align:center; font-size:14px;">
+                          <em id="ds_id"></em>
+                          <br/>
+                          <em id="mau_id"></em>
+                          </span>
+
+                      </span>
+        </div>
+    </td>
+</tr>
+
+<tr style="border-right: none; border-top: none;border-left: none;height: 39px" class="input-group widefull">
+    <!--<div class="tranfer-item item-infor">-->
+        <td class="desktopview" colspan="1" style="font-size: 12px !important;" width="87%">
+            <span>LOAN_DATE_CREATED</span>
+        </td>
+        <td class="mobileview" colspan="1" style="font-size: 12px !important;" width="65%">
+            <span>LOAN_DATE_CREATED</span>
+        </td>
+        <td align="center" valign="middle" class="td-text">
+                <input style="text-align : right ; margin-left:-41px ;margin-top: -3px;margin-bottom: -2px;" id="trans.issuedate" type="tel"
+                       class="form-control input-none-border" placeholder="dd/mm/yyyy" value=""
+                       onkeydown="return handleCalendarNav(this, event);" onclick="handleCalendarNav(this, event);"
+                       onpaste="return false;" autocomplete="off" autocorrect="off" autocapitalize="off"
+                       spellcheck="off"><span id="span.issuedate" onclick="initDialogCal('trans.issuedate')"
+                                              class="icon-calendar input-group-addon-datepicker input-group-symbol-datepicker"
+                                              style="font-size: 20px !important;margin-top: -3px;right: 10px;"></span>
+        </td>
+    <!--</div>-->
+</tr>
+
+<tr id="mobile-mode-tr2" style="display:none">
+    <td colspan="2" align="center" valign="middle" class="td-text">
+        <div class="input-group"><span class="input-group-addon" style="white-space:pre-wrap; width:40%">IDENTIFICATION_PLACE</span>
+            <input id="trans.issueplacemb" type="tel" placeholder="COM_TXT_INPUT_PLACEHOLDER"
+                   class="form-control form-control-righttext" onkeyup="controlInputText(this, 150)"/>
+        </div>
+    </td>
+</tr>
+<!--noi cap-->
+<tr>
+    <td>
+        <div class="input-group widefull holder-input-none-icon" style="margin-top: -4px;margin-bottom: -2px;"><input id="trans.issueplace"
+                                                                                                 maxlength="72"
+                                                                                                 type="text"
+                                                                                                 class="form-control form-control-righttext input-none-border"
+                                                                                                 placeholder="IDENTIFICATION_INPUT_PLACE"
+                                                                                                 style="white-space:pre-wrap;"
+                                                                                                 value=""
+                                                                                                 autocomplete="off"
+                                                                                                 autocorrect="off"
+                                                                                                 autocapitalize="off"
+                                                                                                 spellcheck="off"
+                                                                                                 onkeyup="controlInputText(this, 150)"/>
+        </div>
+    </td>
+</tr>
+<!-- ten nguoi nhan -->
+<tr>
+    <td colspan="2" align="center" valign="middle" class="td-text">
+        <div class="input-group widefull">
+            <div class="holder-input-none-icon" style="margin-top: -4px;margin-bottom: -2px;"><input id="trans.name"
+                                                                                                     maxlength="72"
+                                                                                                     type="text"
+                                                                                                     class="form-control form-control-righttext input-none-border"
+                                                                                                     placeholder="PLACEHOLDER_DEST_ACCOUNT_NAME"
+                                                                                                     style="white-space:pre-wrap;"
+                                                                                                     value=""
+                                                                                                     autocomplete="off"
+                                                                                                     autocorrect="off"
+                                                                                                     autocapitalize="off"
+                                                                                                     spellcheck="off"
+                                                                                                     onkeyup="controlInputText(this, 70)"/>
+            </div>
+        </div>
+    </td>
+</tr>
+
+<!-- so dien thoai -->
+<tr>
+    <td colspan="2" align="center" valign="middle" class="td-text">
+        <div class="input-group widefull">
+            <div class="holder-input-none-icon" style="margin-top: -4px;margin-bottom: -2px;"><input
+                    id="trans.phonenumber" maxlength="16" type="text"
+                    class="form-control form-control-righttext input-none-border"
+                    placeholder="IDENTIFICATION_INPUT_PHONE_NUMBER" style="white-space:pre-wrap;" value=""
+                    autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="off"
+                    onkeyup="removeChar(event,this)"/></div>
+        </div>
+    </td>
+</tr>
+
+<!-- ngan hang nhan -->
+<tr>
+    <td colspan="2" align="center" valign="middle" class="td-text">
+        <div class="input-group widefull" ng-click="showBankSelection()">
+            <span class="input-group-addon" style="white-space:pre-wrap; width:40%">TRANS_BANK_TITLE</span>
+            <input id="trans.branchName" value="INPUT_ACC_BTN_SELECT" placehoder ="TRANS_BANK_SELECTION_SCREEN_TITLE" type="button" class="form-control form-control-right2linetext"/>
+            <span class="icon-movenext input-group-addon input-group-symbol" style="margin-top:7px;"></span>
+        </div>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="2">
+        <h5 class="header-title"><span style="white-space:pre-wrap">TRANS_DETAIL_BLOCK_TITLE</span></h5></td>
+</tr>
+<tr>
+    <td colspan="2" align="left" valign="middle">
+        <div class="header-title">
+            <span>HEADER_TRANSFER_TO</span><span style="color:#fb8c00;font-style: italic;">MENU_SELECT_TRANSFER_NOTE</span>
+        </div>
+    </td>
+</tr>
+<!-- phi chuyen -->
+<tr>
+    <td colspan="2" align="center" valign="middle" class="td-text">
+        <div class="input-group widefull" ng-click='showInputSelection(2)' style="border-bottom: none">
+            <span class="input-group-addon" style="white-space:pre-wrap; width:40%">TRANS_FEE_TITLE</span>
+            <input id="trans.fee" type="button" class="form-control form-control-righttext"
+                   value="IDENTIFICATION_FEE_SENDER"/>
+            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+        </div>
+    </td>
+</tr>
+
+<!-- noi dung -->
+<tr>
+    <td>
+        <div class="tranfer-item">
+            <div id="holder-transfer-message" class="text-area-content">
+
+            </div>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td>
+        <div class="tranfer-item" id="id.luunguoinhan">
+            <div class="holder-border-bottom" style="overflow:hidden;padding:4px 0;margin-top: -4px;">
+                <div style="float:left !important">
+                    <span class="span-label">SAVE_DEST_ACCOUNT</span>
+
+                    <div style="top:0px !important;margin-left:8px !important;float:none !important"
+                         class="custom-switch custom-switch-on" ng-click="onChangeSwitchSubMenu('save-receiver')"
+                         id="save-receiver">
+                        <input type="checkbox" class="custom-switch-input custom-switch-input-on"  />
+                        <span class="custom-switch-label custom-switch-label-off" data-on="On" data-off="Off">on</span>
+                        <span class="custom-switch-handle custom-switch-handle-on"></span>
+                    </div>
+                </div>
+                <div style="float:right;text-align:right;"><span class="saveTemplate ">SAVE_TRANSFER_DOC_TEMPLATE</span>
+
+                    <div style="top:0px !important;margin-left:8px !important;margin-right:3px !important;"
+                         class="custom-switch custom-switch-off"
+                         ng-click="onChangeSwitchSubMenu('save-doc-temp-transfer')" id="save-doc-temp-transfer">
+                        <input type="checkbox" class="custom-switch-input custom-switch-input-on"/>
+                        <span class="custom-switch-label custom-switch-label-off" data-on="On" data-off="Off">on</span>
+                        <span class="custom-switch-handle custom-switch-handle-off"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </td>
+</tr>
+<tr style="display:none">
+    <td colspan="2" align="center" valign="middle" class="td-text">
+        <div class="input-group">
+            <span class="input-group-addon"
+                  style="font-family:Tahoma, Helvetica, sans-serif;white-space:pre-wrap; width:40%">TRANS_SAVE_BENEFIC_TITLE</span>
+            <input style="white-space:pre-wrap" onclick="showInputMNG()" id="id.payee" type="button"
+                   class="form-control form-control-righttext" placeholder="BENEFIC_LIST_NORMAL"
+                   value="TRANSFER_REMITTANCE_SAVE_BENEFIC"/>
+            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td colspan="2">
+        <div class="tranfer-item" id="id.sample" style="display:none;">
+            <div class="holder-border-bottom">
+                <div class="holder-input-none-icon" style="margin-top:-7px;">
+                    <input id="id.sample.name" type="text" class="form-control input-none-border"
+                           placeholder="TRANSFER_REMITTANCE_NAMED" maxlength="20"/>
+                </div>
+            </div>
+        </div>
+    </td>
+</tr>
+<tr class="desktopview">
+    <td>
+        <div class="tranfer-item" style="margin-top: -20px">
+            <div class="container-input-icon" style="border-top: none">
+                <div class="holder-icon-input-parent" style="width: 60%">
+                    <div class="holder-icon-input-child"><span>GUA_SEND_NOTIFICATION_TO_USER</span></div>
+                </div>
+                <div class="holder-input not-allow-cursor" style="width: 25%;">
+                    <div class="holder-icon-input-child" style="float:right;">
+                      <span id="id.Method" style="font-size: 12px;float:right;"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </td>
+</tr>
+<tr class="mobileview">
+    <td>
+        <div class="tranfer-item" style="margin-top: -8px">
+            <div class="container-input-icon" style="border-top: none">
+                <div class="holder-icon-input-parent notification-brn">
+                    <div class="holder-icon-input-child"><span style="font-size: 12px;">GUA_SEND_NOTIFICATION_TO_USER</span></div>
+                </div>
+                <div class="holder-icon-input-parent notification-brn">
+                    <div class="holder-icon-input-child">
+                      <span id="id.Method.mb" style="font-size: 12px; float: right;"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </td>
+</tr>
+
+<tr id="tr.list-receiver" style="display: none;">
+    <td colspan="2" align="center" valign="middle">
+        <div style="text-align: right;">
+            <u><a onclick="showReceiverList()"><span style="cursor:pointer;">COM_VIEW_LIST_APPROVER</span></a></u>
+        </div>
+    </td>
+</tr>
+<tr class="mt-15">
+    <td colspan="2" align="center" valign="middle" class="td-text">
+        <div class="tdbtndesktop" style="width:50%">
+            <input type='submit' style="float:left;margin-left:65px" class='btnDesktopshadow btnDesktopBack'
+                   onclick="clickHomeOrBack()" value='INPUT_ACC_BTN_GOBACK'/>
+        </div>
+        <div style="width:50%">
+            <input type="button" style="margin-right:100px; font-size:14px!important;" class="btnshadow btn-second"
+                   ng-click="sendJSONRequest()" value="TRANS_LOCAL_BTN_SENDREQUEST"/>
+        </div>
+    </td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"></div>
+</div>

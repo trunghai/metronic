@@ -1,0 +1,124 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="payment-credit-debit-balance">
+<div id="content-transfer" style="display:block" class="bg-transfer">
+<div class="panelContent" style="margin-top:0px;padding-top:0px">
+<table width="100%" id="dynamic-topup-table" >
+    <tr>
+        <td colspan="2"><div class="header-title"><span>CREDIT_CARD_TRANS_DETAIL_TITLE</span></div></td>
+    </tr>
+    <tr>
+        <td id="account-info" colspan="2">
+            <div id="holder-account-info" class="combo-box info-account accInfo" ng-click="showAccountSelection()">
+            </div>
+            <input id="id.accountno" type="hidden" class="form-control form-control-rightbutton" value="" />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center" valign="middle" class="td-text">
+            <div class="input-group widefull" ng-click="showPaymentCreditSelection()">
+                <span class="input-group-addon" style="white-space:pre-wrap; width:40%">CREDIT_CARD_NO_TITLE</span>
+                <input id="id-cardNo" type="button" class="form-control form-control-righttext" style="white-space: pre-wrap; padding-right: 10px;"  align="left" value="COM_CHOOSE" />
+                <span class="icon-movenext input-group-addon input-group-symbol"></span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="td-text"><div id="ccDetalsTable" style="display:none; margin:10px auto;" class="recycler-list">
+            <table class="recycler-table-ebank" >
+                <tr class="recycler-row-parity">
+                    <td class="recycler-row-align-midle-left">
+                        <span>CREDIT_CARD_GRANTED_CARD_LIMIT</span></td>
+                    <td class="recycler-row-align-midle-right">
+                        <span id="grantedCardLimit"></span></td>
+                </tr>
+                <tr class="recycler-row-as">
+                    <td class="recycler-row-align-midle-left">
+                        <span>CREDIT_CARD_CURR_CARD_DEBT</span></td>
+                    <td class="recycler-row-align-midle-right"><span id="currentCardDebt"></span>
+                    </td>
+                </tr>
+                <tr class="recycler-row-parity">
+                    <td class="recycler-row-align-midle-left">
+                        <span>CREDIT_CARD_ON_STMT_CARD_DEBT</span></td>
+                    <td class="recycler-row-align-midle-right"><span id="onStmtCardDebt"></span>
+                    </td>
+                </tr>
+                <tr class="recycler-row-as">
+                    <td class="recycler-row-align-midle-left">
+                        <span>CREDIT_CARD_AVAIL_CREDIT_LIMIT</span></td>
+                    <td class="recycler-row-align-midle-right"><span id="availCreditLimit"></span>
+                    </td>
+                </tr>
+                <tr class="recycler-row-as">
+                    <td class="recycler-row-align-midle-left">
+                        <span>CREDIT_CARD_SPENT_AMOUNT</span></td>
+                    <td class="recycler-row-align-midle-right"><span id="spentAmount"></span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center" valign="middle" class="td-text">
+            <div class="input-group widefull" ng-click="showRepaymentOptions()">
+                <span class="input-group-addon" style="white-space:pre-wrap; width:40%">CREDIT_CARD_REPAYMENT_OPTION</span>
+                <input id="repaymentoption" type="button" class="form-control form-control-righttext" style="white-space: pre-wrap; padding-right: 10px;"  align="left" value="" />
+                <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                <input type='hidden' id='repaymentoption.value'/>
+            </div>
+        </td>
+    </tr>
+    <!-- <tr>
+        <td colspan="2" align="center" valign="middle" class="td-text">
+            <div class="input-group widefull">
+                <span class="input-group-addon" style="white-space:pre-wrap; width:40%">AUTO_BILLING_AMOUNT</span>
+                <input id="id-money" class="form-control form-control-righttext" ng-model="amount" maxlength="16" oninput="handleInputAmount(event, this);" ng-change="formatNumberToCurrency();" style="white-space: pre-wrap; padding-right: 10px;"  align="left" />
+            </div>
+        </td>
+    </tr> -->
+    <tr>
+        <td>
+            <div class="tranfer-item">
+                <div style="margin-top: 0; border-top:none" class="container-input-icon">
+                    <div class="holder-icon-input-parent">
+                        <div class="holder-icon-input-child">VND</div>
+                    </div>
+                    <div class="holder-input">
+                        <input id="id-money" ng-model="amount" type="tel" class="form-control form-control-righttext input-with-icon" placeholder="PLACEHOLDER_TRANSFER_AMOUNT" oninput="handleInputAmount(event, this);" ng-change="formatNumberToCurrency()" maxlength="16" ng-bind="initAmount"/>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="td-text"><input type='hidden' id='amountVal'/></td>
+    </tr>
+    <tr>
+        <td  id="row_convert" class="td-text"><div id="ccrepayment.amounttotext">
+            <div class="txtmoneystyle"></div>
+        </div></td>
+    </tr>
+    <tr class="mt-15">
+        <td colspan="2" align="center" valign="middle" class="td-text">
+            <div class="tdbtndesktop" style="width:50%">
+                <input  type='submit' style="float:left;margin-left:65px" class='btnDesktopshadow btnDesktopBack' onclick="clickHomeOrBack()" value='INPUT_ACC_BTN_GOBACK'/>
+            </div>
+            <div style="width:50%">
+                <input  type="button" style="margin-right:100px" class="btnshadow btn-second" ng-click="sendJSONRequest()" value="TRANS_LOCAL_BTN_SENDREQUEST"/>
+            </div>
+        </td>
+    </tr>
+</table>
+</div>
+</div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<!--ThuanTM -->
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

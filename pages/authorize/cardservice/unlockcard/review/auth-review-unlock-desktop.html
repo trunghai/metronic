@@ -1,0 +1,17 @@
+<div id="recycler_list">
+    <table id="recycler_table_ebank-desktop" class="recycler-table-ebank widefull">
+        <tr class='recycler-row-title-header recycler-list'>
+            <td  class="recycler-row-align-midle-left"><span>COM_NO</span></td>
+            <td  class="recycler-row-align-midle-left"><span>COM_MAKER</span></td>
+            <td  class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>
+            <td  class="recycler-row-align-midle-left"><span>COM_CARD_NUMBER</span></td>            
+            <td  class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>            
+        </tr>
+        <tr class="recycler-row-title recycler-list" ng-repeat="item in listPending track by $index">
+            <td  class="recycler-row-align-midle-left"><span ng-bind="$index + 1"></span></td>
+            <td  class="recycler-row-align-midle-left"><span ng-bind="item.IDMAKER"></span></td>
+            <td  class="recycler-row-align-midle-left"><span ng-bind="item.NGAY_LAP"></span></td>
+            <td  class="recycler-row-align-midle-left"><span ng-bind="item.SO_THE"></span></td>            
+            <td  class="recycler-row-align-midle-left"><a><span class="no-check" ng-bind="item.MA_GD"></span></a></td>
+    </table>
+</div>

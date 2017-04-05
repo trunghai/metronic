@@ -1,0 +1,128 @@
+<table width="98%" style="padding-top:15px;" align="center" class="">
+    <tr>
+        <td colspan="2">
+            <div class="header-title">
+                <span>CRE_REQUEST_SETTING</span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div id="recycler_list" class="recycler-list">
+                    <table id="recycler_table_ebank" class="recycler-table-ebank">
+                        <tbody>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.MA_GD"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>AUTHORIZE_INPUT</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.TEN_NGUOI_LAP"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>AUTHORIZE_INPUT_DATE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.NGAY_LAP"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_CHEKER</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.NGUOI_DUYET"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>TIME_CHECK</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.NGAY_DUYET"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>IDENTIFICATION_REVIEW_STATUS</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.TRANGTHAI"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div class="header-title">
+                <span>CREDIT_CARD_INFO_TITLE</span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div  class="recycler-list">
+                    <table  class="recycler-table-ebank">
+                        <tbody>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>CARD_LIMIT_TRANS_TYPE</span></td>
+                            <td class="recycler-row-align-midle-right"><span>PAYMENT_CREDIT_DEBIT_BALANCE</span></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>CARD_NUMBER_TITLE_BGN</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.SO_THE"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>CREDIT_OWNER_NAME_TITLE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.TEN_NGUOI_LAP"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div class="header-title">
+                <span>PAYMENT_ECOUNTER_TITLE</span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div class="recycler-list">
+                    <table class="recycler-table-ebank">
+                        <tbody>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>AUTH_TYPE_REGITER_AUTH_TITLE_ACC</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans.TK_CHUYEN"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>CREDIT_CARD_BAL_BEF_PAYMENT</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="(infoTrans.SO_DU_TK_CHUYEN | currency : '' : 0) + ' VND'"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_TOTAL_PAY_MONEY</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="(infoTrans.SO_TIEN | currency : '' : 0) + ' VND'"></td>
+                        </tr>
+                        <!--<tr class="recycler-row-normal">-->
+                            <!--<td class="recycler-row-align-midle-left"><span>TRANS_FEE_TITLE</span></td>-->
+                            <!--<td class="recycler-row-align-midle-right" ng-bind="(infoTrans.PHI_DV | currency : '' : 0) + ' VND'"></td>-->
+                        <!--</tr>-->
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>CREDIT_CARD_BAL_AFT_PAYMENT</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="(infoTrans.SO_DU_SAU_CHUYEN | currency : '' : 0) + ' VND'"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div class="recycler-list">
+                    <table class="recycler-table-ebank">
+                        <tr class="recycler-row-normal"  id="id.reason">
+                            <td class="recycler-row-align-midle-left"><span>COM_AUTH_DENIAL_REASON</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="reason"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+    </tr>
+</table>

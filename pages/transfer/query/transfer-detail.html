@@ -1,0 +1,151 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="transfer-detail">
+    <div class="">
+        <div class="panelContent">
+            <table id="dynamic-billing-table" width="98%">
+                <tbody>
+                <tr>
+                    <td colspan="2">
+                        <div align="center">
+                            <div id="recycler_list" class="recycler-list">
+                                <table width="100%" id="recycler_table_ebank" class="recycler-table-ebank">
+                                    <tr class="recycler-row-normal">
+                                        <td width="50%" class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                                        <td width="50%" class="recycler-row-align-midle-right" ng-bind="infoTrans.IDFCATREF"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td width="50%" class="recycler-row-align-midle-left"><span>COM_CREATED_DATE</span></td>
+                                        <td width="50%" class="recycler-row-align-midle-right" ng-bind="infoTrans.DATMAKE"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td width="50%" class="recycler-row-align-midle-left"><span>COM_CHECK_DATE</span></td>
+                                        <td width="50%" class="recycler-row-align-midle-right" ng-bind="infoTrans.DATCHECK"></td>
+                                    </tr>
+                                    <tr class="recycler-row-normal">
+                                        <td width="50%" class="recycler-row-align-midle-left"><span>COM_STATUS</span></td>
+                                        <td width="50%" class="recycler-row-align-midle-right" ng-bind="statusVN[infoTrans.CODSTATUS]"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title">
+                            <span>COM_ACCOUNT_INFO</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div align="center" id="infoAcc" class="recycler-list">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="header-title">
+                            <span>COM_TXT_ACC_CONFIRM_TRANS_TITLE</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div align="center">
+                            <div class="recycler-list" id="infoTrans1">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="export-print ex-print" id="acchis-exportFunc" align="right" style="padding-right: 5px; margin-top: 10px; float:right;">
+                            <a href="javascript:void(0)" onclick="printComHistory();">
+                                <img style="margin-right:5px;" src="css/img/print.png">
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="trow-space"></tr>
+                <!-- <tr class="mt-15">
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="tdbtndesktop" style="width:50%">
+                            <input type='button' style="float:left;margin-left:65px" class='btnDesktopshadow btnDesktopBack' onclick="clickHomeOrBack()" value='COM_BACK'/>
+                        </div>
+                        <div style="width:50%" ng-show="(infoTrans.CODSTATUS == 'INT')? true : false">
+                            <input type="button" style="margin-right:100px" class="btnshadow btn-primary" ng-click="onCancelClick()" value="COM_TERMINATE_TRANS"/>
+                        </div>
+                    </td>
+                </tr> -->
+                <table class="button-group button-group-2" style="width: 100%">
+                    <tr align="center">
+                        <td>
+                            <div style="text-align: center;">
+                                <input class="btnshadow-after btn-second-desktop-after desktopview" onclick="clickHomeOrBack()" type="submit" value="COM_BACK">
+                                <input ng-show="(infoTrans.CODSTATUS == 'INT')? true : false" id="INT_CANCE" class="btnshadow-after btn-second-after" onclick='onCancelClick()' type="button" value="COM_TERMINATE_TRANS" >
+                        </td>
+                    </tr>
+                </table>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" onClick="closeDialog(this)"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" onClick="closeDialogInput(this)">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div id="contentView" class="modal-content"></div>
+
+</div>
+
+<style>
+        /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+        /* Modal Content */
+    .modal-content {
+
+        margin: auto;
+        padding: 0px;
+        width: 80%;
+    }
+
+        /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>

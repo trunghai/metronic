@@ -1,0 +1,21 @@
+
+	<table width='100%' align='center' class='recycler-table-ebank desktopview widefull'>
+        <tbody>
+        <tr class='recycler-row-title-header recycler-list'>
+            <td  class="recycler-row-align-midle"><span>COM_NO</span></td>
+            <td  class="recycler-row-align-midle"><span>COM_MAKER</span></td>
+            <td  class="recycler-row-align-midle"><span>COM_CREATED_DATE</span></td>
+            <td  class="recycler-row-align-midle"><span>COM_AMOUNT</span></td>
+            <td  class="recycler-row-align-midle"><span>COM_CHEKER</span></td>
+            <td  class="recycler-row-align-midle"><span>COM_TRANS_CODE</span></td>
+        </tr>
+        <tr class="recycler-row-title recycler-list" ng-repeat="item in listPending track by $index">
+            <td  class="recycler-row-align-midle"><span ng-bind="$index + 1"></span></td>
+            <td  class="recycler-row-align-midle"><span ng-bind="item.IDUSER"></span></td>
+            <td  class="recycler-row-align-midle"><span ng-bind="item.DATMAKE"></span></td>
+            <td  class="recycler-row-align-midle"><span ng-bind="(item.NUMAMOUNT | currency : '' : 0) + ' VND'"></span></td>
+            <td  class="recycler-row-align-midle"><span ng-bind="item.APPROVE_BY"></span></td>
+            <td  class="recycler-row-align-midle"><span ng-bind="item.IDFCATREF"></span></td>
+        </tr>
+        </tbody>
+    </table>

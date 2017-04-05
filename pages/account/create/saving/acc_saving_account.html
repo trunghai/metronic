@@ -1,0 +1,189 @@
+<div id="mainViewContent" class="main-layout-subview" ng-controller="acc-saving-account">
+    <div id="content-transfer" style="display:block" class="bg-transfer">
+        <div class="panelContent">
+            <table width="100%" align="center">
+                <!--<tr>
+                    <td colspan="2">
+                        <div>
+                            <h5 class="screen-title">
+                                <span>ACC_SEND_MONEY_CKH</span>
+                            </h5></div>
+                        <div class="line-separate" />
+                    </td>
+                </tr>-->
+                <!-- input, validate, final-->
+                <tr>
+                    <td colspan="2">
+                        <div id="seqForm"></div>
+                    </td>
+                </tr>
+                <!-- Tai khoan giao dich-->
+                <tr>
+                    <td colspan="2">
+                        <h5 class="header-title"><span style="white-space:pre-wrap">TRANS_ACCOUNT_INFO_BLOCK_TITLE</span></h5></td>
+                </tr>
+                <tr>
+                    <td id="account-info" colspan="2">
+                        <div id="holder-account-info" class="combo-box info-account accInfo widefull" ng-click="showAccountSelection()">
+                        </div>
+                        <input id="id.accountno" type="hidden" class="form-control form-control-rightbutton" value="COM_TXT_SELECTION_PLACEHOLDER" />
+                    </td>
+                </tr>
+                <!-- title thong tin giao dich-->
+                <tr>
+                    <td colspan="2">
+                        <h5 class="header-title"><span style="white-space:pre-wrap">COM_TXT_ACC_CONFIRM_TRANS_TITLE</span></h5></td>
+                </tr>
+                <!-- input số tiền gửi -->
+                <tr>
+                    <td>
+                        <div class="tranfer-item">
+                            <div class="container-input-icon">
+                                <div class="holder-icon-input-parent">
+                                    <div class="holder-icon-input-child">VND</div>
+                                </div>
+                                <div class="holder-input">
+                                    <input id="trans.amount" type="tel" class="form-control form-control-righttext input-with-icon" placeholder="PLACEHOLDER_TRANSFER_AMOUNT" oninput="handleInputAmount(event, this);" onchange="removeSpecialCharForNumber(this.value)" maxlength="16"/>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="trans.amounttotext">
+                            <div class="txtmoneystyle">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <h6 class="h6style" style="float: right">
+                            <span style="font-style:italic; text-align:right;">E_LIMIT_SAVING_ACCOUNT</span>
+                        </h6>
+                    </td>
+                </tr>
+                <!-- Ki han gui-->
+                <tr>
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon" style="white-space:pre-wrap; width:40%">COM_PERIOD</span>
+                            <input style="white-space:pre-wrap" ng-click="showInputMNG();" id="id.payee" type="button" class="form-control form-control-righttext" placeholder="BENEFIC_LIST_NORMAL" value="COM_TXT_DEADLINE_SEND_SELECTION_PLACEHOLDER" />
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                        </div>
+                    </td>
+                </tr>
+                <!-- xem bieu suat lai suat tien gui-->
+                <tr>
+                    <td colspan="2" width="100%" style="display: inline-block">
+                        <span id="id.interest" style="font-style:italic; white-space: pre-wrap; float: right;"></span>
+                        <span style="font-style:italic; white-space: pre-wrap; float: right;">COM_INTEREST_MAIN</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="padding:3px; text-align:right;">
+                        <u>
+                            <a ng-click="showRate();" style="font-style:italic; cursor:pointer; padding-left:7px; white-space:pre-wrap;"><span>E_SEE_DOCUMENT</span></a></u>
+                    </td>
+                </tr>
+                <!-- Chi thi khi dao han-->
+                <tr>
+                    <td colspan="2">
+                        <div class="input-group widefull">
+                            <span style="white-space:pre-wrap;">COM_ANNOUNCE_DEADLINE</span>
+                        </div>
+                    </td>
+                </tr>
+                <!-- chuyen goc va lai sang ki han moi-->
+                <tr>
+                    <td width="100%" valign="middle" onClick="">
+                        <div style="display:inline; padding-left: 5px;">
+                            <div style="display:inline" ng-click="checkedRadioAnno1();">
+                                <input id='radio1' type="radio" value="1" name="maturityDirective" checked="checked" />
+                                <span id="lblRadio1" style="white-space:pre-wrap; padding: 10px;font-weight:bold;">ESAVING_CHANGEINFO_EXI_REN</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div style="display:inline; padding-left: 5px;">
+                            <div style="display:inline" ng-click="checkedRadioAnno2();">
+                                <input id='radio2' type="radio" value="2" name="maturityDirective" />
+                                <span id="lblRadio2" style="white-space:pre-wrap; padding: 10px">ESAVING_CHANGEINFO_RD_REN</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- tat toan, chuyen ca goc va lai vao tai khoan -->
+                <tr>
+                    <td colspan="2" onClick="">
+                        <div style="display:inline; padding-left: 5px;">
+                            <div style="display:inline" ng-click="checkedRadioAnno3();">
+                                <input id='radio3' type="radio" value="3" name="maturityDirective" />
+                                <span id="lblRadio3" style="white-space:pre-wrap; padding: 10px">ACC_TRANSFER_PRINCIPAL_TO_ACCOUNT</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- lua chon tai khoan -->
+                    <td colspan="2" class="td-text" style="padding-right:5px;" onClick="">
+                        <div class="input-group widefull" ng-click="showAccountSelection2();">
+                            <span class="header-title input-group-addon desktopview" style="color:#7B1FA2;white-space:pre-wrap; width:40%">ESAVING_LABLE_COMBO_REN</span>
+                            <span class="header-title input-group-addon mobileview" style="color:#FFF;white-space:pre-wrap; width:40%">ESAVING_LABLE_COMBO_REN</span>
+                            <input id="id.accountno2" style="white-space:pre-wrap" type="button" class="form-control form-control-righttext" value="ESAVING_BGN_CHOICE" />
+                            <span class="icon-movenext input-group-addon input-group-symbol"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="desktopview" id="tr.list-receiver">
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="input-group widefull">
+                            <span class="input-group-addon header-title" style="color:#7B1FA2;white-space:pre-wrap; width:40%">COM_SEND_MSG_APPROVER</span>
+                            <input id="id.notifyTo" type="button" value="COM_NOTIFY_1" style="white-space: pre-wrap;" class="form-control form-control-righttext" disabled="true" />
+                            <span class="input-group-addon input-group-symbol"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="mobileview">
+                    <td>
+                        <div class="tranfer-item" style="margin-top: -8px">
+                            <div class="container-input-icon" style="border-top: none">
+                                <div class="holder-icon-input-parent notification-brn">
+                                    <div class="holder-icon-input-child"><span style="font-size: 12px;">COM_SEND_MSG_APPROVER</span></div>
+                                </div>
+                                <div class="holder-input notification-txt-right">
+                                    <input type="tel" class="form-control form-control-righttext" placeholder="COM_NOTIFY_1" readonly="true" />
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="trow-space"></tr>
+                <tr class="mt-15">
+                    <td colspan="2" align="center" valign="middle" class="td-text">
+                        <div class="tdbtndesktop" style="width:50%">
+                            <input  type='submit' style="float:left;margin-left:65px" class='btnDesktopshadow btnDesktopBack' onClick= 'clickHomeOrBack()' value='INPUT_ACC_BTN_GOBACK'/>
+                        </div>
+                        <div style="width:50%">
+                            <input  type="button" style="margin-right:100px" class="btnshadow btn-second"
+                                    ng-click="sendJSONRequest()" value="TRANS_LOCAL_BTN_SENDREQUEST"/>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="selection-dialog" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" ng-click="closeDialog(this);"></div>
+    <div id="divListGroup" class="list-group dialog-list"></div>
+</div>
+<!--ThuanTM -->
+<div id="selection-dialog-input" class="dialog-blacktrans" align="center" style="display:none">
+    <div class="dialog-backgroundtrans" align="center" ng-click="closeDialogInput(this);">
+    </div>
+    <div id="divListGroupInput" class="list-group dialog-list"> </div>
+</div>

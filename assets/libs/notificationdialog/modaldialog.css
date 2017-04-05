@@ -1,0 +1,249 @@
+.modaldialogContent{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1800; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background: rgba(0,0,0,0.4); /* Fallback color */
+   
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
+   
+}
+
+/* Modal Content */
+.eb-modal-content{
+    position: fixed;
+    bottom: 40%;
+    margin-left: 8%;
+    margin-right: 8%;
+    color: #424242;
+    width: 84%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s;
+    border-radius: 8px;
+     background-color: #f3e5f5;
+}
+
+/* The Close Button */
+.eb-modal-close{
+    color: white;
+    display:none;
+    float: right;
+    top: 0px;
+    right: 0px;
+    margin-right: 10px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.eb-modal-close:active {
+    color: #fb8c00;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.eb-modal-header{
+    padding: 8px;
+    background-color: #7b1fa2;
+    color: white;
+    text-align: center;
+     border-radius: 6px 6px 0px 0px;
+}
+
+.eb-modal-body{
+    padding: 20px 16px;
+    background: #f3e5f5;
+    text-align: center;
+     font-size: 14px;
+    }
+
+.eb-modal-footer{
+    padding: 2px 16px;
+    background-color: #f3e5f5;
+    color: white;
+    text-align: center;
+    border-radius: 0px 0px 6px 6px;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+  
+    0%   {bottom: -100%; opacity:0}
+    100% {bottom:40%; opacity:1}
+}
+
+@keyframes slideIn {
+    0%   {bottom: -100%; opacity:0}
+    100% {bottom:40%; opacity:1}
+}
+
+@-webkit-keyframes fadeIn {
+   
+    0%   {opacity:0}
+    100% {opacity:1}
+}
+
+@keyframes fadeIn {
+    0%   {opacity:0}
+    100% {opacity:1}
+}
+#eb_dialog_cancel{
+    background:#e1bee7;
+    border: none;
+    color: white;
+    padding: 6px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 15px;
+    cursor: pointer;
+    font-style: bold;
+    border-radius: 12px;
+    outline:none;
+}
+
+#eb_dialog_agree{
+    background: #fb8c00; 
+    border: none;
+    color: white;
+    padding: 6px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 15px;
+    font-style: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    outline:none;
+}
+#eb_dialog_agree:active,#eb_dialog_cancel:active{
+     background-color: #7b1fa2;
+     color: white;
+      border-radius: 12px;
+}
+
+/*Dialog full*/
+.modalfulldialogContent{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1800; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background: rgba(0,0,0,0.0); 
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
+   
+}
+#dialogFullBackground{
+     width: 100%;
+     height:100%;
+     -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -ms-filter: blur(5px);
+    -o-filter: blur(5px);
+    filter: blur(5px);
+    background-position: center;
+    background-size: cover;
+}
+
+/* Modal Content */
+.eb-modalfull-content{
+    position: fixed;
+    bottom: 0;
+    color: #424242;
+    width: 100%;
+    height: 100%;
+    -webkit-animation-name: slideInFull;
+    -webkit-animation-duration: 0.6s;
+    animation-name: slideInFull;
+   
+    animation-duration: 0.6s;
+    background:rgba(106, 27, 154, 0.4);
+}
+
+/* The Close Button */
+.eb-modalfull-close{
+    font-size: 35px;
+    color: white;
+    position: absolute;
+    right: 15px;
+    font-weight: bold;
+    top:-6px;
+}
+
+.eb-modalfull-close:hover,
+.eb-modalfull-close:focus,.eb-modalfull-close:active {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.eb-modalfull-header{
+    background:rgba(106, 27, 154, 0.4);
+    color: white;
+    text-align: center;
+    height:40px;
+    position: relative;
+}
+.eb-modalfull-header h4{
+    margin: 0;padding: 0;
+    line-height: 40px;
+    padding-right: 30px;
+}
+.eb-modalfull-body{
+  
+    text-align: center;
+    font-size: 14px;
+    max-height:90%;
+    height: 90%;
+   }
+
+
+@-webkit-keyframes slideInFull {
+    0%   {bottom: -100%; opacity:0}
+    90%   {bottom: 5%; opacity:1}
+    100% {bottom:0%; opacity:1}
+    
+    /*from {bottom:-100%; opacity:0}
+    to {bottom:0%; opacity:1}*/
+}
+
+@keyframes slideInFull {
+     0%   {bottom: -100%; opacity:0}
+    90%   {bottom: 5%; opacity:1}
+    100% {bottom:0%; opacity:1}
+   /*from {bottom:-100%; opacity:0}
+    to {bottom:0%; opacity:1}*/
+}
+
+/*@-webkit-keyframes fadeInFull {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+@keyframes fadeInFull {
+    from {opacity: 0}
+    to {opacity: 1}
+}*/
+/*Divider*/
+.divider-modal-dialog{
+    width: 100%;
+    height: 1px;
+    margin-bottom: 14px;
+    background: rgba(255,255,255,0.2);
+}

@@ -1,0 +1,100 @@
+<div id="mainViewContentDialog" class="main-layout-subview" ng-controller="pay_tax_create_teamplate">
+    <div class="panelContent contact-list">
+        <form>
+
+            <div class="pg-class-list-trans-src">
+                <div>
+                    <span class="icon-account-info"></span>
+                    <input type="text" class="form-control" id="txtSearch" placeholder="INTRODUCE_SREACH_TITLE" autocomplete="off" onkeyup="SearchDocRow(this)" onpaste="SearchDocRow(this)" value="" autocorrect="off" autocapitalize="off" spellcheck="off" />
+                </div>
+            </div>
+        </form>
+        <div  class="desktop-mode title-myaccount">
+            <span>TRANSFER_LOCAL_MYACCOUNT</span>
+        </div>
+        <div id="content-transfer" >
+            <div id="scrollContact"  class=" scroll-contact">
+                <div id="divListDoc"></div>
+                <div id="divListContact"></div>
+            </div>
+        </div>
+    </div>
+    <div class="contact-view">
+        <table cellspacing="0" style="width:90%;margin:0 auto;">
+            <tr>
+                <td style="width:90px">
+                    <div class="sup-icon-accounts">
+                        <span  class="icon-accounts" style="font-size: 61px"></span>
+                    </div>
+                </td>
+                <td class="accountInfo">
+                    <div class="contactName" id="nameuser"></div>
+                </td>
+            </tr>
+            <tr style="display: none">
+                <td style="text-align:left" id='accSource'></td>
+            </tr>
+            <tr id="tr-masothue">
+                <td style="text-align:left">
+                    <span>COM_TAX_NUMBER</span>
+                </td>
+                <td style="text-align:left" id='masothue'></td>
+            </tr>
+            <tr id="tr-sotokhai">
+                <td style="text-align:left">
+                    <span>COM_DECLAR</span>
+                </td>
+                <td style="text-align:left" id='sotokhai'></td>
+            </tr>
+            <tr id="tr-namdangky">
+                <td style="text-align:left">
+                    <span>TAX_IM_EX_TBL_YEAR_DECLAR</span>
+                </td>
+                <td style="text-align:left" id='namdangky'></td>
+            </tr>
+            <!-- phi, le phi cua bo nganh -->
+            <tr id="tr-sohoso">
+                <td style="text-align:left">
+                    <span>K_TAX_TAX_NUMBER</span>
+                </td>
+                <td style="text-align:left" id='sohoso'></td>
+            </tr>
+            <tr id="tr-kyhieuchungtu">
+                <td style="text-align:left">
+                    <span>K_TAX_SIGNAL_FILE</span>
+                </td>
+                <td style="text-align:left" id='kyhieuchungtu'></td>
+            </tr>
+            <tr id="tr-sochungtu">
+                <td style="text-align:left">
+                    <span>K_TAX_NUMBER_FILE</span>
+                </td>
+                <td style="text-align:left" id='sochungtu'></td>
+            </tr>
+            <tr id="tr-madonviql">
+                <td style="text-align:left">
+                    <span>K_TAX_ORGANIZATION_CODE</span>
+                </td>
+                <td style="text-align:left" id='madonviql'></td>
+            </tr>
+            <tr id="tr-namchungtu">
+                <td style="text-align:left">
+                    <span>K_TAX_ORGANIZATION_YEAR</span>
+                </td>
+                <td style="text-align:left" id='namchungtu'></td>
+            </tr>
+            <tr style="cursor:pointer">
+                <td class="transContact" style="border-bottom:none;"></td>
+                <td class="transContact" onclick='temptranferlocalbank()' style="border-bottom:none;"><span>COM_CHOOSE_FEE</span></td>
+            </tr>
+            <!-- <tr style="cursor:pointer">
+                <td class="transContact" style="border-bottom:none;"></td>
+                <td class="transContact" onclick='tempeditselection()' style="border-bottom:none;"><span>TRANSFER_REMITTANCE_MODIFY</span></td>
+            </tr> -->
+            <tr id='deleteSelection' style="cursor:pointer;">
+                <td class="transContact"></td>
+                <td class="transContact" id="tempdelete"><span>TRANSFER_REMITTANCE_DELETE</span></td>
+            </tr>
+        </table>
+    </div>
+</div>

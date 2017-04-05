@@ -1,0 +1,78 @@
+<table width="100%" style="padding-top:15px;" align="center" class="">
+    <tr id="id.title" style="display: none">
+        <td colspan="2">
+            <h5 align="left" class="screen-title"><span>REVIEW_TITLE_SCREEN</span></h5>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div id="recycler_list" class="recycler-list">
+                    <table id="recycler_table_ebank" class="recycler-table-ebank">
+                        <tbody>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_TRANS_CODE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans[0].MA_GD"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_STATUS</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="status(infoTrans[0].TRANG_THAI)"></td>
+                        </tr>
+                        <tr class="recycler-row-normal"  id="id.reason">
+                            <td class="recycler-row-align-midle-left"><span>COM_AUTH_DENIAL_REASON</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="reason"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="header-title">
+                <span>COM_ACCOUNT_INFO</span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div align="center">
+                <div class="recycler-list">
+                    <table class="recycler-table-ebank">
+                        <tbody>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>FOREGIN_ACCOUNT</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans[0].TK_CHUYEN"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>ACCOUNT_AVAILABLE_BALANCE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="(infoTrans[0].SO_DU_TK_CHUYEN | currency : '' : 2) + ' ' + infoTrans[0].DV_TIEN"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>COM_ACCOUNT_DEST</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="infoTrans[0].TK_DICH"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>ACCOUNT_AVAILABLE_BALANCE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="(infoTrans[0].SO_DU_TK_DICH | currency : '' : 0) + ' VND'"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>FOREGIN_SELL_NUMBER</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="(infoTrans[0].SO_LUONG | currency : '' : 2) + ' ' + infoTrans[0].DV_TIEN"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>FOREGIN_RATE</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="(infoTrans[0].TY_GIA | currency : '' : 0) + ' VND'"></td>
+                        </tr>
+                        <tr class="recycler-row-normal">
+                            <td class="recycler-row-align-midle-left"><span>FOREGIN_TOTAL_RECEIVER_AMOUNT</span></td>
+                            <td class="recycler-row-align-midle-right" ng-bind="(infoTrans[0].TONG_TIEN_QUY_DOI | currency : '' : 0) + ' VND'"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
